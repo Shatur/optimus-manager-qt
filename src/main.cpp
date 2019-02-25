@@ -1,8 +1,6 @@
 #include "optimusmanager.h"
-#include "optimussettings.h"
+#include "appsettings.h"
 #include "singleapplication.h"
-
-#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -11,6 +9,11 @@ int main(int argc, char *argv[])
     SingleApplication::setOrganizationName("optimus-manager");
     SingleApplication::setApplicationVersion("0.9.0");
 
+    // Set localization
+    AppSettings settings;
+    settings.initTranslator();
+
+    // Tray menu
     OptimusManager manager;
 
     return app.exec();

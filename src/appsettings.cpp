@@ -1,4 +1,5 @@
 #include "appsettings.h"
+#include "singleapplication.h"
 
 #include <QStandardPaths>
 #include <QFileInfo>
@@ -8,6 +9,26 @@
 AppSettings::AppSettings(QObject *parent) :
     QSettings(parent)
 {
+}
+
+void AppSettings::initTranslator()
+{
+    applyLocale(locale());
+    SingleApplication::installTranslator(&m_appTranslator);
+}
+
+QLocale::Language AppSettings::locale()
+{
+    return value("Locale", QLocale::AnyLanguage).value<QLocale::Language>();
+}
+
+void AppSettings::setLocale(QLocale::Language lang)
+{
+    if (lang == locale())
+        return;
+
+    setValue("Locale", lang);
+    applyLocale(lang);
 }
 
 bool AppSettings::isAutostartEnabled() const
@@ -76,4 +97,14 @@ void AppSettings::setModeIconName(OptimusManager::Mode mode, const QString &name
         setValue("NvidiaIcon", name);
         break;
     }
+}
+
+void AppSettings::applyLocale(QLocale::Language lang)
+{
+    if (lang == QLocale::AnyLanguage)
+        QLocale::setDefault(QLocale::system());
+    else
+        QLocale::setDefault(QLocale(lang));
+
+    m_appTranslator.load(QLocale(), "optimus-manager", "_", ":/translations");
 }

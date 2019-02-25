@@ -22,7 +22,7 @@ public:
     Q_ENUM(Mode)
 
     OptimusManager(QObject *parent = nullptr);
-    virtual ~OptimusManager() override;
+    ~OptimusManager() override;
 
 
 private slots:

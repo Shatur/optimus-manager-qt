@@ -4,11 +4,20 @@
 #include "optimusmanager.h"
 
 #include <QSettings>
+#include <QTranslator>
+#include <QLocale>
+
+class QTranslator;
 
 class AppSettings : QSettings
 {
 public:
     AppSettings(QObject *parent = nullptr);
+
+    // General settings
+    void initTranslator();
+    QLocale::Language locale();
+    void setLocale(QLocale::Language lang);
 
     bool isAutostartEnabled() const;
     void setAutostartEnabled(bool enabled);
@@ -20,6 +29,10 @@ public:
     QIcon modeIcon(OptimusManager::Mode mode) const;
     void setModeIconName(OptimusManager::Mode mode, const QString &name);
     static constexpr const char *defaultTrayIconName(OptimusManager::Mode trayStatus);
+
+private:
+    void applyLocale(QLocale::Language lang);
+    static QTranslator m_appTranslator;
 };
 
 constexpr const char *AppSettings::defaultTrayIconName(OptimusManager::Mode trayStatus)

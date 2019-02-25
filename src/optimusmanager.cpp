@@ -21,12 +21,12 @@ OptimusManager::OptimusManager(QObject *parent) :
     // Setup context menu
     const AppSettings settings;
     m_contextMenu = new QMenu;
-    m_contextMenu->addAction(QIcon::fromTheme("preferences-system"), "Settings", this, &OptimusManager::openSettings);
+    m_contextMenu->addAction(QIcon::fromTheme("preferences-system"), tr("Settings"), this, &OptimusManager::openSettings);
     m_contextMenu->addSeparator();
-    m_contextMenu->addAction(settings.modeIcon(Intel), "Switch to Intel", this, &OptimusManager::switchToIntel);
-    m_contextMenu->addAction(settings.modeIcon(Nvidia), "Switch to Nvidia", this, &OptimusManager::switchToNvidia);
+    m_contextMenu->addAction(settings.modeIcon(Intel), tr("Switch to Intel"), this, &OptimusManager::switchToIntel);
+    m_contextMenu->addAction(settings.modeIcon(Nvidia), tr("Switch to Nvidia"), this, &OptimusManager::switchToNvidia);
     m_contextMenu->addSeparator();
-    m_contextMenu->addAction(QIcon::fromTheme("application-exit"), "Exit", SingleApplication::instance(), &SingleApplication::quit);
+    m_contextMenu->addAction(QIcon::fromTheme("application-exit"), tr("Exit"), SingleApplication::instance(), &SingleApplication::quit);
 
     // Setup tray
     const Mode mode = currentMode();
@@ -70,7 +70,7 @@ void OptimusManager::openSettings()
 void OptimusManager::switchMode(OptimusManager::Mode mode)
 {
     QMessageBox confirmMessage;
-    confirmMessage.setText("You are about to switch GPUs. This will restart the display manager and all your applications WILL CLOSE.");
+    confirmMessage.setText(tr("You are about to switch GPUs. This will restart the display manager and all your applications WILL CLOSE."));
     confirmMessage.setStandardButtons(QMessageBox::Apply | QMessageBox::Cancel);
     confirmMessage.setIcon(QMessageBox::Question);
     confirmMessage.exec();

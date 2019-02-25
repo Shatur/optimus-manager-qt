@@ -98,7 +98,7 @@
      </widget>
      <widget class="QStackedWidget" name="pagesStackedWidget">
       <widget class="QWidget" name="generalPage">
-       <layout class="QVBoxLayout" name="verticalLayout_3">
+       <layout class="QVBoxLayout" name="generalLAyout">
         <item>
          <widget class="QGroupBox" name="generalGroupBox">
           <property name="title">
@@ -271,12 +271,12 @@
                </item>
                <item>
                 <property name="text">
-                 <string>Nouveau</string>
+                 <string notr="true">Nouveau</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string>Bbswitch</string>
+                 <string notr="true">Bbswitch</string>
                 </property>
                </item>
               </widget>
@@ -368,12 +368,12 @@
               <widget class="QComboBox" name="intelDriverComboBox">
                <item>
                 <property name="text">
-                 <string>Modesetting</string>
+                 <string notr="true">Modesetting</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string>Intel</string>
+                 <string notr="true">Intel</string>
                 </property>
                </item>
               </widget>
@@ -414,12 +414,12 @@
                </item>
                <item>
                 <property name="text">
-                 <string>SNA</string>
+                 <string notr="true">SNA</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string>XNA</string>
+                 <string notr="true">XNA</string>
                 </property>
                </item>
               </widget>
@@ -447,7 +447,7 @@
                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="text">
-                <string>Tearfree:</string>
+                <string notr="true">Tearfree:</string>
                </property>
               </widget>
              </item>
@@ -493,7 +493,7 @@
                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="text">
-                <string>DRI:</string>
+                <string notr="true">DRI:</string>
                </property>
               </widget>
              </item>
@@ -501,12 +501,12 @@
               <widget class="QComboBox" name="intelDriComboBox">
                <item>
                 <property name="text">
-                 <string>2</string>
+                 <string notr="true">2</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string>3</string>
+                 <string notr="true">3</string>
                 </property>
                </item>
               </widget>
@@ -532,7 +532,7 @@
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option does not matter if you use bbswitch as switching backend&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
-              <string>Modeset</string>
+              <string notr="true">Modeset</string>
              </property>
             </widget>
            </item>
@@ -570,7 +570,7 @@
                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="text">
-                <string>DRI:</string>
+                <string notr="true">DRI:</string>
                </property>
               </widget>
              </item>
@@ -578,12 +578,12 @@
               <widget class="QComboBox" name="nvidiaDriComboBox">
                <item>
                 <property name="text">
-                 <string>2</string>
+                 <string notr="true">2</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string>3</string>
+                 <string notr="true">3</string>
                 </property>
                </item>
               </widget>
@@ -611,7 +611,7 @@
                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manage&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="text">
-                <string>DPI:</string>
+                <string notr="true">DPI:</string>
                </property>
               </widget>
              </item>
@@ -639,7 +639,7 @@
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
-              <string>Modeset</string>
+              <string notr="true">Modeset</string>
              </property>
             </widget>
            </item>
@@ -649,7 +649,7 @@
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver. &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
-              <string>PAT</string>
+              <string notr="true">PAT</string>
              </property>
             </widget>
            </item>
@@ -659,7 +659,7 @@
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration and unlock clocking options in the Nvidia control panel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
-              <string>Overclocking</string>
+              <string notr="true">Overclocking</string>
              </property>
             </widget>
            </item>
@@ -669,7 +669,7 @@
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
-              <string>Tripple buffer</string>
+              <string notr="true">Tripple buffer</string>
              </property>
             </widget>
            </item>
@@ -711,6 +711,9 @@
         </item>
         <item>
          <widget class="QTabWidget" name="tabWidget">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
           <widget class="QWidget" name="aboutGuiTab">
            <attribute name="icon">
             <iconset theme="qt">
