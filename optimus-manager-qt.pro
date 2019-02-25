@@ -18,6 +18,11 @@ bin.files = $${TARGET}
 desktop.path = /usr/share/applications
 desktop.files = dist/orson.desktop
 
+DEFINES += KDE
+contains(DEFINES, KDE){
+  QT += dbus KNotifications
+}
+
 DEFINES += \
     QAPPLICATION_CLASS=QApplication \
     QT_DEPRECATED_WARNINGS

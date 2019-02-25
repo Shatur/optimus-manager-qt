@@ -3,12 +3,17 @@
 #include "settingsdialog.h"
 #include "singleapplication.h"
 
-#include <QSystemTrayIcon>
 #include <QProcess>
 #include <QFileInfo>
 #include <QDebug>
 #include <QMenu>
 #include <QMessageBox>
+#include <QMetaEnum>
+#ifdef KDE
+#include <KStatusNotifierItem>
+#else
+#include <QSystemTrayIcon>
+#endif
 
 OptimusManager::OptimusManager(QObject *parent) :
     QObject(parent)
@@ -24,17 +29,21 @@ OptimusManager::OptimusManager(QObject *parent) :
     m_contextMenu->addAction(QIcon::fromTheme("application-exit"), "Exit", SingleApplication::instance(), &SingleApplication::quit);
 
     // Setup tray
+    const Mode mode = currentMode();
+#ifdef KDE
+    m_trayIcon = new KStatusNotifierItem(this);
+    m_trayIcon->setStandardActionsEnabled(false);
+    m_trayIcon->setToolTipTitle(SingleApplication::applicationName());
+    m_trayIcon->setCategory(KStatusNotifierItem::SystemServices);
+    m_trayIcon->setIconByName(settings.modeIconName(mode));
+    m_trayIcon->setToolTipIconByName(m_trayIcon->iconName());
+    m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<Mode>().valueToKey(mode));
+#else
     m_trayIcon = new QSystemTrayIcon(this);
-    m_trayIcon->setContextMenu(m_contextMenu);
-    switch (currentMode()) {
-    case Intel:
-        m_trayIcon->setIcon(settings.modeIcon(Intel));
-        break;
-    case Nvidia:
-        m_trayIcon->setIcon(settings.modeIcon(Nvidia));
-        break;
-    }
+    m_trayIcon->setIcon(settings.modeIcon(mode));
     m_trayIcon->show();
+#endif
+    m_trayIcon->setContextMenu(m_contextMenu);
 }
 
 OptimusManager::~OptimusManager()

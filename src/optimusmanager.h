@@ -3,8 +3,12 @@
 
 #include <QObject>
 
-class QSystemTrayIcon;
 class QMenu;
+#ifdef KDE
+class KStatusNotifierItem;
+#else
+class QSystemTrayIcon;
+#endif
 
 class OptimusManager : public QObject
 {
@@ -15,6 +19,7 @@ public:
         Intel,
         Nvidia,
     };
+    Q_ENUM(Mode)
 
     OptimusManager(QObject *parent = nullptr);
     virtual ~OptimusManager() override;
@@ -30,8 +35,12 @@ private:
 
     static Mode currentMode();
 
-    QSystemTrayIcon *m_trayIcon;
     QMenu *m_contextMenu;
+#ifdef KDE
+    KStatusNotifierItem *m_trayIcon;
+#else
+    QSystemTrayIcon *m_trayIcon;
+#endif
 };
 
 #endif // OPTIMUSMANAGER_H
