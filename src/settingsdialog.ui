@@ -115,6 +115,9 @@
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Application language&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
                <property name="text">
                 <string>Language:</string>
                </property>
@@ -146,6 +149,9 @@
            </item>
            <item>
             <widget class="QCheckBox" name="autostartCheckBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Run at system startup&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Launch at startup</string>
              </property>
@@ -153,6 +159,9 @@
            </item>
            <item>
             <widget class="QCheckBox" name="confirmSwitchingCheckBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show confirmation dialog when switching GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Confirm switching</string>
              </property>
@@ -245,6 +254,9 @@
             <layout class="QHBoxLayout" name="switchingBackendLayout">
              <item>
               <widget class="QLabel" name="switchingBackendLabel">
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Module used for power switching&lt;/p&gt;&lt;p&gt;If you select &amp;quot;none&amp;quot;, no power switching will be done at all (the Nvidia GPU will stay powered at all times)&lt;/p&gt;&lt;p&gt;If you use bbswitch, you will not be able to use video outputs attached to your Nvidia GPU in Intel mode&lt;/p&gt;&lt;p&gt;To use the bbswitch mode, the bbswitch module must be installed for your current kernel&lt;/p&gt;&lt;p&gt;You can install it for the default kernel with &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
                <property name="text">
                 <string>Switching backend:</string>
                </property>
@@ -286,6 +298,9 @@
            </item>
            <item>
             <widget class="QCheckBox" name="loginManagerControlCheckBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not optimus-manager must restart your login manager when switching GPUs&lt;/p&gt;&lt;p&gt;If disabled, the GPU switch is not applied until you have restarted it manually&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Login manager control</string>
              </property>
@@ -293,6 +308,9 @@
            </item>
            <item>
             <widget class="QCheckBox" name="pciPowerControlCheckBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;If you do not enable this option, you may see a higher power comsumption&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if bbswitch is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>PCI power control</string>
              </property>
@@ -300,6 +318,9 @@
            </item>
            <item>
             <widget class="QCheckBox" name="pciResetCheckBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset the Nvidia PCI device when switching&lt;/p&gt;&lt;p&gt;Avoids driver conflicts, especially when switching from Nvidia mode to Intel Mode&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if bbswitch is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>PCI reset</string>
              </property>
@@ -335,6 +356,9 @@
             <layout class="QHBoxLayout" name="intelDriverLayout">
              <item>
               <widget class="QLabel" name="intelDriverLabel">
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Intel GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
                <property name="text">
                 <string>Driver:</string>
                </property>
@@ -373,6 +397,9 @@
             <layout class="QHBoxLayout" name="intelAccelMethodLayout">
              <item>
               <widget class="QLabel" name="intelAccelMethodLabel">
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Corresponds to AccelMethod in the Xorg configuration&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
                <property name="text">
                 <string>Acceleration method:</string>
                </property>
@@ -416,6 +443,9 @@
             <layout class="QHBoxLayout" name="intelTearFreeLayout">
              <item>
               <widget class="QLabel" name="intelTearFreeLabel">
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
                <property name="text">
                 <string>Tearfree:</string>
                </property>
@@ -459,6 +489,9 @@
             <layout class="QHBoxLayout" name="intelDriLayout">
              <item>
               <widget class="QLabel" name="intelDriLabel">
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
                <property name="text">
                 <string>DRI:</string>
                </property>
@@ -495,6 +528,9 @@
            </item>
            <item>
             <widget class="QCheckBox" name="intelModesetCheckBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option does not matter if you use bbswitch as switching backend&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Modeset</string>
              </property>
@@ -530,6 +566,9 @@
             <layout class="QHBoxLayout" name="nvidiaDriLayout">
              <item>
               <widget class="QLabel" name="nvidiaDriLabel">
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
                <property name="text">
                 <string>DRI:</string>
                </property>
@@ -568,6 +607,9 @@
             <layout class="QHBoxLayout" name="nvidiaDpiLayout">
              <item>
               <widget class="QLabel" name="nvidiaDpiLabel">
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manage&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
                <property name="text">
                 <string>DPI:</string>
                </property>
@@ -593,6 +635,9 @@
            </item>
            <item>
             <widget class="QCheckBox" name="nvidiaModesetCheckBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Modeset</string>
              </property>
@@ -600,6 +645,9 @@
            </item>
            <item>
             <widget class="QCheckBox" name="nvidiaPatCheckBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver. &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>PAT</string>
              </property>
@@ -607,6 +655,9 @@
            </item>
            <item>
             <widget class="QCheckBox" name="nvidiaOverclockingCheckBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration and unlock clocking options in the Nvidia control panel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Overclocking</string>
              </property>
@@ -614,6 +665,9 @@
            </item>
            <item>
             <widget class="QCheckBox" name="nvidiaTrippleBuffercheckBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Tripple buffer</string>
              </property>
@@ -659,7 +713,8 @@
          <widget class="QTabWidget" name="tabWidget">
           <widget class="QWidget" name="aboutGuiTab">
            <attribute name="icon">
-            <iconset theme="qt"/>
+            <iconset theme="qt">
+             <normaloff>.</normaloff>.</iconset>
            </attribute>
            <attribute name="title">
             <string>Optimus Manager Qt</string>
@@ -766,7 +821,8 @@
           </widget>
           <widget class="QWidget" name="aboutTab">
            <attribute name="icon">
-            <iconset theme="utilities-terminal"/>
+            <iconset theme="utilities-terminal">
+             <normaloff>.</normaloff>.</iconset>
            </attribute>
            <attribute name="title">
             <string>Optimus Manager</string>
