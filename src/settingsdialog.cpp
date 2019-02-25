@@ -13,7 +13,14 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->logoLabel->setPixmap(QIcon::fromTheme("nvidia").pixmap(512, 512));
-    ui->versionLabel->setText(SingleApplication::applicationVersion());
+    ui->versionGuiLabel->setText(SingleApplication::applicationVersion());
+
+    // Parse optimus manager version
+    QFile optimusManagerBin("/usr/bin/optimus-manager");
+    optimusManagerBin.open(QIODevice::ReadOnly);
+    QByteArray data = optimusManagerBin.readAll();
+    data = data.mid(data.indexOf("optimus-manager==") + 17, 5);
+    ui->versionLabel->setText(data);
 
     // General settings
     const AppSettings settings;
