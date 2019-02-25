@@ -15,6 +15,9 @@ include(src/third-party/singleapplication/singleapplication.pri)
 bin.path = /usr/bin
 bin.files = $${TARGET}
 
+desktop.path = /usr/share/applications
+desktop.files = dist/orson.desktop
+
 DEFINES += \
     QAPPLICATION_CLASS=QApplication \
     QT_DEPRECATED_WARNINGS
@@ -37,4 +40,5 @@ FORMS += \
     src/settingsdialog.ui
 
 INSTALLS += \
-    bin
+    bin \
+    desktop

@@ -22,7 +22,7 @@ void AppSettings::setAutostartEnabled(bool enabled)
     if (enabled) {
         // Create autorun file
         if (!autorunFile.exists()) {
-            constexpr char desktopFileName[] = "/usr/share/applications/orson.desktop";
+            constexpr char desktopFileName[] = "/usr/share/applications/optimus-manager-qt.desktop";
 
             if (!QFile::copy(desktopFileName, autorunFile.fileName()))
                 qCritical() << tr("Unable to create autorun file from ") + desktopFileName;
