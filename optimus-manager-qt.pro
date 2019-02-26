@@ -18,6 +18,9 @@ bin.files = $${TARGET}
 desktop.path = /usr/share/applications
 desktop.files = dist/orson.desktop
 
+# Compile translations
+system(lrelease $${TARGET}.pro)
+
 #DEFINES += KDE
 contains(DEFINES, KDE){
   QT += dbus KNotifications
