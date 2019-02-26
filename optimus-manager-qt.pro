@@ -16,7 +16,7 @@ bin.path = /usr/bin
 bin.files = $${TARGET}
 
 desktop.path = /usr/share/applications
-desktop.files = dist/orson.desktop
+desktop.files = dist/optimus-manager-qt.desktop
 
 # Compile translations
 system(lrelease $${TARGET}.pro)
