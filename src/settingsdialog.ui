@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Settings</string>
   </property>
+  <property name="windowIcon">
+   <iconset theme="preferences-system"/>
+  </property>
   <layout class="QVBoxLayout" name="settingsLayout">
    <item>
     <widget class="QSplitter" name="splitter">
