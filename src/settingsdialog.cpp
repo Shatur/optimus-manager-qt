@@ -195,3 +195,16 @@ void SettingsDialog::showIconPreview(QLabel *previewLabel, const QString &fileNa
     else
         previewLabel->setPixmap(QIcon(fileName).pixmap(24, 24));
 }
+
+void SettingsDialog::on_switchingBackendComboBox_currentIndexChanged(int index)
+{
+    if (index == OptimusSettings::Bbswitch) {
+        ui->pciPowerControlCheckBox->setEnabled(false);
+        ui->pciResetCheckBox->setEnabled(false);
+        ui->intelModesetCheckBox->setEnabled(false);
+    } else {
+        ui->pciPowerControlCheckBox->setEnabled(true);
+        ui->pciResetCheckBox->setEnabled(true);
+        ui->intelModesetCheckBox->setEnabled(true);
+    }
+}

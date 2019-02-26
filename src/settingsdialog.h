@@ -30,6 +30,8 @@ private slots:
     void on_noUpdatesIconEdit_textChanged(const QString &fileName);
     void on_updatingIconEdit_textChanged(const QString &fileName);
 
+    void on_switchingBackendComboBox_currentIndexChanged(int index);
+
 private:
     void chooseIcon(QLineEdit *iconPathEdit);
     void showIconPreview(QLabel *previewLabel, const QString &fileName);
