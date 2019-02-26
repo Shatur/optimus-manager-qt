@@ -48,7 +48,9 @@ OptimusManager::OptimusManager(QObject *parent) :
 
 OptimusManager::~OptimusManager()
 {
+#ifndef KDE
     delete m_contextMenu;
+#endif
 }
 
 void OptimusManager::switchToIntel()
@@ -96,7 +98,9 @@ void OptimusManager::switchMode(OptimusManager::Mode mode)
 
 void OptimusManager::retranslateUi()
 {
+#ifdef KDE
     m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<Mode>().valueToKey(currentMode()));
+#endif
     m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
     m_contextMenu->actions().at(2)->setText(tr("Switch to Intel"));
     m_contextMenu->actions().at(3)->setText(tr("Switch to Nvidia"));

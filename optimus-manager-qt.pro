@@ -18,7 +18,7 @@ bin.files = $${TARGET}
 desktop.path = /usr/share/applications
 desktop.files = dist/orson.desktop
 
-DEFINES += KDE
+#DEFINES += KDE5
 contains(DEFINES, KDE){
   QT += dbus KNotifications
 }
