@@ -1,5 +1,6 @@
 #include "optimusmanager.h"
 #include "appsettings.h"
+#include "optimussettings.h"
 #include "settingsdialog.h"
 #include "singleapplication.h"
 
@@ -74,9 +75,15 @@ void OptimusManager::openSettings()
 void OptimusManager::switchMode(OptimusManager::Mode mode)
 {
     QMessageBox confirmMessage;
-    confirmMessage.setText(tr("You are about to switch GPUs. This will restart the display manager and all your applications WILL CLOSE."));
     confirmMessage.setStandardButtons(QMessageBox::Apply | QMessageBox::Cancel);
     confirmMessage.setIcon(QMessageBox::Question);
+
+    const OptimusSettings settings;
+    if (settings.isLoginManagerControl())
+        confirmMessage.setText(tr("You are about to switch GPUs. This will restart the display manager and all your applications will be closed."));
+    else
+        confirmMessage.setText(tr("You are about to switch GPUs. After applying the settings, you will need to manually restart the login manager to change the video card."));
+
     confirmMessage.exec();
     if (confirmMessage.result() != QMessageBox::Apply)
         return;

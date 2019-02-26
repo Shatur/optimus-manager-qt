@@ -12,32 +12,37 @@
 <context>
     <name>OptimusManager</name>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="26"/>
-        <location filename="../../src/optimusmanager.cpp" line="101"/>
+        <location filename="../../src/optimusmanager.cpp" line="27"/>
+        <location filename="../../src/optimusmanager.cpp" line="112"/>
         <source>Switch to Intel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="27"/>
-        <location filename="../../src/optimusmanager.cpp" line="102"/>
+        <location filename="../../src/optimusmanager.cpp" line="28"/>
+        <location filename="../../src/optimusmanager.cpp" line="113"/>
         <source>Switch to Nvidia</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="29"/>
-        <location filename="../../src/optimusmanager.cpp" line="103"/>
+        <location filename="../../src/optimusmanager.cpp" line="30"/>
+        <location filename="../../src/optimusmanager.cpp" line="114"/>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="40"/>
-        <location filename="../../src/optimusmanager.cpp" line="99"/>
+        <location filename="../../src/optimusmanager.cpp" line="41"/>
+        <location filename="../../src/optimusmanager.cpp" line="109"/>
         <source>Current videocard: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="75"/>
-        <source>You are about to switch GPUs. This will restart the display manager and all your applications WILL CLOSE.</source>
+        <location filename="../../src/optimusmanager.cpp" line="83"/>
+        <source>You are about to switch GPUs. This will restart the display manager and all your applications will be closed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/optimusmanager.cpp" line="85"/>
+        <source>You are about to switch GPUs. After applying the settings, you will need to manually restart the login manager to change the video card.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -45,8 +50,8 @@
     <name>SettingsDialog</name>
     <message>
         <location filename="../../src/settingsdialog.ui" line="14"/>
-        <location filename="../../src/optimusmanager.cpp" line="24"/>
-        <location filename="../../src/optimusmanager.cpp" line="100"/>
+        <location filename="../../src/optimusmanager.cpp" line="25"/>
+        <location filename="../../src/optimusmanager.cpp" line="111"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
