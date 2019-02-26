@@ -6,12 +6,14 @@
 
 #include <QFileDialog>
 #include <QStandardItemModel>
+#include <QPushButton>
 
 SettingsDialog::SettingsDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SettingsDialog)
 {
     ui->setupUi(this);
+    connect(ui->dialogButtonBox->button(QDialogButtonBox::RestoreDefaults), &QPushButton::clicked, this, &SettingsDialog::restoreDefaults);
     ui->logoLabel->setPixmap(QIcon::fromTheme("nvidia").pixmap(512, 512));
     ui->versionGuiLabel->setText(SingleApplication::applicationVersion());
 
@@ -123,7 +125,7 @@ void SettingsDialog::on_SettingsDialog_accepted()
     optimusSettings.apply();
 }
 
-void SettingsDialog::on_resetSettingsButton_clicked()
+void SettingsDialog::restoreDefaults()
 {
     // General settings
     const AppSettings settings;

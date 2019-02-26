@@ -21,9 +21,7 @@ public:
     bool languageChanged() const;
 
 private slots:
-    // UI
     void on_SettingsDialog_accepted();
-    void on_resetSettingsButton_clicked();
 
     void on_noUpdatesIconButton_clicked();
     void on_updatingIconEditButton_clicked();
@@ -31,6 +29,8 @@ private slots:
     void on_updatingIconEdit_textChanged(const QString &fileName);
 
     void on_switchingBackendComboBox_currentIndexChanged(int index);
+
+    void restoreDefaults();
 
 private:
     void chooseIcon(QLineEdit *iconPathEdit);
