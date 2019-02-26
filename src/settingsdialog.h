@@ -18,6 +18,8 @@ public:
     explicit SettingsDialog(QWidget *parent = nullptr);
     ~SettingsDialog() override;
 
+    bool languageChanged() const;
+
 private slots:
     // UI
     void on_SettingsDialog_accepted();
@@ -33,6 +35,7 @@ private:
     void showIconPreview(QLabel *previewLabel, const QString &fileName);
 
     Ui::SettingsDialog *ui;
+    bool m_languageChanged = false;
 };
 
 #endif // SETTINGSDIALOG_H

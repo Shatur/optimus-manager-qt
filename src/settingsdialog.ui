@@ -61,7 +61,7 @@
       </item>
       <item>
        <property name="text">
-        <string>Optimus</string>
+        <string notr="true">Optimus</string>
        </property>
        <property name="icon">
         <iconset theme="preferences-system-power-management">
@@ -70,7 +70,7 @@
       </item>
       <item>
        <property name="text">
-        <string>Intel</string>
+        <string notr="true">Intel</string>
        </property>
        <property name="icon">
         <iconset theme="cpu">
@@ -79,7 +79,7 @@
       </item>
       <item>
        <property name="text">
-        <string>Nvidia</string>
+        <string notr="true">Nvidia</string>
        </property>
        <property name="icon">
         <iconset theme="nvidia">
@@ -98,7 +98,7 @@
      </widget>
      <widget class="QStackedWidget" name="pagesStackedWidget">
       <widget class="QWidget" name="generalPage">
-       <layout class="QVBoxLayout" name="generalLAyout">
+       <layout class="QVBoxLayout" name="generalPageLayout">
         <item>
          <widget class="QGroupBox" name="generalGroupBox">
           <property name="title">
@@ -128,6 +128,24 @@
                <item>
                 <property name="text">
                  <string>&lt;System language&gt;</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string notr="true">English</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../data/resources.qrc">
+                  <normaloff>:/flags/en.svg</normaloff>:/flags/en.svg</iconset>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string notr="true">Русский</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../data/resources.qrc">
+                  <normaloff>:/flags/ru.svg</normaloff>:/flags/ru.svg</iconset>
                 </property>
                </item>
               </widget>
@@ -243,11 +261,11 @@
        </layout>
       </widget>
       <widget class="QWidget" name="optimusPage">
-       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <layout class="QVBoxLayout" name="optimusPageLayout">
         <item>
          <widget class="QGroupBox" name="optimusGroupBox">
           <property name="title">
-           <string>Optimus</string>
+           <string notr="true">Optimus</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_4">
            <item>
@@ -255,7 +273,7 @@
              <item>
               <widget class="QLabel" name="switchingBackendLabel">
                <property name="toolTip">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Module used for power switching&lt;/p&gt;&lt;p&gt;If you select &amp;quot;none&amp;quot;, no power switching will be done at all (the Nvidia GPU will stay powered at all times)&lt;/p&gt;&lt;p&gt;If you use bbswitch, you will not be able to use video outputs attached to your Nvidia GPU in Intel mode&lt;/p&gt;&lt;p&gt;To use the bbswitch mode, the bbswitch module must be installed for your current kernel&lt;/p&gt;&lt;p&gt;You can install it for the default kernel with &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Module used for power switching&lt;/p&gt;&lt;p&gt;If you select &amp;quot;None&amp;quot;, no power switching will be done at all (the Nvidia GPU will stay powered at all times)&lt;/p&gt;&lt;p&gt;If you use bbswitch, you will not be able to use video outputs attached to your Nvidia GPU in Intel mode&lt;/p&gt;&lt;p&gt;To use the bbswitch mode, the bbswitch module must be installed for your current kernel&lt;/p&gt;&lt;p&gt;You can install it for the default kernel with &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="text">
                 <string>Switching backend:</string>
@@ -299,7 +317,7 @@
            <item>
             <widget class="QCheckBox" name="loginManagerControlCheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not optimus-manager must restart your login manager when switching GPUs&lt;/p&gt;&lt;p&gt;If disabled, the GPU switch is not applied until you have restarted it manually&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not restart login manager when switching GPUs&lt;/p&gt;&lt;p&gt;If disabled, the GPU switch is not applied until you have restarted it manually&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string>Login manager control</string>
@@ -345,11 +363,11 @@
        </layout>
       </widget>
       <widget class="QWidget" name="intelPage">
-       <layout class="QVBoxLayout" name="verticalLayout_5">
+       <layout class="QVBoxLayout" name="intelPageLayout">
         <item>
          <widget class="QGroupBox" name="intelGroupBox">
           <property name="title">
-           <string>Intel</string>
+           <string notr="true">Intel</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_8">
            <item>
@@ -529,7 +547,7 @@
            <item>
             <widget class="QCheckBox" name="intelModesetCheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option does not matter if you use bbswitch as switching backend&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if bbswitch is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string notr="true">Modeset</string>
@@ -555,11 +573,11 @@
        </layout>
       </widget>
       <widget class="QWidget" name="nvidiaPage">
-       <layout class="QVBoxLayout" name="verticalLayout_10">
+       <layout class="QVBoxLayout" name="nvidiaPageLayout">
         <item>
          <widget class="QGroupBox" name="nvidiaGroupBox">
           <property name="title">
-           <string>Nvidia</string>
+           <string notr="true">Nvidia</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_9">
            <item>
@@ -608,7 +626,7 @@
              <item>
               <widget class="QLabel" name="nvidiaDpiLabel">
                <property name="toolTip">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manage&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manager&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="text">
                 <string notr="true">DPI:</string>
@@ -646,7 +664,7 @@
            <item>
             <widget class="QCheckBox" name="nvidiaPatCheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver. &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string notr="true">PAT</string>
@@ -659,7 +677,7 @@
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration and unlock clocking options in the Nvidia control panel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
-              <string notr="true">Overclocking</string>
+              <string>Overclocking options</string>
              </property>
             </widget>
            </item>
@@ -669,7 +687,7 @@
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
-              <string notr="true">Tripple buffer</string>
+              <string>Tripple buffer</string>
              </property>
             </widget>
            </item>
@@ -692,7 +710,7 @@
        </layout>
       </widget>
       <widget class="QWidget" name="aboutPage">
-       <layout class="QVBoxLayout" name="verticalLayout_7">
+       <layout class="QVBoxLayout" name="aboutPageLayout">
         <item alignment="Qt::AlignHCenter">
          <widget class="QLabel" name="logoLabel">
           <property name="maximumSize">
@@ -720,7 +738,7 @@
              <normaloff>.</normaloff>.</iconset>
            </attribute>
            <attribute name="title">
-            <string>Optimus Manager Qt</string>
+            <string notr="true">Optimus Manager Qt</string>
            </attribute>
            <layout class="QGridLayout" name="aboutGuiLayout" columnstretch="0,1">
             <item row="0" column="0">
@@ -828,7 +846,7 @@
              <normaloff>.</normaloff>.</iconset>
            </attribute>
            <attribute name="title">
-            <string>Optimus Manager</string>
+            <string notr="true">Optimus Manager</string>
            </attribute>
            <layout class="QGridLayout" name="aboutLayout" columnstretch="0,1">
             <item row="2" column="0">
@@ -920,7 +938,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../data/resources.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>dialogButtonBox</sender>

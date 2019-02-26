@@ -6,6 +6,8 @@
 #include <QDebug>
 #include <QIcon>
 
+QTranslator AppSettings::m_appTranslator;
+
 AppSettings::AppSettings(QObject *parent) :
     QSettings(parent)
 {
@@ -13,18 +15,18 @@ AppSettings::AppSettings(QObject *parent) :
 
 void AppSettings::initTranslator()
 {
-    applyLocale(locale());
+    applyLocale(language());
     SingleApplication::installTranslator(&m_appTranslator);
 }
 
-QLocale::Language AppSettings::locale()
+QLocale::Language AppSettings::language() const
 {
     return value("Locale", QLocale::AnyLanguage).value<QLocale::Language>();
 }
 
 void AppSettings::setLocale(QLocale::Language lang)
 {
-    if (lang == locale())
+    if (lang == language())
         return;
 
     setValue("Locale", lang);

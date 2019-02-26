@@ -21,7 +21,7 @@ OptimusManager::OptimusManager(QObject *parent) :
     // Setup context menu
     const AppSettings settings;
     m_contextMenu = new QMenu;
-    m_contextMenu->addAction(QIcon::fromTheme("preferences-system"), tr("Settings"), this, &OptimusManager::openSettings);
+    m_contextMenu->addAction(QIcon::fromTheme("preferences-system"), SettingsDialog::tr("Settings"), this, &OptimusManager::openSettings);
     m_contextMenu->addSeparator();
     m_contextMenu->addAction(settings.modeIcon(Intel), tr("Switch to Intel"), this, &OptimusManager::switchToIntel);
     m_contextMenu->addAction(settings.modeIcon(Nvidia), tr("Switch to Nvidia"), this, &OptimusManager::switchToNvidia);
@@ -65,6 +65,8 @@ void OptimusManager::openSettings()
 {
     SettingsDialog dialog;
     dialog.exec();
+    if (dialog.languageChanged())
+        retranslateUi();
 }
 
 void OptimusManager::switchMode(OptimusManager::Mode mode)
@@ -90,6 +92,15 @@ void OptimusManager::switchMode(OptimusManager::Mode mode)
 
     process.start();
     process.waitForFinished();
+}
+
+void OptimusManager::retranslateUi()
+{
+    m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<Mode>().valueToKey(currentMode()));
+    m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
+    m_contextMenu->actions().at(2)->setText(tr("Switch to Intel"));
+    m_contextMenu->actions().at(3)->setText(tr("Switch to Nvidia"));
+    m_contextMenu->actions().at(5)->setText(tr("Exit"));
 }
 
 OptimusManager::Mode OptimusManager::currentMode()

@@ -32,6 +32,7 @@ private slots:
 
 private:
     void switchMode(Mode mode);
+    void retranslateUi();
 
     static Mode currentMode();
 

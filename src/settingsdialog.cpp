@@ -22,8 +22,14 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     data = data.mid(data.indexOf("optimus-manager==") + 17, 5);
     ui->versionLabel->setText(data);
 
+    // Set languages data
+    ui->languageComboBox->setItemData(0, QLocale::AnyLanguage);
+    ui->languageComboBox->setItemData(1, QLocale::English);
+    ui->languageComboBox->setItemData(2, QLocale::Russian);
+
     // General settings
     const AppSettings settings;
+    ui->languageComboBox->setCurrentIndex(ui->languageComboBox->findData(settings.language()));
     ui->autostartCheckBox->setChecked(settings.isAutostartEnabled());
     ui->confirmSwitchingCheckBox->setChecked(settings.isConfirmSwitching());
     ui->noUpdatesIconEdit->setText(settings.modeIconName(OptimusManager::Intel));
@@ -68,10 +74,22 @@ SettingsDialog::~SettingsDialog()
     delete ui;
 }
 
+bool SettingsDialog::languageChanged() const
+{
+    return m_languageChanged;
+}
+
 void SettingsDialog::on_SettingsDialog_accepted()
 {
-    // General settings
+    // Check if language changed
     AppSettings settings;
+    const auto language = ui->languageComboBox->currentData().value<QLocale::Language>();
+    if (language != settings.language()) {
+        settings.setLocale(language);
+        m_languageChanged = true;
+    }
+
+    // General settings
     settings.setAutostartEnabled(ui->autostartCheckBox->isChecked());
     settings.setConfirmSwitching(ui->confirmSwitchingCheckBox->isChecked());
     settings.setModeIconName(OptimusManager::Intel, ui->noUpdatesIconEdit->text());
@@ -109,6 +127,7 @@ void SettingsDialog::on_resetSettingsButton_clicked()
 {
     // General settings
     const AppSettings settings;
+    ui->languageComboBox->setCurrentIndex(0);
     ui->autostartCheckBox->setChecked(false);
     ui->confirmSwitchingCheckBox->setChecked(true);
     ui->noUpdatesIconEdit->setText(AppSettings::defaultTrayIconName(OptimusManager::Intel));

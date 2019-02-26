@@ -44,6 +44,13 @@ HEADERS += \
 FORMS += \
     src/settingsdialog.ui
 
+TRANSLATIONS += \
+    data/translations/optimus-manager.ts \
+    data/translations/optimus-manager_ru.ts \
+
 INSTALLS += \
     bin \
     desktop
+
+RESOURCES += \
+    data/resources.qrc

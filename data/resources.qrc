@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>flags/ru.svg</file>
+        <file>flags/en.svg</file>
+        <file>translations/optimus-manager_ru.qm</file>
+    </qresource>
+</RCC>

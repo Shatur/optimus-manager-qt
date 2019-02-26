@@ -16,7 +16,7 @@ public:
 
     // General settings
     void initTranslator();
-    QLocale::Language locale();
+    QLocale::Language language() const;
     void setLocale(QLocale::Language lang);
 
     bool isAutostartEnabled() const;
