@@ -38,9 +38,8 @@ OptimusSettings::SwitchingBackend OptimusSettings::switchingBackend() const
     // Parse mode
     if (backend == "nouveau")
         return Nouveau;
-    else if (backend == "bbswitch")
+    if (backend == "bbswitch")
         return Bbswitch;
-
     return NoneBackend;
 }
 
@@ -66,10 +65,7 @@ bool OptimusSettings::isLoginManagerControl() const
 {
     const QString controlString = m_settings->value("optimus/login_manager_control", "yes").toString();
 
-    if (controlString == "yes")
-        return true;
-
-    return false;
+    return controlString == "yes";
 }
 
 void OptimusSettings::setLoginManagerControl(bool enable)
@@ -82,10 +78,7 @@ bool OptimusSettings::isPciPowerControlEnabled() const
 {
     const QString controlString = m_settings->value("optimus/pci_power_control", "yes").toString();
 
-    if (controlString == "yes")
-        return true;
-
-    return false;
+    return controlString == "yes";
 }
 
 void OptimusSettings::setPciPowerControlEnabled(bool enable)
@@ -98,10 +91,7 @@ bool OptimusSettings::isPciResetEnabled() const
 {
     const QString controlString = m_settings->value("optimus/pci_reset", "yes").toString();
 
-    if (controlString == "yes")
-        return true;
-
-    return false;
+    return controlString == "yes";
 }
 
 void OptimusSettings::setPciResetEnabled(bool enable)
@@ -117,7 +107,6 @@ OptimusSettings::Driver OptimusSettings::intelDriver() const
     // Parse mode
     if (backend == "modesetting")
         return Modesetting;
-
     return IntelDriver;
 }
 
@@ -143,9 +132,8 @@ OptimusSettings::AccelMethod OptimusSettings::intelAccelMethod() const
     // Parse mode
     if (backend == "sna")
         return SNA;
-    else if (backend == "xna")
+    if (backend == "xna")
         return XNA;
-
     return DefaultMethod;
 }
 
@@ -173,9 +161,8 @@ OptimusSettings::TearFree OptimusSettings::intelTearFree() const
     // Parse mode
     if (backend == "yes")
         return EnableTearFree;
-    else if (backend == "no")
+    if (backend == "no")
         return DisableTearFree;
-
     return DefaultTearFree;
 }
 
@@ -210,10 +197,7 @@ bool OptimusSettings::isIntelModesetEnabled() const
 {
     const QString controlString = m_settings->value("intel/modeset", "yes").toString();
 
-    if (controlString == "yes")
-        return true;
-
-    return false;
+    return controlString == "yes";
 }
 
 void OptimusSettings::setIntelModesetEnabled(bool enabled)
@@ -236,10 +220,7 @@ bool OptimusSettings::isNvidiaModesetEnabled() const
 {
     const QString controlString = m_settings->value("nvidia/modeset", "yes").toString();
 
-    if (controlString == "yes")
-        return true;
-
-    return false;
+    return controlString == "yes";
 }
 
 void OptimusSettings::setNvidiaModesetEnabled(bool enabled)
@@ -252,10 +233,7 @@ bool OptimusSettings::isNvidiaPatEnabled() const
 {
     const QString controlString = m_settings->value("nvidia/PAT", "yes").toString();
 
-    if (controlString == "yes")
-        return true;
-
-    return false;
+    return controlString == "yes";
 }
 
 void OptimusSettings::setNvidiaPatEnabled(bool enabled)

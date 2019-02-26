@@ -16,5 +16,5 @@ int main(int argc, char *argv[])
     // Tray menu
     OptimusManager manager;
 
-    return app.exec();
+    return SingleApplication::exec();
 }
