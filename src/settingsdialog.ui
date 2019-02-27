@@ -14,7 +14,8 @@
    <string>Settings</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="preferences-system"/>
+   <iconset theme="preferences-system">
+    <normaloff>.</normaloff>.</iconset>
   </property>
   <layout class="QVBoxLayout" name="settingsLayout">
    <item>
@@ -171,7 +172,7 @@
            <item>
             <widget class="QCheckBox" name="autostartCheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Run at system startup&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart will be used&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string>Launch at startup</string>
