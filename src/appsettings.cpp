@@ -55,12 +55,12 @@ void AppSettings::setLocale(QLocale::Language lang)
 
 bool AppSettings::isAutostartEnabled() const
 {
-    return QFileInfo::exists(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/autostart/orson.desktop");
+    return QFileInfo::exists(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/autostart/optimus-manager-qt.desktop");
 }
 
 void AppSettings::setAutostartEnabled(bool enabled)
 {
-    QFile autorunFile(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/autostart/orson.desktop");
+    QFile autorunFile(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/autostart/optimus-manager-qt.desktop");
 
     if (enabled) {
         // Create autorun file
