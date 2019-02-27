@@ -29,6 +29,7 @@ private slots:
     void switchToIntel();
     void switchToNvidia();
     void openSettings();
+    void showAppRunningMessage();
 
 private:
     void switchMode(Mode mode);

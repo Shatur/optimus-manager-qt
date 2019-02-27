@@ -19,6 +19,9 @@
 OptimusManager::OptimusManager(QObject *parent) :
     QObject(parent)
 {
+    // Show a message that the application is already running
+    connect(qobject_cast<SingleApplication*>(SingleApplication::instance()), &SingleApplication::instanceStarted, this, &OptimusManager::showAppRunningMessage);
+
     // Setup context menu
     const AppSettings settings;
     m_contextMenu = new QMenu;
@@ -70,6 +73,13 @@ void OptimusManager::openSettings()
     dialog.exec();
     if (dialog.languageChanged())
         retranslateUi();
+}
+
+void OptimusManager::showAppRunningMessage()
+{
+    auto message = new QMessageBox(QMessageBox::Information, "Optimus Manager", tr("The application is already running"));
+    message->setAttribute(Qt::WA_DeleteOnClose); // Need to allocate on heap to avoid crash!
+    message->show();
 }
 
 void OptimusManager::switchMode(OptimusManager::Mode mode)
