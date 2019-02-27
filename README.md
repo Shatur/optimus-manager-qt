@@ -62,7 +62,7 @@ git submodule update
 
 ### Arch Linux and derivatives
 
-You can install [optimus-manager-qt-git](https://aur.archlinux.org/packages/optimus-manager-qt-git) from AUR.
+You can install [optimus-manager-qt](https://aur.archlinux.org/packages/optimus-manager-qt) or [optimus-manager-qt-git](https://aur.archlinux.org/packages/optimus-manager-qt-git) from AUR.
 
 **Note:** If you are using KDE, it is recommended to replace it PKGBUILD `KDE=false` with `KDE=true` to use KDE API for tray for additional feautures (this also add knotifier dependency).
 
