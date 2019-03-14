@@ -53,6 +53,7 @@ private slots:
     void restoreDefaults();
 
 private:
+    void loadSettings();
     void chooseIcon(QLineEdit *iconPathEdit);
     void showIconPreview(QLabel *previewLabel, const QString &fileName);
 

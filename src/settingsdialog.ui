@@ -271,7 +271,65 @@
           <property name="title">
            <string notr="true">Optimus</string>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_4">
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <layout class="QHBoxLayout" name="startupModeLayout">
+             <item>
+              <widget class="QLabel" name="startupModeLabel">
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Module used for power switching&lt;/p&gt;&lt;p&gt;If you select &amp;quot;None&amp;quot;, no power switching will be done at all (the Nvidia GPU will stay powered at all times)&lt;/p&gt;&lt;p&gt;If you use bbswitch, you will not be able to use video outputs attached to your Nvidia GPU in Intel mode&lt;/p&gt;&lt;p&gt;To use the bbswitch mode, the bbswitch module must be installed for your current kernel&lt;/p&gt;&lt;p&gt;You can install it for the default kernel with &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="text">
+                <string>Startup mode:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="startupModeComboBox">
+               <item>
+                <property name="text">
+                 <string notr="true">Intel</string>
+                </property>
+                <property name="icon">
+                 <iconset theme="cpu">
+                  <normaloff>.</normaloff>.</iconset>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string notr="true">Nvidia</string>
+                </property>
+                <property name="icon">
+                 <iconset theme="nvidia">
+                  <normaloff>.</normaloff>.</iconset>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Nvidia (one boot)</string>
+                </property>
+                <property name="icon">
+                 <iconset theme="nvidia">
+                  <normaloff>.</normaloff>.</iconset>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <spacer name="startupModeSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
            <item>
             <layout class="QHBoxLayout" name="switchingBackendLayout">
              <item>
@@ -345,6 +403,36 @@
              </property>
              <property name="text">
               <string>PCI reset</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="terminateSessionsCheckBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to manually terminate logind sessions when switching GPUs&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="text">
+              <string>Terminate sessions</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="killX11CheckBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to manually kill X11 servers when switching GPUs&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="text">
+              <string>Kill X11</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="killLogindCheckBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to manually kill logind when switching GPUs&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="text">
+              <string>Kill logind</string>
              </property>
             </widget>
            </item>

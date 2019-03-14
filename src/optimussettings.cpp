@@ -24,6 +24,7 @@
 #include <QFile>
 #include <QSettings>
 #include <QDebug>
+#include <QMessageBox>
 
 OptimusSettings::OptimusSettings(QObject *parent) :
     QObject(parent)
@@ -49,6 +50,48 @@ void OptimusSettings::apply()
     process.setArguments({"cp", "/tmp/optimus-manager.conf", "/etc/optimus-manager/optimus-manager.conf"});
     process.start();
     process.waitForFinished();
+}
+
+OptimusSettings::StartupMode OptimusSettings::startupMode() const
+{
+    QFile file("/var/lib/optimus-manager/startup_mode");
+    if (!file.open(QIODevice::ReadOnly)) {
+        QMessageBox message(QMessageBox::Warning, tr("Warning"), tr("Unable to open startup mode file"));
+        message.exec();
+        return Intel;
+    }
+
+    QByteArray modeString = file.readAll();
+    if (modeString == "intel")
+        return Intel;
+
+    if (modeString == "nvidia")
+        return Nvidia;
+
+    if (modeString == "nvidia_once")
+        return NvidiaOnce;
+
+    QMessageBox message(QMessageBox::Warning, tr("Warning"), tr("Unknown mode in startup file"));
+    message.exec();
+    return Intel;
+}
+
+void OptimusSettings::setStartupMode(OptimusSettings::StartupMode mode)
+{
+    QString modeString;
+    switch (mode) {
+    case Intel:
+        modeString = "intel";
+        break;
+    case Nvidia:
+        modeString = "nvidia";
+        break;
+    case NvidiaOnce:
+        modeString = "nvidia_once";
+        break;
+    }
+
+    QProcess process;
 }
 
 OptimusSettings::SwitchingBackend OptimusSettings::switchingBackend() const
@@ -90,117 +133,160 @@ bool OptimusSettings::isLoginManagerControl() const
 
 void OptimusSettings::setLoginManagerControl(bool enable)
 {
-    const QString controlString = enable ? "yes" : "no";
-    m_settings->setValue("optimus/login_manager_control", controlString);
+    const QString loginControlString = enable ? "yes" : "no";
+    m_settings->setValue("optimus/login_manager_control", loginControlString);
 }
 
 bool OptimusSettings::isPciPowerControlEnabled() const
 {
-    const QString controlString = m_settings->value("optimus/pci_power_control", "yes").toString();
+    const QString powerControlString = m_settings->value("optimus/pci_power_control", "yes").toString();
 
-    return controlString == "yes";
+    return powerControlString == "yes";
 }
 
 void OptimusSettings::setPciPowerControlEnabled(bool enable)
 {
-    const QString controlString = enable ? "yes" : "no";
-    m_settings->setValue("optimus/pci_power_control", controlString);
+    const QString powerControlString = enable ? "yes" : "no";
+    m_settings->setValue("optimus/pci_power_control", powerControlString);
 }
 
 bool OptimusSettings::isPciResetEnabled() const
 {
-    const QString controlString = m_settings->value("optimus/pci_reset", "yes").toString();
+    const QString pciResetString = m_settings->value("optimus/pci_reset", "yes").toString();
 
-    return controlString == "yes";
+    return pciResetString == "yes";
 }
 
 void OptimusSettings::setPciResetEnabled(bool enable)
 {
-    const QString controlString = enable ? "yes" : "no";
-    m_settings->setValue("optimus/pci_reset", controlString);
+    const QString pciResetString = enable ? "yes" : "no";
+
+    m_settings->setValue("optimus/pci_reset", pciResetString);
+}
+
+bool OptimusSettings::isTerminateSesionsEnabled() const
+{
+    const QString terminateSessionsString = m_settings->value("optimus/terminate_sessions", "yes").toString();
+
+    return terminateSessionsString == "yes";
+}
+
+void OptimusSettings::setTerminateSesionsEnabled(bool enable)
+{
+    const QString terminateSessionsString = enable ? "yes" : "no";
+
+    m_settings->setValue("optimus/terminate_sessions", terminateSessionsString);
+}
+
+bool OptimusSettings::isKillX11Enabled() const
+{
+    const QString killX11String = m_settings->value("optimus/kill_x11", "yes").toString();
+
+    return killX11String == "yes";
+}
+
+void OptimusSettings::setKillX11Enabled(bool enable)
+{
+    const QString killX11String = enable ? "yes" : "no";
+
+    m_settings->setValue("optimus/kill_x11", killX11String);
+}
+
+bool OptimusSettings::isKillLogindEnabled() const
+{
+    const QString killLogindString = m_settings->value("optimus/kill_logind", "yes").toString();
+
+    return killLogindString == "yes";
+}
+
+void OptimusSettings::setKillLogindEnabled(bool enable)
+{
+    const QString killLogindString = enable ? "yes" : "no";
+
+    m_settings->setValue("optimus/kill_logind", killLogindString);
 }
 
 OptimusSettings::Driver OptimusSettings::intelDriver() const
 {
-    const QString backend = m_settings->value("intel/driver", "modesetting").toString();
+    const QString driverString = m_settings->value("intel/driver", "modesetting").toString();
 
     // Parse mode
-    if (backend == "modesetting")
+    if (driverString == "modesetting")
         return Modesetting;
     return IntelDriver;
 }
 
 void OptimusSettings::setIntelDriver(OptimusSettings::Driver driver)
 {
-    QString backendString;
+    QString driverString;
     switch (driver) {
     case Modesetting:
-        backendString = "modesetting";
+        driverString = "modesetting";
         break;
     case IntelDriver:
-        backendString = "intel";
+        driverString = "intel";
         break;
     }
 
-    m_settings->setValue("intel/driver", backendString);
+    m_settings->setValue("intel/driver", driverString);
 }
 
 OptimusSettings::AccelMethod OptimusSettings::intelAccelMethod() const
 {
-    const QString backend = m_settings->value("intel/accel", "").toString();
+    const QString accelMethodString = m_settings->value("intel/accel", "").toString();
 
     // Parse mode
-    if (backend == "sna")
+    if (accelMethodString == "sna")
         return SNA;
-    if (backend == "xna")
+    if (accelMethodString == "xna")
         return XNA;
     return DefaultMethod;
 }
 
 void OptimusSettings::setIntelAccelMethod(OptimusSettings::AccelMethod method)
 {
-    QString methodString;
+    QString accelMethodString;
     switch (method) {
     case SNA:
-        methodString = "sna";
+        accelMethodString = "sna";
         break;
     case XNA:
-        methodString = "xna";
+        accelMethodString = "xna";
         break;
     default:
         break;
     }
 
-    m_settings->setValue("intel/accel", methodString);
+    m_settings->setValue("intel/accel", accelMethodString);
 }
 
 OptimusSettings::TearFree OptimusSettings::intelTearFree() const
 {
-    const QString backend = m_settings->value("intel/tearfree", "").toString();
+    const QString tearFreeString = m_settings->value("intel/tearfree", "").toString();
 
     // Parse mode
-    if (backend == "yes")
+    if (tearFreeString == "yes")
         return EnableTearFree;
-    if (backend == "no")
+    if (tearFreeString == "no")
         return DisableTearFree;
     return DefaultTearFree;
 }
 
 void OptimusSettings::setIntelTearFree(OptimusSettings::TearFree tearFree)
 {
-    QString methodString;
+    QString tearFreeString;
     switch (tearFree) {
     case EnableTearFree:
-        methodString = "yes";
+        tearFreeString = "yes";
         break;
     case DisableTearFree:
-        methodString = "no";
+        tearFreeString = "no";
         break;
     default:
         break;
     }
 
-    m_settings->setValue("intel/tearfree", methodString);
+    m_settings->setValue("intel/tearfree", tearFreeString);
 }
 
 OptimusSettings::DRI OptimusSettings::intelDri() const
@@ -215,15 +301,15 @@ void OptimusSettings::setIntelDri(OptimusSettings::DRI dri)
 
 bool OptimusSettings::isIntelModesetEnabled() const
 {
-    const QString controlString = m_settings->value("intel/modeset", "yes").toString();
+    const QString modesetString = m_settings->value("intel/modeset", "yes").toString();
 
-    return controlString == "yes";
+    return modesetString == "yes";
 }
 
 void OptimusSettings::setIntelModesetEnabled(bool enabled)
 {
-    const QString controlString = enabled ? "yes" : "no";
-    m_settings->setValue("intel/modeset", controlString);
+    const QString modesetString = enabled ? "yes" : "no";
+    m_settings->setValue("intel/modeset", modesetString);
 }
 
 OptimusSettings::DRI OptimusSettings::nvidiaDri() const
@@ -238,28 +324,28 @@ void OptimusSettings::setNvidiaDri(OptimusSettings::DRI dri)
 
 bool OptimusSettings::isNvidiaModesetEnabled() const
 {
-    const QString controlString = m_settings->value("nvidia/modeset", "yes").toString();
+    const QString modesetString = m_settings->value("nvidia/modeset", "yes").toString();
 
-    return controlString == "yes";
+    return modesetString == "yes";
 }
 
 void OptimusSettings::setNvidiaModesetEnabled(bool enabled)
 {
-    const QString controlString = enabled ? "yes" : "no";
-    m_settings->setValue("nvidia/modeset", controlString);
+    const QString modesetString = enabled ? "yes" : "no";
+    m_settings->setValue("nvidia/modeset", modesetString);
 }
 
 bool OptimusSettings::isNvidiaPatEnabled() const
 {
-    const QString controlString = m_settings->value("nvidia/PAT", "yes").toString();
+    const QString patString = m_settings->value("nvidia/PAT", "yes").toString();
 
-    return controlString == "yes";
+    return patString == "yes";
 }
 
 void OptimusSettings::setNvidiaPatEnabled(bool enabled)
 {
-    const QString controlString = enabled ? "yes" : "no";
-    m_settings->setValue("nvidia/PAT", controlString);
+    const QString patString = enabled ? "yes" : "no";
+    m_settings->setValue("nvidia/PAT", patString);
 }
 
 int OptimusSettings::nvidiaDpi() const
@@ -277,13 +363,13 @@ void OptimusSettings::setNvidiaDpi(int dpi)
 
 OptimusSettings::NvidiaOptions OptimusSettings::nvidiaOptions() const
 {
-    const QStringList optionStrings = m_settings->value("nvidia/options", "overclocking").toStringList();
+    const QStringList optionsStrings = m_settings->value("nvidia/options", "overclocking").toStringList();
 
     // Parse mode
     NvidiaOptions options;
-    if (optionStrings.contains("overclocking"))
+    if (optionsStrings.contains("overclocking"))
         options |= Overclocking;
-    if (optionStrings.contains("triple_buffer"))
+    if (optionsStrings.contains("triple_buffer"))
         options |= TrippleBuffer;
 
     return options;
@@ -291,13 +377,13 @@ OptimusSettings::NvidiaOptions OptimusSettings::nvidiaOptions() const
 
 void OptimusSettings::setNvidiaOptions(NvidiaOptions options)
 {
-    QStringList optionStrings;
+    QStringList optionsStrings;
 
     if (options.testFlag(Overclocking))
-        optionStrings.append("overclocking");
+        optionsStrings.append("overclocking");
 
     if (options.testFlag(TrippleBuffer))
-        optionStrings.append("triple_buffer");
+        optionsStrings.append("triple_buffer");
 
-    m_settings->setValue("nvidia/options", optionStrings);
+    m_settings->setValue("nvidia/options", optionsStrings);
 }

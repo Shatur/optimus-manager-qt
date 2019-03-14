@@ -34,6 +34,11 @@ public:
         Nouveau,
         Bbswitch
     };
+    enum StartupMode {
+        Intel,
+        Nvidia,
+        NvidiaOnce
+    };
     enum Driver {
         Modesetting,
         IntelDriver
@@ -65,6 +70,9 @@ public:
     void apply();
 
     // Optimus
+    StartupMode startupMode() const;
+    void setStartupMode(StartupMode mode);
+
     SwitchingBackend switchingBackend() const;
     void setSwitchingBackend(SwitchingBackend backend);
 
@@ -76,6 +84,15 @@ public:
 
     bool isPciResetEnabled() const;
     void setPciResetEnabled(bool enable);
+
+    bool isTerminateSesionsEnabled() const;
+    void setTerminateSesionsEnabled(bool enable);
+
+    bool isKillX11Enabled() const;
+    void setKillX11Enabled(bool enable);
+
+    bool isKillLogindEnabled() const;
+    void setKillLogindEnabled(bool enable);
 
     // Intel
     Driver intelDriver() const;
