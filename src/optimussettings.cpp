@@ -19,6 +19,7 @@
  */
 
 #include "optimussettings.h"
+#include "daemonclient.h"
 
 #include <QProcess>
 #include <QFile>
@@ -45,11 +46,29 @@ void OptimusSettings::apply()
 {
     m_settings->sync();
 
+    // Move generated settings to config path
     QProcess process;
     process.setProgram("pkexec");
     process.setArguments({"cp", "/tmp/optimus-manager.conf", "/etc/optimus-manager/optimus-manager.conf"});
     process.start();
     process.waitForFinished();
+
+    if (m_startupModeString.isEmpty())
+        return;
+
+    // Set startup mode
+    DaemonClient client;
+    client.connect();
+    if (client.error()) {
+        QMessageBox message(QMessageBox::Warning, tr("Warning"), tr("Unable to connect to optimus manager daemon: ") + client.errorString());
+        message.exec();
+        return;
+    }
+
+    if (client.send(qPrintable(m_startupModeString)) == -1) {
+        QMessageBox message(QMessageBox::Warning, tr("Warning"), tr("Unable to send startup mode to optimus manager daemon: ") + client.errorString());
+        message.exec();
+    }
 }
 
 OptimusSettings::StartupMode OptimusSettings::startupMode() const
@@ -78,20 +97,17 @@ OptimusSettings::StartupMode OptimusSettings::startupMode() const
 
 void OptimusSettings::setStartupMode(OptimusSettings::StartupMode mode)
 {
-    QString modeString;
     switch (mode) {
     case Intel:
-        modeString = "intel";
+        m_startupModeString = "startup_intel";
         break;
     case Nvidia:
-        modeString = "nvidia";
+        m_startupModeString = "startup_nvidia";
         break;
     case NvidiaOnce:
-        modeString = "nvidia_once";
+        m_startupModeString = "startup_nvidia_once";
         break;
     }
-
-    QProcess process;
 }
 
 OptimusSettings::SwitchingBackend OptimusSettings::switchingBackend() const

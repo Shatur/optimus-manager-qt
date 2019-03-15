@@ -31,6 +31,8 @@ class QTranslator;
 
 class AppSettings : QSettings
 {
+    Q_OBJECT
+
 public:
     AppSettings(QObject *parent = nullptr);
 

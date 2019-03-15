@@ -54,18 +54,30 @@
 <context>
     <name>OptimusSettings</name>
     <message>
-        <location filename="../../src/optimussettings.cpp" line="59"/>
-        <location filename="../../src/optimussettings.cpp" line="74"/>
+        <location filename="../../src/optimussettings.cpp" line="63"/>
+        <location filename="../../src/optimussettings.cpp" line="69"/>
+        <location filename="../../src/optimussettings.cpp" line="78"/>
+        <location filename="../../src/optimussettings.cpp" line="93"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="../../src/optimussettings.cpp" line="59"/>
+        <location filename="../../src/optimussettings.cpp" line="63"/>
+        <source>Unable to connect to optimus manager daemon: </source>
+        <translation>Не удается подключиться к демону optimus manager: </translation>
+    </message>
+    <message>
+        <location filename="../../src/optimussettings.cpp" line="69"/>
+        <source>Unable to send startup mode to optimus manager daemon: </source>
+        <translation>Не удается отправить режим при загрузке демону optimus manager: </translation>
+    </message>
+    <message>
+        <location filename="../../src/optimussettings.cpp" line="78"/>
         <source>Unable to open startup mode file</source>
         <translation>Не удается открыть файл режима запуска</translation>
     </message>
     <message>
-        <location filename="../../src/optimussettings.cpp" line="74"/>
+        <location filename="../../src/optimussettings.cpp" line="93"/>
         <source>Unknown mode in startup file</source>
         <translation>Неизвестный режим в файле запуска</translation>
     </message>
@@ -143,6 +155,10 @@
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="280"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Specify which GPU will be used by default when the system boots&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Указать какой GPU будет использоваться по умолчанию при загрузке системы&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
         <location filename="../../src/settingsdialog.ui" line="338"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Module used for power switching&lt;/p&gt;&lt;p&gt;If you select &amp;quot;None&amp;quot;, no power switching will be done at all (the Nvidia GPU will stay powered at all times)&lt;/p&gt;&lt;p&gt;If you use bbswitch, you will not be able to use video outputs attached to your Nvidia GPU in Intel mode&lt;/p&gt;&lt;p&gt;To use the bbswitch mode, the bbswitch module must be installed for your current kernel&lt;/p&gt;&lt;p&gt;You can install it for the default kernel with &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Модуль, который используется для переключения питания&lt;/p&gt;&lt;p&gt;Если вы выберете &amp;quot;Отсутствует&amp;quot;, питание переключаться не будет (Nvidia GPU будет работать постоянно)&lt;/p&gt;&lt;p&gt;Если вы используете bbswitch, то не сможете использовать видеовыходы, подключенные к графическому процессору Nvidia в режиме Intel&lt;/p&gt;&lt;p&gt;Чтобы использовать режим bbswitch, модуль bbswitch должен быть установлен для вашего текущего ядра&lt;/p&gt;&lt;p&gt;Вы можете установить его для ядра по умолчанию с помощью &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -190,7 +206,7 @@
     <message>
         <location filename="../../src/settingsdialog.ui" line="283"/>
         <source>Startup mode:</source>
-        <translation>Режим запуска:</translation>
+        <translation>Режим при загрузке:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="349"/>
@@ -338,12 +354,12 @@
         <translation>Лицензия:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="216"/>
+        <location filename="../../src/settingsdialog.cpp" line="219"/>
         <source>Select icon</source>
         <translation>Выбрать иконку</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="217"/>
+        <location filename="../../src/settingsdialog.cpp" line="220"/>
         <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
         <translation>Изображения (*.png *.jpg *.bmp);;Все файлы(*)</translation>
     </message>

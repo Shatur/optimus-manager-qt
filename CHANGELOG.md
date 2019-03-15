@@ -8,7 +8,8 @@ All notable changes to this project will be documented in this file. This projec
 
 **Changed**
 
--   Add 'terminate_sessions', 'kill_x11' and 'kill_logind' to settings
+-   Add 'terminate_sessions', 'kill_x11' and 'kill_logind' to settings.
+-   Add the ability to set startup mode in settings.
 
 ## 1.0.0 (2018-11-17)
 

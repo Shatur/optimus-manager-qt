@@ -35,14 +35,16 @@ SOURCES += \
     src/optimusmanager.cpp \
     src/settingsdialog.cpp \
     src/optimussettings.cpp \
-    src/appsettings.cpp
+    src/appsettings.cpp \
+    src/daemonclient.cpp
 
 
 HEADERS += \
     src/optimusmanager.h \
     src/settingsdialog.h \
     src/optimussettings.h \
-    src/appsettings.h
+    src/appsettings.h \
+    src/daemonclient.h
 
 FORMS += \
     src/settingsdialog.ui

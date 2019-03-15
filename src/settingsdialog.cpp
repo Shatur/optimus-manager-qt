@@ -89,6 +89,7 @@ void SettingsDialog::on_SettingsDialog_accepted()
 
     // Optimus settings
     OptimusSettings optimusSettings;
+    optimusSettings.setStartupMode(static_cast<OptimusSettings::StartupMode>(ui->startupModeComboBox->currentIndex()));
     optimusSettings.setSwitchingBackend(static_cast<OptimusSettings::SwitchingBackend>(ui->switchingBackendComboBox->currentIndex()));
     optimusSettings.setLoginManagerControl(ui->loginManagerControlCheckBox->isChecked());
     optimusSettings.setPciPowerControlEnabled(ui->pciPowerControlCheckBox->isChecked());
@@ -129,6 +130,7 @@ void SettingsDialog::restoreDefaults()
     ui->updatingIconEdit->setText(AppSettings::defaultTrayIconName(OptimusManager::Nvidia));
 
     // Optimus settings
+    ui->startupModeComboBox->setCurrentIndex(0);
     ui->switchingBackendComboBox->setCurrentIndex(0);
     ui->loginManagerControlCheckBox->setChecked(true);
     ui->pciPowerControlCheckBox->setChecked(true);
@@ -165,6 +167,7 @@ void SettingsDialog::loadSettings()
 
     // Optimus settings
     const OptimusSettings optimusSettings;
+    ui->startupModeComboBox->setCurrentIndex(optimusSettings.startupMode());
     ui->switchingBackendComboBox->setCurrentIndex(optimusSettings.switchingBackend());
     ui->loginManagerControlCheckBox->setChecked(optimusSettings.isLoginManagerControl());
     ui->pciPowerControlCheckBox->setChecked(optimusSettings.isPciPowerControlEnabled());

@@ -28,6 +28,8 @@ class QSettings;
 
 class OptimusSettings : private QObject
 {
+    Q_OBJECT
+
 public:
     enum SwitchingBackend {
         NoneBackend,
@@ -127,6 +129,7 @@ public:
     void setNvidiaOptions(NvidiaOptions options);
 
 private:
+    QString m_startupModeString;
     QSettings *m_settings;
 };
 

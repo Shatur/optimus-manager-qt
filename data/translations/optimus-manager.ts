@@ -54,18 +54,30 @@
 <context>
     <name>OptimusSettings</name>
     <message>
-        <location filename="../../src/optimussettings.cpp" line="59"/>
-        <location filename="../../src/optimussettings.cpp" line="74"/>
+        <location filename="../../src/optimussettings.cpp" line="63"/>
+        <location filename="../../src/optimussettings.cpp" line="69"/>
+        <location filename="../../src/optimussettings.cpp" line="78"/>
+        <location filename="../../src/optimussettings.cpp" line="93"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimussettings.cpp" line="59"/>
+        <location filename="../../src/optimussettings.cpp" line="63"/>
+        <source>Unable to connect to optimus manager daemon: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/optimussettings.cpp" line="69"/>
+        <source>Unable to send startup mode to optimus manager daemon: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/optimussettings.cpp" line="78"/>
         <source>Unable to open startup mode file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimussettings.cpp" line="74"/>
+        <location filename="../../src/optimussettings.cpp" line="93"/>
         <source>Unknown mode in startup file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -143,6 +155,10 @@
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="280"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Specify which GPU will be used by default when the system boots&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../src/settingsdialog.ui" line="338"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Module used for power switching&lt;/p&gt;&lt;p&gt;If you select &amp;quot;None&amp;quot;, no power switching will be done at all (the Nvidia GPU will stay powered at all times)&lt;/p&gt;&lt;p&gt;If you use bbswitch, you will not be able to use video outputs attached to your Nvidia GPU in Intel mode&lt;/p&gt;&lt;p&gt;To use the bbswitch mode, the bbswitch module must be installed for your current kernel&lt;/p&gt;&lt;p&gt;You can install it for the default kernel with &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
@@ -338,12 +354,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="216"/>
+        <location filename="../../src/settingsdialog.cpp" line="219"/>
         <source>Select icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="217"/>
+        <location filename="../../src/settingsdialog.cpp" line="220"/>
         <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
         <translation type="unfinished"></translation>
     </message>
