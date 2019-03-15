@@ -54,30 +54,22 @@
 <context>
     <name>OptimusSettings</name>
     <message>
-        <location filename="../../src/optimussettings.cpp" line="63"/>
-        <location filename="../../src/optimussettings.cpp" line="69"/>
-        <location filename="../../src/optimussettings.cpp" line="78"/>
-        <location filename="../../src/optimussettings.cpp" line="93"/>
-        <source>Warning</source>
-        <translation>Предупреждение</translation>
-    </message>
-    <message>
-        <location filename="../../src/optimussettings.cpp" line="63"/>
+        <location filename="../../src/optimussettings.cpp" line="64"/>
         <source>Unable to connect to optimus manager daemon: </source>
         <translation>Не удается подключиться к демону optimus manager: </translation>
     </message>
     <message>
-        <location filename="../../src/optimussettings.cpp" line="69"/>
+        <location filename="../../src/optimussettings.cpp" line="70"/>
         <source>Unable to send startup mode to optimus manager daemon: </source>
         <translation>Не удается отправить режим при загрузке демону optimus manager: </translation>
     </message>
     <message>
-        <location filename="../../src/optimussettings.cpp" line="78"/>
+        <location filename="../../src/optimussettings.cpp" line="79"/>
         <source>Unable to open startup mode file</source>
         <translation>Не удается открыть файл режима запуска</translation>
     </message>
     <message>
-        <location filename="../../src/optimussettings.cpp" line="93"/>
+        <location filename="../../src/optimussettings.cpp" line="94"/>
         <source>Unknown mode in startup file</source>
         <translation>Неизвестный режим в файле запуска</translation>
     </message>

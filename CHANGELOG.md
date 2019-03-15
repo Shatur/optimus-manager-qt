@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file. This projec
 
 -   Add 'terminate_sessions', 'kill_x11' and 'kill_logind' to settings.
 -   Add the ability to set startup mode in settings.
+-   Show application name in messages.
 
 ## 1.0.0 (2018-11-17)
 

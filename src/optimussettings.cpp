@@ -20,6 +20,7 @@
 
 #include "optimussettings.h"
 #include "daemonclient.h"
+#include "singleapplication.h"
 
 #include <QProcess>
 #include <QFile>
@@ -60,13 +61,13 @@ void OptimusSettings::apply()
     DaemonClient client;
     client.connect();
     if (client.error()) {
-        QMessageBox message(QMessageBox::Warning, tr("Warning"), tr("Unable to connect to optimus manager daemon: ") + client.errorString());
+        QMessageBox message(QMessageBox::Warning, SingleApplication::applicationName(), tr("Unable to connect to optimus manager daemon: ") + client.errorString());
         message.exec();
         return;
     }
 
     if (client.send(qPrintable(m_startupModeString)) == -1) {
-        QMessageBox message(QMessageBox::Warning, tr("Warning"), tr("Unable to send startup mode to optimus manager daemon: ") + client.errorString());
+        QMessageBox message(QMessageBox::Warning, SingleApplication::applicationName(), tr("Unable to send startup mode to optimus manager daemon: ") + client.errorString());
         message.exec();
     }
 }
@@ -75,7 +76,7 @@ OptimusSettings::StartupMode OptimusSettings::startupMode() const
 {
     QFile file("/var/lib/optimus-manager/startup_mode");
     if (!file.open(QIODevice::ReadOnly)) {
-        QMessageBox message(QMessageBox::Warning, tr("Warning"), tr("Unable to open startup mode file"));
+        QMessageBox message(QMessageBox::Warning, SingleApplication::applicationName(), tr("Unable to open startup mode file"));
         message.exec();
         return Intel;
     }
@@ -90,7 +91,7 @@ OptimusSettings::StartupMode OptimusSettings::startupMode() const
     if (modeString == "nvidia_once")
         return NvidiaOnce;
 
-    QMessageBox message(QMessageBox::Warning, tr("Warning"), tr("Unknown mode in startup file"));
+    QMessageBox message(QMessageBox::Warning, SingleApplication::applicationName(), tr("Unknown mode in startup file"));
     message.exec();
     return Intel;
 }
