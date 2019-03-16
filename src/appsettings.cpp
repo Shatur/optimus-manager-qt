@@ -99,16 +99,6 @@ QString AppSettings::modeIconName(OptimusManager::Mode mode) const
     qFatal("Unknown mode");
 }
 
-QIcon AppSettings::modeIcon(OptimusManager::Mode mode) const
-{
-    const QString iconName = modeIconName(mode);
-
-    if (QIcon::hasThemeIcon(iconName))
-        return QIcon::fromTheme(iconName);
-
-    return QIcon(iconName);
-}
-
 void AppSettings::setModeIconName(OptimusManager::Mode mode, const QString &name)
 {
     switch (mode) {

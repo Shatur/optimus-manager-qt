@@ -229,10 +229,8 @@ void SettingsDialog::chooseIcon(QLineEdit *iconPathEdit)
 
 void SettingsDialog::showIconPreview(QLabel *previewLabel, const QString &fileName)
 {
-    if (QIcon::hasThemeIcon(fileName))
-        previewLabel->setPixmap(QIcon::fromTheme(fileName).pixmap(24, 24));
-    else
-        previewLabel->setPixmap(QIcon(fileName).pixmap(24, 24));
+    const QIcon icon = OptimusManager::trayModeIcon(fileName);
+    previewLabel->setPixmap(icon.pixmap(24, 24));
 }
 
 void SettingsDialog::on_switchingBackendComboBox_currentIndexChanged(int index)

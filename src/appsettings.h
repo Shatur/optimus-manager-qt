@@ -48,7 +48,6 @@ public:
     void setConfirmSwitching(bool confirm);
 
     QString modeIconName(OptimusManager::Mode mode) const;
-    QIcon modeIcon(OptimusManager::Mode mode) const;
     void setModeIconName(OptimusManager::Mode mode, const QString &name);
     static constexpr const char *defaultTrayIconName(OptimusManager::Mode trayStatus);
 

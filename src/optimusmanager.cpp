@@ -47,8 +47,8 @@ OptimusManager::OptimusManager(QObject *parent) :
     m_contextMenu = new QMenu;
     m_contextMenu->addAction(QIcon::fromTheme("preferences-system"), SettingsDialog::tr("Settings"), this, &OptimusManager::openSettings);
     m_contextMenu->addSeparator();
-    m_contextMenu->addAction(settings.modeIcon(Intel), tr("Switch to Intel"), this, &OptimusManager::switchToIntel);
-    m_contextMenu->addAction(settings.modeIcon(Nvidia), tr("Switch to Nvidia"), this, &OptimusManager::switchToNvidia);
+    m_contextMenu->addAction(contextMenuModeIcon(settings.modeIconName(Intel)), tr("Switch to Intel"), this, &OptimusManager::switchToIntel);
+    m_contextMenu->addAction(contextMenuModeIcon(settings.modeIconName(Nvidia)), tr("Switch to Nvidia"), this, &OptimusManager::switchToNvidia);
     m_contextMenu->addSeparator();
     m_contextMenu->addAction(QIcon::fromTheme("application-exit"), tr("Exit"), SingleApplication::instance(), &SingleApplication::quit);
 
@@ -64,7 +64,7 @@ OptimusManager::OptimusManager(QObject *parent) :
     m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<Mode>().valueToKey(mode));
 #else
     m_trayIcon = new QSystemTrayIcon(this);
-    m_trayIcon->setIcon(settings.modeIcon(mode));
+    m_trayIcon->setIcon(trayModeIcon(settings.modeIconName(mode)));
     m_trayIcon->show();
 #endif
     m_trayIcon->setContextMenu(m_contextMenu);
@@ -75,6 +75,24 @@ OptimusManager::~OptimusManager()
 #ifndef KDE
     delete m_contextMenu;
 #endif
+}
+
+QIcon OptimusManager::contextMenuModeIcon(const QString &iconName)
+{
+    AppSettings settings;
+    if (QIcon::hasThemeIcon(iconName))
+        return QIcon::fromTheme(iconName);
+
+    return QIcon(iconName);
+}
+
+QIcon OptimusManager::trayModeIcon(const QString &iconName)
+{
+    const QIcon icon = contextMenuModeIcon(iconName);
+    if (icon.availableSizes().isEmpty())
+        return QIcon::fromTheme("dialog-error");
+
+    return icon;
 }
 
 void OptimusManager::switchToIntel()

@@ -6,11 +6,15 @@ All notable changes to this project will be documented in this file. This projec
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.0.0...HEAD)
 
+**Added**
+
+-   Implemented 'terminate_sessions', 'kill_x11' and 'kill_logind' options.
+-   The ability to set startup mode in settings.
+
 **Changed**
 
--   Add 'terminate_sessions', 'kill_x11' and 'kill_logind' to settings.
--   Add the ability to set startup mode in settings.
 -   Show application name in messages.
+-   Display an error icon if the mode icon is not found.
 
 ## 1.0.0 (2018-11-17)
 

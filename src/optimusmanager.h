@@ -44,6 +44,8 @@ public:
     OptimusManager(QObject *parent = nullptr);
     ~OptimusManager() override;
 
+    static QIcon contextMenuModeIcon(const QString &iconName);
+    static QIcon trayModeIcon(const QString &iconName);
 
 private slots:
     void switchToIntel();
