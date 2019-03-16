@@ -14,7 +14,7 @@ public:
     DaemonClient() = default;
 
     void connect();
-    ssize_t send(const char *message);
+    ssize_t send(const QString &message);
 
     bool error();
     QString errorString();

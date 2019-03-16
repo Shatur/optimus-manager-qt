@@ -13,9 +13,9 @@ void DaemonClient::connect()
         storeErrno();
 }
 
-ssize_t DaemonClient::send(const char *message)
+ssize_t DaemonClient::send(const QString &message)
 {
-    const ssize_t bytesSent = ::send(m_sockfd, message, strlen(message), 0);
+    const ssize_t bytesSent = ::send(m_sockfd, qPrintable(message), static_cast<size_t>(message.size()), 0);
     if (bytesSent == -1)
         storeErrno();
 
