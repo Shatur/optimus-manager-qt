@@ -87,21 +87,21 @@ void AppSettings::setConfirmSwitching(bool confirm)
     setValue("ConfirmSwitching", confirm);
 }
 
-QString AppSettings::modeIconName(OptimusManager::Mode mode) const
+QString AppSettings::gpuIconName(OptimusManager::GPU gpu) const
 {
-    switch (mode) {
+    switch (gpu) {
     case OptimusManager::Intel:
         return value("IntelIcon", defaultTrayIconName(OptimusManager::Intel)).toString();
     case OptimusManager::Nvidia:
         return value("NvidiaIcon", defaultTrayIconName(OptimusManager::Nvidia)).toString();
     }
 
-    qFatal("Unknown mode");
+    qFatal("Unknown GPU");
 }
 
-void AppSettings::setModeIconName(OptimusManager::Mode mode, const QString &name)
+void AppSettings::setGpuIconName(OptimusManager::GPU gpu, const QString &name)
 {
-    switch (mode) {
+    switch (gpu) {
     case OptimusManager::Intel:
         setValue("IntelIcon", name);
         break;

@@ -35,18 +35,18 @@ class OptimusManager : public QObject
     Q_OBJECT
 
 public:
-    enum Mode {
+    enum GPU {
         Intel,
         Nvidia,
     };
-    Q_ENUM(Mode)
+    Q_ENUM(GPU)
 
     OptimusManager(QObject *parent = nullptr);
     ~OptimusManager() override;
 
-    static QIcon contextMenuModeIcon(const QString &iconName);
-    static QIcon trayModeIcon(const QString &iconName);
-    static QString trayModeIconName(const QString &iconName);
+    static QIcon contextMenuGpuIcon(const QString &iconName);
+    static QIcon trayGpuIcon(const QString &iconName);
+    static QString trayGpuIconName(const QString &iconName);
 
 private slots:
     void switchToIntel();
@@ -55,10 +55,10 @@ private slots:
     void showAppRunningMessage();
 
 private:
-    void loadCurrentMode();
+    void detectGpu();
     void loadSettings();
     void retranslateUi();
-    void switchMode(Mode mode);
+    void switchGpu(GPU gpu);
 
     QMenu *m_contextMenu;
 #ifdef KDE
@@ -66,7 +66,7 @@ private:
 #else
     QSystemTrayIcon *m_trayIcon;
 #endif
-    Mode m_currentMode;
+    GPU m_currentGpu;
 };
 
 #endif // OPTIMUSMANAGER_H

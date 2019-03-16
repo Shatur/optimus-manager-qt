@@ -115,7 +115,7 @@ OptimusSettings::SwitchingBackend OptimusSettings::switchingBackend() const
 {
     const QString backend = m_settings->value("optimus/switching", "nouveau").toString();
 
-    // Parse mode
+    // Parse backend
     if (backend == "nouveau")
         return Nouveau;
     if (backend == "bbswitch")
@@ -227,7 +227,7 @@ OptimusSettings::Driver OptimusSettings::intelDriver() const
 {
     const QString driverString = m_settings->value("intel/driver", "modesetting").toString();
 
-    // Parse mode
+    // Parse driver
     if (driverString == "modesetting")
         return Modesetting;
     return IntelDriver;
@@ -252,7 +252,7 @@ OptimusSettings::AccelMethod OptimusSettings::intelAccelMethod() const
 {
     const QString accelMethodString = m_settings->value("intel/accel", "").toString();
 
-    // Parse mode
+    // Parse method
     if (accelMethodString == "sna")
         return SNA;
     if (accelMethodString == "xna")
@@ -281,7 +281,7 @@ OptimusSettings::TearFree OptimusSettings::intelTearFree() const
 {
     const QString tearFreeString = m_settings->value("intel/tearfree", "").toString();
 
-    // Parse mode
+    // Parse tearfree
     if (tearFreeString == "yes")
         return EnableTearFree;
     if (tearFreeString == "no")
@@ -382,7 +382,7 @@ OptimusSettings::NvidiaOptions OptimusSettings::nvidiaOptions() const
 {
     const QStringList optionsStrings = m_settings->value("nvidia/options", "overclocking").toStringList();
 
-    // Parse mode
+    // Parse options
     NvidiaOptions options;
     if (optionsStrings.contains("overclocking"))
         options |= Overclocking;

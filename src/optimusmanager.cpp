@@ -39,7 +39,7 @@
 OptimusManager::OptimusManager(QObject *parent) :
     QObject(parent)
 {
-    loadCurrentMode(); // Detect current GPU
+    detectGpu(); // Detect current GPU
 
     // Show a message that the application is already running
     connect(qobject_cast<SingleApplication*>(SingleApplication::instance()), &SingleApplication::instanceStarted, this, &OptimusManager::showAppRunningMessage);
@@ -59,7 +59,7 @@ OptimusManager::OptimusManager(QObject *parent) :
     m_trayIcon->setStandardActionsEnabled(false);
     m_trayIcon->setToolTipTitle(SingleApplication::applicationName());
     m_trayIcon->setCategory(KStatusNotifierItem::SystemServices);
-    m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<Mode>().valueToKey(m_currentMode));
+    m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<GPU>().valueToKey(m_currentGpu));
 #else
     m_trayIcon = new QSystemTrayIcon(this);
 #endif
@@ -79,7 +79,7 @@ OptimusManager::~OptimusManager()
 #endif
 }
 
-QIcon OptimusManager::contextMenuModeIcon(const QString &iconName)
+QIcon OptimusManager::contextMenuGpuIcon(const QString &iconName)
 {
     if (QIcon::hasThemeIcon(iconName))
         return QIcon::fromTheme(iconName);
@@ -87,16 +87,16 @@ QIcon OptimusManager::contextMenuModeIcon(const QString &iconName)
     return QIcon(iconName);
 }
 
-QIcon OptimusManager::trayModeIcon(const QString &iconName)
+QIcon OptimusManager::trayGpuIcon(const QString &iconName)
 {
-    const QIcon icon = contextMenuModeIcon(iconName);
+    const QIcon icon = contextMenuGpuIcon(iconName);
     if (icon.availableSizes().isEmpty())
         return QIcon::fromTheme(QStringLiteral("dialog-error"));
 
     return icon;
 }
 
-QString OptimusManager::trayModeIconName(const QString &iconName)
+QString OptimusManager::trayGpuIconName(const QString &iconName)
 {
     if (QIcon::hasThemeIcon(iconName) || QFile::exists(iconName))
         return iconName;
@@ -106,12 +106,12 @@ QString OptimusManager::trayModeIconName(const QString &iconName)
 
 void OptimusManager::switchToIntel()
 {
-    switchMode(Intel);
+    switchGpu(Intel);
 }
 
 void OptimusManager::switchToNvidia()
 {
-    switchMode(Nvidia);
+    switchGpu(Nvidia);
 }
 
 void OptimusManager::openSettings()
@@ -133,7 +133,7 @@ void OptimusManager::showAppRunningMessage()
     message->show();
 }
 
-void OptimusManager::loadCurrentMode()
+void OptimusManager::detectGpu()
 {
     if (!QFileInfo::exists("/usr/bin/glxinfo"))
         qFatal("Unable to find glxinfo, try to install extra/mesa-demos package");
@@ -146,38 +146,38 @@ void OptimusManager::loadCurrentMode()
 
     switch (process.exitCode()) {
     case 0:
-        m_currentMode = Nvidia;
+        m_currentGpu = Nvidia;
         break;
     case 1:
-        m_currentMode = Intel;
+        m_currentGpu = Intel;
         break;
     default:
-        qFatal("Unable to detect mode");
+        qFatal("Unable to detect GPU");
     }
 }
 
 void OptimusManager::loadSettings()
 {
     AppSettings settings;
-    const QString modeIconName = settings.modeIconName(m_currentMode);
+    const QString gpuIconName = settings.gpuIconName(m_currentGpu);
 
     // Context menu icons
-    m_contextMenu->actions().at(2)->setIcon(contextMenuModeIcon(settings.modeIconName(Intel)));
-    m_contextMenu->actions().at(3)->setIcon(contextMenuModeIcon(settings.modeIconName(Nvidia)));
+    m_contextMenu->actions().at(2)->setIcon(contextMenuGpuIcon(settings.gpuIconName(Intel)));
+    m_contextMenu->actions().at(3)->setIcon(contextMenuGpuIcon(settings.gpuIconName(Nvidia)));
 
     // Tray icon
 #ifdef KDE
-    m_trayIcon->setIconByName(trayModeIconName(modeIconName));
+    m_trayIcon->setIconByName(trayGpuIconName(gpuIconName));
     m_trayIcon->setToolTipIconByName(m_trayIcon->iconName());
 #else
-    m_trayIcon->setIcon(trayModeIcon(modeIconName));
+    m_trayIcon->setIcon(trayGpuIcon(gpuIconName));
 #endif
 }
 
 void OptimusManager::retranslateUi()
 {
 #ifdef KDE
-    m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<Mode>().valueToKey(m_currentMode));
+    m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<GPU>().valueToKey(m_currentGpu));
 #endif
     m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
     m_contextMenu->actions().at(2)->setText(tr("Switch to Intel"));
@@ -185,7 +185,7 @@ void OptimusManager::retranslateUi()
     m_contextMenu->actions().at(5)->setText(tr("Exit"));
 }
 
-void OptimusManager::switchMode(OptimusManager::Mode mode)
+void OptimusManager::switchGpu(OptimusManager::GPU gpu)
 {
     QMessageBox confirmMessage;
     confirmMessage.setStandardButtons(QMessageBox::Apply | QMessageBox::Cancel);
@@ -203,7 +203,7 @@ void OptimusManager::switchMode(OptimusManager::Mode mode)
 
     QProcess process;
     process.setProgram("optimus-manager");
-    switch (mode) {
+    switch (gpu) {
     case Intel:
         process.setArguments({"--switch", "intel", "--no-confirm"});
         break;

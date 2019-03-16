@@ -84,8 +84,8 @@ void SettingsDialog::on_SettingsDialog_accepted()
     // General settings
     settings.setAutostartEnabled(ui->autostartCheckBox->isChecked());
     settings.setConfirmSwitching(ui->confirmSwitchingCheckBox->isChecked());
-    settings.setModeIconName(OptimusManager::Intel, ui->noUpdatesIconEdit->text());
-    settings.setModeIconName(OptimusManager::Nvidia, ui->updatingIconEdit->text());
+    settings.setGpuIconName(OptimusManager::Intel, ui->noUpdatesIconEdit->text());
+    settings.setGpuIconName(OptimusManager::Nvidia, ui->updatingIconEdit->text());
 
     // Optimus settings
     OptimusSettings optimusSettings;
@@ -162,8 +162,8 @@ void SettingsDialog::loadSettings()
     ui->languageComboBox->setCurrentIndex(ui->languageComboBox->findData(settings.language()));
     ui->autostartCheckBox->setChecked(settings.isAutostartEnabled());
     ui->confirmSwitchingCheckBox->setChecked(settings.isConfirmSwitching());
-    ui->noUpdatesIconEdit->setText(settings.modeIconName(OptimusManager::Intel));
-    ui->updatingIconEdit->setText(settings.modeIconName(OptimusManager::Nvidia));
+    ui->noUpdatesIconEdit->setText(settings.gpuIconName(OptimusManager::Intel));
+    ui->updatingIconEdit->setText(settings.gpuIconName(OptimusManager::Nvidia));
 
     // Optimus settings
     const OptimusSettings optimusSettings;
@@ -229,7 +229,7 @@ void SettingsDialog::chooseIcon(QLineEdit *iconPathEdit)
 
 void SettingsDialog::showIconPreview(QLabel *previewLabel, const QString &fileName)
 {
-    const QIcon icon = OptimusManager::trayModeIcon(fileName);
+    const QIcon icon = OptimusManager::trayGpuIcon(fileName);
     previewLabel->setPixmap(icon.pixmap(24, 24));
 }
 

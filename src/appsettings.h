@@ -47,16 +47,16 @@ public:
     bool isConfirmSwitching() const;
     void setConfirmSwitching(bool confirm);
 
-    QString modeIconName(OptimusManager::Mode mode) const;
-    void setModeIconName(OptimusManager::Mode mode, const QString &name);
-    static constexpr const char *defaultTrayIconName(OptimusManager::Mode trayStatus);
+    QString gpuIconName(OptimusManager::GPU gpu) const;
+    void setGpuIconName(OptimusManager::GPU gpu, const QString &name);
+    static constexpr const char *defaultTrayIconName(OptimusManager::GPU trayStatus);
 
 private:
     void applyLocale(QLocale::Language lang);
     static QTranslator m_appTranslator;
 };
 
-constexpr const char *AppSettings::defaultTrayIconName(OptimusManager::Mode trayStatus)
+constexpr const char *AppSettings::defaultTrayIconName(OptimusManager::GPU trayStatus)
 {
     switch (trayStatus) {
     case OptimusManager::Intel:
