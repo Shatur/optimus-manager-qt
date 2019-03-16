@@ -46,6 +46,7 @@ public:
 
     static QIcon contextMenuModeIcon(const QString &iconName);
     static QIcon trayModeIcon(const QString &iconName);
+    static QString trayModeIconName(const QString &iconName);
 
 private slots:
     void switchToIntel();
@@ -54,11 +55,10 @@ private slots:
     void showAppRunningMessage();
 
 private:
-    void switchMode(Mode mode);
-    void retranslateUi();
-    void loadSettings();
-
     void loadCurrentMode();
+    void loadSettings();
+    void retranslateUi();
+    void switchMode(Mode mode);
 
     QMenu *m_contextMenu;
 #ifdef KDE

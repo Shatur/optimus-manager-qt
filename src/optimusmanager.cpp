@@ -81,7 +81,6 @@ OptimusManager::~OptimusManager()
 
 QIcon OptimusManager::contextMenuModeIcon(const QString &iconName)
 {
-    AppSettings settings;
     if (QIcon::hasThemeIcon(iconName))
         return QIcon::fromTheme(iconName);
 
@@ -92,9 +91,17 @@ QIcon OptimusManager::trayModeIcon(const QString &iconName)
 {
     const QIcon icon = contextMenuModeIcon(iconName);
     if (icon.availableSizes().isEmpty())
-        return QIcon::fromTheme("dialog-error");
+        return QIcon::fromTheme(QStringLiteral("dialog-error"));
 
     return icon;
+}
+
+QString OptimusManager::trayModeIconName(const QString &iconName)
+{
+    if (QIcon::hasThemeIcon(iconName) || QFile::exists(iconName))
+        return iconName;
+
+    return QStringLiteral("dialog-error");
 }
 
 void OptimusManager::switchToIntel()
@@ -126,6 +133,58 @@ void OptimusManager::showAppRunningMessage()
     message->show();
 }
 
+void OptimusManager::loadCurrentMode()
+{
+    if (!QFileInfo::exists("/usr/bin/glxinfo"))
+        qFatal("Unable to find glxinfo, try to install extra/mesa-demos package");
+
+    QProcess process;
+    process.setProgram("bash");
+    process.setArguments({"-c", "glxinfo | grep NVIDIA"});
+    process.start();
+    process.waitForFinished();
+
+    switch (process.exitCode()) {
+    case 0:
+        m_currentMode = Nvidia;
+        break;
+    case 1:
+        m_currentMode = Intel;
+        break;
+    default:
+        qFatal("Unable to detect mode");
+    }
+}
+
+void OptimusManager::loadSettings()
+{
+    AppSettings settings;
+    const QString modeIconName = settings.modeIconName(m_currentMode);
+
+    // Context menu icons
+    m_contextMenu->actions().at(2)->setIcon(contextMenuModeIcon(settings.modeIconName(Intel)));
+    m_contextMenu->actions().at(3)->setIcon(contextMenuModeIcon(settings.modeIconName(Nvidia)));
+
+    // Tray icon
+#ifdef KDE
+    m_trayIcon->setIconByName(trayModeIconName(modeIconName));
+    m_trayIcon->setToolTipIconByName(m_trayIcon->iconName());
+#else
+    m_trayIcon->setIcon(trayModeIcon(modeIconName));
+#endif
+}
+
+void OptimusManager::retranslateUi()
+{
+#ifdef KDE
+    m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<Mode>().valueToKey(m_currentMode));
+#endif
+    m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
+    m_contextMenu->actions().at(2)->setText(tr("Switch to Intel"));
+    m_contextMenu->actions().at(3)->setText(tr("Switch to Nvidia"));
+    m_contextMenu->actions().at(5)->setText(tr("Exit"));
+}
+
 void OptimusManager::switchMode(OptimusManager::Mode mode)
 {
     QMessageBox confirmMessage;
@@ -155,56 +214,4 @@ void OptimusManager::switchMode(OptimusManager::Mode mode)
 
     process.start();
     process.waitForFinished();
-}
-
-void OptimusManager::retranslateUi()
-{
-#ifdef KDE
-    m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<Mode>().valueToKey(m_currentMode));
-#endif
-    m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
-    m_contextMenu->actions().at(2)->setText(tr("Switch to Intel"));
-    m_contextMenu->actions().at(3)->setText(tr("Switch to Nvidia"));
-    m_contextMenu->actions().at(5)->setText(tr("Exit"));
-}
-
-void OptimusManager::loadSettings()
-{
-    AppSettings settings;
-    const QString modeIconName = settings.modeIconName(m_currentMode);
-
-    // Context menu icons
-    m_contextMenu->actions().at(2)->setIcon(contextMenuModeIcon(settings.modeIconName(Intel)));
-    m_contextMenu->actions().at(3)->setIcon(contextMenuModeIcon(settings.modeIconName(Nvidia)));
-
-    // Tray icon
-#ifdef KDE
-    m_trayIcon->setIconByName(modeIconName);
-    m_trayIcon->setToolTipIconByName(m_trayIcon->iconName());
-#else
-    m_trayIcon->setIcon(trayModeIcon(modeIconName));
-#endif
-}
-
-void OptimusManager::loadCurrentMode()
-{
-    if (!QFileInfo::exists("/usr/bin/glxinfo"))
-        qFatal("Unable to find glxinfo, try to install extra/mesa-demos package");
-
-    QProcess process;
-    process.setProgram("bash");
-    process.setArguments({"-c", "glxinfo | grep NVIDIA"});
-    process.start();
-    process.waitForFinished();
-
-    switch (process.exitCode()) {
-    case 0:
-        m_currentMode = Nvidia;
-        break;
-    case 1:
-        m_currentMode = Intel;
-        break;
-    default:
-        qFatal("Unable to detect mode");
-    }
 }
