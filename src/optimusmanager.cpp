@@ -39,35 +39,37 @@
 OptimusManager::OptimusManager(QObject *parent) :
     QObject(parent)
 {
+    loadCurrentMode(); // Detect current GPU
+
     // Show a message that the application is already running
     connect(qobject_cast<SingleApplication*>(SingleApplication::instance()), &SingleApplication::instanceStarted, this, &OptimusManager::showAppRunningMessage);
 
     // Setup context menu
-    const AppSettings settings;
     m_contextMenu = new QMenu;
     m_contextMenu->addAction(QIcon::fromTheme("preferences-system"), SettingsDialog::tr("Settings"), this, &OptimusManager::openSettings);
     m_contextMenu->addSeparator();
-    m_contextMenu->addAction(contextMenuModeIcon(settings.modeIconName(Intel)), tr("Switch to Intel"), this, &OptimusManager::switchToIntel);
-    m_contextMenu->addAction(contextMenuModeIcon(settings.modeIconName(Nvidia)), tr("Switch to Nvidia"), this, &OptimusManager::switchToNvidia);
+    m_contextMenu->addAction(tr("Switch to Intel"), this, &OptimusManager::switchToIntel);
+    m_contextMenu->addAction(tr("Switch to Nvidia"), this, &OptimusManager::switchToNvidia);
     m_contextMenu->addSeparator();
     m_contextMenu->addAction(QIcon::fromTheme("application-exit"), tr("Exit"), SingleApplication::instance(), &SingleApplication::quit);
 
     // Setup tray
-    const Mode mode = currentMode();
 #ifdef KDE
     m_trayIcon = new KStatusNotifierItem(this);
     m_trayIcon->setStandardActionsEnabled(false);
     m_trayIcon->setToolTipTitle(SingleApplication::applicationName());
     m_trayIcon->setCategory(KStatusNotifierItem::SystemServices);
-    m_trayIcon->setIconByName(settings.modeIconName(mode));
-    m_trayIcon->setToolTipIconByName(m_trayIcon->iconName());
-    m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<Mode>().valueToKey(mode));
+    m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<Mode>().valueToKey(m_currentMode));
 #else
     m_trayIcon = new QSystemTrayIcon(this);
-    m_trayIcon->setIcon(trayModeIcon(settings.modeIconName(mode)));
-    m_trayIcon->show();
 #endif
     m_trayIcon->setContextMenu(m_contextMenu);
+
+    loadSettings();
+
+#ifndef KDE
+    m_trayIcon->show();
+#endif
 }
 
 OptimusManager::~OptimusManager()
@@ -108,9 +110,13 @@ void OptimusManager::switchToNvidia()
 void OptimusManager::openSettings()
 {
     SettingsDialog dialog;
-    dialog.exec();
+    if (!dialog.exec())
+        return;
+
     if (dialog.languageChanged())
         retranslateUi();
+
+    loadSettings();
 }
 
 void OptimusManager::showAppRunningMessage()
@@ -154,7 +160,7 @@ void OptimusManager::switchMode(OptimusManager::Mode mode)
 void OptimusManager::retranslateUi()
 {
 #ifdef KDE
-    m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<Mode>().valueToKey(currentMode()));
+    m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<Mode>().valueToKey(m_currentMode));
 #endif
     m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
     m_contextMenu->actions().at(2)->setText(tr("Switch to Intel"));
@@ -162,7 +168,25 @@ void OptimusManager::retranslateUi()
     m_contextMenu->actions().at(5)->setText(tr("Exit"));
 }
 
-OptimusManager::Mode OptimusManager::currentMode()
+void OptimusManager::loadSettings()
+{
+    AppSettings settings;
+    const QString modeIconName = settings.modeIconName(m_currentMode);
+
+    // Context menu icons
+    m_contextMenu->actions().at(2)->setIcon(contextMenuModeIcon(settings.modeIconName(Intel)));
+    m_contextMenu->actions().at(3)->setIcon(contextMenuModeIcon(settings.modeIconName(Nvidia)));
+
+    // Tray icon
+#ifdef KDE
+    m_trayIcon->setIconByName(modeIconName);
+    m_trayIcon->setToolTipIconByName(m_trayIcon->iconName());
+#else
+    m_trayIcon->setIcon(trayModeIcon(modeIconName));
+#endif
+}
+
+void OptimusManager::loadCurrentMode()
 {
     if (!QFileInfo::exists("/usr/bin/glxinfo"))
         qFatal("Unable to find glxinfo, try to install extra/mesa-demos package");
@@ -175,9 +199,11 @@ OptimusManager::Mode OptimusManager::currentMode()
 
     switch (process.exitCode()) {
     case 0:
-        return Nvidia;
+        m_currentMode = Nvidia;
+        break;
     case 1:
-        return Intel;
+        m_currentMode = Intel;
+        break;
     default:
         qFatal("Unable to detect mode");
     }

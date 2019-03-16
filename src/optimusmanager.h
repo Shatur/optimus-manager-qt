@@ -56,8 +56,9 @@ private slots:
 private:
     void switchMode(Mode mode);
     void retranslateUi();
+    void loadSettings();
 
-    static Mode currentMode();
+    void loadCurrentMode();
 
     QMenu *m_contextMenu;
 #ifdef KDE
@@ -65,6 +66,7 @@ private:
 #else
     QSystemTrayIcon *m_trayIcon;
 #endif
+    Mode m_currentMode;
 };
 
 #endif // OPTIMUSMANAGER_H

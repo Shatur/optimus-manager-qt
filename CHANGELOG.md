@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file. This projec
 
 -   Show application name in messages.
 -   Display an error icon if the mode icon is not found.
+-   Fix applying the tray icon after changing settings.
 
 ## 1.0.0 (2018-11-17)
 
