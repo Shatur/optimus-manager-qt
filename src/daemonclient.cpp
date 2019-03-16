@@ -1,6 +1,9 @@
 #include "daemonclient.h"
 
-constexpr sockaddr_un m_saddr = { AF_UNIX, "/tmp/optimus-manager" };
+#include <sys/socket.h>
+#include <sys/un.h>
+
+constexpr sockaddr_un m_saddr = {AF_UNIX, "/tmp/optimus-manager"};
 constexpr socklen_t m_addrlen = sizeof(m_saddr);
 
 void DaemonClient::connect()

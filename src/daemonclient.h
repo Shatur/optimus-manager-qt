@@ -4,10 +4,6 @@
 #include <QString>
 #include <QObject>
 
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <sys/un.h>
-
 class DaemonClient : public QObject
 {
 public:
