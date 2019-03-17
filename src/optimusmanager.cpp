@@ -223,7 +223,6 @@ void OptimusManager::switchGpu(OptimusManager::GPU gpu)
             QMessageBox moduleMessage;
             moduleMessage.setIcon(QMessageBox::Critical);
             moduleMessage.setWindowTitle(SingleApplication::applicationName());
-            moduleMessage.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
             moduleMessage.setText(tr("bbswitch is enabled in the configuration file but the bbswitch module does"
                                   " not seem to be available for the current kernel. Power switching will not work.\n"
                                   "You can install bbswitch for the default kernel with \"sudo pacman -S bbswitch\" or"
@@ -236,12 +235,12 @@ void OptimusManager::switchGpu(OptimusManager::GPU gpu)
             QMessageBox moduleMessage;
             moduleMessage.setIcon(QMessageBox::Question);
             moduleMessage.setWindowTitle(SingleApplication::applicationName());
-            moduleMessage.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+            moduleMessage.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
             moduleMessage.setText(tr("The nvidia module does not seem to be available for the current kernel."
                                      " It is likely the Nvidia driver was not properly installed. GPU switching will probably fail,"
                                      " continue anyway?"));
             moduleMessage.exec();
-            if (moduleMessage.result() != QMessageBox::Ok)
+            if (moduleMessage.result() != QMessageBox::Yes)
                 return;
         }
         break;
