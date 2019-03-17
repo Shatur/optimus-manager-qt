@@ -50,15 +50,6 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->languageComboBox->setItemData(2, QLocale::Russian);
 
     loadSettings();
-
-    // Check if bbswitch installed
-    if (!QFileInfo::exists("/usr/lib/modules/extramodules-ARCH/bbswitch.ko.xz")) {
-        auto model = dynamic_cast<QStandardItemModel *>(ui->switchingBackendComboBox->model());
-        model->item(OptimusSettings::Bbswitch)->setEnabled(false);
-
-        if (ui->switchingBackendComboBox->currentIndex() == OptimusSettings::Bbswitch)
-            ui->switchingBackendComboBox->setCurrentIndex(OptimusSettings::NoneBackend);
-    }
 }
 
 SettingsDialog::~SettingsDialog()

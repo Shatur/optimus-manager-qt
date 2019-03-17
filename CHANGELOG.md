@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file. This projec
 -   Display an error icon if the mode icon is not found.
 -   Fix applying the tray icon after changing settings.
 -   Use optimus-manager daemon directly to switch GPU.
+-   Remove checking bbswitch module in settings.
 
 ## 1.0.0 (2018-11-17)
 
