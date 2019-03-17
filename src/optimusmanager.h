@@ -59,6 +59,7 @@ private:
     void loadSettings();
     void retranslateUi();
     void switchGpu(GPU gpu);
+    bool isModuleAvailable(const QString &moduleName);
 
     QMenu *m_contextMenu;
 #ifdef KDE

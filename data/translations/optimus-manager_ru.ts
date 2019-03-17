@@ -12,56 +12,83 @@
 <context>
     <name>OptimusManager</name>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="50"/>
-        <location filename="../../src/optimusmanager.cpp" line="142"/>
+        <location filename="../../src/optimusmanager.cpp" line="52"/>
+        <location filename="../../src/optimusmanager.cpp" line="184"/>
         <source>Switch to Intel</source>
         <translation>Переключить на Intel</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="51"/>
-        <location filename="../../src/optimusmanager.cpp" line="143"/>
+        <location filename="../../src/optimusmanager.cpp" line="53"/>
+        <location filename="../../src/optimusmanager.cpp" line="185"/>
         <source>Switch to Nvidia</source>
         <translation>Переключить на Nvidia</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="53"/>
-        <location filename="../../src/optimusmanager.cpp" line="144"/>
+        <location filename="../../src/optimusmanager.cpp" line="55"/>
+        <location filename="../../src/optimusmanager.cpp" line="186"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="64"/>
-        <location filename="../../src/optimusmanager.cpp" line="139"/>
+        <location filename="../../src/optimusmanager.cpp" line="63"/>
+        <location filename="../../src/optimusmanager.cpp" line="181"/>
         <source>Current videocard: </source>
         <translation>Текущая видеокарта: </translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="100"/>
+        <location filename="../../src/optimusmanager.cpp" line="132"/>
         <source>The application is already running</source>
         <translation>Приложение уже запущено</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="113"/>
+        <location filename="../../src/optimusmanager.cpp" line="199"/>
         <source>You are about to switch GPUs. This will restart the display manager and all your applications will be closed.</source>
         <translation>Вы собираетесь переключить графические процессоры. Это перезапустит менеджер входа, и все ваши приложения будут закрыты.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="115"/>
+        <location filename="../../src/optimusmanager.cpp" line="201"/>
         <source>You are about to switch GPUs. After applying the settings, you will need to manually restart the login manager to change the video card.</source>
         <translation>После применения настроек нужно будет вручную перезапустить менеджер входа для смены видеокарты.</translation>
+    </message>
+    <message>
+        <location filename="../../src/optimusmanager.cpp" line="212"/>
+        <source>The optimus-manager service is not running. Please enable and start it with:</source>
+        <translation>Сервис optimus-manager не запущен. Пожалуйста, включите и запустите его с:</translation>
+    </message>
+    <message>
+        <location filename="../../src/optimusmanager.cpp" line="227"/>
+        <source>bbswitch is enabled in the configuration file but the bbswitch module does not seem to be available for the current kernel. Power switching will not work.
+You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswitch&quot; or for all kernels with &quot;sudo pacman -S bbswitch-dkms&quot;.</source>
+        <translation>bbswitch включен в файле конфигурации, но модуль bbswitch, по-видимому, недоступен для текущего ядра. Переключение питания не будет работать.
+Вы можете установить bbswitch для ядра по умолчанию с помощью &quot;sudo pacman -S bbswitch&quot; или для всех ядер с помощью &quot;sudo pacman -S bbswitch-dkms&quot;.</translation>
+    </message>
+    <message>
+        <location filename="../../src/optimusmanager.cpp" line="240"/>
+        <source>The nvidia module does not seem to be available for the current kernel. It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?</source>
+        <translation>Модуль nvidia не доступен для текущего ядра. Вероятно, драйвер Nvidia не был правильно установлен. Переключение GPU, скорее всего, не удастся, все равно продолжить?</translation>
+    </message>
+    <message>
+        <location filename="../../src/optimusmanager.cpp" line="258"/>
+        <source>Unable to connect to optimus-manager daemon to switch GPU: </source>
+        <translation>Не удается подключиться к демону optimus-manager для переключения GPU: </translation>
+    </message>
+    <message>
+        <location filename="../../src/optimusmanager.cpp" line="278"/>
+        <source>Unable to send GPU to switch to optimus-manager daemon: </source>
+        <translation>Не удается отправить GPU для переключения на демон optimus-manager: </translation>
     </message>
 </context>
 <context>
     <name>OptimusSettings</name>
     <message>
         <location filename="../../src/optimussettings.cpp" line="64"/>
-        <source>Unable to connect to optimus manager daemon: </source>
-        <translation>Не удается подключиться к демону optimus manager: </translation>
+        <source>Unable to connect to optimus-manager daemon to send startup mode: </source>
+        <translation>Не удается подключиться к демону optimus-manager для отправки режима запуска: </translation>
     </message>
     <message>
         <location filename="../../src/optimussettings.cpp" line="70"/>
-        <source>Unable to send startup mode to optimus manager daemon: </source>
-        <translation>Не удается отправить режим при загрузке демону optimus manager: </translation>
+        <source>Unable to send startup mode to optimus-manager daemon: </source>
+        <translation>Не удается отправить режим запуска демону optimus-manager: </translation>
     </message>
     <message>
         <location filename="../../src/optimussettings.cpp" line="79"/>
@@ -78,8 +105,8 @@
     <name>SettingsDialog</name>
     <message>
         <location filename="../../src/settingsdialog.ui" line="14"/>
-        <location filename="../../src/optimusmanager.cpp" line="48"/>
-        <location filename="../../src/optimusmanager.cpp" line="141"/>
+        <location filename="../../src/optimusmanager.cpp" line="50"/>
+        <location filename="../../src/optimusmanager.cpp" line="183"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>

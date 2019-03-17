@@ -61,13 +61,13 @@ void OptimusSettings::apply()
     DaemonClient client;
     client.connect();
     if (client.error()) {
-        QMessageBox message(QMessageBox::Warning, SingleApplication::applicationName(), tr("Unable to connect to optimus manager daemon: ") + client.errorString());
+        QMessageBox message(QMessageBox::Warning, SingleApplication::applicationName(), tr("Unable to connect to optimus-manager daemon to send startup mode: ") + client.errorString());
         message.exec();
         return;
     }
 
     if (client.send(m_startupModeString) == -1) {
-        QMessageBox message(QMessageBox::Warning, SingleApplication::applicationName(), tr("Unable to send startup mode to optimus manager daemon: ") + client.errorString());
+        QMessageBox message(QMessageBox::Warning, SingleApplication::applicationName(), tr("Unable to send startup mode to optimus-manager daemon: ") + client.errorString());
         message.exec();
     }
 }

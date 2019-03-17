@@ -9,6 +9,7 @@ class DaemonClient : public QObject
 public:
     DaemonClient() = default;
 
+    bool isDaemonActive();
     void connect();
     ssize_t send(const QString &message);
 

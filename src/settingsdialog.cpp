@@ -37,7 +37,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->logoLabel->setPixmap(QIcon::fromTheme("nvidia").pixmap(512, 512));
     ui->versionGuiLabel->setText(SingleApplication::applicationVersion());
 
-    // Parse optimus manager version
+    // Parse Optimus Manager version
     QFile optimusManagerBin("/usr/bin/optimus-manager");
     optimusManagerBin.open(QIODevice::ReadOnly);
     QByteArray data = optimusManagerBin.readAll();

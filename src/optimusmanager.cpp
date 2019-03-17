@@ -23,6 +23,7 @@
 #include "optimussettings.h"
 #include "settingsdialog.h"
 #include "singleapplication.h"
+#include "daemonclient.h"
 
 #include <QProcess>
 #include <QFileInfo>
@@ -187,31 +188,105 @@ void OptimusManager::retranslateUi()
 
 void OptimusManager::switchGpu(OptimusManager::GPU gpu)
 {
+    const OptimusSettings settings;
+
+    // Confirm message
     QMessageBox confirmMessage;
     confirmMessage.setStandardButtons(QMessageBox::Apply | QMessageBox::Cancel);
     confirmMessage.setIcon(QMessageBox::Question);
-
-    const OptimusSettings settings;
+    confirmMessage.setWindowTitle(SingleApplication::applicationName());
     if (settings.isLoginManagerControl())
         confirmMessage.setText(tr("You are about to switch GPUs. This will restart the display manager and all your applications will be closed."));
     else
         confirmMessage.setText(tr("You are about to switch GPUs. After applying the settings, you will need to manually restart the login manager to change the video card."));
-
     confirmMessage.exec();
     if (confirmMessage.result() != QMessageBox::Apply)
         return;
 
-    QProcess process;
-    process.setProgram("optimus-manager");
-    switch (gpu) {
-    case Intel:
-        process.setArguments({"--switch", "intel", "--no-confirm"});
+    // Check if daemon is acrive
+    DaemonClient client;
+    if (!client.isDaemonActive()) {
+        QMessageBox daemonMessage;
+        daemonMessage.setIcon(QMessageBox::Critical);
+        daemonMessage.setWindowTitle(SingleApplication::applicationName());
+        daemonMessage.setText(tr("The optimus-manager service is not running. Please enable and start it with:") +
+                              "\nsudo systemctl enable optimus-manager"
+                              "\nsudo systemctl start optimus-manager");
+        daemonMessage.exec();
+        return;
+    }
+
+    // Check configuration
+    switch (settings.switchingBackend()) {
+    case OptimusSettings::Bbswitch:
+        if (!isModuleAvailable("bbswitch")) {
+            QMessageBox moduleMessage;
+            moduleMessage.setIcon(QMessageBox::Critical);
+            moduleMessage.setWindowTitle(SingleApplication::applicationName());
+            moduleMessage.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+            moduleMessage.setText(tr("bbswitch is enabled in the configuration file but the bbswitch module does"
+                                  " not seem to be available for the current kernel. Power switching will not work.\n"
+                                  "You can install bbswitch for the default kernel with \"sudo pacman -S bbswitch\" or"
+                                  " for all kernels with \"sudo pacman -S bbswitch-dkms\"."));
+            moduleMessage.exec();
+        }
         break;
-    case Nvidia:
-        process.setArguments({"--switch", "nvidia", "--no-confirm"});
+    case OptimusSettings::Nouveau:
+        if (!isModuleAvailable("nouveau")) {
+            QMessageBox moduleMessage;
+            moduleMessage.setIcon(QMessageBox::Question);
+            moduleMessage.setWindowTitle(SingleApplication::applicationName());
+            moduleMessage.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+            moduleMessage.setText(tr("The nvidia module does not seem to be available for the current kernel."
+                                     " It is likely the Nvidia driver was not properly installed. GPU switching will probably fail,"
+                                     " continue anyway?"));
+            moduleMessage.exec();
+            if (moduleMessage.result() != QMessageBox::Ok)
+                return;
+        }
+        break;
+    default:
         break;
     }
 
+    // Connect to optimus-manager daemon
+    client.connect();
+    if (client.error()) {
+        QMessageBox connectMessage;
+        connectMessage.setIcon(QMessageBox::Critical);
+        connectMessage.setWindowTitle(SingleApplication::applicationName());
+        connectMessage.setText(tr("Unable to connect to optimus-manager daemon to switch GPU: ") + client.errorString());
+        connectMessage.exec();
+        return;
+    }
+
+    // Send GPU string to optimus-manager daemon
+    QString gpuString;
+    switch (gpu) {
+    case Intel:
+        gpuString = "intel";
+        break;
+    case Nvidia:
+        gpuString = "nvidia";
+        break;
+    }
+
+    if (client.send(gpuString) == -1) {
+        QMessageBox sendMessage;
+        sendMessage.setIcon(QMessageBox::Critical);
+        sendMessage.setWindowTitle(SingleApplication::applicationName());
+        sendMessage.setText(tr("Unable to send GPU to switch to optimus-manager daemon: ") + client.errorString());
+        sendMessage.exec();
+    }
+}
+
+bool OptimusManager::isModuleAvailable(const QString &moduleName)
+{
+    QProcess process;
+    process.setProgram("modinfo");
+    process.setArguments({moduleName});
     process.start();
     process.waitForFinished();
+
+    return process.exitCode() == 0;
 }
