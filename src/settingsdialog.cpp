@@ -102,11 +102,11 @@ void SettingsDialog::on_SettingsDialog_accepted()
     optimusSettings.setIntelDriver(static_cast<OptimusSettings::Driver>(ui->intelDriverComboBox->currentIndex()));
     optimusSettings.setIntelAccelMethod(static_cast<OptimusSettings::AccelMethod>(ui->intelAccelMethodComboBox->currentIndex()));
     optimusSettings.setIntelTearFree(static_cast<OptimusSettings::TearFree>(ui->intelTearFreeComboBox->currentIndex()));
-    optimusSettings.setIntelDri(static_cast<OptimusSettings::DRI>(ui->intelDriComboBox->currentIndex() + 2));
+    optimusSettings.setIntelDri(static_cast<OptimusSettings::DRI>(ui->intelDriComboBox->currentText().toInt()));
     optimusSettings.setIntelModesetEnabled(ui->intelModesetCheckBox->isChecked());
 
     // Nvidia settings
-    optimusSettings.setNvidiaDri(static_cast<OptimusSettings::DRI>(ui->nvidiaDriComboBox->currentIndex() + 2));
+    optimusSettings.setNvidiaDri(static_cast<OptimusSettings::DRI>(ui->nvidiaDriComboBox->currentText().toInt()));
     optimusSettings.setNvidiaDpi(ui->nvidiaDpiSpinBox->value());
     optimusSettings.setNvidiaModesetEnabled(ui->nvidiaModesetCheckBox->isChecked());
     optimusSettings.setNvidiaPatEnabled(ui->nvidiaPatCheckBox->isChecked());
@@ -177,14 +177,14 @@ void SettingsDialog::loadSettings()
     ui->intelDriverComboBox->setCurrentIndex(optimusSettings.intelDriver());
     ui->intelAccelMethodComboBox->setCurrentIndex(optimusSettings.intelAccelMethod());
     ui->intelTearFreeComboBox->setCurrentIndex(optimusSettings.intelTearFree());
-    ui->intelDriComboBox->setCurrentIndex(optimusSettings.intelDri() - 2);
+    ui->intelDriComboBox->setCurrentText(QString::number(optimusSettings.intelDri()));
     ui->intelModesetCheckBox->setChecked(optimusSettings.isIntelModesetEnabled());
     ui->terminateSessionsCheckBox->setChecked(optimusSettings.isTerminateSesionsEnabled());
     ui->killX11CheckBox->setChecked(optimusSettings.isKillX11Enabled());
     ui->killLogindCheckBox->setChecked(optimusSettings.isKillLogindEnabled());
 
     // Nvidia settings
-    ui->nvidiaDriComboBox->setCurrentIndex(optimusSettings.nvidiaDri() - 2);
+    ui->nvidiaDriComboBox->setCurrentText(QString::number(optimusSettings.nvidiaDri()));
     ui->nvidiaDpiSpinBox->setValue(optimusSettings.nvidiaDpi());
     ui->nvidiaModesetCheckBox->setChecked(optimusSettings.isNvidiaModesetEnabled());
     ui->nvidiaPatCheckBox->setChecked(optimusSettings.isNvidiaPatEnabled());
