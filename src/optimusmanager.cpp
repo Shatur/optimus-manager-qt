@@ -92,7 +92,7 @@ QIcon OptimusManager::trayGpuIcon(const QString &iconName)
 {
     const QIcon icon = contextMenuGpuIcon(iconName);
     if (icon.availableSizes().isEmpty())
-        return QIcon::fromTheme(QStringLiteral("dialog-error"));
+        return QIcon::fromTheme(QStringLiteral("xorg"));
 
     return icon;
 }
@@ -102,7 +102,7 @@ QString OptimusManager::trayGpuIconName(const QString &iconName)
     if (QIcon::hasThemeIcon(iconName) || QFile::exists(iconName))
         return iconName;
 
-    return QStringLiteral("dialog-error");
+    return QStringLiteral("xorg");
 }
 
 void OptimusManager::switchToIntel()
