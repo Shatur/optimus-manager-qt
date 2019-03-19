@@ -24,7 +24,7 @@
 #include <QObject>
 
 class QMenu;
-#ifdef KDE
+#ifdef PLASMA
 class KStatusNotifierItem;
 #else
 class QSystemTrayIcon;
@@ -62,7 +62,7 @@ private:
     bool isModuleAvailable(const QString &moduleName);
 
     QMenu *m_contextMenu;
-#ifdef KDE
+#ifdef PLASMA
     KStatusNotifierItem *m_trayIcon;
 #else
     QSystemTrayIcon *m_trayIcon;

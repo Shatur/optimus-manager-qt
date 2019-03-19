@@ -31,7 +31,7 @@
 #include <QMenu>
 #include <QMessageBox>
 #include <QMetaEnum>
-#ifdef KDE
+#ifdef PLASMA
 #include <KStatusNotifierItem>
 #else
 #include <QSystemTrayIcon>
@@ -55,7 +55,7 @@ OptimusManager::OptimusManager(QObject *parent) :
     m_contextMenu->addAction(QIcon::fromTheme("application-exit"), tr("Exit"), SingleApplication::instance(), &SingleApplication::quit);
 
     // Setup tray
-#ifdef KDE
+#ifdef PLASMA
     m_trayIcon = new KStatusNotifierItem(this);
     m_trayIcon->setStandardActionsEnabled(false);
     m_trayIcon->setToolTipTitle(SingleApplication::applicationName());
@@ -68,14 +68,14 @@ OptimusManager::OptimusManager(QObject *parent) :
 
     loadSettings();
 
-#ifndef KDE
+#ifndef PLASMA
     m_trayIcon->show();
 #endif
 }
 
 OptimusManager::~OptimusManager()
 {
-#ifndef KDE
+#ifndef PLASMA
     delete m_contextMenu;
 #endif
 }
@@ -167,7 +167,7 @@ void OptimusManager::loadSettings()
     m_contextMenu->actions().at(3)->setIcon(contextMenuGpuIcon(settings.gpuIconName(Nvidia)));
 
     // Tray icon
-#ifdef KDE
+#ifdef PLASMA
     m_trayIcon->setIconByName(trayGpuIconName(gpuIconName));
     m_trayIcon->setToolTipIconByName(m_trayIcon->iconName());
 #else
@@ -177,7 +177,7 @@ void OptimusManager::loadSettings()
 
 void OptimusManager::retranslateUi()
 {
-#ifdef KDE
+#ifdef PLASMA
     m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<GPU>().valueToKey(m_currentGpu));
 #endif
     m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
