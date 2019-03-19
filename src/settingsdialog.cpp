@@ -27,6 +27,9 @@
 #include <QFileDialog>
 #include <QStandardItemModel>
 #include <QPushButton>
+#ifdef PLASMA
+#include <KIconDialog>
+#endif
 
 SettingsDialog::SettingsDialog(QWidget *parent) :
     QDialog(parent),
@@ -207,6 +210,17 @@ void SettingsDialog::on_updatingIconEdit_textChanged(const QString &fileName)
 
 void SettingsDialog::chooseIcon(QLineEdit *iconPathEdit)
 {
+#ifdef PLASMA
+    KIconDialog dialog(this);
+    dialog.setup(KIconLoader::Panel, KIconLoader::StatusIcon);
+
+    const QString iconName = dialog.openDialog();
+    if (iconName.isEmpty())
+        return;
+
+    iconPathEdit->setText(iconName);
+#else
+
     QFileDialog dialog(this, tr("Select icon"));
     dialog.setNameFilter(tr("Images (*.png *.jpg *.bmp);;All files(*)"));
     dialog.setDirectory(QDir::homePath());
@@ -216,6 +230,7 @@ void SettingsDialog::chooseIcon(QLineEdit *iconPathEdit)
         return;
 
     iconPathEdit->setText(dialog.selectedFiles().at(0));
+#endif
 }
 
 void SettingsDialog::showIconPreview(QLabel *previewLabel, const QString &fileName)

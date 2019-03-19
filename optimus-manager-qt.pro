@@ -21,7 +21,7 @@ desktop.files = dist/optimus-manager-qt.desktop
 # Compile translations
 system(lrelease $${TARGET}.pro)
 
-DEFINES += PLASMA
+#DEFINES += PLASMA
 contains(DEFINES, PLASMA){
   QT += dbus KNotifications KIconThemes
 }
