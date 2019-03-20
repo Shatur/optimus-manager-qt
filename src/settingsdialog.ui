@@ -198,53 +198,39 @@
            <string>Tray icon</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
-           <item row="0" column="3">
-            <widget class="QLineEdit" name="noUpdatesIconEdit"/>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="updatingIconLabel">
-             <property name="text">
-              <string>Nvidia icon:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="5">
-            <widget class="QToolButton" name="noUpdatesIconButton">
-             <property name="text">
-              <string>Choose</string>
-             </property>
-             <property name="icon">
-              <iconset theme="folder">
-               <normaloff>.</normaloff>.</iconset>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="5">
-            <widget class="QToolButton" name="updatingIconEditButton">
-             <property name="text">
-              <string>Choose</string>
-             </property>
-             <property name="icon">
-              <iconset theme="folder">
-               <normaloff>.</normaloff>.</iconset>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QLabel" name="noUpdatesIconPreviewLabel"/>
-           </item>
-           <item row="3" column="2">
-            <widget class="QLabel" name="updatingIconPreviewLabel"/>
-           </item>
            <item row="0" column="0">
-            <widget class="QLabel" name="noUpdatesIconLabel">
+            <widget class="QLabel" name="intelIconLabel">
              <property name="text">
               <string>Intel icon:</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="3">
-            <widget class="QLineEdit" name="updatingIconEdit"/>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="nvidiaIconEdit"/>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLineEdit" name="intelIconEdit"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="nvidiaIconLabel">
+             <property name="text">
+              <string>Nvidia icon:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QToolButton" name="intelIconButton">
+             <property name="toolTip">
+              <string>Choose icon</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QToolButton" name="nvidiaIconButton">
+             <property name="toolTip">
+              <string>Choose icon</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>

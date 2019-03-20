@@ -25,6 +25,7 @@
 
 class QLineEdit;
 class QLabel;
+class QToolButton;
 
 namespace Ui {
 class SettingsDialog;
@@ -43,10 +44,10 @@ public:
 private slots:
     void on_SettingsDialog_accepted();
 
-    void on_noUpdatesIconButton_clicked();
-    void on_updatingIconEditButton_clicked();
-    void on_noUpdatesIconEdit_textChanged(const QString &fileName);
-    void on_updatingIconEdit_textChanged(const QString &fileName);
+    void on_intelIconButton_clicked();
+    void on_nvidiaIconButton_clicked();
+    void on_intelIconEdit_textChanged(const QString &fileName);
+    void on_nvidiaIconEdit_textChanged(const QString &fileName);
 
     void on_switchingBackendComboBox_currentIndexChanged(int index);
 
@@ -55,7 +56,6 @@ private slots:
 private:
     void loadSettings();
     void chooseIcon(QLineEdit *iconPathEdit);
-    void showIconPreview(QLabel *previewLabel, const QString &fileName);
 
     Ui::SettingsDialog *ui;
     bool m_languageChanged = false;

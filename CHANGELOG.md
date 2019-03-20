@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file. This projec
 -   Fix applying the tray icon after changing settings.
 -   Use optimus-manager daemon directly to switch GPU.
 -   Remove checking bbswitch module in settings.
+-   Show preview of icons for system tray on selection buttons.
 -   Plasma: Use KIconDialog.
 
 ## 1.0.0 (2018-11-17)
