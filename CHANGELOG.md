@@ -21,6 +21,7 @@ All notable changes to this project will be documented in this file. This projec
 -   Show preview of icons for system tray on selection buttons.
 -   Plasma: Use KIconDialog.
 -   Show notification after switching if login manager control is disabled.
+-   Use a more common icon for Nvidia in the settings.
 
 ## 1.0.0 (2018-11-17)
 

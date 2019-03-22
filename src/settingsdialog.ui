@@ -86,7 +86,7 @@
         <string notr="true">Nvidia</string>
        </property>
        <property name="icon">
-        <iconset theme="nvidia">
+        <iconset theme="video-display">
          <normaloff>.</normaloff>.</iconset>
        </property>
       </item>
