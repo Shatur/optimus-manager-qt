@@ -12,68 +12,73 @@
 <context>
     <name>OptimusManager</name>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="52"/>
-        <location filename="../../src/optimusmanager.cpp" line="184"/>
+        <location filename="../../src/optimusmanager.cpp" line="53"/>
+        <location filename="../../src/optimusmanager.cpp" line="204"/>
         <source>Switch to Intel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="53"/>
-        <location filename="../../src/optimusmanager.cpp" line="185"/>
+        <location filename="../../src/optimusmanager.cpp" line="54"/>
+        <location filename="../../src/optimusmanager.cpp" line="205"/>
         <source>Switch to Nvidia</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="55"/>
-        <location filename="../../src/optimusmanager.cpp" line="186"/>
+        <location filename="../../src/optimusmanager.cpp" line="56"/>
+        <location filename="../../src/optimusmanager.cpp" line="206"/>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="63"/>
-        <location filename="../../src/optimusmanager.cpp" line="181"/>
+        <location filename="../../src/optimusmanager.cpp" line="64"/>
+        <location filename="../../src/optimusmanager.cpp" line="201"/>
         <source>Current videocard: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="132"/>
+        <location filename="../../src/optimusmanager.cpp" line="133"/>
         <source>The application is already running</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="199"/>
+        <location filename="../../src/optimusmanager.cpp" line="219"/>
         <source>You are about to switch GPUs. This will restart the display manager and all your applications will be closed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="201"/>
+        <location filename="../../src/optimusmanager.cpp" line="221"/>
         <source>You are about to switch GPUs. After applying the settings, you will need to manually restart the login manager to change the video card.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="212"/>
+        <location filename="../../src/optimusmanager.cpp" line="232"/>
         <source>The optimus-manager service is not running. Please enable and start it with:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="226"/>
+        <location filename="../../src/optimusmanager.cpp" line="246"/>
         <source>bbswitch is enabled in the configuration file but the bbswitch module does not seem to be available for the current kernel. Power switching will not work.
 You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswitch&quot; or for all kernels with &quot;sudo pacman -S bbswitch-dkms&quot;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="239"/>
+        <location filename="../../src/optimusmanager.cpp" line="259"/>
         <source>The nvidia module does not seem to be available for the current kernel. It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="257"/>
+        <location filename="../../src/optimusmanager.cpp" line="277"/>
         <source>Unable to connect to optimus-manager daemon to switch GPU: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="277"/>
+        <location filename="../../src/optimusmanager.cpp" line="297"/>
         <source>Unable to send GPU to switch to optimus-manager daemon: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/optimusmanager.cpp" line="303"/>
+        <source>Configuration successfully applied. Your GPU will be switched after the login manager is restarted.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -104,8 +109,8 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
     <name>SettingsDialog</name>
     <message>
         <location filename="../../src/settingsdialog.ui" line="14"/>
-        <location filename="../../src/optimusmanager.cpp" line="50"/>
-        <location filename="../../src/optimusmanager.cpp" line="183"/>
+        <location filename="../../src/optimusmanager.cpp" line="51"/>
+        <location filename="../../src/optimusmanager.cpp" line="203"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>

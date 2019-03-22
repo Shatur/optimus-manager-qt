@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT += core gui widgets
+QT += core gui widgets dbus
 TARGET = optimus-manager-qt
 TEMPLATE = app
 CONFIG += c++1z
@@ -23,7 +23,7 @@ system(lrelease $${TARGET}.pro)
 
 #DEFINES += PLASMA
 contains(DEFINES, PLASMA){
-  QT += dbus KNotifications KIconThemes
+  QT += KNotifications KIconThemes
 }
 
 DEFINES += \

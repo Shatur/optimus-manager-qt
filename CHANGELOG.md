@@ -20,6 +20,7 @@ All notable changes to this project will be documented in this file. This projec
 -   Remove checking bbswitch module in settings.
 -   Show preview of icons for system tray on selection buttons.
 -   Plasma: Use KIconDialog.
+-   Show notification after switching if login manager control is disabled.
 
 ## 1.0.0 (2018-11-17)
 

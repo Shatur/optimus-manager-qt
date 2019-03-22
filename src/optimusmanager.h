@@ -55,6 +55,7 @@ private slots:
     void showAppRunningMessage();
 
 private:
+    void showNotification(const QString &message, const QString &iconName, int interval = 10000);
     void detectGpu();
     void loadSettings();
     void retranslateUi();

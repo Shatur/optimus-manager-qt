@@ -35,6 +35,7 @@
 #include <KStatusNotifierItem>
 #else
 #include <QSystemTrayIcon>
+#include <QDBusInterface>
 #endif
 
 OptimusManager::OptimusManager(QObject *parent) :
@@ -132,6 +133,25 @@ void OptimusManager::showAppRunningMessage()
     auto message = new QMessageBox(QMessageBox::Information, "Optimus Manager", tr("The application is already running"));
     message->setAttribute(Qt::WA_DeleteOnClose); // Need to allocate on heap to avoid crash!
     message->show();
+}
+
+void OptimusManager::showNotification(const QString &message, const QString &iconName, int interval)
+{
+#ifdef KDE
+    m_trayIcon->showMessage(SingleApplication::applicationName(), iconName, interval);
+#else
+    QDBusInterface notify("org.freedesktop.Notifications", "/org/freedesktop/Notifications", "org.freedesktop.Notifications");
+    QVariantList notifyArguments;
+    notifyArguments << SingleApplication::applicationName(); // Set program name
+    notifyArguments << QVariant(QVariant::UInt);
+    notifyArguments << iconName; // Icon
+    notifyArguments << SingleApplication::applicationName(); // Title
+    notifyArguments << message; // Body
+    notifyArguments << QStringList();
+    notifyArguments << QVariantMap();
+    notifyArguments << interval; // Show interval
+    notify.callWithArgumentList(QDBus::AutoDetect, "Notify", notifyArguments);
+#endif
 }
 
 void OptimusManager::detectGpu()
@@ -276,6 +296,11 @@ void OptimusManager::switchGpu(OptimusManager::GPU gpu)
         sendMessage.setWindowTitle(SingleApplication::applicationName());
         sendMessage.setText(tr("Unable to send GPU to switch to optimus-manager daemon: ") + client.errorString());
         sendMessage.exec();
+    }
+
+    if (!settings.isLoginManagerControl()) {
+        const AppSettings appSettings;
+        showNotification(tr("Configuration successfully applied. Your GPU will be switched after the login manager is restarted."), trayGpuIconName(appSettings.gpuIconName(gpu)));
     }
 }
 
