@@ -186,7 +186,7 @@ void OptimusManager::loadSettings()
     if (trayIconName.isEmpty()) {
         trayIconName = AppSettings::defaultTrayIconName(m_currentGpu);
         settings.setGpuIconName(m_currentGpu, trayIconName);
-        showNotification(tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(gpuIconName), defaultIconName);
+        showNotification(tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(gpuIconName), trayIconName);
     }
     m_trayIcon->setIconByName(trayIconName);
     m_trayIcon->setToolTipIconByName(m_trayIcon->iconName());
