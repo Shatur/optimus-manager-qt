@@ -137,8 +137,8 @@ void OptimusManager::showAppRunningMessage()
 
 void OptimusManager::showNotification(const QString &message, const QString &iconName, int interval)
 {
-#ifdef KDE
-    m_trayIcon->showMessage(SingleApplication::applicationName(), iconName, interval);
+#ifdef PLASMA
+    m_trayIcon->showMessage(SingleApplication::applicationName(), message, iconName, interval);
 #else
     QDBusInterface notify("org.freedesktop.Notifications", "/org/freedesktop/Notifications", "org.freedesktop.Notifications");
     QVariantList notifyArguments;
