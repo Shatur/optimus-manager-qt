@@ -81,21 +81,15 @@ OptimusManager::~OptimusManager()
 #endif
 }
 
-QIcon OptimusManager::contextMenuGpuIcon(const QString &iconName)
+QIcon OptimusManager::trayGpuIcon(const QString &iconName)
 {
     if (QIcon::hasThemeIcon(iconName))
         return QIcon::fromTheme(iconName);
 
-    return QIcon(iconName);
-}
+    if (QFileInfo::exists(iconName))
+        return QIcon(iconName);
 
-QIcon OptimusManager::trayGpuIcon(const QString &iconName)
-{
-    const QIcon icon = contextMenuGpuIcon(iconName);
-    if (icon.availableSizes().isEmpty())
-        return QIcon::fromTheme(QStringLiteral("xorg"));
-
-    return icon;
+    return QIcon();
 }
 
 QString OptimusManager::trayGpuIconName(const QString &iconName)
@@ -103,7 +97,7 @@ QString OptimusManager::trayGpuIconName(const QString &iconName)
     if (QIcon::hasThemeIcon(iconName) || QFile::exists(iconName))
         return iconName;
 
-    return QStringLiteral("xorg");
+    return QString();
 }
 
 void OptimusManager::switchToIntel()
@@ -183,15 +177,28 @@ void OptimusManager::loadSettings()
     const QString gpuIconName = settings.gpuIconName(m_currentGpu);
 
     // Context menu icons
-    m_contextMenu->actions().at(2)->setIcon(contextMenuGpuIcon(settings.gpuIconName(Intel)));
-    m_contextMenu->actions().at(3)->setIcon(contextMenuGpuIcon(settings.gpuIconName(Nvidia)));
+    m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(settings.gpuIconName(Intel)));
+    m_contextMenu->actions().at(3)->setIcon(trayGpuIcon(settings.gpuIconName(Nvidia)));
 
     // Tray icon
 #ifdef PLASMA
-    m_trayIcon->setIconByName(trayGpuIconName(gpuIconName));
+    QString trayIconName = trayGpuIconName(gpuIconName);
+    if (trayIconName.isEmpty()) {
+        trayIconName = AppSettings::defaultTrayIconName(m_currentGpu);
+        settings.setGpuIconName(m_currentGpu, trayIconName);
+        showNotification(tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(gpuIconName), defaultIconName);
+    }
+    m_trayIcon->setIconByName(trayIconName);
     m_trayIcon->setToolTipIconByName(m_trayIcon->iconName());
 #else
-    m_trayIcon->setIcon(trayGpuIcon(gpuIconName));
+    QIcon trayIcon = trayGpuIcon(gpuIconName);
+    if (trayIcon.isNull()) {
+        const QString defaultIconName = AppSettings::defaultTrayIconName(m_currentGpu);
+        settings.setGpuIconName(m_currentGpu, defaultIconName);
+        trayIcon = QIcon::fromTheme(defaultIconName);
+        showNotification(tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(gpuIconName), defaultIconName);
+    }
+    m_trayIcon->setIcon(trayIcon);
 #endif
 }
 

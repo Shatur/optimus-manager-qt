@@ -13,72 +13,78 @@
     <name>OptimusManager</name>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="53"/>
-        <location filename="../../src/optimusmanager.cpp" line="204"/>
+        <location filename="../../src/optimusmanager.cpp" line="211"/>
         <source>Switch to Intel</source>
         <translation>Переключить на Intel</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="54"/>
-        <location filename="../../src/optimusmanager.cpp" line="205"/>
+        <location filename="../../src/optimusmanager.cpp" line="212"/>
         <source>Switch to Nvidia</source>
         <translation>Переключить на Nvidia</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="56"/>
-        <location filename="../../src/optimusmanager.cpp" line="206"/>
+        <location filename="../../src/optimusmanager.cpp" line="213"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="64"/>
-        <location filename="../../src/optimusmanager.cpp" line="201"/>
+        <location filename="../../src/optimusmanager.cpp" line="208"/>
         <source>Current videocard: </source>
         <translation>Текущая видеокарта: </translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="133"/>
+        <location filename="../../src/optimusmanager.cpp" line="127"/>
         <source>The application is already running</source>
         <translation>Приложение уже запущено</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="219"/>
+        <location filename="../../src/optimusmanager.cpp" line="189"/>
+        <location filename="../../src/optimusmanager.cpp" line="199"/>
+        <source>The specified icon &apos;%1&apos; for the current GPU is invalid. The default icon will be used.</source>
+        <translation>Выбранная иконка &apos;%1&apos; для текущего GPU недействительна. Будет использована иконка по умолчанию.</translation>
+    </message>
+    <message>
+        <location filename="../../src/optimusmanager.cpp" line="226"/>
         <source>You are about to switch GPUs. This will restart the display manager and all your applications will be closed.</source>
         <translation>Вы собираетесь переключить графические процессоры. Это перезапустит менеджер входа, и все ваши приложения будут закрыты.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="221"/>
+        <location filename="../../src/optimusmanager.cpp" line="228"/>
         <source>You are about to switch GPUs. After applying the settings, you will need to manually restart the login manager to change the video card.</source>
         <translation>После применения настроек нужно будет вручную перезапустить менеджер входа для смены видеокарты.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="232"/>
+        <location filename="../../src/optimusmanager.cpp" line="239"/>
         <source>The optimus-manager service is not running. Please enable and start it with:</source>
         <translation>Сервис optimus-manager не запущен. Пожалуйста, включите и запустите его с:</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="246"/>
+        <location filename="../../src/optimusmanager.cpp" line="253"/>
         <source>bbswitch is enabled in the configuration file but the bbswitch module does not seem to be available for the current kernel. Power switching will not work.
 You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswitch&quot; or for all kernels with &quot;sudo pacman -S bbswitch-dkms&quot;.</source>
         <translation>bbswitch включен в файле конфигурации, но модуль bbswitch, по-видимому, недоступен для текущего ядра. Переключение питания не будет работать.
 Вы можете установить bbswitch для ядра по умолчанию с помощью &quot;sudo pacman -S bbswitch&quot; или для всех ядер с помощью &quot;sudo pacman -S bbswitch-dkms&quot;.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="259"/>
+        <location filename="../../src/optimusmanager.cpp" line="266"/>
         <source>The nvidia module does not seem to be available for the current kernel. It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?</source>
         <translation>Модуль nvidia не доступен для текущего ядра. Вероятно, драйвер Nvidia не был правильно установлен. Переключение GPU, скорее всего, не удастся, все равно продолжить?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="277"/>
+        <location filename="../../src/optimusmanager.cpp" line="284"/>
         <source>Unable to connect to optimus-manager daemon to switch GPU: </source>
         <translation>Не удается подключиться к демону optimus-manager для переключения GPU: </translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="297"/>
+        <location filename="../../src/optimusmanager.cpp" line="304"/>
         <source>Unable to send GPU to switch to optimus-manager daemon: </source>
         <translation>Не удается отправить GPU для переключения на демон optimus-manager: </translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="303"/>
+        <location filename="../../src/optimusmanager.cpp" line="310"/>
         <source>Configuration successfully applied. Your GPU will be switched after the login manager is restarted.</source>
         <translation>Конфигурация успешно применена. Ваш GPU будет переключен после перезапуска менеджера входа.</translation>
     </message>
@@ -111,7 +117,7 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
     <message>
         <location filename="../../src/settingsdialog.ui" line="14"/>
         <location filename="../../src/optimusmanager.cpp" line="51"/>
-        <location filename="../../src/optimusmanager.cpp" line="203"/>
+        <location filename="../../src/optimusmanager.cpp" line="210"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>

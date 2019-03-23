@@ -44,7 +44,6 @@ public:
     OptimusManager(QObject *parent = nullptr);
     ~OptimusManager() override;
 
-    static QIcon contextMenuGpuIcon(const QString &iconName);
     static QIcon trayGpuIcon(const QString &iconName);
     static QString trayGpuIconName(const QString &iconName);
 
