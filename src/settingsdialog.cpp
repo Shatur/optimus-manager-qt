@@ -37,7 +37,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->dialogButtonBox->button(QDialogButtonBox::RestoreDefaults), &QPushButton::clicked, this, &SettingsDialog::restoreDefaults);
-    ui->logoLabel->setPixmap(QIcon::fromTheme("nvidia").pixmap(512, 512));
+    ui->logoLabel->setPixmap(QIcon::fromTheme("optimus-manager").pixmap(512, 512));
     ui->versionGuiLabel->setText(SingleApplication::applicationVersion());
 
     // Parse Optimus Manager version
