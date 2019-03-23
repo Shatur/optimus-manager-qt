@@ -18,6 +18,9 @@ bin.files = $${TARGET}
 desktop.path = /usr/share/applications
 desktop.files = dist/optimus-manager-qt.desktop
 
+icons.path = /usr/share/icons/hicolor/
+icons.files = dist/icons/*
+
 # Compile translations
 system(lrelease $${TARGET}.pro)
 
@@ -55,7 +58,8 @@ TRANSLATIONS += \
 
 INSTALLS += \
     bin \
-    desktop
+    desktop \
+    icons
 
 RESOURCES += \
     data/resources.qrc

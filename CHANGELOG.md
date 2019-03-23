@@ -22,6 +22,7 @@ All notable changes to this project will be documented in this file. This projec
 -   Plasma: Use KIconDialog.
 -   Show notification after switching if login manager control is disabled.
 -   Use a more common icon for Nvidia in the settings.
+-   Bundle default tray icons with app.
 
 ## 1.0.0 (2018-11-17)
 
