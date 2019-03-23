@@ -111,6 +111,18 @@ void AppSettings::setGpuIconName(OptimusManager::GPU gpu, const QString &name)
     }
 }
 
+QString AppSettings::defaultTrayIconName(OptimusManager::GPU trayStatus)
+{
+    switch (trayStatus) {
+    case OptimusManager::Intel:
+        return QStringLiteral("prime-intel");
+    case OptimusManager::Nvidia:
+        return QStringLiteral("prime-nvidia");
+    }
+
+    return QString();
+}
+
 void AppSettings::applyLocale(QLocale::Language lang)
 {
     if (lang == QLocale::AnyLanguage)

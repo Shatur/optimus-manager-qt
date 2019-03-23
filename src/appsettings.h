@@ -49,23 +49,11 @@ public:
 
     QString gpuIconName(OptimusManager::GPU gpu) const;
     void setGpuIconName(OptimusManager::GPU gpu, const QString &name);
-    static constexpr const char *defaultTrayIconName(OptimusManager::GPU trayStatus);
+    static QString defaultTrayIconName(OptimusManager::GPU trayStatus);
 
 private:
     void applyLocale(QLocale::Language lang);
     static QTranslator m_appTranslator;
 };
-
-constexpr const char *AppSettings::defaultTrayIconName(OptimusManager::GPU trayStatus)
-{
-    switch (trayStatus) {
-    case OptimusManager::Intel:
-        return "prime-intel";
-    case OptimusManager::Nvidia:
-        return "prime-nvidia";
-    }
-
-    return nullptr;
-}
 
 #endif // APPSETTINGS_H
