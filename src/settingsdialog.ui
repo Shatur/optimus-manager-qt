@@ -14,8 +14,7 @@
    <string>Settings</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="preferences-system">
-    <normaloff>.</normaloff>.</iconset>
+   <iconset theme="optimus-manager"/>
   </property>
   <layout class="QVBoxLayout" name="settingsLayout">
    <item>
