@@ -163,11 +163,6 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
         <translation>Подтверждать переключение</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="198"/>
-        <source>Tray icon</source>
-        <translation>Иконка панели задач</translation>
-    </message>
-    <message>
         <location filename="../../src/settingsdialog.ui" line="217"/>
         <source>Nvidia icon:</source>
         <translation>Значок Nvidia:</translation>
@@ -226,6 +221,11 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
         <location filename="../../src/settingsdialog.ui" line="175"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart will be used&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>Будет использован ~/.config/autostart</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="198"/>
+        <source>Tray icons</source>
+        <translation>Иконки в трее</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="224"/>

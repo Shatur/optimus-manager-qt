@@ -195,7 +195,7 @@
         <item>
          <widget class="QGroupBox" name="trayIconGroupBox">
           <property name="title">
-           <string>Tray icon</string>
+           <string>Tray icons</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
            <item row="0" column="0">

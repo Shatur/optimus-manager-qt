@@ -162,11 +162,6 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="198"/>
-        <source>Tray icon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../src/settingsdialog.ui" line="217"/>
         <source>Nvidia icon:</source>
         <translation type="unfinished"></translation>
@@ -224,6 +219,11 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
     <message>
         <location filename="../../src/settingsdialog.ui" line="175"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart will be used&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="198"/>
+        <source>Tray icons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
