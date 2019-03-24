@@ -45,7 +45,6 @@ public:
     ~OptimusManager() override;
 
     static QIcon trayGpuIcon(const QString &iconName);
-    static QString trayGpuIconName(const QString &iconName);
 
 private slots:
     void switchToIntel();

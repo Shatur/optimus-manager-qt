@@ -92,14 +92,6 @@ QIcon OptimusManager::trayGpuIcon(const QString &iconName)
     return QIcon();
 }
 
-QString OptimusManager::trayGpuIconName(const QString &iconName)
-{
-    if (QIcon::hasThemeIcon(iconName) || QFile::exists(iconName))
-        return iconName;
-
-    return QString();
-}
-
 void OptimusManager::switchToIntel()
 {
     switchGpu(Intel);
@@ -174,21 +166,20 @@ void OptimusManager::detectGpu()
 void OptimusManager::loadSettings()
 {
     AppSettings settings;
-    const QString gpuIconName = settings.gpuIconName(m_currentGpu);
 
     // Context menu icons
     m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(settings.gpuIconName(Intel)));
     m_contextMenu->actions().at(3)->setIcon(trayGpuIcon(settings.gpuIconName(Nvidia)));
 
     // Tray icon
+    QString gpuIconName = settings.gpuIconName(m_currentGpu);
 #ifdef PLASMA
-    QString trayIconName = trayGpuIconName(gpuIconName);
-    if (trayIconName.isEmpty()) {
-        trayIconName = AppSettings::defaultTrayIconName(m_currentGpu);
-        settings.setGpuIconName(m_currentGpu, trayIconName);
-        showNotification(tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(gpuIconName), trayIconName);
+    if (!QIcon::hasThemeIcon(gpuIconName) && !QFileInfo::exists(gpuIconName)) {
+        gpuIconName = AppSettings::defaultTrayIconName(m_currentGpu);
+        settings.setGpuIconName(m_currentGpu, gpuIconName);
+        showNotification(tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(gpuIconName), gpuIconName);
     }
-    m_trayIcon->setIconByName(trayIconName);
+    m_trayIcon->setIconByName(gpuIconName);
     m_trayIcon->setToolTipIconByName(m_trayIcon->iconName());
 #else
     QIcon trayIcon = trayGpuIcon(gpuIconName);
@@ -307,7 +298,7 @@ void OptimusManager::switchGpu(OptimusManager::GPU gpu)
 
     if (!settings.isLoginManagerControl()) {
         const AppSettings appSettings;
-        showNotification(tr("Configuration successfully applied. Your GPU will be switched after the login manager is restarted."), trayGpuIconName(appSettings.gpuIconName(gpu)));
+        showNotification(tr("Configuration successfully applied. Your GPU will be switched after the login manager is restarted."), appSettings.gpuIconName(gpu));
     }
 }
 

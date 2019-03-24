@@ -11,27 +11,14 @@ CONFIG += c++1z
 
 include(src/third-party/singleapplication/singleapplication.pri)
 
-# Rules for deployment
-bin.path = /usr/bin
-bin.files = $${TARGET}
-
-desktop.path = /usr/share/applications
-desktop.files = dist/optimus-manager-qt.desktop
-
-icons.path = /usr/share/icons/hicolor/
-icons.files = dist/icons/*
-
-# Compile translations
-system(lrelease $${TARGET}.pro)
-
-#DEFINES += PLASMA
-contains(DEFINES, PLASMA){
-  QT += KNotifications KIconThemes
-}
-
 DEFINES += \
     QAPPLICATION_CLASS=QApplication \
     QT_DEPRECATED_WARNINGS
+
+DEFINES += PLASMA
+contains(DEFINES, PLASMA){
+  QT += KNotifications KIconThemes
+}
 
 SOURCES += \
     src/main.cpp \
@@ -63,3 +50,16 @@ INSTALLS += \
 
 RESOURCES += \
     data/resources.qrc
+
+# Rules for deployment
+bin.path = /usr/bin
+bin.files = $${TARGET}
+
+desktop.path = /usr/share/applications
+desktop.files = dist/optimus-manager-qt.desktop
+
+icons.path = /usr/share/icons/hicolor/
+icons.files = dist/icons/*
+
+# Compile translations
+system(lrelease $${TARGET}.pro)
