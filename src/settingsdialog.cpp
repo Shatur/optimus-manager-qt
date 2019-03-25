@@ -190,12 +190,12 @@ void SettingsDialog::loadSettings()
 
 void SettingsDialog::on_intelIconButton_clicked()
 {
-    chooseIcon(ui->intelIconEdit);
+    ui->intelIconEdit->setText(chooseIcon());
 }
 
 void SettingsDialog::on_nvidiaIconButton_clicked()
 {
-    chooseIcon(ui->nvidiaIconEdit);
+    ui->nvidiaIconEdit->setText(chooseIcon());
 }
 
 void SettingsDialog::on_intelIconEdit_textChanged(const QString &fileName)
@@ -210,17 +210,13 @@ void SettingsDialog::on_nvidiaIconEdit_textChanged(const QString &fileName)
     ui->nvidiaIconButton->setIcon(icon);
 }
 
-void SettingsDialog::chooseIcon(QLineEdit *iconPathEdit)
+QString SettingsDialog::chooseIcon()
 {
 #ifdef PLASMA
     KIconDialog dialog(this);
     dialog.setup(KIconLoader::Panel, KIconLoader::StatusIcon);
 
-    const QString iconName = dialog.openDialog();
-    if (iconName.isEmpty())
-        return;
-
-    iconPathEdit->setText(iconName);
+    return  dialog.openDialog();
 #else
 
     QFileDialog dialog(this, tr("Select icon"));
@@ -229,9 +225,9 @@ void SettingsDialog::chooseIcon(QLineEdit *iconPathEdit)
     dialog.setFileMode(QFileDialog::ExistingFile);
 
     if (!dialog.exec())
-        return;
+        return QString();
 
-    iconPathEdit->setText(dialog.selectedFiles().at(0));
+    return dialog.selectedFiles().at(0);
 #endif
 }
 

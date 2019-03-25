@@ -23,10 +23,6 @@
 
 #include <QDialog>
 
-class QLineEdit;
-class QLabel;
-class QToolButton;
-
 namespace Ui {
 class SettingsDialog;
 }
@@ -55,7 +51,7 @@ private slots:
 
 private:
     void loadSettings();
-    void chooseIcon(QLineEdit *iconPathEdit);
+    QString chooseIcon();
 
     Ui::SettingsDialog *ui;
     bool m_languageChanged = false;
