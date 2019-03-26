@@ -24,6 +24,7 @@ All notable changes to this project will be documented in this file. This projec
 -   Use a more common icon for Nvidia in the settings.
 -   Bundle default tray and app icons.
 -   Use the bundled icons if the specified icons in the settings are invalid.
+-   Enable TearFree and AccelMethod options only with the Intel driver.
 
 ## 1.0.0 (2018-11-17)
 

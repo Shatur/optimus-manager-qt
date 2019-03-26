@@ -14,7 +14,8 @@
    <string>Settings</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="optimus-manager"/>
+   <iconset theme="optimus-manager">
+    <normaloff>.</normaloff>.</iconset>
   </property>
   <layout class="QVBoxLayout" name="settingsLayout">
    <item>
@@ -374,7 +375,7 @@
            <item>
             <widget class="QCheckBox" name="pciPowerControlCheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;If you do not enable this option, you may see a higher power comsumption&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if bbswitch is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;If you do not enable this option, you may see a higher power comsumption&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string>PCI power control</string>
@@ -384,7 +385,7 @@
            <item>
             <widget class="QCheckBox" name="pciResetCheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset the Nvidia PCI device when switching&lt;/p&gt;&lt;p&gt;Avoids driver conflicts, especially when switching from Nvidia mode to Intel Mode&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if bbswitch is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset the Nvidia PCI device when switching&lt;/p&gt;&lt;p&gt;Avoids driver conflicts, especially when switching from Nvidia mode to Intel Mode&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string>PCI reset</string>
@@ -493,7 +494,7 @@
              <item>
               <widget class="QLabel" name="intelAccelMethodLabel">
                <property name="toolTip">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Corresponds to AccelMethod in the Xorg configuration&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable AccelMethod option in the Xorg configuration&lt;br/&gt;&lt;br/&gt;This option compatible only with the Intel driver and will be ignored if it is not selected&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="text">
                 <string>Acceleration method:</string>
@@ -502,6 +503,9 @@
              </item>
              <item>
               <widget class="QComboBox" name="intelAccelMethodComboBox">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
                <item>
                 <property name="text">
                  <string>Default</string>
@@ -539,7 +543,7 @@
              <item>
               <widget class="QLabel" name="intelTearFreeLabel">
                <property name="toolTip">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;br/&gt;&lt;br/&gt;This option compatible only with the Intel driver and will be ignored if it is not selected&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="text">
                 <string notr="true">Tearfree:</string>
@@ -548,6 +552,9 @@
              </item>
              <item>
               <widget class="QComboBox" name="intelTearFreeComboBox">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
                <item>
                 <property name="text">
                  <string>Default</string>
@@ -624,7 +631,7 @@
            <item>
             <widget class="QCheckBox" name="intelModesetCheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if bbswitch is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string notr="true">Modeset</string>

@@ -13,78 +13,78 @@
     <name>OptimusManager</name>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="53"/>
-        <location filename="../../src/optimusmanager.cpp" line="211"/>
+        <location filename="../../src/optimusmanager.cpp" line="202"/>
         <source>Switch to Intel</source>
         <translation>Переключить на Intel</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="54"/>
-        <location filename="../../src/optimusmanager.cpp" line="212"/>
+        <location filename="../../src/optimusmanager.cpp" line="203"/>
         <source>Switch to Nvidia</source>
         <translation>Переключить на Nvidia</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="56"/>
-        <location filename="../../src/optimusmanager.cpp" line="213"/>
+        <location filename="../../src/optimusmanager.cpp" line="204"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="64"/>
-        <location filename="../../src/optimusmanager.cpp" line="208"/>
+        <location filename="../../src/optimusmanager.cpp" line="199"/>
         <source>Current videocard: </source>
         <translation>Текущая видеокарта: </translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="127"/>
+        <location filename="../../src/optimusmanager.cpp" line="119"/>
         <source>The application is already running</source>
         <translation>Приложение уже запущено</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="189"/>
-        <location filename="../../src/optimusmanager.cpp" line="199"/>
+        <location filename="../../src/optimusmanager.cpp" line="180"/>
+        <location filename="../../src/optimusmanager.cpp" line="190"/>
         <source>The specified icon &apos;%1&apos; for the current GPU is invalid. The default icon will be used.</source>
         <translation>Выбранная иконка &apos;%1&apos; для текущего GPU недействительна. Будет использована иконка по умолчанию.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="226"/>
+        <location filename="../../src/optimusmanager.cpp" line="217"/>
         <source>You are about to switch GPUs. This will restart the display manager and all your applications will be closed.</source>
         <translation>Вы собираетесь переключить графические процессоры. Это перезапустит менеджер входа, и все ваши приложения будут закрыты.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="228"/>
+        <location filename="../../src/optimusmanager.cpp" line="219"/>
         <source>You are about to switch GPUs. After applying the settings, you will need to manually restart the login manager to change the video card.</source>
         <translation>После применения настроек нужно будет вручную перезапустить менеджер входа для смены видеокарты.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="239"/>
+        <location filename="../../src/optimusmanager.cpp" line="230"/>
         <source>The optimus-manager service is not running. Please enable and start it with:</source>
         <translation>Сервис optimus-manager не запущен. Пожалуйста, включите и запустите его с:</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="253"/>
+        <location filename="../../src/optimusmanager.cpp" line="244"/>
         <source>bbswitch is enabled in the configuration file but the bbswitch module does not seem to be available for the current kernel. Power switching will not work.
 You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswitch&quot; or for all kernels with &quot;sudo pacman -S bbswitch-dkms&quot;.</source>
         <translation>bbswitch включен в файле конфигурации, но модуль bbswitch, по-видимому, недоступен для текущего ядра. Переключение питания не будет работать.
 Вы можете установить bbswitch для ядра по умолчанию с помощью &quot;sudo pacman -S bbswitch&quot; или для всех ядер с помощью &quot;sudo pacman -S bbswitch-dkms&quot;.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="266"/>
+        <location filename="../../src/optimusmanager.cpp" line="257"/>
         <source>The nvidia module does not seem to be available for the current kernel. It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?</source>
         <translation>Модуль nvidia не доступен для текущего ядра. Вероятно, драйвер Nvidia не был правильно установлен. Переключение GPU, скорее всего, не удастся, все равно продолжить?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="284"/>
+        <location filename="../../src/optimusmanager.cpp" line="275"/>
         <source>Unable to connect to optimus-manager daemon to switch GPU: </source>
         <translation>Не удается подключиться к демону optimus-manager для переключения GPU: </translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="304"/>
+        <location filename="../../src/optimusmanager.cpp" line="295"/>
         <source>Unable to send GPU to switch to optimus-manager daemon: </source>
         <translation>Не удается отправить GPU для переключения на демон optimus-manager: </translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="310"/>
+        <location filename="../../src/optimusmanager.cpp" line="301"/>
         <source>Configuration successfully applied. Your GPU will be switched after the login manager is restarted.</source>
         <translation>Конфигурация успешно применена. Ваш GPU будет переключен после перезапуска менеджера входа.</translation>
     </message>
@@ -117,7 +117,7 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
     <message>
         <location filename="../../src/settingsdialog.ui" line="14"/>
         <location filename="../../src/optimusmanager.cpp" line="51"/>
-        <location filename="../../src/optimusmanager.cpp" line="210"/>
+        <location filename="../../src/optimusmanager.cpp" line="201"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
@@ -168,6 +168,21 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
         <translation>Значок Nvidia:</translation>
     </message>
     <message>
+        <location filename="../../src/settingsdialog.ui" line="378"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;If you do not enable this option, you may see a higher power comsumption&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить управление питанием PCI в режиме Intel&lt;/p&gt;&lt;p&gt;Если вы не включите эту опцию, то можете столкнуться с более выскоим энергопотреблением&lt;/p&gt;&lt;p&gt;Эта опция несовместима с bbswitch и будет игнорироваться, если он включен&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="388"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset the Nvidia PCI device when switching&lt;/p&gt;&lt;p&gt;Avoids driver conflicts, especially when switching from Nvidia mode to Intel Mode&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Сброс Nvidia PCI при переключении&lt;/p&gt;&lt;p&gt;Предотвращает конфликты драйверов, особенно при переключении из Nvidia в Intel&lt;/p&gt;&lt;p&gt;Эта опция несовместима с bbswitch и будет игнорироваться, если он включен&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="497"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable AccelMethod option in the Xorg configuration&lt;br/&gt;&lt;br/&gt;This option compatible only with the Intel driver and will be ignored if it is not selected&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить опцию AccelMethod в конфигурации Xorg&lt;br/&gt;&lt;br/&gt;Эта опция совместима только с драйвером Intel и будет игнорироваться, если он не выбран&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
         <location filename="../../src/settingsdialog.ui" line="204"/>
         <source>Intel icon:</source>
         <translation>Иконка Intel:</translation>
@@ -193,22 +208,17 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Перезапускать ли менеджер входа при переключении графических процессоров&lt;/p&gt;&lt;p&gt;Если отключено, GPU не переключится, пока вы не перезапустите менеджер входа вручную&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="628"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if bbswitch is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включение или отключение modesettings для драйвера nouveau&lt;/p&gt;&lt;p&gt;Не влияет на modesetting для драйвера Intel GPU&lt;/p&gt;&lt;p&gt;Эта опция несовместима с bbswitch и будет игнорироваться, если он включен&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="707"/>
+        <location filename="../../src/settingsdialog.ui" line="713"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manager&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Это будет установлено с помощью скрипта Xsetup, который передается вашему менеджеру входа&lt;br/&gt;Он запускает команду&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Оставьте 0 для значения по умолчанию&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="745"/>
+        <location filename="../../src/settingsdialog.ui" line="751"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить или нет параметр NVreg_UsePageAttributeTable в драйвере Nvidia&lt;span style=&quot; font-style:italic;&quot;&gt;Рекомендуется&lt;/span&gt;, в противном случае может привести к снижению производительности процессора&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="758"/>
+        <location filename="../../src/settingsdialog.ui" line="764"/>
         <source>Overclocking options</source>
         <translation>Опции разгона</translation>
     </message>
@@ -249,19 +259,9 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
         <translation>Управление менеджером входа</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="378"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;If you do not enable this option, you may see a higher power comsumption&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if bbswitch is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить управление питанием PCI в режиме Intel&lt;/p&gt;&lt;p&gt;Если вы не включите эту опцию, то можете столкнуться с более выскоим энергопотреблением&lt;/p&gt;&lt;p&gt;Эта опция несовместима с bbswitch и будет игнорироваться, если он включен&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../../src/settingsdialog.ui" line="381"/>
         <source>PCI power control</source>
         <translation>Управление питанием PCI</translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="388"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset the Nvidia PCI device when switching&lt;/p&gt;&lt;p&gt;Avoids driver conflicts, especially when switching from Nvidia mode to Intel Mode&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if bbswitch is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Сброс Nvidia PCI при переключении&lt;/p&gt;&lt;p&gt;Предотвращает конфликты драйверов, особенно при переключении из Nvidia в Intel&lt;/p&gt;&lt;p&gt;Эта опция несовместима с bbswitch и будет игнорироваться, если он включен&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="391"/>
@@ -309,87 +309,87 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
         <translation>Драйвер:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="497"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Corresponds to AccelMethod in the Xorg configuration&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Соответствует AccelMethod в конфигурации Xorg&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../../src/settingsdialog.ui" line="500"/>
         <source>Acceleration method:</source>
         <translation>Метод графического ускорения:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="508"/>
-        <location filename="../../src/settingsdialog.ui" line="554"/>
+        <location filename="../../src/settingsdialog.ui" line="511"/>
+        <location filename="../../src/settingsdialog.ui" line="560"/>
         <source>Default</source>
         <translation>По умолчанию</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="543"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить TearFree опцию&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <location filename="../../src/settingsdialog.ui" line="546"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;br/&gt;&lt;br/&gt;This option compatible only with the Intel driver and will be ignored if it is not selected&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить опцию TearFree в конфигурации Xorg&lt;br/&gt;&lt;br/&gt;Эта опция совместима только с драйвером Intel и будет игнорироваться, если он не выбран&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="559"/>
+        <location filename="../../src/settingsdialog.ui" line="565"/>
         <source>Yes</source>
         <translation>Да</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="564"/>
+        <location filename="../../src/settingsdialog.ui" line="570"/>
         <source>No</source>
         <translation>Нет</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="589"/>
-        <location filename="../../src/settingsdialog.ui" line="666"/>
+        <location filename="../../src/settingsdialog.ui" line="595"/>
+        <location filename="../../src/settingsdialog.ui" line="672"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Версия DRI&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="735"/>
+        <location filename="../../src/settingsdialog.ui" line="634"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включение или отключение modesettings для драйвера nouveau&lt;/p&gt;&lt;p&gt;Не влияет на modesetting для драйвера Intel GPU&lt;/p&gt;&lt;p&gt;Эта опция несовместима с bbswitch и будет игнорироваться, если он включен&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="741"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить или нет modesetting&lt;/p&gt;&lt;p&gt;Требуется для синхронизации PRIME&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="755"/>
+        <location filename="../../src/settingsdialog.ui" line="761"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration and unlock clocking options in the Nvidia control panel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить CoolBits в конфигурации Xorg и разблокировать опции разгона в панели управления Nvidia&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="765"/>
+        <location filename="../../src/settingsdialog.ui" line="771"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить тройную буферизацию&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="768"/>
+        <location filename="../../src/settingsdialog.ui" line="774"/>
         <source>Tripple buffer</source>
         <translation>Тройная буферизация</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="825"/>
-        <location filename="../../src/settingsdialog.ui" line="956"/>
+        <location filename="../../src/settingsdialog.ui" line="831"/>
+        <location filename="../../src/settingsdialog.ui" line="962"/>
         <source>Version:</source>
         <translation>Версия:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="839"/>
-        <location filename="../../src/settingsdialog.ui" line="933"/>
+        <location filename="../../src/settingsdialog.ui" line="845"/>
+        <location filename="../../src/settingsdialog.ui" line="939"/>
         <source>Autor:</source>
         <translation>Автор:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="846"/>
-        <location filename="../../src/settingsdialog.ui" line="970"/>
+        <location filename="../../src/settingsdialog.ui" line="852"/>
+        <location filename="../../src/settingsdialog.ui" line="976"/>
         <source>License:</source>
         <translation>Лицензия:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="226"/>
+        <location filename="../../src/settingsdialog.cpp" line="222"/>
         <source>Select icon</source>
         <translation>Выбрать иконку</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="227"/>
+        <location filename="../../src/settingsdialog.cpp" line="223"/>
         <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
         <translation>Изображения (*.png *.jpg *.bmp);;Все файлы(*)</translation>
     </message>

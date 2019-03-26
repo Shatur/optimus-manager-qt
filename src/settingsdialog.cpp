@@ -243,3 +243,14 @@ void SettingsDialog::on_switchingBackendComboBox_currentIndexChanged(int index)
         ui->intelModesetCheckBox->setEnabled(true);
     }
 }
+
+void SettingsDialog::on_intelDriverComboBox_currentIndexChanged(int index)
+{
+    if (index == OptimusSettings::IntelDriver) {
+        ui->intelAccelMethodComboBox->setEnabled(true);
+        ui->intelTearFreeComboBox->setEnabled(true);
+    } else {
+        ui->intelAccelMethodComboBox->setEnabled(false);
+        ui->intelTearFreeComboBox->setEnabled(false);
+    }
+}

@@ -39,13 +39,12 @@ public:
 
 private slots:
     void on_SettingsDialog_accepted();
-
     void on_intelIconButton_clicked();
     void on_nvidiaIconButton_clicked();
     void on_intelIconEdit_textChanged(const QString &fileName);
     void on_nvidiaIconEdit_textChanged(const QString &fileName);
-
     void on_switchingBackendComboBox_currentIndexChanged(int index);
+    void on_intelDriverComboBox_currentIndexChanged(int index);
 
     void restoreDefaults();
 
