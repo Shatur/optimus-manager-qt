@@ -15,7 +15,7 @@ DEFINES += \
     QAPPLICATION_CLASS=QApplication \
     QT_DEPRECATED_WARNINGS
 
-DEFINES += PLASMA
+#DEFINES += PLASMA
 contains(DEFINES, PLASMA){
   QT += KNotifications KIconThemes
 }

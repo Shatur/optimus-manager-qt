@@ -32,7 +32,7 @@
 -   Graphic menu for Optimus Manager configuration
 -   Switching video cards using the context menu
 -   Customizable tray icon
--   Optional extended KDE tray API support (you can compile it with or without knotifier, see below)
+-   Optional extended Plasma support (you can compile it with or without Plasma dependencies, see below)
 
 ## Third-party
 
@@ -66,7 +66,7 @@ git submodule update
 
 You can install [optimus-manager-qt](https://aur.archlinux.org/packages/optimus-manager-qt) or [optimus-manager-qt-git](https://aur.archlinux.org/packages/optimus-manager-qt-git) from AUR.
 
-**Note:** If you are using KDE, it is recommended to replace KDE=false in PKGBUILD to KDE=true to make use of KDE API for tray for additional feautures (this also adds knotifier dependency).
+**Note:** If you are using Plasma, it is recommended to replace in PKGBUILD `PLASMA=false` with `PLASMA=true` to use additional KDE API feautures (this also adds additional dependencies).
 
 ### Manual building
 
@@ -78,10 +78,10 @@ make
 make clean
 ```
 
-If you want to build with KDE support you need to define `KDE`:
+If you want to build with extended Plasma support you need to define `PLASMA`:
 
 ```bash
-qmake "DEFINES += KDE"
+qmake "DEFINES += PLASMA"
 make
 make clean
 ```

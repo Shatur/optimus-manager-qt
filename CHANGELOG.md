@@ -14,8 +14,8 @@ _No unreleased changes yet_
 
 **Added**
 
--   Implemented 'terminate_sessions', 'kill_x11' and 'kill_logind' options.
 -   The ability to set startup mode in settings.
+-   Implement 'terminate_sessions', 'kill_x11' and 'kill_logind' options.
 
 **Changed**
 
