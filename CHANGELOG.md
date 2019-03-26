@@ -4,7 +4,13 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)
 
-[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.0.0...HEAD)
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.1.0...HEAD)
+
+_No unreleased changes yet_
+
+## [1.1.0](https://github.com/crow-translate/crow-translate/tree/1.1.0) (2019-03-26)
+
+[Full Changelog](https://github.com/crow-translate/crow-translate/compare/1.0.0...1.1.0)
 
 **Added**
 
@@ -26,6 +32,6 @@ All notable changes to this project will be documented in this file. This projec
 -   Use the bundled icons if the specified icons in the settings are invalid.
 -   Enable TearFree and AccelMethod options only with the Intel driver.
 
-## 1.0.0 (2018-11-17)
+## 1.0.0 (2019-02-28)
 
 _Initial release_
