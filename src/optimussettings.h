@@ -62,7 +62,7 @@ public:
     Q_ENUM(DRI)
     enum NvidiaOption {
         Overclocking = 1,
-        TrippleBuffer = 2
+        TripleBuffer = 2
     };
     Q_DECLARE_FLAGS(NvidiaOptions, NvidiaOption)
 

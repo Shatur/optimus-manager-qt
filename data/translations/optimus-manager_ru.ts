@@ -4,9 +4,13 @@
 <context>
     <name>AppSettings</name>
     <message>
-        <location filename="../../src/appsettings.cpp" line="71"/>
         <source>Unable to create autorun file from </source>
-        <translation>Не удалось создать файл автозапуска из </translation>
+        <translation type="vanished">Не удалось создать файл автозапуска из </translation>
+    </message>
+    <message>
+        <location filename="../../src/appsettings.cpp" line="71"/>
+        <source>Unable to create autorun file from &apos;%1&apos;</source>
+        <translation>Не удалось создать файл автозапуска из &apos;%1&apos;</translation>
     </message>
 </context>
 <context>
@@ -213,12 +217,12 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Это будет установлено с помощью скрипта Xsetup, который передается вашему менеджеру входа&lt;br/&gt;Он запускает команду&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Оставьте 0 для значения по умолчанию&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="751"/>
+        <location filename="../../src/settingsdialog.ui" line="755"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить или нет параметр NVreg_UsePageAttributeTable в драйвере Nvidia&lt;span style=&quot; font-style:italic;&quot;&gt;Рекомендуется&lt;/span&gt;, в противном случае может привести к снижению производительности процессора&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="764"/>
+        <location filename="../../src/settingsdialog.ui" line="768"/>
         <source>Overclocking options</source>
         <translation>Опции разгона</translation>
     </message>
@@ -346,40 +350,44 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включение или отключение modesettings для драйвера nouveau&lt;/p&gt;&lt;p&gt;Не влияет на modesetting для драйвера Intel GPU&lt;/p&gt;&lt;p&gt;Эта опция несовместима с bbswitch и будет игнорироваться, если он включен&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="741"/>
+        <location filename="../../src/settingsdialog.ui" line="745"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить или нет modesetting&lt;/p&gt;&lt;p&gt;Требуется для синхронизации PRIME&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="761"/>
+        <location filename="../../src/settingsdialog.ui" line="765"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration and unlock clocking options in the Nvidia control panel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить CoolBits в конфигурации Xorg и разблокировать опции разгона в панели управления Nvidia&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="771"/>
+        <location filename="../../src/settingsdialog.ui" line="775"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить тройную буферизацию&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="774"/>
-        <source>Tripple buffer</source>
+        <location filename="../../src/settingsdialog.ui" line="778"/>
+        <source>Triple buffer</source>
         <translation>Тройная буферизация</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="831"/>
-        <location filename="../../src/settingsdialog.ui" line="962"/>
+        <source>Tripple buffer</source>
+        <translation type="vanished">Тройная буферизация</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="835"/>
+        <location filename="../../src/settingsdialog.ui" line="966"/>
         <source>Version:</source>
         <translation>Версия:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="845"/>
-        <location filename="../../src/settingsdialog.ui" line="939"/>
+        <location filename="../../src/settingsdialog.ui" line="849"/>
+        <location filename="../../src/settingsdialog.ui" line="943"/>
         <source>Autor:</source>
         <translation>Автор:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="852"/>
-        <location filename="../../src/settingsdialog.ui" line="976"/>
+        <location filename="../../src/settingsdialog.ui" line="856"/>
+        <location filename="../../src/settingsdialog.ui" line="980"/>
         <source>License:</source>
         <translation>Лицензия:</translation>
     </message>

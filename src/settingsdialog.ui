@@ -770,12 +770,12 @@
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="nvidiaTrippleBuffercheckBox">
+            <widget class="QCheckBox" name="nvidiaTripleBuffercheckBox">
              <property name="toolTip">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
-              <string>Tripple buffer</string>
+              <string>Triple buffer</string>
              </property>
             </widget>
            </item>
