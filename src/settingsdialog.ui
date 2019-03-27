@@ -718,7 +718,11 @@
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="nvidiaDpiSpinBox"/>
+              <widget class="QSpinBox" name="nvidiaDpiSpinBox">
+               <property name="maximum">
+                <number>65535</number>
+               </property>
+              </widget>
              </item>
              <item>
               <spacer name="nvidiaDpiSpacer">
