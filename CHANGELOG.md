@@ -6,7 +6,9 @@ All notable changes to this project will be documented in this file. This projec
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.1.0...HEAD)
 
-_No unreleased changes yet_
+**Changed**
+
+-   Specify maximum dpi for Nvidia QSpinBox.
 
 ## [1.1.0](https://github.com/crow-translate/crow-translate/tree/1.1.0) (2019-03-26)
 
