@@ -387,7 +387,7 @@ OptimusSettings::NvidiaOptions OptimusSettings::nvidiaOptions() const
     if (optionsStrings.contains("overclocking"))
         options |= Overclocking;
     if (optionsStrings.contains("triple_buffer"))
-        options |= TrippleBuffer;
+        options |= TripleBuffer;
 
     return options;
 }
@@ -399,7 +399,7 @@ void OptimusSettings::setNvidiaOptions(NvidiaOptions options)
     if (options.testFlag(Overclocking))
         optionsStrings.append("overclocking");
 
-    if (options.testFlag(TrippleBuffer))
+    if (options.testFlag(TripleBuffer))
         optionsStrings.append("triple_buffer");
 
     m_settings->setValue("nvidia/options", optionsStrings);

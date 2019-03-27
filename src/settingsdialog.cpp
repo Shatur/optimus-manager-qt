@@ -107,7 +107,7 @@ void SettingsDialog::on_SettingsDialog_accepted()
 
     OptimusSettings::NvidiaOptions nvidiaOptions;
     nvidiaOptions.setFlag(OptimusSettings::Overclocking, ui->nvidiaOverclockingCheckBox->isChecked());
-    nvidiaOptions.setFlag(OptimusSettings::TrippleBuffer, ui->nvidiaTrippleBuffercheckBox->isChecked());
+    nvidiaOptions.setFlag(OptimusSettings::TripleBuffer, ui->nvidiaTripleBuffercheckBox->isChecked());
     optimusSettings.setNvidiaOptions(nvidiaOptions);
 
     optimusSettings.apply();
@@ -146,7 +146,7 @@ void SettingsDialog::restoreDefaults()
     ui->nvidiaModesetCheckBox->setChecked(true);
     ui->nvidiaPatCheckBox->setChecked(true);
     ui->nvidiaOverclockingCheckBox->setChecked(true);
-    ui->nvidiaTrippleBuffercheckBox->setChecked(false);
+    ui->nvidiaTripleBuffercheckBox->setChecked(false);
 }
 
 void SettingsDialog::loadSettings()
@@ -185,7 +185,7 @@ void SettingsDialog::loadSettings()
 
     const OptimusSettings::NvidiaOptions nvidiaOptions = optimusSettings.nvidiaOptions();
     ui->nvidiaOverclockingCheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::Overclocking));
-    ui->nvidiaTrippleBuffercheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::TrippleBuffer));
+    ui->nvidiaTripleBuffercheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::TripleBuffer));
 }
 
 void SettingsDialog::on_intelIconButton_clicked()
