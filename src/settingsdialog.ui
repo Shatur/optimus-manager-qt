@@ -720,7 +720,7 @@
              <item>
               <widget class="QSpinBox" name="nvidiaDpiSpinBox">
                <property name="maximum">
-                <number>65535</number>
+                <number>1000</number>
                </property>
               </widget>
              </item>
