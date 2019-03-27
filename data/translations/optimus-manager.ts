@@ -5,7 +5,7 @@
     <name>AppSettings</name>
     <message>
         <location filename="../../src/appsettings.cpp" line="71"/>
-        <source>Unable to create autorun file from </source>
+        <source>Unable to create autorun file from &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -207,12 +207,12 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="751"/>
+        <location filename="../../src/settingsdialog.ui" line="755"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="764"/>
+        <location filename="../../src/settingsdialog.ui" line="768"/>
         <source>Overclocking options</source>
         <translation type="unfinished"></translation>
     </message>
@@ -345,40 +345,40 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="741"/>
+        <location filename="../../src/settingsdialog.ui" line="745"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="761"/>
+        <location filename="../../src/settingsdialog.ui" line="765"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration and unlock clocking options in the Nvidia control panel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="771"/>
+        <location filename="../../src/settingsdialog.ui" line="775"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="774"/>
-        <source>Tripple buffer</source>
+        <location filename="../../src/settingsdialog.ui" line="778"/>
+        <source>Triple buffer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="831"/>
-        <location filename="../../src/settingsdialog.ui" line="962"/>
+        <location filename="../../src/settingsdialog.ui" line="835"/>
+        <location filename="../../src/settingsdialog.ui" line="966"/>
         <source>Version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="845"/>
-        <location filename="../../src/settingsdialog.ui" line="939"/>
+        <location filename="../../src/settingsdialog.ui" line="849"/>
+        <location filename="../../src/settingsdialog.ui" line="943"/>
         <source>Autor:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="852"/>
-        <location filename="../../src/settingsdialog.ui" line="976"/>
+        <location filename="../../src/settingsdialog.ui" line="856"/>
+        <location filename="../../src/settingsdialog.ui" line="980"/>
         <source>License:</source>
         <translation type="unfinished"></translation>
     </message>
