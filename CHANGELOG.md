@@ -4,11 +4,22 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)
 
-[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.1.0...HEAD)
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.1.1...HEAD)
+
+_No unreleased changes yet_
+
+## [1.1.1](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)) (2019-03-28)
+
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.1.0...1.1.1)
+
+**Added**
+
+-   Chinese translation.
 
 **Changed**
 
 -   Specify maximum dpi for Nvidia QSpinBox.
+-   Fix typos and improve text for translation.
 
 ## [1.1.0](https://github.com/crow-translate/crow-translate/tree/1.1.0) (2019-03-26)
 
