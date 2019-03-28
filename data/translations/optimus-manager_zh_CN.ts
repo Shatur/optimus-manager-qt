@@ -148,11 +148,6 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
         <translation>&lt;系统语言&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="157"/>
-        <source>Simplified Chinese</source>
-        <translation>简体中文</translation>
-    </message>
-    <message>
         <location filename="../../src/settingsdialog.ui" line="184"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart will be used&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;将会使用 ~/.config/autostart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -370,10 +365,6 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
         <location filename="../../src/settingsdialog.ui" line="787"/>
         <source>Triple buffer</source>
         <translation>三倍缓存</translation>
-    </message>
-    <message>
-        <source>Tripple buffer</source>
-        <translation type="vanished">三倍缓存</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="844"/>

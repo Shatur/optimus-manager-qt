@@ -4,10 +4,6 @@
 <context>
     <name>AppSettings</name>
     <message>
-        <source>Unable to create autorun file from </source>
-        <translation type="vanished">Не удалось создать файл автозапуска из </translation>
-    </message>
-    <message>
         <location filename="../../src/appsettings.cpp" line="71"/>
         <source>Unable to create autorun file from &apos;%1&apos;</source>
         <translation>Не удалось создать файл автозапуска из &apos;%1&apos;</translation>
@@ -232,11 +228,6 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
         <translation>Бэкенд для переключения:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="157"/>
-        <source>Simplified Chinese</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../src/settingsdialog.ui" line="184"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart will be used&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>Будет использован ~/.config/autostart</translation>
@@ -373,10 +364,6 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
         <location filename="../../src/settingsdialog.ui" line="787"/>
         <source>Triple buffer</source>
         <translation>Тройная буферизация</translation>
-    </message>
-    <message>
-        <source>Tripple buffer</source>
-        <translation type="vanished">Тройная буферизация</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="844"/>
