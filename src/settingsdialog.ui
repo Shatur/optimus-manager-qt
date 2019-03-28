@@ -152,6 +152,15 @@
                   <normaloff>:/flags/ru.svg</normaloff>:/flags/ru.svg</iconset>
                 </property>
                </item>
+               <item>
+                <property name="text">
+                 <string>Simplified Chinese</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../data/resources.qrc">
+                  <normaloff>:/flags/cn.svg</normaloff>:/flags/cn.svg</iconset>
+                </property>
+               </item>
               </widget>
              </item>
              <item>
