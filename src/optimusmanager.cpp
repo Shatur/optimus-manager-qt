@@ -212,7 +212,6 @@ void OptimusManager::switchGpu(OptimusManager::GPU gpu)
     QMessageBox confirmMessage;
     confirmMessage.setStandardButtons(QMessageBox::Apply | QMessageBox::Cancel);
     confirmMessage.setIcon(QMessageBox::Question);
-    confirmMessage.setWindowTitle(SingleApplication::applicationName());
     if (settings.isLoginManagerControl())
         confirmMessage.setText(tr("You are about to switch GPUs. This will restart the display manager and all your applications will be closed."));
     else
@@ -226,7 +225,6 @@ void OptimusManager::switchGpu(OptimusManager::GPU gpu)
     if (!client.isDaemonActive()) {
         QMessageBox daemonMessage;
         daemonMessage.setIcon(QMessageBox::Critical);
-        daemonMessage.setWindowTitle(SingleApplication::applicationName());
         daemonMessage.setText(tr("The optimus-manager service is not running. Please enable and start it with:") +
                               "\nsudo systemctl enable optimus-manager"
                               "\nsudo systemctl start optimus-manager");
@@ -240,19 +238,18 @@ void OptimusManager::switchGpu(OptimusManager::GPU gpu)
         if (!isModuleAvailable("bbswitch")) {
             QMessageBox moduleMessage;
             moduleMessage.setIcon(QMessageBox::Critical);
-            moduleMessage.setWindowTitle(SingleApplication::applicationName());
             moduleMessage.setText(tr("bbswitch is enabled in the configuration file but the bbswitch module does"
                                   " not seem to be available for the current kernel. Power switching will not work.\n"
                                   "You can install bbswitch for the default kernel with \"sudo pacman -S bbswitch\" or"
                                   " for all kernels with \"sudo pacman -S bbswitch-dkms\"."));
             moduleMessage.exec();
+            return;
         }
         break;
     case OptimusSettings::Nouveau:
         if (!isModuleAvailable("nouveau")) {
             QMessageBox moduleMessage;
             moduleMessage.setIcon(QMessageBox::Question);
-            moduleMessage.setWindowTitle(SingleApplication::applicationName());
             moduleMessage.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
             moduleMessage.setText(tr("The nvidia module does not seem to be available for the current kernel."
                                      " It is likely the Nvidia driver was not properly installed. GPU switching will probably fail,"
@@ -271,7 +268,6 @@ void OptimusManager::switchGpu(OptimusManager::GPU gpu)
     if (client.error()) {
         QMessageBox connectMessage;
         connectMessage.setIcon(QMessageBox::Critical);
-        connectMessage.setWindowTitle(SingleApplication::applicationName());
         connectMessage.setText(tr("Unable to connect to optimus-manager daemon to switch GPU: ") + client.errorString());
         connectMessage.exec();
         return;
@@ -291,7 +287,6 @@ void OptimusManager::switchGpu(OptimusManager::GPU gpu)
     if (client.send(gpuString) == -1) {
         QMessageBox sendMessage;
         sendMessage.setIcon(QMessageBox::Critical);
-        sendMessage.setWindowTitle(SingleApplication::applicationName());
         sendMessage.setText(tr("Unable to send GPU to switch to optimus-manager daemon: ") + client.errorString());
         sendMessage.exec();
     }

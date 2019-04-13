@@ -6,7 +6,9 @@ All notable changes to this project will be documented in this file. This projec
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.1.1...HEAD)
 
-_No unreleased changes yet_
+**Changed**
+
+-   Fixed switching when bbswitch is unavailable.
 
 ## [1.1.1](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)) (2019-03-28)
 
