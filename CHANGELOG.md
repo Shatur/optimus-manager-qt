@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file. This projec
 **Changed**
 
 -   Fixed switching when bbswitch is unavailable.
+-   Fix confirm message showing when it's disabled.
 
 ## [1.1.1](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)) (2019-03-28)
 

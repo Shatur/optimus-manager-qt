@@ -206,19 +206,22 @@ void OptimusManager::retranslateUi()
 
 void OptimusManager::switchGpu(OptimusManager::GPU gpu)
 {
+    const AppSettings appSettings;
     const OptimusSettings settings;
 
     // Confirm message
-    QMessageBox confirmMessage;
-    confirmMessage.setStandardButtons(QMessageBox::Apply | QMessageBox::Cancel);
-    confirmMessage.setIcon(QMessageBox::Question);
-    if (settings.isLoginManagerControl())
-        confirmMessage.setText(tr("You are about to switch GPUs. This will restart the display manager and all your applications will be closed."));
-    else
-        confirmMessage.setText(tr("You are about to switch GPUs. After applying the settings, you will need to manually restart the login manager to change the video card."));
-    confirmMessage.exec();
-    if (confirmMessage.result() != QMessageBox::Apply)
-        return;
+    if (appSettings.isConfirmSwitching()) {
+        QMessageBox confirmMessage;
+        confirmMessage.setStandardButtons(QMessageBox::Apply | QMessageBox::Cancel);
+        confirmMessage.setIcon(QMessageBox::Question);
+        if (settings.isLoginManagerControl())
+            confirmMessage.setText(tr("You are about to switch GPUs. This will restart the display manager and all your applications will be closed."));
+        else
+            confirmMessage.setText(tr("You are about to switch GPUs. After applying the settings, you will need to manually restart the login manager to change the video card."));
+        confirmMessage.exec();
+        if (confirmMessage.result() != QMessageBox::Apply)
+            return;
+    }
 
     // Check if daemon is acrive
     DaemonClient client;
@@ -291,10 +294,8 @@ void OptimusManager::switchGpu(OptimusManager::GPU gpu)
         sendMessage.exec();
     }
 
-    if (!settings.isLoginManagerControl()) {
-        const AppSettings appSettings;
+    if (!settings.isLoginManagerControl())
         showNotification(tr("Configuration successfully applied. Your GPU will be switched after the login manager is restarted."), appSettings.gpuIconName(gpu));
-    }
 }
 
 bool OptimusManager::isModuleAvailable(const QString &moduleName)
