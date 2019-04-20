@@ -50,7 +50,6 @@ private slots:
     void switchToIntel();
     void switchToNvidia();
     void openSettings();
-    void showAppRunningMessage();
 
 private:
     void showNotification(const QString &message, const QString &iconName, int interval = 10000);

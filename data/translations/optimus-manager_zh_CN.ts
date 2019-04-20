@@ -12,79 +12,74 @@
 <context>
     <name>OptimusManager</name>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="53"/>
-        <location filename="../../src/optimusmanager.cpp" line="202"/>
+        <location filename="../../src/optimusmanager.cpp" line="50"/>
+        <location filename="../../src/optimusmanager.cpp" line="192"/>
         <source>Switch to Intel</source>
         <translation>切换到 Intel</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="54"/>
-        <location filename="../../src/optimusmanager.cpp" line="203"/>
+        <location filename="../../src/optimusmanager.cpp" line="51"/>
+        <location filename="../../src/optimusmanager.cpp" line="193"/>
         <source>Switch to Nvidia</source>
         <translation>切换到 Nvidia</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="56"/>
-        <location filename="../../src/optimusmanager.cpp" line="204"/>
+        <location filename="../../src/optimusmanager.cpp" line="53"/>
+        <location filename="../../src/optimusmanager.cpp" line="194"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="64"/>
-        <location filename="../../src/optimusmanager.cpp" line="199"/>
+        <location filename="../../src/optimusmanager.cpp" line="61"/>
+        <location filename="../../src/optimusmanager.cpp" line="189"/>
         <source>Current videocard: </source>
         <translation>目前使用的显卡：</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="119"/>
-        <source>The application is already running</source>
-        <translation>程序已在运行中</translation>
-    </message>
-    <message>
+        <location filename="../../src/optimusmanager.cpp" line="170"/>
         <location filename="../../src/optimusmanager.cpp" line="180"/>
-        <location filename="../../src/optimusmanager.cpp" line="190"/>
         <source>The specified icon &apos;%1&apos; for the current GPU is invalid. The default icon will be used.</source>
         <translation>为当前使用的 GPU 指定的图标 %1 无效。将使用默认图标。</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="217"/>
+        <location filename="../../src/optimusmanager.cpp" line="208"/>
         <source>You are about to switch GPUs. This will restart the display manager and all your applications will be closed.</source>
         <translation>您将要切换 GPU。这将关闭您所有正在运行的程序并重启显示管理器。</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="219"/>
+        <location filename="../../src/optimusmanager.cpp" line="210"/>
         <source>You are about to switch GPUs. After applying the settings, you will need to manually restart the login manager to change the video card.</source>
         <translation>您将要切换 GPU。应用此设置之后，您需要手动重启登录管理器以切换显卡。</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="230"/>
+        <location filename="../../src/optimusmanager.cpp" line="221"/>
         <source>The optimus-manager service is not running. Please enable and start it with:</source>
         <translation>optimus-manager 服务未运行。请按照如下指示启用并启动它：</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="244"/>
+        <location filename="../../src/optimusmanager.cpp" line="234"/>
         <source>bbswitch is enabled in the configuration file but the bbswitch module does not seem to be available for the current kernel. Power switching will not work.
 You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswitch&quot; or for all kernels with &quot;sudo pacman -S bbswitch-dkms&quot;.</source>
         <translation>在配置文件中启用了 bbswitch，但是 bbswitch 模块似乎对当前内核不可用，因此功耗调节功能无法工作。
 您可以使用“sudo pacman -S bbswitch”或“sudo pacman -S bbswitch-dkms”安装 bbswitch。</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="257"/>
+        <location filename="../../src/optimusmanager.cpp" line="247"/>
         <source>The nvidia module does not seem to be available for the current kernel. It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?</source>
         <translation>nvidia 模块似乎对当前内核不可用。nvidia 驱动可能安装不正确。GPU 切换可能会失败，是否继续？</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="275"/>
+        <location filename="../../src/optimusmanager.cpp" line="264"/>
         <source>Unable to connect to optimus-manager daemon to switch GPU: </source>
         <translation>无法连接到 optimus-manager 后台以切换 GPU：</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="295"/>
+        <location filename="../../src/optimusmanager.cpp" line="283"/>
         <source>Unable to send GPU to switch to optimus-manager daemon: </source>
         <translation>无法发送将要切换的 GPU 信息到 optimus-manager 后台：</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="301"/>
+        <location filename="../../src/optimusmanager.cpp" line="288"/>
         <source>Configuration successfully applied. Your GPU will be switched after the login manager is restarted.</source>
         <translation>配置应用成功您。您的 GPU 将在您登录管理器重启后切换。</translation>
     </message>
@@ -116,8 +111,8 @@ You can install bbswitch for the default kernel with &quot;sudo pacman -S bbswit
     <name>SettingsDialog</name>
     <message>
         <location filename="../../src/settingsdialog.ui" line="14"/>
-        <location filename="../../src/optimusmanager.cpp" line="51"/>
-        <location filename="../../src/optimusmanager.cpp" line="201"/>
+        <location filename="../../src/optimusmanager.cpp" line="48"/>
+        <location filename="../../src/optimusmanager.cpp" line="191"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>

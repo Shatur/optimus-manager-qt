@@ -43,9 +43,6 @@ OptimusManager::OptimusManager(QObject *parent) :
 {
     detectGpu(); // Detect current GPU
 
-    // Show a message that the application is already running
-    connect(qobject_cast<SingleApplication*>(SingleApplication::instance()), &SingleApplication::instanceStarted, this, &OptimusManager::showAppRunningMessage);
-
     // Setup context menu
     m_contextMenu = new QMenu;
     m_contextMenu->addAction(QIcon::fromTheme("preferences-system"), SettingsDialog::tr("Settings"), this, &OptimusManager::openSettings);
@@ -112,13 +109,6 @@ void OptimusManager::openSettings()
         retranslateUi();
 
     loadSettings();
-}
-
-void OptimusManager::showAppRunningMessage()
-{
-    auto message = new QMessageBox(QMessageBox::Information, "Optimus Manager", tr("The application is already running"));
-    message->setAttribute(Qt::WA_DeleteOnClose); // Need to allocate on heap to avoid crash!
-    message->show();
 }
 
 void OptimusManager::showNotification(const QString &message, const QString &iconName, int interval)
