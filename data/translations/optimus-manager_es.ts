@@ -94,7 +94,7 @@ Puedes instalar bbswitch para el  kernel predeterminado con &quot;sudo pacman -S
     <message>
         <location filename="../../src/optimussettings.cpp" line="64"/>
         <source>Unable to connect to optimus-manager daemon to send startup mode: </source>
-        <translation>No se pudo conectar con el daemon de optimus-manager para enviar el modo de encendido.</translation>
+        <translation>No se pudo conectar con el daemon de optimus-manager para enviar el modo de encendido: </translation>
     </message>
     <message>
         <location filename="../../src/optimussettings.cpp" line="70"/>
@@ -145,7 +145,7 @@ Puedes instalar bbswitch para el  kernel predeterminado con &quot;sudo pacman -S
     <message>
         <location filename="../../src/settingsdialog.ui" line="134"/>
         <source>&lt;System language&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;Idioma del sistema&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="187"/>
@@ -165,7 +165,7 @@ Puedes instalar bbswitch para el  kernel predeterminado con &quot;sudo pacman -S
     <message>
         <location filename="../../src/settingsdialog.ui" line="226"/>
         <source>Nvidia icon:</source>
-        <translation>Icono de Nvidia</translation>
+        <translation>Icono de Nvidia:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="387"/>
@@ -180,7 +180,7 @@ Puedes instalar bbswitch para el  kernel predeterminado con &quot;sudo pacman -S
     <message>
         <location filename="../../src/settingsdialog.ui" line="213"/>
         <source>Intel icon:</source>
-        <translation>Icono de Intel</translation>
+        <translation>Icono de Intel:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="275"/>
