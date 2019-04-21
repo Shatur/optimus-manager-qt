@@ -5,5 +5,7 @@
         <file>flags/cn.svg</file>
         <file>translations/optimus-manager_ru.qm</file>
         <file>translations/optimus-manager_zh_CN.qm</file>
+        <file>flags/es.svg</file>
+        <file>translations/optimus-manager_es.qm</file>
     </qresource>
 </RCC>

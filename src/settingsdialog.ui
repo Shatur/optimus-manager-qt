@@ -145,6 +145,15 @@
                </item>
                <item>
                 <property name="text">
+                 <string>Español</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../data/resources.qrc">
+                  <normaloff>:/flags/es.svg</normaloff>:/flags/es.svg</iconset>
+                </property>
+               </item>
+               <item>
+                <property name="text">
                  <string notr="true">Русский</string>
                 </property>
                 <property name="icon">
