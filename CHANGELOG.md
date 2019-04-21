@@ -6,9 +6,14 @@ All notable changes to this project will be documented in this file. This projec
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.1.2...HEAD)
 
+**Added**
+
+-   Spanish translation.
+
 **Changed**
 
 -   Remove "The application is already running" message.
+-   Use Chinese flag from [FlagKit](https://github.com/madebybowtie/FlagKit).
 
 ## [1.1.2](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)) (2019-04-20)
 
