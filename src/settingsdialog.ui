@@ -102,7 +102,7 @@
      </widget>
      <widget class="QStackedWidget" name="pagesStackedWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="generalPage">
        <layout class="QVBoxLayout" name="generalPageLayout">
@@ -114,6 +114,9 @@
           <layout class="QGridLayout" name="gridLayout">
            <item row="0" column="1">
             <widget class="QComboBox" name="languageComboBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Interface language&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <item>
               <property name="text">
                <string>&lt;System language&gt;</string>
@@ -130,7 +133,7 @@
              </item>
              <item>
               <property name="text">
-               <string>Español</string>
+               <string notr="true">Español</string>
               </property>
               <property name="icon">
                <iconset resource="../data/resources.qrc">
@@ -223,10 +226,18 @@
             </widget>
            </item>
            <item row="3" column="2">
-            <widget class="QLineEdit" name="nvidiaIconEdit"/>
+            <widget class="QLineEdit" name="nvidiaIconEdit">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
            </item>
            <item row="0" column="2">
-            <widget class="QLineEdit" name="intelIconEdit"/>
+            <widget class="QLineEdit" name="intelIconEdit">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
            </item>
            <item row="3" column="0">
             <widget class="QLabel" name="nvidiaIconLabel">
@@ -277,6 +288,9 @@
           <layout class="QGridLayout" name="gridLayout_3">
            <item row="1" column="1">
             <widget class="QComboBox" name="switchingBackendComboBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Backend to be used for switching GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <item>
               <property name="text">
                <string>None</string>
@@ -316,6 +330,9 @@
            </item>
            <item row="0" column="1">
             <widget class="QComboBox" name="startupModeComboBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU that will be used during normal system startup&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <item>
               <property name="text">
                <string notr="true">Intel</string>
@@ -361,7 +378,7 @@
            <item row="2" column="0" colspan="3">
             <widget class="QCheckBox" name="loginManagerControlCheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not restart login manager when switching GPUs&lt;/p&gt;&lt;p&gt;If disabled, the GPU switch is not applied until you have restarted it manually&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not restart login manager when switching GPU&lt;/p&gt;&lt;p&gt;If disabled, the GPU switch is not applied until you have restarted it manually&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string>Login manager control</string>
@@ -391,7 +408,7 @@
            <item row="5" column="0" colspan="3">
             <widget class="QCheckBox" name="terminateSessionsCheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to manually terminate logind sessions when switching GPUs&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to manually terminate logind sessions when switching GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string>Terminate sessions</string>
@@ -401,7 +418,7 @@
            <item row="6" column="0" colspan="3">
             <widget class="QCheckBox" name="killX11CheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to manually kill X11 servers when switching GPUs&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to manually kill X11 servers when switching GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string>Kill X11</string>
@@ -411,7 +428,7 @@
            <item row="7" column="0" colspan="3">
             <widget class="QCheckBox" name="killLogindCheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to manually kill logind when switching GPUs&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to manually kill logind when switching GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string>Kill logind</string>
@@ -446,9 +463,6 @@
           <layout class="QGridLayout" name="gridLayout_4">
            <item row="0" column="0">
             <widget class="QLabel" name="intelDriverLabel">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Intel GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
              <property name="text">
               <string>Driver:</string>
              </property>
@@ -456,6 +470,9 @@
            </item>
            <item row="3" column="1">
             <widget class="QComboBox" name="intelDriComboBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <item>
               <property name="text">
                <string notr="true">2</string>
@@ -470,6 +487,9 @@
            </item>
            <item row="0" column="1">
             <widget class="QComboBox" name="intelDriverComboBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Intel GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <item>
               <property name="text">
                <string notr="true">Modesetting</string>
@@ -484,9 +504,6 @@
            </item>
            <item row="1" column="0">
             <widget class="QLabel" name="intelAccelMethodLabel">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable AccelMethod option in the Xorg configuration&lt;br/&gt;&lt;br/&gt;This option compatible only with the Intel driver and will be ignored if it is not selected&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
              <property name="text">
               <string>Acceleration method:</string>
              </property>
@@ -494,9 +511,6 @@
            </item>
            <item row="2" column="0">
             <widget class="QLabel" name="intelTearFreeLabel">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;br/&gt;&lt;br/&gt;This option compatible only with the Intel driver and will be ignored if it is not selected&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
              <property name="text">
               <string notr="true">Tearfree:</string>
              </property>
@@ -506,6 +520,9 @@
             <widget class="QComboBox" name="intelTearFreeComboBox">
              <property name="enabled">
               <bool>false</bool>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;br/&gt;&lt;br/&gt;This option compatible only with the Intel driver and will be ignored if it is not selected&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <item>
               <property name="text">
@@ -526,9 +543,6 @@
            </item>
            <item row="3" column="0">
             <widget class="QLabel" name="intelDriLabel">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
              <property name="text">
               <string notr="true">DRI:</string>
              </property>
@@ -538,6 +552,9 @@
             <widget class="QComboBox" name="intelAccelMethodComboBox">
              <property name="enabled">
               <bool>false</bool>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable AccelMethod option in the Xorg configuration&lt;br/&gt;&lt;br/&gt;This option compatible only with the Intel driver and will be ignored if it is not selected&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <item>
               <property name="text">
@@ -607,9 +624,6 @@
           <layout class="QGridLayout" name="nvidiaLayout">
            <item row="0" column="0">
             <widget class="QLabel" name="nvidiaDriLabel">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
              <property name="text">
               <string notr="true">DRI:</string>
              </property>
@@ -617,6 +631,9 @@
            </item>
            <item row="0" column="1">
             <widget class="QComboBox" name="nvidiaDriComboBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <item>
               <property name="text">
                <string notr="true">2</string>
@@ -631,6 +648,9 @@
            </item>
            <item row="1" column="1">
             <widget class="QSpinBox" name="nvidiaDpiSpinBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manager&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="maximum">
               <number>1000</number>
              </property>
@@ -638,9 +658,6 @@
            </item>
            <item row="1" column="0">
             <widget class="QLabel" name="nvidiaDpiLabel">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manager&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
              <property name="text">
               <string notr="true">DPI:</string>
              </property>

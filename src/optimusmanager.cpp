@@ -205,9 +205,9 @@ void OptimusManager::switchGpu(OptimusManager::GPU gpu)
         confirmMessage.setStandardButtons(QMessageBox::Apply | QMessageBox::Cancel);
         confirmMessage.setIcon(QMessageBox::Question);
         if (settings.isLoginManagerControl())
-            confirmMessage.setText(tr("You are about to switch GPUs. This will restart the display manager and all your applications will be closed."));
+            confirmMessage.setText(tr("You are about to switch GPU. This will restart the display manager and all your applications will be closed."));
         else
-            confirmMessage.setText(tr("You are about to switch GPUs. After applying the settings, you will need to manually restart the login manager to change the video card."));
+            confirmMessage.setText(tr("You are about to switch GPU. After applying the settings, you will need to manually restart the login manager to change the video card."));
         confirmMessage.exec();
         if (confirmMessage.result() != QMessageBox::Apply)
             return;
