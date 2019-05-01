@@ -87,12 +87,7 @@ void SettingsDialog::on_SettingsDialog_accepted()
     OptimusSettings optimusSettings;
     optimusSettings.setStartupMode(static_cast<OptimusSettings::StartupMode>(ui->startupModeComboBox->currentIndex()));
     optimusSettings.setSwitchingBackend(static_cast<OptimusSettings::SwitchingBackend>(ui->switchingBackendComboBox->currentIndex()));
-    optimusSettings.setLoginManagerControl(ui->loginManagerControlCheckBox->isChecked());
-    optimusSettings.setPciPowerControlEnabled(ui->pciPowerControlCheckBox->isChecked());
-    optimusSettings.setPciResetEnabled(ui->pciResetCheckBox->isChecked());
-    optimusSettings.setTerminateSesionsEnabled(ui->terminateSessionsCheckBox->isChecked());
-    optimusSettings.setKillX11Enabled(ui->killX11CheckBox->isChecked());
-    optimusSettings.setKillLogindEnabled(ui->killLogindCheckBox->isChecked());
+    optimusSettings.setAutoLogoutEnabled(ui->autoLogoutCheckBox->isChecked());
 
     // Intel settings
     optimusSettings.setIntelDriver(static_cast<OptimusSettings::Driver>(ui->intelDriverComboBox->currentIndex()));
@@ -102,7 +97,6 @@ void SettingsDialog::on_SettingsDialog_accepted()
     optimusSettings.setIntelModesetEnabled(ui->intelModesetCheckBox->isChecked());
 
     // Nvidia settings
-    optimusSettings.setNvidiaDri(static_cast<OptimusSettings::DRI>(ui->nvidiaDriComboBox->currentText().toInt()));
     optimusSettings.setNvidiaDpi(ui->nvidiaDpiSpinBox->value());
     optimusSettings.setNvidiaModesetEnabled(ui->nvidiaModesetCheckBox->isChecked());
     optimusSettings.setNvidiaPatEnabled(ui->nvidiaPatCheckBox->isChecked());
@@ -128,12 +122,7 @@ void SettingsDialog::restoreDefaults()
     // Optimus settings
     ui->startupModeComboBox->setCurrentIndex(0);
     ui->switchingBackendComboBox->setCurrentIndex(0);
-    ui->loginManagerControlCheckBox->setChecked(true);
-    ui->pciPowerControlCheckBox->setChecked(true);
-    ui->pciResetCheckBox->setChecked(true);
-    ui->terminateSessionsCheckBox->setChecked(true);
-    ui->killX11CheckBox->setChecked(true);
-    ui->killLogindCheckBox->setChecked(true);
+    ui->autoLogoutCheckBox->setChecked(true);
 
     // Intel settings
     ui->intelDriverComboBox->setCurrentIndex(0);
@@ -143,7 +132,6 @@ void SettingsDialog::restoreDefaults()
     ui->intelModesetCheckBox->setChecked(false);
 
     // Nvidia settings
-    ui->nvidiaDriComboBox->setCurrentIndex(0);
     ui->nvidiaDpiSpinBox->setValue(0);
     ui->nvidiaModesetCheckBox->setChecked(true);
     ui->nvidiaPatCheckBox->setChecked(true);
@@ -165,9 +153,7 @@ void SettingsDialog::loadSettings()
     const OptimusSettings optimusSettings;
     ui->startupModeComboBox->setCurrentIndex(optimusSettings.startupMode());
     ui->switchingBackendComboBox->setCurrentIndex(optimusSettings.switchingBackend());
-    ui->loginManagerControlCheckBox->setChecked(optimusSettings.isLoginManagerControl());
-    ui->pciPowerControlCheckBox->setChecked(optimusSettings.isPciPowerControlEnabled());
-    ui->pciResetCheckBox->setChecked(optimusSettings.isPciResetEnabled());
+    ui->autoLogoutCheckBox->setChecked(optimusSettings.isAutoLogoutEnabled());
 
     // Intel settings
     ui->intelDriverComboBox->setCurrentIndex(optimusSettings.intelDriver());
@@ -175,12 +161,8 @@ void SettingsDialog::loadSettings()
     ui->intelTearFreeComboBox->setCurrentIndex(optimusSettings.intelTearFree());
     ui->intelDriComboBox->setCurrentText(QString::number(optimusSettings.intelDri()));
     ui->intelModesetCheckBox->setChecked(optimusSettings.isIntelModesetEnabled());
-    ui->terminateSessionsCheckBox->setChecked(optimusSettings.isTerminateSesionsEnabled());
-    ui->killX11CheckBox->setChecked(optimusSettings.isKillX11Enabled());
-    ui->killLogindCheckBox->setChecked(optimusSettings.isKillLogindEnabled());
 
     // Nvidia settings
-    ui->nvidiaDriComboBox->setCurrentText(QString::number(optimusSettings.nvidiaDri()));
     ui->nvidiaDpiSpinBox->setValue(optimusSettings.nvidiaDpi());
     ui->nvidiaModesetCheckBox->setChecked(optimusSettings.isNvidiaModesetEnabled());
     ui->nvidiaPatCheckBox->setChecked(optimusSettings.isNvidiaPatEnabled());
@@ -235,15 +217,10 @@ QString SettingsDialog::chooseIcon()
 
 void SettingsDialog::on_switchingBackendComboBox_currentIndexChanged(int index)
 {
-    if (index == OptimusSettings::Bbswitch) {
-        ui->pciPowerControlCheckBox->setEnabled(false);
-        ui->pciResetCheckBox->setEnabled(false);
+    if (index == OptimusSettings::Bbswitch)
         ui->intelModesetCheckBox->setEnabled(false);
-    } else {
-        ui->pciPowerControlCheckBox->setEnabled(true);
-        ui->pciResetCheckBox->setEnabled(true);
+    else
         ui->intelModesetCheckBox->setEnabled(true);
-    }
 }
 
 void SettingsDialog::on_intelDriverComboBox_currentIndexChanged(int index)

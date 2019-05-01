@@ -71,30 +71,18 @@ public:
 
     void apply();
 
-    // Optimus
     StartupMode startupMode() const;
     void setStartupMode(StartupMode mode);
 
+    // Optimus
     SwitchingBackend switchingBackend() const;
     void setSwitchingBackend(SwitchingBackend backend);
-
-    bool isLoginManagerControl() const;
-    void setLoginManagerControl(bool enable);
 
     bool isPciPowerControlEnabled() const;
     void setPciPowerControlEnabled(bool enable);
 
-    bool isPciResetEnabled() const;
-    void setPciResetEnabled(bool enable);
-
-    bool isTerminateSesionsEnabled() const;
-    void setTerminateSesionsEnabled(bool enable);
-
-    bool isKillX11Enabled() const;
-    void setKillX11Enabled(bool enable);
-
-    bool isKillLogindEnabled() const;
-    void setKillLogindEnabled(bool enable);
+    bool isAutoLogoutEnabled() const;
+    void setAutoLogoutEnabled(bool enable);
 
     // Intel
     Driver intelDriver() const;
@@ -113,9 +101,6 @@ public:
     void setIntelModesetEnabled(bool enabled);
 
     // Nvidia
-    DRI nvidiaDri() const;
-    void setNvidiaDri(DRI dri);
-
     bool isNvidiaModesetEnabled() const;
     void setNvidiaModesetEnabled(bool enabled);
 

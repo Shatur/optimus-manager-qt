@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file. This projec
 **Changed**
 
 -   Use table layout in the settings.
+-   Remove options that are dropped from Optimus Manager.
 
 ## [1.1.3](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)) (2019-04-21)
 

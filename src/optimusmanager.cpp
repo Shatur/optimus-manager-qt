@@ -204,10 +204,10 @@ void OptimusManager::switchGpu(OptimusManager::GPU gpu)
         QMessageBox confirmMessage;
         confirmMessage.setStandardButtons(QMessageBox::Apply | QMessageBox::Cancel);
         confirmMessage.setIcon(QMessageBox::Question);
-        if (settings.isLoginManagerControl())
-            confirmMessage.setText(tr("You are about to switch GPU. This will restart the display manager and all your applications will be closed."));
+        if (settings.isAutoLogoutEnabled())
+            confirmMessage.setText(tr("You are about to switch GPU. This will logout from the current session to apply the changes."));
         else
-            confirmMessage.setText(tr("You are about to switch GPU. After applying the settings, you will need to manually restart the login manager to change the video card."));
+            confirmMessage.setText(tr("You are about to switch GPU. After applying the settings, you will need to manually re-login to change the video card."));
         confirmMessage.exec();
         if (confirmMessage.result() != QMessageBox::Apply)
             return;
@@ -284,8 +284,8 @@ void OptimusManager::switchGpu(OptimusManager::GPU gpu)
         sendMessage.exec();
     }
 
-    if (!settings.isLoginManagerControl())
-        showNotification(tr("Configuration successfully applied. Your GPU will be switched after the login manager is restarted."), appSettings.gpuIconName(gpu));
+    if (!settings.isAutoLogoutEnabled())
+        showNotification(tr("Configuration successfully applied. Your GPU will be switched after next login."), appSettings.gpuIconName(gpu));
 }
 
 bool OptimusManager::isModuleAvailable(const QString &moduleName)

@@ -141,19 +141,6 @@ void OptimusSettings::setSwitchingBackend(OptimusSettings::SwitchingBackend back
     m_settings->setValue("optimus/switching", backendString);
 }
 
-bool OptimusSettings::isLoginManagerControl() const
-{
-    const QString controlString = m_settings->value("optimus/login_manager_control", "yes").toString();
-
-    return controlString == "yes";
-}
-
-void OptimusSettings::setLoginManagerControl(bool enable)
-{
-    const QString loginControlString = enable ? "yes" : "no";
-    m_settings->setValue("optimus/login_manager_control", loginControlString);
-}
-
 bool OptimusSettings::isPciPowerControlEnabled() const
 {
     const QString powerControlString = m_settings->value("optimus/pci_power_control", "yes").toString();
@@ -167,60 +154,18 @@ void OptimusSettings::setPciPowerControlEnabled(bool enable)
     m_settings->setValue("optimus/pci_power_control", powerControlString);
 }
 
-bool OptimusSettings::isPciResetEnabled() const
+bool OptimusSettings::isAutoLogoutEnabled() const
 {
-    const QString pciResetString = m_settings->value("optimus/pci_reset", "yes").toString();
-
-    return pciResetString == "yes";
-}
-
-void OptimusSettings::setPciResetEnabled(bool enable)
-{
-    const QString pciResetString = enable ? "yes" : "no";
-
-    m_settings->setValue("optimus/pci_reset", pciResetString);
-}
-
-bool OptimusSettings::isTerminateSesionsEnabled() const
-{
-    const QString terminateSessionsString = m_settings->value("optimus/terminate_sessions", "yes").toString();
+    const QString terminateSessionsString = m_settings->value("optimus/auto_logout", "yes").toString();
 
     return terminateSessionsString == "yes";
 }
 
-void OptimusSettings::setTerminateSesionsEnabled(bool enable)
+void OptimusSettings::setAutoLogoutEnabled(bool enable)
 {
     const QString terminateSessionsString = enable ? "yes" : "no";
 
-    m_settings->setValue("optimus/terminate_sessions", terminateSessionsString);
-}
-
-bool OptimusSettings::isKillX11Enabled() const
-{
-    const QString killX11String = m_settings->value("optimus/kill_x11", "yes").toString();
-
-    return killX11String == "yes";
-}
-
-void OptimusSettings::setKillX11Enabled(bool enable)
-{
-    const QString killX11String = enable ? "yes" : "no";
-
-    m_settings->setValue("optimus/kill_x11", killX11String);
-}
-
-bool OptimusSettings::isKillLogindEnabled() const
-{
-    const QString killLogindString = m_settings->value("optimus/kill_logind", "yes").toString();
-
-    return killLogindString == "yes";
-}
-
-void OptimusSettings::setKillLogindEnabled(bool enable)
-{
-    const QString killLogindString = enable ? "yes" : "no";
-
-    m_settings->setValue("optimus/kill_logind", killLogindString);
+    m_settings->setValue("optimus/auto_logout", terminateSessionsString);
 }
 
 OptimusSettings::Driver OptimusSettings::intelDriver() const
@@ -329,16 +274,6 @@ void OptimusSettings::setIntelModesetEnabled(bool enabled)
     m_settings->setValue("intel/modeset", modesetString);
 }
 
-OptimusSettings::DRI OptimusSettings::nvidiaDri() const
-{
-    return m_settings->value("nvidia/DRI", DRI3).value<DRI>();
-}
-
-void OptimusSettings::setNvidiaDri(OptimusSettings::DRI dri)
-{
-    m_settings->setValue("nvidia/DRI", dri);
-}
-
 bool OptimusSettings::isNvidiaModesetEnabled() const
 {
     const QString modesetString = m_settings->value("nvidia/modeset", "yes").toString();
@@ -367,7 +302,7 @@ void OptimusSettings::setNvidiaPatEnabled(bool enabled)
 
 int OptimusSettings::nvidiaDpi() const
 {
-    return m_settings->value("nvidia/DPI", 0).toInt();
+    return m_settings->value("nvidia/DPI", 96).toInt();
 }
 
 void OptimusSettings::setNvidiaDpi(int dpi)
