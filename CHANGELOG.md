@@ -6,10 +6,14 @@ All notable changes to this project will be documented in this file. This projec
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.1.3...HEAD)
 
+**Added**
+
+-   A few checks to catch the most common user mistakes when switching.
+
 **Changed**
 
 -   Use table layout in the settings.
--   Remove options that are dropped from Optimus Manager.
+-   Update options according to Optimus Manager.
 
 ## [1.1.3](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)) (2019-04-21)
 

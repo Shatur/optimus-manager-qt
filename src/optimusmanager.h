@@ -56,8 +56,14 @@ private:
     void detectGpu();
     void loadSettings();
     void retranslateUi();
-    void switchGpu(GPU gpu);
-    bool isModuleAvailable(const QString &moduleName);
+    void switchGpu(GPU switchingGpu);
+
+    static QString gpuString(OptimusManager::GPU gpu);
+
+    static bool isModuleAvailable(const QString &moduleName);
+    static bool isServiceActive(const QString &serviceName);
+    static QString currentDisplayManager();
+    static bool isGdmPatched();
 
     QMenu *m_contextMenu;
 #ifdef PLASMA

@@ -194,98 +194,165 @@ void OptimusManager::retranslateUi()
     m_contextMenu->actions().at(5)->setText(tr("Exit"));
 }
 
-void OptimusManager::switchGpu(OptimusManager::GPU gpu)
+void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
 {
     const AppSettings appSettings;
     const OptimusSettings settings;
 
     // Confirm message
     if (appSettings.isConfirmSwitching()) {
-        QMessageBox confirmMessage;
-        confirmMessage.setStandardButtons(QMessageBox::Apply | QMessageBox::Cancel);
-        confirmMessage.setIcon(QMessageBox::Question);
+        QMessageBox message;
+        message.setStandardButtons(QMessageBox::Apply | QMessageBox::Cancel);
+        message.setIcon(QMessageBox::Question);
+        message.setText(tr("You are about to switch GPU."));
         if (settings.isAutoLogoutEnabled())
-            confirmMessage.setText(tr("You are about to switch GPU. This will logout from the current session to apply the changes."));
+            message.setInformativeText(tr("This will logout from the current session to apply the changes."));
         else
-            confirmMessage.setText(tr("You are about to switch GPU. After applying the settings, you will need to manually re-login to change the video card."));
-        confirmMessage.exec();
-        if (confirmMessage.result() != QMessageBox::Apply)
+            message.setInformativeText(tr("After applying the settings, you will need to manually re-login to change the video card."));
+        if (message.exec() != QMessageBox::Apply)
             return;
     }
 
-    // Check if daemon is acrive
-    DaemonClient client;
-    if (!client.isDaemonActive()) {
-        QMessageBox daemonMessage;
-        daemonMessage.setIcon(QMessageBox::Critical);
-        daemonMessage.setText(tr("The optimus-manager service is not running. Please enable and start it with:") +
-                              "\nsudo systemctl enable optimus-manager"
-                              "\nsudo systemctl start optimus-manager");
-        daemonMessage.exec();
+    // Check if daemon is active
+    if (!isServiceActive("optimus-manager")) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Critical);
+        message.setText(tr("The optimus-manager service is not running."));
+        message.setInformativeText(tr("Please enable and start it with:\n"
+                                      "'sudo systemctl enable optimus-manager'\n"
+                                      "'sudo systemctl start optimus-manager'."));
+        message.exec();
         return;
     }
 
-    // Check configuration
-    switch (settings.switchingBackend()) {
-    case OptimusSettings::Bbswitch:
-        if (!isModuleAvailable("bbswitch")) {
-            QMessageBox moduleMessage;
-            moduleMessage.setIcon(QMessageBox::Critical);
-            moduleMessage.setText(tr("bbswitch is enabled in the configuration file but the bbswitch module does"
-                                  " not seem to be available for the current kernel. Power switching will not work.\n"
-                                  "You can install bbswitch for the default kernel with \"sudo pacman -S bbswitch\" or"
-                                  " for all kernels with \"sudo pacman -S bbswitch-dkms\"."));
-            moduleMessage.exec();
-            return;
-        }
-        break;
-    case OptimusSettings::Nouveau:
-        if (!isModuleAvailable("nouveau")) {
-            QMessageBox moduleMessage;
-            moduleMessage.setIcon(QMessageBox::Question);
-            moduleMessage.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-            moduleMessage.setText(tr("The nvidia module does not seem to be available for the current kernel."
-                                     " It is likely the Nvidia driver was not properly installed. GPU switching will probably fail,"
-                                     " continue anyway?"));
-            moduleMessage.exec();
-            if (moduleMessage.result() != QMessageBox::Yes)
-                return;
-        }
-        break;
-    default:
-        break;
+    // Check if bbswitch module is available
+    if (settings.switchingBackend() == OptimusSettings::Bbswitch && !isModuleAvailable("bbswitch")) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Warning);
+        message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg("bbswitch"));
+        message.setInformativeText(tr("Power switching will not work.\n"
+                                      "You can set 'nouveau' for GPU switching in settings"
+                                      " or install bbswitch for the default kernel with 'sudo pacman -S bbswitch' or"
+                                      " for all kernels with 'sudo pacman -S bbswitch-dkms'."));
+        message.exec();
     }
 
+    // Check if nvidia module is available
+    if (switchingGpu == OptimusManager::Nvidia && !isModuleAvailable("nvidia")) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Question);
+        message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg("nvidia"));
+        message.setInformativeText(tr("It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?"));
+        message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+        if (message.exec() == QMessageBox::No)
+            return;
+    }
+
+    // Check if GDM is patched
+    if (currentDisplayManager() == "/usr/bin/gdm" && !isGdmPatched()) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Question);
+        message.setText(tr("Looks like you're using a non-patched version of the Gnome Display Manager (GDM)."));
+        message.setInformativeText(tr("GDM need to be patched for Prime switching. Follow <a href='https://github.com/Askannz/optimus-manager'>this</a>"
+                                      " instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.\n"
+                                      "Continue anyway?"));
+        message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+        if (message.exec() == QMessageBox::No)
+            return;
+    }
+
+    // TODO: check if current session is wayland
+
+    // Check if Bumblebee service is active
+    if (isServiceActive("bumblebeed")) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Question);
+        message.setText(tr("The Bumblebee service (bumblebeed.service) is running."));
+        message.setInformativeText(tr("This can interfere with optimus-manager. Before attempting a GPU switch, it is recommended that you disable"
+                                      " this service (sudo systemctl disable bumblebeed.service) then reboot your computer.\n"
+                                      "Ignore this warning and proceed with GPU switching now?"));
+        message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+        if (message.exec() == QMessageBox::No)
+            return;
+    }
+
+    // Check if the default xorg config is exists
+    if (QFileInfo::exists("/etc/X11/xorg.conf")) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Question);
+        message.setText(tr("Found a Xorg config file at '%1'.").arg("/etc/X11/xorg.conf"));
+        message.setInformativeText(tr("If you did not create it yourself, it was likely generated by your distribution or by an Nvidia utility.\n"
+                                      "This file may contain hard-coded GPU configuration that could interfere with optimus-manager,"
+                                      " so it is recommended that you delete it before proceeding.\n"
+                                      "Ignore this warning and proceed with GPU switching?"));
+        message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+        if (message.exec() == QMessageBox::No)
+            return;
+    }
+
+    // Check if the Manjaro MHWD config is exists
+    if (QFileInfo::exists("/etc/X11/xorg.conf.d/90-mhwd.conf")) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Question);
+        message.setText(tr("Found a Xorg config file at '%1'.").arg("/etc/X11/xorg.conf.d/90-mhwd.conf"));
+        message.setInformativeText(tr("This file was auto-generated by the Manjaro driver utility (MHWD). This will likely interfere with GPU switching,"
+                                      " so optimus-manager will delete this file automatically if you proceded with GPU switching.\n"
+                                      "Proceed?"));
+        message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+        if (message.exec() == QMessageBox::No)
+            return;
+    }
+
+    // Check if the Xorg driver 'intel' is installed
+    if (switchingGpu == Intel && settings.intelDriver() == OptimusSettings::IntelDriver && !QFileInfo::exists("/usr/lib/xorg/modules/drivers/intel_drv.so")) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Question);
+        message.setText(tr("The Xorg driver 'intel' is not installed."));
+        message.setInformativeText(tr("Optimus Manager will use 'modesetting' driver instead. You can change driver in settings or install the"
+                                      " 'intel' driver from the package 'xf86-video-intel.'\n"
+                                      "Continue anyway?"));
+        message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+        if (message.exec() == QMessageBox::No)
+            return;
+    }
+
+
     // Connect to optimus-manager daemon
+    DaemonClient client;
     client.connect();
     if (client.error()) {
-        QMessageBox connectMessage;
-        connectMessage.setIcon(QMessageBox::Critical);
-        connectMessage.setText(tr("Unable to connect to optimus-manager daemon to switch GPU: ") + client.errorString());
-        connectMessage.exec();
+        QMessageBox message;
+        message.setIcon(QMessageBox::Critical);
+        message.setText(tr("Unable to connect to optimus-manager daemon to switch GPU: ") + client.errorString());
+        message.exec();
         return;
     }
 
     // Send GPU string to optimus-manager daemon
-    QString gpuString;
-    switch (gpu) {
-    case Intel:
-        gpuString = "intel";
-        break;
-    case Nvidia:
-        gpuString = "nvidia";
-        break;
-    }
-
-    if (client.send(gpuString) == -1) {
-        QMessageBox sendMessage;
-        sendMessage.setIcon(QMessageBox::Critical);
-        sendMessage.setText(tr("Unable to send GPU to switch to optimus-manager daemon: ") + client.errorString());
-        sendMessage.exec();
+    if (client.send(gpuString(switchingGpu)) == -1) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Critical);
+        message.setText(tr("Unable to send GPU to switch to optimus-manager daemon: ") + client.errorString());
+        message.exec();
     }
 
     if (!settings.isAutoLogoutEnabled())
-        showNotification(tr("Configuration successfully applied. Your GPU will be switched after next login."), appSettings.gpuIconName(gpu));
+        showNotification(tr("Configuration successfully applied. Your GPU will be switched after next login."), appSettings.gpuIconName(switchingGpu));
+}
+
+QString OptimusManager::gpuString(GPU gpu)
+{
+    QString gpuString;
+    switch (gpu) {
+    case Intel:
+        gpuString = QStringLiteral("intel");
+        break;
+    case Nvidia:
+        gpuString = QStringLiteral("nvidia");
+        break;
+    }
+
+    return gpuString;
 }
 
 bool OptimusManager::isModuleAvailable(const QString &moduleName)
@@ -297,4 +364,29 @@ bool OptimusManager::isModuleAvailable(const QString &moduleName)
     process.waitForFinished();
 
     return process.exitCode() == 0;
+}
+
+bool OptimusManager::isServiceActive(const QString &serviceName)
+{
+    QProcess process;
+    process.setProgram("systemctl");
+    process.setArguments({"is-active", serviceName});
+    process.start();
+    process.waitForFinished();
+
+    return process.readAllStandardOutput() == "active\n";
+}
+
+QString OptimusManager::currentDisplayManager()
+{
+    const QSettings settings("/etc/systemd/system/display-manager.service", QSettings::IniFormat);
+    return settings.value("Service/ExecStart").toString();
+}
+
+bool OptimusManager::isGdmPatched()
+{
+    if (QFileInfo::exists("/etc/gdm/Prime") || QFileInfo::exists("/etc/gdm3/Prime"))
+        return true;
+
+    return false;
 }
