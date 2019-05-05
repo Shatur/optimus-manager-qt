@@ -214,7 +214,7 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
     }
 
     // Check if daemon is active
-    if (!isServiceActive("optimus-manager")) {
+    if (!isServiceActive(QStringLiteral("optimus-manager.service"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Critical);
         message.setText(tr("The Optimus Manager service is not running."));
@@ -266,7 +266,7 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
     // TODO: check if current session is wayland
 
     // Check if Bumblebee service is active
-    if (isServiceActive("bumblebeed")) {
+    if (isServiceActive(QLatin1String("bumblebeed.service"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
         message.setText(tr("The Bumblebee service (%1) is running.").arg("bumblebeed.service"));
@@ -374,13 +374,15 @@ bool OptimusManager::isModuleAvailable(const QString &moduleName)
 
 bool OptimusManager::isServiceActive(const QString &serviceName)
 {
-    QProcess process;
-    process.setProgram("systemctl");
-    process.setArguments({"is-active", serviceName});
-    process.start();
-    process.waitForFinished();
+    QDBusConnection connection = QDBusConnection::systemBus();
+    QDBusInterface systemd("org.freedesktop.systemd1", "/org/freedesktop/systemd1", "org.freedesktop.systemd1.Manager", connection);
 
-    return process.readAllStandardOutput() == "active\n";
+    const QDBusObjectPath optimusManagerPath = systemd.call("GetUnit", serviceName).arguments().at(0).value<QDBusObjectPath>();
+    if (optimusManagerPath.path().isEmpty())
+        return false;
+
+    const QDBusInterface optimusManager("org.freedesktop.systemd1", optimusManagerPath.path(), "org.freedesktop.systemd1.Unit", connection);
+    return optimusManager.property("SubState").toString() == "running";
 }
 
 QString OptimusManager::currentDisplayManager()
