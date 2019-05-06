@@ -22,6 +22,7 @@
 #define OPTIMUSMANAGER_H
 
 #include <QObject>
+#include <QDBusObjectPath>
 
 class QMenu;
 #ifdef PLASMA
@@ -52,18 +53,30 @@ private slots:
     void openSettings();
 
 private:
+    // To demarshall QDBusArgument
+    struct Session
+    {
+        QString sessionId;
+        int userId;
+        QString userName;
+        QString seatId;
+        QDBusObjectPath sessionObjectPath;
+    };
+
     void showNotification(const QString &message, const QString &iconName, int interval = 10000);
     void detectGpu();
     void loadSettings();
     void retranslateUi();
     void switchGpu(GPU switchingGpu);
 
-    static QString gpuString(OptimusManager::GPU gpu);
-
     static bool isModuleAvailable(const QString &moduleName);
     static bool isServiceActive(const QString &serviceName);
-    static QString currentDisplayManager();
     static bool isGdmPatched();
+    static QString currentDisplayManager();
+    static QVector<Session> activeSessions();
+    static int sessionsCount(const QVector<Session> &sessions);
+
+    static QString gpuString(OptimusManager::GPU gpu);
 
     QMenu *m_contextMenu;
 #ifdef PLASMA

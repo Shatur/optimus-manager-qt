@@ -31,6 +31,7 @@
 #include <QMenu>
 #include <QMessageBox>
 #include <QMetaEnum>
+#include <QDBusArgument>
 #ifdef PLASMA
 #include <KStatusNotifierItem>
 #else
@@ -263,7 +264,40 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
             return;
     }
 
-    // TODO: check if current session is wayland
+    // Check number of sessions
+    const QVector<Session> sessions = activeSessions();
+    if (const int activeSessions = sessionsCount(sessions); activeSessions > 1) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Question);
+        message.setText(tr("Multiple sessions running."));
+        message.setInformativeText(tr("There are %n other(s) desktop sessions open.", "", activeSessions) + tr("The GPU switch will not"
+                                      " become effective until you have manually logged out from ALL desktop sessions.\n"
+                                      "Continue?"));
+        message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+        if (message.exec() == QMessageBox::No)
+            return;
+    }
+
+    // Check if Wayland sessions are running
+    foreach (const Session &session, sessions) {
+        const QDBusInterface sessionInterface("org.freedesktop.login1", session.sessionObjectPath.path(), "org.freedesktop.login1.Session", QDBusConnection::systemBus());
+        if (sessionInterface.property("Type").toString() == "wayland") {
+            QMessageBox message;
+            message.setIcon(QMessageBox::Question);
+            message.setText(tr("Wayland session found."));
+            message.setInformativeText(tr("Session %1, started by %2, is a Wayland session."
+                                          " Wayland is not supported by Optimus Manager, so GPU switching may fail.\n"
+                                          "Continue anyway?")
+                                       .arg(QString::number(session.userId))
+                                       .arg(session.userName));
+            message.setStandardButtons(QMessageBox::Yes | QMessageBox::YesToAll | QMessageBox::No);
+            message.exec();
+            if (message.result() == QMessageBox::No)
+                return;
+            if (message.result() == QMessageBox::YesToAll)
+                break;
+        }
+    }
 
     // Check if Bumblebee service is active
     if (isServiceActive(QLatin1String("bumblebeed.service"))) {
@@ -346,21 +380,6 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
         showNotification(tr("Configuration successfully applied. Your GPU will be switched after next login."), appSettings.gpuIconName(switchingGpu));
 }
 
-QString OptimusManager::gpuString(GPU gpu)
-{
-    QString gpuString;
-    switch (gpu) {
-    case Intel:
-        gpuString = QStringLiteral("intel");
-        break;
-    case Nvidia:
-        gpuString = QStringLiteral("nvidia");
-        break;
-    }
-
-    return gpuString;
-}
-
 bool OptimusManager::isModuleAvailable(const QString &moduleName)
 {
     QProcess process;
@@ -385,16 +404,66 @@ bool OptimusManager::isServiceActive(const QString &serviceName)
     return optimusManager.property("SubState").toString() == "running";
 }
 
-QString OptimusManager::currentDisplayManager()
-{
-    const QSettings settings("/etc/systemd/system/display-manager.service", QSettings::IniFormat);
-    return settings.value("Service/ExecStart").toString();
-}
-
 bool OptimusManager::isGdmPatched()
 {
     if (QFileInfo::exists("/etc/gdm/Prime") || QFileInfo::exists("/etc/gdm3/Prime"))
         return true;
 
     return false;
+}
+
+QString OptimusManager::currentDisplayManager()
+{
+    const QSettings settings("/etc/systemd/system/display-manager.service", QSettings::IniFormat);
+    return settings.value("Service/ExecStart").toString();
+}
+
+QVector<OptimusManager::Session> OptimusManager::activeSessions()
+{
+    // Get list of sessions
+    QDBusInterface logind("org.freedesktop.login1", "/org/freedesktop/login1", "org.freedesktop.login1.Manager", QDBusConnection::systemBus());
+    const QDBusArgument sessionList = logind.call("ListSessions").arguments().at(0).value<QDBusArgument>();
+
+    // Demarshall data
+    QVector<Session> activeSessions;
+    sessionList.beginArray();
+    while (!sessionList.atEnd()) {
+        Session session;
+        sessionList.beginStructure();
+        sessionList >> session.sessionId >> session.userId >> session.userName >> session.seatId >> session.sessionObjectPath;
+        sessionList.endStructure();
+        activeSessions << session;
+    }
+    sessionList.endArray();
+
+    return activeSessions;
+}
+
+// Return number of sessions, ignore gdm user
+int OptimusManager::sessionsCount(const QVector<OptimusManager::Session> &sessions)
+{
+    int sessionCount = 0;
+    foreach (const Session &session, sessions) {
+        if (session.userName == QStringLiteral("gdm"))
+            continue;
+
+        ++sessionCount;
+    }
+
+    return sessionCount;
+}
+
+QString OptimusManager::gpuString(GPU gpu)
+{
+    QString gpuString;
+    switch (gpu) {
+    case Intel:
+        gpuString = QStringLiteral("intel");
+        break;
+    case Nvidia:
+        gpuString = QStringLiteral("nvidia");
+        break;
+    }
+
+    return gpuString;
 }
