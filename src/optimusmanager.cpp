@@ -356,7 +356,6 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
             return;
     }
 
-
     // Connect to Optimus Manager daemon
     DaemonClient client;
     client.connect();
@@ -376,7 +375,9 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
         message.exec();
     }
 
-    if (!settings.isAutoLogoutEnabled())
+    if (settings.isAutoLogoutEnabled())
+        logout();
+    else
         showNotification(tr("Configuration successfully applied. Your GPU will be switched after next login."), appSettings.gpuIconName(switchingGpu));
 }
 
@@ -451,6 +452,18 @@ int OptimusManager::sessionsCount(const QVector<OptimusManager::Session> &sessio
     }
 
     return sessionCount;
+}
+
+void OptimusManager::logout()
+{
+    QDBusInterface kde("org.kde.ksmserver", "/KSMServer", "org.kde.KSMServerInterface");
+    kde.call("logout", 0, 3, 3);
+
+    QDBusInterface gnome("org.gnome.SessionManager", "/org/gnome/SessionManager", "org.gnome.SessionManager");
+    gnome.call("Logout", 1);
+
+    QDBusInterface xfce("org.xfce.SessionManager", "/org/xfce/SessionManager", "org.xfce.Session.Manager");
+    xfce.call("Logout", false, true);
 }
 
 QString OptimusManager::gpuString(GPU gpu)
