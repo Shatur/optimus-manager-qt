@@ -14,8 +14,10 @@ All notable changes to this project will be documented in this file. This projec
 
 -   Use table layout in the settings.
 -   Update options according to Optimus Manager.
+-   Skip endline at the end of the startup mode file.
+-   Minor performance improvements.
 
-## [1.1.3](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)) (2019-04-21)
+## [1.1.3](https://github.com/Shatur95/optimus-manager-qt/tree/1.1.3) (2019-04-21)
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.1.2...1.1.3)
 
@@ -28,7 +30,7 @@ All notable changes to this project will be documented in this file. This projec
 -   Remove "The application is already running" message.
 -   Use Chinese flag from [FlagKit](https://github.com/madebybowtie/FlagKit).
 
-## [1.1.2](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)) (2019-04-20)
+## [1.1.2](https://github.com/Shatur95/optimus-manager-qt/tree/1.1.2) (2019-04-20)
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.1.1...1.1.2)
 
@@ -38,7 +40,7 @@ All notable changes to this project will be documented in this file. This projec
 -   Fix confirm message showing when it's disabled.
 -   Fix the closing of the application after exiting the settings.
 
-## [1.1.1](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)) (2019-03-28)
+## [1.1.1](https://github.com/Shatur95/optimus-manager-qt/tree/1.1.1) (2019-03-28)
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.1.0...1.1.1)
 
