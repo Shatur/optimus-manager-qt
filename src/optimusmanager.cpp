@@ -266,7 +266,7 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
 
     // Check number of sessions
     const QVector<Session> sessions = activeSessions();
-    if (const int activeSessions = sessionsCount(sessions); activeSessions > 1) {
+    if (const int activeSessions = sessionsCountWithoutGdm(sessions); activeSessions > 1) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
         message.setText(tr("Multiple sessions running."));
@@ -300,7 +300,7 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
     }
 
     // Check if Bumblebee service is active
-    if (isServiceActive(QLatin1String("bumblebeed.service"))) {
+    if (isServiceActive(QStringLiteral("bumblebeed.service"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
         message.setText(tr("The Bumblebee service (%1) is running.").arg("bumblebeed.service"));
@@ -441,11 +441,11 @@ QVector<OptimusManager::Session> OptimusManager::activeSessions()
 }
 
 // Return number of sessions, ignore gdm user
-int OptimusManager::sessionsCount(const QVector<OptimusManager::Session> &sessions)
+int OptimusManager::sessionsCountWithoutGdm(const QVector<OptimusManager::Session> &sessions)
 {
     int sessionCount = 0;
     foreach (const Session &session, sessions) {
-        if (session.userName == QStringLiteral("gdm"))
+        if (session.userName == "gdm")
             continue;
 
         ++sessionCount;

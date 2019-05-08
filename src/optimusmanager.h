@@ -74,7 +74,7 @@ private:
     static bool isGdmPatched();
     static QString currentDisplayManager();
     static QVector<Session> activeSessions();
-    static int sessionsCount(const QVector<Session> &sessions);
+    static int sessionsCountWithoutGdm(const QVector<Session> &sessions);
     static void logout();
 
     static QString gpuString(OptimusManager::GPU gpu);
