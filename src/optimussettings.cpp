@@ -82,6 +82,9 @@ OptimusSettings::StartupMode OptimusSettings::startupMode() const
     }
 
     QByteArray modeString = file.readAll();
+    if (modeString.back() == '\n')
+        modeString.chop(1);
+
     if (modeString == "intel")
         return Intel;
 
