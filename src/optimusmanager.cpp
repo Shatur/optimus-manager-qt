@@ -394,14 +394,13 @@ bool OptimusManager::isModuleAvailable(const QString &moduleName)
 
 bool OptimusManager::isServiceActive(const QString &serviceName)
 {
-    QDBusConnection connection = QDBusConnection::systemBus();
-    QDBusInterface systemd("org.freedesktop.systemd1", "/org/freedesktop/systemd1", "org.freedesktop.systemd1.Manager", connection);
+    QDBusInterface systemd("org.freedesktop.systemd1", "/org/freedesktop/systemd1", "org.freedesktop.systemd1.Manager", QDBusConnection::systemBus());
 
     const QDBusObjectPath optimusManagerPath = systemd.call("GetUnit", serviceName).arguments().at(0).value<QDBusObjectPath>();
     if (optimusManagerPath.path().isEmpty())
         return false;
 
-    const QDBusInterface optimusManager("org.freedesktop.systemd1", optimusManagerPath.path(), "org.freedesktop.systemd1.Unit", connection);
+    const QDBusInterface optimusManager("org.freedesktop.systemd1", optimusManagerPath.path(), "org.freedesktop.systemd1.Unit", QDBusConnection::systemBus());
     return optimusManager.property("SubState").toString() == "running";
 }
 
