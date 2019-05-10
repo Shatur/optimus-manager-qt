@@ -269,7 +269,7 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
     if (const int activeSessions = sessionsCountWithoutGdm(sessions); activeSessions > 1) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
-        message.setText(tr("Multiple sessions running."));
+        message.setText(tr("Multiple running sessions detected."));
         message.setInformativeText(tr("There are %n other(s) desktop sessions open.", "", activeSessions - 1) + tr("The GPU switch will not"
                                       " become effective until you have manually logged out from ALL desktop sessions.\n"
                                       "Continue?"));
