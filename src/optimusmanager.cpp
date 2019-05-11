@@ -32,11 +32,11 @@
 #include <QMessageBox>
 #include <QMetaEnum>
 #include <QDBusArgument>
+#include <QDBusInterface>
 #ifdef PLASMA
 #include <KStatusNotifierItem>
 #else
 #include <QSystemTrayIcon>
-#include <QDBusInterface>
 #endif
 
 OptimusManager::OptimusManager(QObject *parent) :
