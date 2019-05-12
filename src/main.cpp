@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     SingleApplication app(argc, argv);
     SingleApplication::setApplicationName("Optimus Manager");
     SingleApplication::setOrganizationName("optimus-manager");
-    SingleApplication::setApplicationVersion("1.1.3");
+    SingleApplication::setApplicationVersion("1.2.0");
     app.setQuitOnLastWindowClosed(false);
 
     // Set localization

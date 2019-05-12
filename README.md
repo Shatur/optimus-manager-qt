@@ -66,7 +66,7 @@ git submodule update
 
 You can install [optimus-manager-qt](https://aur.archlinux.org/packages/optimus-manager-qt) or [optimus-manager-qt-git](https://aur.archlinux.org/packages/optimus-manager-qt-git) from AUR.
 
-**Note:** If you are using Plasma, it is recommended to replace in PKGBUILD `PLASMA=false` with `PLASMA=true` to use additional KDE API feautures (this also adds additional dependencies).
+**Note:** If you are using Plasma, it is recommended to replace in the PKGBUILD `_plasma=false` with `_plasma=true` to use additional KDE API feautures (this also adds additional dependencies).
 
 ### Manual building
 
@@ -78,7 +78,7 @@ make
 make clean
 ```
 
-If you want to build with extended Plasma support you need to define `PLASMA`:
+If you want to build with extended Plasma support you need to define `PLASMA` (the same as `_plasma=true` in the PKGBUILD):
 
 ```bash
 qmake "DEFINES += PLASMA"
