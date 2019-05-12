@@ -156,18 +156,18 @@ void OptimusManager::detectGpu()
 
 void OptimusManager::loadSettings()
 {
-    AppSettings settings;
+    AppSettings appSettings;
 
     // Context menu icons
-    m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(settings.gpuIconName(Intel)));
-    m_contextMenu->actions().at(3)->setIcon(trayGpuIcon(settings.gpuIconName(Nvidia)));
+    m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(appSettings.gpuIconName(Intel)));
+    m_contextMenu->actions().at(3)->setIcon(trayGpuIcon(appSettings.gpuIconName(Nvidia)));
 
     // Tray icon
-    QString gpuIconName = settings.gpuIconName(m_currentGpu);
+    QString gpuIconName = appSettings.gpuIconName(m_currentGpu);
 #ifdef PLASMA
     if (!QIcon::hasThemeIcon(gpuIconName) && !QFileInfo::exists(gpuIconName)) {
         gpuIconName = AppSettings::defaultTrayIconName(m_currentGpu);
-        settings.setGpuIconName(m_currentGpu, gpuIconName);
+        appSettings.setGpuIconName(m_currentGpu, gpuIconName);
         showNotification(tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(gpuIconName), gpuIconName);
     }
     m_trayIcon->setIconByName(gpuIconName);
@@ -176,7 +176,7 @@ void OptimusManager::loadSettings()
     QIcon trayIcon = trayGpuIcon(gpuIconName);
     if (trayIcon.isNull()) {
         const QString defaultIconName = AppSettings::defaultTrayIconName(m_currentGpu);
-        settings.setGpuIconName(m_currentGpu, defaultIconName);
+        appSettings.setGpuIconName(m_currentGpu, defaultIconName);
         trayIcon = QIcon::fromTheme(defaultIconName);
         showNotification(tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(gpuIconName), defaultIconName);
     }
@@ -198,7 +198,7 @@ void OptimusManager::retranslateUi()
 void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
 {
     const AppSettings appSettings;
-    const OptimusSettings settings;
+    const OptimusSettings optimusSettings;
 
     // Confirm message
     if (appSettings.isConfirmSwitching()) {
@@ -206,7 +206,7 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
         message.setStandardButtons(QMessageBox::Apply | QMessageBox::Cancel);
         message.setIcon(QMessageBox::Question);
         message.setText(tr("You are about to switch GPU."));
-        if (settings.isAutoLogoutEnabled())
+        if (optimusSettings.isAutoLogoutEnabled())
             message.setInformativeText(tr("You will be automatically logged out to apply the changes."));
         else
             message.setInformativeText(tr("After applying the settings, you will need to manually re-login to change the video card."));
@@ -227,7 +227,7 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
     }
 
     // Check if bbswitch module is available
-    if (settings.switchingBackend() == OptimusSettings::Bbswitch && !isModuleAvailable("bbswitch")) {
+    if (optimusSettings.switchingBackend() == OptimusSettings::Bbswitch && !isModuleAvailable("bbswitch")) {
         QMessageBox message;
         message.setIcon(QMessageBox::Warning);
         message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg("bbswitch"));
@@ -341,7 +341,7 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
     }
 
     // Check if the Xorg driver 'intel' is installed
-    if (switchingGpu == Intel && settings.intelDriver() == OptimusSettings::IntelDriver && !QFileInfo::exists("/usr/lib/xorg/modules/drivers/intel_drv.so")) {
+    if (switchingGpu == Intel && optimusSettings.intelDriver() == OptimusSettings::IntelDriver && !QFileInfo::exists("/usr/lib/xorg/modules/drivers/intel_drv.so")) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
         message.setText(tr("The Xorg driver '%1' is not installed.").arg("intel"));
@@ -375,7 +375,7 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
         message.exec();
     }
 
-    if (settings.isAutoLogoutEnabled())
+    if (optimusSettings.isAutoLogoutEnabled())
         logout();
     else
         showNotification(tr("Configuration successfully applied. Your GPU will be switched after next login."), appSettings.gpuIconName(switchingGpu));
@@ -414,8 +414,8 @@ bool OptimusManager::isGdmPatched()
 
 QString OptimusManager::currentDisplayManager()
 {
-    const QSettings settings("/etc/systemd/system/display-manager.service", QSettings::IniFormat);
-    return settings.value("Service/ExecStart").toString();
+    const QSettings displayManager("/etc/systemd/system/display-manager.service", QSettings::IniFormat);
+    return displayManager.value("Service/ExecStart").toString();
 }
 
 QVector<OptimusManager::Session> OptimusManager::activeSessions()

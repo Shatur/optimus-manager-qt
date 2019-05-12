@@ -114,6 +114,9 @@ public:
     void setNvidiaOptions(NvidiaOptions options);
 
 private:
+    static QString boolToOption(bool value);
+    static bool optionToBool(const QString &option);
+
     QString m_startupModeString;
     QSettings *m_settings;
 };

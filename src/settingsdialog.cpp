@@ -70,18 +70,18 @@ bool SettingsDialog::languageChanged() const
 void SettingsDialog::on_SettingsDialog_accepted()
 {
     // Check if language changed
-    AppSettings settings;
+    AppSettings appSettings;
     const auto language = ui->languageComboBox->currentData().value<QLocale::Language>();
-    if (language != settings.language()) {
-        settings.setLocale(language);
+    if (language != appSettings.language()) {
+        appSettings.setLocale(language);
         m_languageChanged = true;
     }
 
     // General settings
-    settings.setAutostartEnabled(ui->autostartCheckBox->isChecked());
-    settings.setConfirmSwitching(ui->confirmSwitchingCheckBox->isChecked());
-    settings.setGpuIconName(OptimusManager::Intel, ui->intelIconEdit->text());
-    settings.setGpuIconName(OptimusManager::Nvidia, ui->nvidiaIconEdit->text());
+    appSettings.setAutostartEnabled(ui->autostartCheckBox->isChecked());
+    appSettings.setConfirmSwitching(ui->confirmSwitchingCheckBox->isChecked());
+    appSettings.setGpuIconName(OptimusManager::Intel, ui->intelIconEdit->text());
+    appSettings.setGpuIconName(OptimusManager::Nvidia, ui->nvidiaIconEdit->text());
 
     // Optimus settings
     OptimusSettings optimusSettings;

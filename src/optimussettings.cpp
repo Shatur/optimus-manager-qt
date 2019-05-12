@@ -103,13 +103,13 @@ void OptimusSettings::setStartupMode(OptimusSettings::StartupMode mode)
 {
     switch (mode) {
     case Intel:
-        m_startupModeString = "startup_intel";
+        m_startupModeString = QStringLiteral("startup_intel");
         break;
     case Nvidia:
-        m_startupModeString = "startup_nvidia";
+        m_startupModeString = QStringLiteral("startup_nvidia");
         break;
     case NvidiaOnce:
-        m_startupModeString = "startup_nvidia_once";
+        m_startupModeString = QStringLiteral("startup_nvidia_once");
         break;
     }
 }
@@ -131,13 +131,13 @@ void OptimusSettings::setSwitchingBackend(OptimusSettings::SwitchingBackend back
     QString backendString;
     switch (backend) {
     case NoneBackend:
-        backendString = "none";
+        backendString = QStringLiteral("none");
         break;
     case Nouveau:
-        backendString = "nouveau";
+        backendString = QStringLiteral("nouveau");
         break;
     case Bbswitch:
-        backendString = "bbswitch";
+        backendString = QStringLiteral("bbswitch");
         break;
     }
 
@@ -146,29 +146,24 @@ void OptimusSettings::setSwitchingBackend(OptimusSettings::SwitchingBackend back
 
 bool OptimusSettings::isPciPowerControlEnabled() const
 {
-    const QString powerControlString = m_settings->value("optimus/pci_power_control", "yes").toString();
-
-    return powerControlString == "yes";
+    const QString powerControlString = m_settings->value("optimus/pci_power_control", boolToOption(true)).toString();
+    return optionToBool(powerControlString);
 }
 
 void OptimusSettings::setPciPowerControlEnabled(bool enable)
 {
-    const QString powerControlString = enable ? "yes" : "no";
-    m_settings->setValue("optimus/pci_power_control", powerControlString);
+    m_settings->setValue("optimus/pci_power_control", boolToOption(enable));
 }
 
 bool OptimusSettings::isAutoLogoutEnabled() const
 {
-    const QString terminateSessionsString = m_settings->value("optimus/auto_logout", "yes").toString();
-
-    return terminateSessionsString == "yes";
+    const QString terminateSessionsString = m_settings->value("optimus/auto_logout", boolToOption(true)).toString();
+    return optionToBool(terminateSessionsString);
 }
 
 void OptimusSettings::setAutoLogoutEnabled(bool enable)
 {
-    const QString terminateSessionsString = enable ? "yes" : "no";
-
-    m_settings->setValue("optimus/auto_logout", terminateSessionsString);
+    m_settings->setValue("optimus/auto_logout", boolToOption(enable));
 }
 
 OptimusSettings::Driver OptimusSettings::intelDriver() const
@@ -186,10 +181,10 @@ void OptimusSettings::setIntelDriver(OptimusSettings::Driver driver)
     QString driverString;
     switch (driver) {
     case Modesetting:
-        driverString = "modesetting";
+        driverString = QStringLiteral("modesetting");
         break;
     case IntelDriver:
-        driverString = "intel";
+        driverString = QStringLiteral("intel");
         break;
     }
 
@@ -198,7 +193,7 @@ void OptimusSettings::setIntelDriver(OptimusSettings::Driver driver)
 
 OptimusSettings::AccelMethod OptimusSettings::intelAccelMethod() const
 {
-    const QString accelMethodString = m_settings->value("intel/accel", "").toString();
+    const QString accelMethodString = m_settings->value("intel/accel", QString()).toString();
 
     // Parse method
     if (accelMethodString == "sna")
@@ -213,10 +208,10 @@ void OptimusSettings::setIntelAccelMethod(OptimusSettings::AccelMethod method)
     QString accelMethodString;
     switch (method) {
     case SNA:
-        accelMethodString = "sna";
+        accelMethodString = QStringLiteral("sna");
         break;
     case XNA:
-        accelMethodString = "xna";
+        accelMethodString = QStringLiteral("xna");
         break;
     default:
         break;
@@ -227,12 +222,12 @@ void OptimusSettings::setIntelAccelMethod(OptimusSettings::AccelMethod method)
 
 OptimusSettings::TearFree OptimusSettings::intelTearFree() const
 {
-    const QString tearFreeString = m_settings->value("intel/tearfree", "").toString();
+    const QString tearFreeString = m_settings->value("intel/tearfree", QString()).toString();
 
     // Parse tearfree
-    if (tearFreeString == "yes")
+    if (tearFreeString == boolToOption(true))
         return EnableTearFree;
-    if (tearFreeString == "no")
+    if (tearFreeString == boolToOption(false))
         return DisableTearFree;
     return DefaultTearFree;
 }
@@ -242,10 +237,10 @@ void OptimusSettings::setIntelTearFree(OptimusSettings::TearFree tearFree)
     QString tearFreeString;
     switch (tearFree) {
     case EnableTearFree:
-        tearFreeString = "yes";
+        tearFreeString = boolToOption(true);
         break;
     case DisableTearFree:
-        tearFreeString = "no";
+        tearFreeString = boolToOption(false);
         break;
     default:
         break;
@@ -266,41 +261,35 @@ void OptimusSettings::setIntelDri(OptimusSettings::DRI dri)
 
 bool OptimusSettings::isIntelModesetEnabled() const
 {
-    const QString modesetString = m_settings->value("intel/modeset", "yes").toString();
-
-    return modesetString == "yes";
+    const QString modesetString = m_settings->value("intel/modeset", boolToOption(true)).toString();
+    return optionToBool(modesetString);
 }
 
 void OptimusSettings::setIntelModesetEnabled(bool enabled)
 {
-    const QString modesetString = enabled ? "yes" : "no";
-    m_settings->setValue("intel/modeset", modesetString);
+    m_settings->setValue("intel/modeset", boolToOption(enabled));
 }
 
 bool OptimusSettings::isNvidiaModesetEnabled() const
 {
-    const QString modesetString = m_settings->value("nvidia/modeset", "yes").toString();
-
-    return modesetString == "yes";
+    const QString modesetString = m_settings->value("nvidia/modeset", boolToOption(true)).toString();
+    return optionToBool(modesetString);
 }
 
 void OptimusSettings::setNvidiaModesetEnabled(bool enabled)
 {
-    const QString modesetString = enabled ? "yes" : "no";
-    m_settings->setValue("nvidia/modeset", modesetString);
+    m_settings->setValue("nvidia/modeset", boolToOption(enabled));
 }
 
 bool OptimusSettings::isNvidiaPatEnabled() const
 {
-    const QString patString = m_settings->value("nvidia/PAT", "yes").toString();
-
-    return patString == "yes";
+    const QString patString = m_settings->value("nvidia/PAT", boolToOption(true)).toString();
+    return optionToBool(patString);
 }
 
 void OptimusSettings::setNvidiaPatEnabled(bool enabled)
 {
-    const QString patString = enabled ? "yes" : "no";
-    m_settings->setValue("nvidia/PAT", patString);
+    m_settings->setValue("nvidia/PAT", boolToOption(enabled));
 }
 
 int OptimusSettings::nvidiaDpi() const
@@ -311,7 +300,7 @@ int OptimusSettings::nvidiaDpi() const
 void OptimusSettings::setNvidiaDpi(int dpi)
 {
     if (dpi == 0)
-        m_settings->setValue("nvidia/DPI", "");
+        m_settings->setValue("nvidia/DPI", QString());
     else
         m_settings->setValue("nvidia/DPI", dpi);
 }
@@ -341,4 +330,14 @@ void OptimusSettings::setNvidiaOptions(NvidiaOptions options)
         optionsStrings.append("triple_buffer");
 
     m_settings->setValue("nvidia/options", optionsStrings);
+}
+
+QString OptimusSettings::boolToOption(bool value)
+{
+    return value ? QStringLiteral("yes") : QStringLiteral("no");
+}
+
+bool OptimusSettings::optionToBool(const QString &option)
+{
+    return option == "yes";
 }
