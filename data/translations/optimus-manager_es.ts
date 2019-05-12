@@ -56,17 +56,9 @@
         <source>The Optimus Manager service is not running.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message numerus="yes">
-        <location filename="../../src/optimusmanager.cpp" line="273"/>
-        <source>There are %n other(s) desktop sessions open.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="273"/>
-        <source>The GPU switch will not become effective until you have manually logged out from ALL desktop sessions.
+        <source>There are %1 other desktop sessions open. The GPU switch will not become effective until you have manually logged out from ALL desktop sessions.
 Continue?</source>
         <translation type="unfinished"></translation>
     </message>

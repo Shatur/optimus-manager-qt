@@ -270,9 +270,9 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
         message.setText(tr("Multiple running sessions detected."));
-        message.setInformativeText(tr("There are %n other(s) desktop sessions open.", "", activeSessions - 1) + tr("The GPU switch will not"
-                                      " become effective until you have manually logged out from ALL desktop sessions.\n"
-                                      "Continue?"));
+        message.setInformativeText(tr("There are %1 other desktop sessions open. The GPU switch will not become"
+                                      " effective until you have manually logged out from ALL desktop sessions.\n"
+                                      "Continue?").arg(activeSessions - 1));
         message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         if (message.exec() == QMessageBox::No)
             return;

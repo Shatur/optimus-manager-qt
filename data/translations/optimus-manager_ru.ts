@@ -56,20 +56,11 @@
         <source>The Optimus Manager service is not running.</source>
         <translation>Служба Optimus Manager не запущена.</translation>
     </message>
-    <message numerus="yes">
-        <location filename="../../src/optimusmanager.cpp" line="273"/>
-        <source>There are %n other(s) desktop sessions open.</source>
-        <translation>
-            <numerusform>Запущен %n другой сеанс рабочего стола.</numerusform>
-            <numerusform>Запущено %n других сеанса рабочего стола.</numerusform>
-            <numerusform>Запущено %n других сеансов рабочего стола.</numerusform>
-        </translation>
-    </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="273"/>
-        <source>The GPU switch will not become effective until you have manually logged out from ALL desktop sessions.
+        <source>There are %1 other desktop sessions open. The GPU switch will not become effective until you have manually logged out from ALL desktop sessions.
 Continue?</source>
-        <translation>Переключение GPU не вступит в силу, пока вы не выйдете вручную из ВСЕХ сеансов рабочего стола.
+        <translation>Открыто %1 других сеансов рабочего стола. Переключение GPU не вступит в силу, пока вы не выйдете вручную из ВСЕХ сеансов рабочего стола.
 Продолжить?</translation>
     </message>
     <message>
