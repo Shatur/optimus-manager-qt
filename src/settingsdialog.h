@@ -52,6 +52,8 @@ private:
     void loadSettings();
     QString chooseIcon();
 
+    static QString optimusManagerVersion();
+
     Ui::SettingsDialog *ui;
     bool m_languageChanged = false;
 };

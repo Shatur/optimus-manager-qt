@@ -27,6 +27,7 @@
 #include <QFileDialog>
 #include <QStandardItemModel>
 #include <QPushButton>
+#include <QMessageBox>
 #ifdef PLASMA
 #include <KIconDialog>
 #endif
@@ -39,13 +40,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     connect(ui->dialogButtonBox->button(QDialogButtonBox::RestoreDefaults), &QPushButton::clicked, this, &SettingsDialog::restoreDefaults);
     ui->logoLabel->setPixmap(QIcon::fromTheme("optimus-manager").pixmap(512, 512));
     ui->versionGuiLabel->setText(SingleApplication::applicationVersion());
-
-    // Parse Optimus Manager version
-    QFile optimusManagerBin("/usr/bin/optimus-manager");
-    optimusManagerBin.open(QIODevice::ReadOnly);
-    QByteArray data = optimusManagerBin.readAll();
-    data = data.mid(data.indexOf("optimus-manager==") + 17, 5);
-    ui->versionLabel->setText(data);
+    ui->versionLabel->setText(optimusManagerVersion());
 
     // Set languages data
     ui->languageComboBox->setItemData(0, QLocale::AnyLanguage);
@@ -213,6 +208,28 @@ QString SettingsDialog::chooseIcon()
 
     return dialog.selectedFiles().at(0);
 #endif
+}
+
+// Parse Optimus Manager version
+QString SettingsDialog::optimusManagerVersion()
+{
+    // Parse Optimus Manager version
+    QFile optimusManagerBin("/usr/bin/optimus-manager-daemon");
+    if (!optimusManagerBin.open(QIODevice::ReadOnly)) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Critical);
+        message.setText(tr("Unable to find Optimus Manager daemon."));
+        message.setInformativeText(tr("Please check the integrity of the package that provides Optimus Manager."));
+        message.exec();
+        return tr("Not found!");
+    }
+
+    const QByteArray data = optimusManagerBin.readAll();
+    const QByteArray optimusManagerString = "optimus-manager==";
+    const int versionStartIndex = data.indexOf(optimusManagerString) + optimusManagerString.size();
+    const int versionEndIndex = data.indexOf('\'', versionStartIndex);
+
+    return data.mid(versionStartIndex, versionEndIndex - versionStartIndex);
 }
 
 void SettingsDialog::on_switchingBackendComboBox_currentIndexChanged(int index)
