@@ -448,14 +448,29 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation>许可证：</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="206"/>
+        <location filename="../../src/settingsdialog.cpp" line="201"/>
         <source>Select icon</source>
         <translation>选择图标</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="207"/>
+        <location filename="../../src/settingsdialog.cpp" line="202"/>
         <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.cpp" line="221"/>
+        <source>Unable to find Optimus Manager daemon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.cpp" line="222"/>
+        <source>Please check the integrity of the package that provides Optimus Manager.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.cpp" line="224"/>
+        <source>Not found!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
