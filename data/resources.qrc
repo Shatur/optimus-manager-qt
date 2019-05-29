@@ -7,5 +7,6 @@
         <file>translations/optimus-manager_es.qm</file>
         <file>translations/optimus-manager_ru.qm</file>
         <file>translations/optimus-manager_zh_CN.qm</file>
+        <file>flags/fi.svg</file>
     </qresource>
 </RCC>
