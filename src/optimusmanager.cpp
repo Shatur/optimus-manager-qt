@@ -459,7 +459,7 @@ void OptimusManager::logout()
     kde.call("logout", 0, 3, 3);
 
     QDBusInterface gnome("org.gnome.SessionManager", "/org/gnome/SessionManager", "org.gnome.SessionManager");
-    gnome.call("Logout", 1);
+    gnome.call("Logout", 1u);
 
     QDBusInterface xfce("org.xfce.SessionManager", "/org/xfce/SessionManager", "org.xfce.Session.Manager");
     xfce.call("Logout", false, true);

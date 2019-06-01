@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file. This projec
 **Changed**
 
 -   Update Spanish translation.
+-   Fix logout for GDM.
 
 ## [1.2.0](https://github.com/Shatur95/optimus-manager-qt/tree/1.2.0) (2019-05-12)
 
