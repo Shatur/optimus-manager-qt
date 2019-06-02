@@ -6,7 +6,9 @@ All notable changes to this project will be documented in this file. This projec
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.2.1...HEAD)
 
-_No unreleased changes yet_
+**Changed**
+
+-   Use Qt methods instead of glxinfo to detect GPU.
 
 ## [1.2.1](https://github.com/Shatur95/optimus-manager-qt/tree/1.2.1) (2019-06-01)
 

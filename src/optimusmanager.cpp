@@ -33,6 +33,9 @@
 #include <QMetaEnum>
 #include <QDBusArgument>
 #include <QDBusInterface>
+#include <QOpenGLContext>
+#include <QOpenGLFunctions>
+#include <QWindow>
 #ifdef PLASMA
 #include <KStatusNotifierItem>
 #else
@@ -133,25 +136,23 @@ void OptimusManager::showNotification(const QString &message, const QString &ico
 
 void OptimusManager::detectGpu()
 {
-    if (!QFileInfo::exists("/usr/bin/glxinfo"))
-        qFatal("Unable to find glxinfo, try to install extra/mesa-demos package");
+    QWindow window;
+    window.setSurfaceType(QSurface::OpenGLSurface);
+    window.create();
 
-    QProcess process;
-    process.setProgram("bash");
-    process.setArguments({"-c", "glxinfo | grep NVIDIA"});
-    process.start();
-    process.waitForFinished();
+    QOpenGLContext context;
+    context.create();
+    context.makeCurrent(&window);
 
-    switch (process.exitCode()) {
-    case 0:
-        m_currentGpu = Nvidia;
-        break;
-    case 1:
+    QOpenGLFunctions functions(&context);
+    const QByteArray vendorString(reinterpret_cast<const char *>(functions.glGetString(GL_VENDOR)));
+
+    if (vendorString.startsWith("Intel"))
         m_currentGpu = Intel;
-        break;
-    default:
+    else if (vendorString.startsWith("NVIDIA"))
+        m_currentGpu = Nvidia;
+    else
         qFatal("Unable to detect GPU");
-    }
 }
 
 void OptimusManager::loadSettings()
