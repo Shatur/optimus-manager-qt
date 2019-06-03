@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file. This projec
 **Changed**
 
 -   Use Qt methods instead of glxinfo to detect GPU.
+-   Fix missing Finnish language resource.
 
 ## [1.2.1](https://github.com/Shatur95/optimus-manager-qt/tree/1.2.1) (2019-06-01)
 

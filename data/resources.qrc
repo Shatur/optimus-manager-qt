@@ -10,5 +10,6 @@
         <file>flags/fi.svg</file>
         <file>flags/pt.svg</file>
         <file>translations/optimus-manager_pt_BR.qm</file>
+        <file>translations/optimus-manager_fi.qm</file>
     </qresource>
 </RCC>
