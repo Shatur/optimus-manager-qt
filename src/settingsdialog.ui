@@ -133,11 +133,20 @@
              </item>
              <item>
               <property name="text">
-               <string>Suomalainen</string>
+               <string notr="true">Suomalainen</string>
               </property>
               <property name="icon">
                <iconset resource="../data/resources.qrc">
                 <normaloff>:/flags/fi.svg</normaloff>:/flags/fi.svg</iconset>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">Português (Brasil)</string>
+              </property>
+              <property name="icon">
+               <iconset resource="../data/resources.qrc">
+                <normaloff>:/flags/pt.svg</normaloff>:/flags/pt.svg</iconset>
               </property>
              </item>
              <item>

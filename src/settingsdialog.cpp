@@ -46,9 +46,10 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->languageComboBox->setItemData(0, QLocale::AnyLanguage);
     ui->languageComboBox->setItemData(1, QLocale::English);
     ui->languageComboBox->setItemData(2, QLocale::Finnish);
-    ui->languageComboBox->setItemData(3, QLocale::Spanish);
-    ui->languageComboBox->setItemData(4, QLocale::Russian);
-    ui->languageComboBox->setItemData(5, QLocale::Chinese);
+    ui->languageComboBox->setItemData(3, QLocale::Portuguese);
+    ui->languageComboBox->setItemData(4, QLocale::Spanish);
+    ui->languageComboBox->setItemData(5, QLocale::Russian);
+    ui->languageComboBox->setItemData(6, QLocale::Chinese);
 
     loadSettings();
 }

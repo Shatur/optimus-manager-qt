@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file. This projec
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.2.1...HEAD)
 
+**Added**
+
+-   Portuguese (Brazil) translation.
+
 **Changed**
 
 -   Use Qt methods instead of glxinfo to detect GPU.
