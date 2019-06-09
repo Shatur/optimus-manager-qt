@@ -34,6 +34,7 @@ class QSystemTrayIcon;
 class OptimusManager : public QObject
 {
     Q_OBJECT
+    Q_DISABLE_COPY(OptimusManager)
 
 public:
     enum GPU {
@@ -57,7 +58,7 @@ private:
     struct Session
     {
         QString sessionId;
-        int userId;
+        int userId = 0;
         QString userName;
         QString seatId;
         QDBusObjectPath sessionObjectPath;

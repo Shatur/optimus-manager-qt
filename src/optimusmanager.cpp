@@ -221,8 +221,7 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
         message.setIcon(QMessageBox::Critical);
         message.setText(tr("The Optimus Manager service is not running."));
         message.setInformativeText(tr("Please enable and start it with:\n'%1'\n'%2'")
-                                   .arg("sudo systemctl enable optimus-manager")
-                                   .arg("sudo systemctl start optimus-manager"));
+                                   .arg("sudo systemctl enable optimus-manager", "sudo systemctl start optimus-manager"));
         message.exec();
         return;
     }
@@ -235,9 +234,7 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
         message.setInformativeText(tr("Power switching will not work.\n"
                                       "You can set '%1' for GPU switching in settings or install bbswitch for"
                                       "the default kernel with '%2' or for all kernels with '%3'.")
-                                   .arg("nouveau")
-                                   .arg("sudo pacman -S bbswitch")
-                                   .arg("sudo pacman -S bbswitch-dkms"));
+                                   .arg("nouveau", "sudo pacman -S bbswitch", "sudo pacman -S bbswitch-dkms"));
         message.exec();
     }
 
@@ -289,8 +286,7 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
             message.setInformativeText(tr("Session %1, started by %2, is a Wayland session."
                                           " Wayland is not supported by Optimus Manager, so GPU switching may fail.\n"
                                           "Continue anyway?")
-                                       .arg(QString::number(session.userId))
-                                       .arg(session.userName));
+                                       .arg(QString::number(session.userId), session.userName));
             message.setStandardButtons(QMessageBox::Yes | QMessageBox::YesToAll | QMessageBox::No);
             message.exec();
             if (message.result() == QMessageBox::No)
@@ -349,9 +345,7 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
         message.setInformativeText(tr("Optimus Manager will use '%1' driver instead. You can change driver in settings or install the"
                                       " '%2' driver from the package '%3'.\n"
                                       "Continue anyway?")
-                                   .arg("modesetting")
-                                   .arg("intel")
-                                   .arg("xf86-video-intel"));
+                                   .arg("modesetting", "intel", "xf86-video-intel"));
         message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         if (message.exec() == QMessageBox::No)
             return;
@@ -397,7 +391,7 @@ bool OptimusManager::isServiceActive(const QString &serviceName)
 {
     QDBusInterface systemd("org.freedesktop.systemd1", "/org/freedesktop/systemd1", "org.freedesktop.systemd1.Manager", QDBusConnection::systemBus());
 
-    const QDBusObjectPath optimusManagerPath = systemd.call("GetUnit", serviceName).arguments().at(0).value<QDBusObjectPath>();
+    const auto optimusManagerPath = systemd.call("GetUnit", serviceName).arguments().at(0).value<QDBusObjectPath>();
     if (optimusManagerPath.path().isEmpty())
         return false;
 
@@ -407,10 +401,7 @@ bool OptimusManager::isServiceActive(const QString &serviceName)
 
 bool OptimusManager::isGdmPatched()
 {
-    if (QFileInfo::exists("/etc/gdm/Prime") || QFileInfo::exists("/etc/gdm3/Prime"))
-        return true;
-
-    return false;
+    return QFileInfo::exists("/etc/gdm/Prime") || QFileInfo::exists("/etc/gdm3/Prime");
 }
 
 QString OptimusManager::currentDisplayManager()
@@ -423,7 +414,7 @@ QVector<OptimusManager::Session> OptimusManager::activeSessions()
 {
     // Get list of sessions
     QDBusInterface logind("org.freedesktop.login1", "/org/freedesktop/login1", "org.freedesktop.login1.Manager", QDBusConnection::systemBus());
-    const QDBusArgument sessionList = logind.call("ListSessions").arguments().at(0).value<QDBusArgument>();
+    const auto sessionList = logind.call("ListSessions").arguments().at(0).value<QDBusArgument>();
 
     // Demarshall data
     QVector<Session> activeSessions;
@@ -460,7 +451,7 @@ void OptimusManager::logout()
     kde.call("logout", 0, 3, 3);
 
     QDBusInterface gnome("org.gnome.SessionManager", "/org/gnome/SessionManager", "org.gnome.SessionManager");
-    gnome.call("Logout", 1u);
+    gnome.call("Logout", 1U);
 
     QDBusInterface xfce("org.xfce.SessionManager", "/org/xfce/SessionManager", "org.xfce.Session.Manager");
     xfce.call("Logout", false, true);

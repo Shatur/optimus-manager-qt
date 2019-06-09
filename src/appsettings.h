@@ -32,6 +32,7 @@ class QTranslator;
 class AppSettings : QSettings
 {
     Q_OBJECT
+    Q_DISABLE_COPY(AppSettings)
 
 public:
     AppSettings(QObject *parent = nullptr);

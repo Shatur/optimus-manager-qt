@@ -29,6 +29,7 @@ class QSettings;
 class OptimusSettings : private QObject
 {
     Q_OBJECT
+    Q_DISABLE_COPY(OptimusSettings)
 
 public:
     enum SwitchingBackend {

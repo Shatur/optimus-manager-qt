@@ -20,9 +20,6 @@
 
 #include "daemonclient.h"
 
-#include <QProcess>
-#include <QDebug>
-
 #include <sys/socket.h>
 #include <sys/un.h>
 

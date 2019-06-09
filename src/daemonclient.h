@@ -22,10 +22,11 @@
 #define DAEMONCLIENT_H
 
 #include <QString>
-#include <QObject>
 
-class DaemonClient : public QObject
+class DaemonClient
 {
+    Q_DISABLE_COPY(DaemonClient)
+
 public:
     DaemonClient() = default;
 
