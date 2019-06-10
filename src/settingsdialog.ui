@@ -102,7 +102,7 @@
      </widget>
      <widget class="QStackedWidget" name="pagesStackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="generalPage">
        <layout class="QVBoxLayout" name="generalPageLayout">
@@ -727,7 +727,7 @@
             <item row="2" column="0">
              <widget class="QLabel" name="autorGuiTitleLabel">
               <property name="text">
-               <string>Autor:</string>
+               <string>Author:</string>
               </property>
              </widget>
             </item>

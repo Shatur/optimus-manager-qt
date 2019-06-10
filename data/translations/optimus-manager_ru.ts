@@ -12,93 +12,93 @@
 <context>
     <name>OptimusManager</name>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="54"/>
-        <location filename="../../src/optimusmanager.cpp" line="194"/>
+        <location filename="../../src/optimusmanager.cpp" line="55"/>
+        <location filename="../../src/optimusmanager.cpp" line="174"/>
         <source>Switch to Intel</source>
         <translation>Переключить на Intel</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="55"/>
-        <location filename="../../src/optimusmanager.cpp" line="195"/>
+        <location filename="../../src/optimusmanager.cpp" line="56"/>
+        <location filename="../../src/optimusmanager.cpp" line="175"/>
         <source>Switch to Nvidia</source>
         <translation>Переключить на Nvidia</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="57"/>
-        <location filename="../../src/optimusmanager.cpp" line="196"/>
+        <location filename="../../src/optimusmanager.cpp" line="58"/>
+        <location filename="../../src/optimusmanager.cpp" line="176"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="65"/>
-        <location filename="../../src/optimusmanager.cpp" line="191"/>
+        <location filename="../../src/optimusmanager.cpp" line="66"/>
+        <location filename="../../src/optimusmanager.cpp" line="171"/>
         <source>Current videocard: </source>
         <translation>Текущая видеокарта: </translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="172"/>
-        <location filename="../../src/optimusmanager.cpp" line="182"/>
+        <location filename="../../src/optimusmanager.cpp" line="152"/>
+        <location filename="../../src/optimusmanager.cpp" line="162"/>
         <source>The specified icon &apos;%1&apos; for the current GPU is invalid. The default icon will be used.</source>
         <translation>Выбранный значок &apos;%1&apos; для текущего GPU недействителен. Будет использован значок по умолчанию.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="209"/>
+        <location filename="../../src/optimusmanager.cpp" line="189"/>
         <source>You are about to switch GPU.</source>
         <translation>Вы собираетесь переключить GPU.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="211"/>
+        <location filename="../../src/optimusmanager.cpp" line="191"/>
         <source>You will be automatically logged out to apply the changes.</source>
         <translation>Будет осуществлен автоматический выход из системы для применения изменений.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="222"/>
+        <location filename="../../src/optimusmanager.cpp" line="202"/>
         <source>The Optimus Manager service is not running.</source>
         <translation>Служба Optimus Manager не запущена.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="274"/>
+        <location filename="../../src/optimusmanager.cpp" line="251"/>
         <source>There are %1 other desktop sessions open. The GPU switch will not become effective until you have manually logged out from ALL desktop sessions.
 Continue?</source>
         <translation>Открыто %1 других сеансов рабочего стола. Переключение GPU не вступит в силу, пока вы не выйдете вручную из ВСЕХ сеансов рабочего стола.
 Продолжить?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="288"/>
+        <location filename="../../src/optimusmanager.cpp" line="265"/>
         <source>Wayland session found.</source>
         <translation>Обнаружена сессия Wayland.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="289"/>
+        <location filename="../../src/optimusmanager.cpp" line="266"/>
         <source>Session %1, started by %2, is a Wayland session. Wayland is not supported by Optimus Manager, so GPU switching may fail.
 Continue anyway?</source>
         <translation>Сессия %1, запущенная пользователем %2, является сессией Wayland. Optimus Manager не поддерживает Wayland, поэтому переключение GPU может завершиться неудачно.
 Все равно продолжить?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="307"/>
+        <location filename="../../src/optimusmanager.cpp" line="283"/>
         <source>The Bumblebee service (%1) is running.</source>
         <translation>Служба Bumblebee (%1) запущена.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="348"/>
+        <location filename="../../src/optimusmanager.cpp" line="324"/>
         <source>The Xorg driver &apos;%1&apos; is not installed.</source>
         <translation>Xorg драйвер &apos;%1&apos; не установлен.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="349"/>
+        <location filename="../../src/optimusmanager.cpp" line="325"/>
         <source>Optimus Manager will use &apos;%1&apos; driver instead. You can change driver in settings or install the &apos;%2&apos; driver from the package &apos;%3&apos;.
 Continue anyway?</source>
         <translation>Вместо этого Optimus Manager будет использовать драйвер &apos;%1&apos;. Вы можете изменить драйвер в настройках или установить драйвер &apos;%2&apos; из пакета &apos;%3&apos;.
 Все равно продолжить?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="366"/>
+        <location filename="../../src/optimusmanager.cpp" line="340"/>
         <source>Unable to connect to Optimus Manager daemon to switch GPU: %1</source>
         <translation>Не удалось подключиться к демону Optimus Manager для переключения GPU: %1</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="322"/>
+        <location filename="../../src/optimusmanager.cpp" line="298"/>
         <source>If you did not create it yourself, it was likely generated by your distribution or by an Nvidia utility.
 This file may contain hard-coded GPU configuration that could interfere with Optimus Manager, so it is recommended that you delete it before proceeding.
 Ignore this warning and proceed with GPU switching?</source>
@@ -107,19 +107,19 @@ Ignore this warning and proceed with GPU switching?</source>
 Проигнорировать это предупреждение и продолжить переключение GPU?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="336"/>
+        <location filename="../../src/optimusmanager.cpp" line="312"/>
         <source>This file was auto-generated by the Manjaro driver utility (MHWD). This will likely interfere with GPU switching, so Optimus Manager will delete this file automatically if you proceded with GPU switching.
 Proceed?</source>
         <translation>Этот файл был автоматически сгенерирован менеджером драйверов Manjaro (MHWD). Это может помешать переключению GPU, поэтому Optimus Manager автоматически удалит этот файл, если вы продолжите переключение GPU.
 Продолжить?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="213"/>
+        <location filename="../../src/optimusmanager.cpp" line="193"/>
         <source>After applying the settings, you will need to manually re-login to change the video card.</source>
         <translation>После применения настроек вам нужно будет заново войти в систему, чтобы сменить видеокарту.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="223"/>
+        <location filename="../../src/optimusmanager.cpp" line="203"/>
         <source>Please enable and start it with:
 &apos;%1&apos;
 &apos;%2&apos;</source>
@@ -128,60 +128,60 @@ Proceed?</source>
 &apos;%2&apos;</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="234"/>
-        <location filename="../../src/optimusmanager.cpp" line="248"/>
+        <location filename="../../src/optimusmanager.cpp" line="213"/>
+        <location filename="../../src/optimusmanager.cpp" line="225"/>
         <source>The %1 module does not seem to be available for the current kernel.</source>
         <translation>Модуль %1 не доступен для текущего ядра.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="235"/>
+        <location filename="../../src/optimusmanager.cpp" line="214"/>
         <source>Power switching will not work.
 You can set &apos;%1&apos; for GPU switching in settings or install bbswitch forthe default kernel with &apos;%2&apos; or for all kernels with &apos;%3&apos;.</source>
         <translation>Переключение питания не будет работать.
 Вы можете выбрать &apos;%1&apos; для переключения GPU в настройках или установить bbswitch для ядра по умолчанию с &apos;%2&apos; или для всех ядер с &apos;%3&apos;.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="249"/>
+        <location filename="../../src/optimusmanager.cpp" line="226"/>
         <source>It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?</source>
         <translation>Вероятно, драйвер Nvidia был установлен неправильно. Переключение GPU, скорее всего, не удастся, все равно продолжить?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="259"/>
+        <location filename="../../src/optimusmanager.cpp" line="236"/>
         <source>Looks like you&apos;re using a non-patched version of the Gnome Display Manager (GDM).</source>
         <translation>Похоже, вы используете непропатченную версию Gnome Display Manager (GDM).</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="260"/>
+        <location filename="../../src/optimusmanager.cpp" line="237"/>
         <source>GDM need to be patched for Prime switching. Follow &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
 Continue anyway?</source>
         <translation>GDM должен быть пропатчен для переключения видеокарт. Следуйте &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;этой инструкции&lt;/a&gt;, чтобы установить исправленную версию. Без пропатченной версии GDM переключение GPU, скорее всего, не удастся.
 Все равно продолжить?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="273"/>
+        <location filename="../../src/optimusmanager.cpp" line="250"/>
         <source>Multiple running sessions detected.</source>
         <translation>Обнаружено несколько запущенных сессий.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="308"/>
+        <location filename="../../src/optimusmanager.cpp" line="284"/>
         <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with &apos;%1&apos; and reboot your computer.
 Ignore this warning and proceed with GPU switching now?</source>
         <translation>Это может помешать работе Optimus Manager. Перед попыткой переключения GPU рекомендуется отключить эту службу с помощью &apos;%1&apos; и перезагрузить компьютер.
 Проигнорировать это предупреждение сейчас и перейти к переключению GPU?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="321"/>
-        <location filename="../../src/optimusmanager.cpp" line="335"/>
+        <location filename="../../src/optimusmanager.cpp" line="297"/>
+        <location filename="../../src/optimusmanager.cpp" line="311"/>
         <source>Found a Xorg config file at &apos;%1&apos;.</source>
         <translation>Найден файл конфигурации Xorg по пути &apos;%1&apos;.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="375"/>
+        <location filename="../../src/optimusmanager.cpp" line="349"/>
         <source>Unable to send GPU name to switch to Optimus Manager daemon: %1</source>
         <translation>Не удалось отправить имя GPU для переключения демону Optimus Manager: %1</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="382"/>
+        <location filename="../../src/optimusmanager.cpp" line="356"/>
         <source>Configuration successfully applied. Your GPU will be switched after next login.</source>
         <translation>Конфигурация успешно применена. Ваш GPU будет переключен после следующего входа в систему.</translation>
     </message>
@@ -213,8 +213,8 @@ Ignore this warning and proceed with GPU switching now?</source>
     <name>SettingsDialog</name>
     <message>
         <location filename="../../src/settingsdialog.ui" line="14"/>
-        <location filename="../../src/optimusmanager.cpp" line="52"/>
-        <location filename="../../src/optimusmanager.cpp" line="193"/>
+        <location filename="../../src/optimusmanager.cpp" line="53"/>
+        <location filename="../../src/optimusmanager.cpp" line="173"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
@@ -440,6 +440,10 @@ Ignore this warning and proceed with GPU switching now?</source>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="730"/>
+        <source>Author:</source>
+        <translation>Автор:</translation>
+    </message>
+    <message>
         <location filename="../../src/settingsdialog.ui" line="824"/>
         <source>Autor:</source>
         <translation>Автор:</translation>
