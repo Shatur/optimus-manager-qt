@@ -29,15 +29,17 @@ class DaemonClient
 
 public:
     DaemonClient() = default;
+    ~DaemonClient();
 
     void connect();
+    void disconnect();
     ssize_t send(const QString &message);
 
     bool error();
     QString errorString();
 
 private:
-    void storeErrno();
+    void setError(bool error);
 
     QString m_errorString;
     bool m_error = false;

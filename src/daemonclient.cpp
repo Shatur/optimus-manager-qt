@@ -20,27 +20,49 @@
 
 #include "daemonclient.h"
 
+#include <unistd.h>
 #include <sys/socket.h>
 #include <sys/un.h>
 
 constexpr sockaddr_un m_saddr = {AF_UNIX, "/tmp/optimus-manager"};
 constexpr socklen_t m_addrlen = sizeof(m_saddr);
 
+DaemonClient::~DaemonClient()
+{
+    disconnect();
+}
+
 void DaemonClient::connect()
 {
-    m_sockfd = socket(AF_UNIX, SOCK_DGRAM, 0);
-    if (m_sockfd == -1)
-        storeErrno();
+    disconnect();
 
-    if (::connect(m_sockfd, reinterpret_cast<const sockaddr *>(&m_saddr), m_addrlen) == -1)
-        storeErrno();
+    m_sockfd = socket(AF_UNIX, SOCK_DGRAM, 0);
+    if (m_sockfd == -1) {
+        setError(true);
+        return;
+    }
+
+    const int connectionStatus = ::connect(m_sockfd, reinterpret_cast<const sockaddr *>(&m_saddr), m_addrlen);
+    setError(connectionStatus == -1);
+}
+
+void DaemonClient::disconnect()
+{
+    if (m_sockfd == -1)
+        return;
+
+    if (close(m_sockfd) == -1) {
+        setError(true);
+    } else {
+        setError(false);
+        m_sockfd = -1;
+    }
 }
 
 ssize_t DaemonClient::send(const QString &message)
 {
     const ssize_t bytesSent = ::send(m_sockfd, qPrintable(message), static_cast<size_t>(message.size()), 0);
-    if (bytesSent == -1)
-        storeErrno();
+    setError(bytesSent == -1);
 
     return bytesSent;
 }
@@ -55,8 +77,11 @@ QString DaemonClient::errorString()
     return m_errorString;
 }
 
-void DaemonClient::storeErrno()
+void DaemonClient::setError(bool error)
 {
-    m_errorString = strerror(errno);
-    m_error = true;
+    m_error = error;
+    if (m_error)
+        m_errorString = strerror(errno);
+    else
+        m_errorString.clear();
 }
