@@ -65,11 +65,11 @@ private:
     };
 
     void showNotification(const QString &message, const QString &iconName, int interval = 10000);
-    void detectGpu();
     void loadSettings();
     void retranslateUi();
     void switchGpu(GPU switchingGpu);
 
+    static GPU detectGpu();
     static bool isModuleAvailable(const QString &moduleName);
     static bool isServiceActive(const QString &serviceName);
     static bool isGdmPatched();

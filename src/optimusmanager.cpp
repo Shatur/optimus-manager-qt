@@ -45,7 +45,8 @@
 OptimusManager::OptimusManager(QObject *parent) :
     QObject(parent)
 {
-    detectGpu(); // Detect current GPU
+    // Detect current GPU
+    m_currentGpu = detectGpu();
 
     // Setup context menu
     m_contextMenu = new QMenu;
@@ -132,27 +133,6 @@ void OptimusManager::showNotification(const QString &message, const QString &ico
     notifyArguments << interval; // Show interval
     notify.callWithArgumentList(QDBus::AutoDetect, "Notify", notifyArguments);
 #endif
-}
-
-void OptimusManager::detectGpu()
-{
-    QWindow window;
-    window.setSurfaceType(QSurface::OpenGLSurface);
-    window.create();
-
-    QOpenGLContext context;
-    context.create();
-    context.makeCurrent(&window);
-
-    QOpenGLFunctions functions(&context);
-    const QByteArray vendorString(reinterpret_cast<const char *>(functions.glGetString(GL_VENDOR)));
-
-    if (vendorString.startsWith("Intel"))
-        m_currentGpu = Intel;
-    else if (vendorString.startsWith("NVIDIA"))
-        m_currentGpu = Nvidia;
-    else
-        qFatal("Unable to detect GPU");
 }
 
 void OptimusManager::loadSettings()
@@ -374,6 +354,28 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
         logout();
     else
         showNotification(tr("Configuration successfully applied. Your GPU will be switched after next login."), appSettings.gpuIconName(switchingGpu));
+}
+
+OptimusManager::GPU OptimusManager::detectGpu()
+{
+    QWindow window;
+    window.setSurfaceType(QSurface::OpenGLSurface);
+    window.create();
+
+    QOpenGLContext context;
+    context.create();
+    context.makeCurrent(&window);
+
+    QOpenGLFunctions functions(&context);
+    const QByteArray vendorString(reinterpret_cast<const char *>(functions.glGetString(GL_VENDOR)));
+
+    if (vendorString.startsWith("Intel"))
+        return Intel;
+
+    if (vendorString.startsWith("NVIDIA"))
+        return Nvidia;
+
+    qFatal("Unable to detect GPU");
 }
 
 bool OptimusManager::isModuleAvailable(const QString &moduleName)
