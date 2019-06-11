@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ru">
 <context>
     <name>AppSettings</name>
     <message>
@@ -79,7 +81,7 @@ Continue anyway?</source>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="325"/>
-        <source>Optimus Manager will use '%1' driver instead. You can change driver in settings or install the '%2' driver from the package '%3'.
+        <source>Optimus Manager will use &apos;%1&apos; driver instead. You can change driver in settings or install the &apos;%2&apos; driver from the package &apos;%3&apos;.
 Continue anyway?</source>
         <translation>Вместо этого Optimus Manager будет использовать драйвер &apos;%1&apos;. Вы можете изменить драйвер в настройках или установить драйвер &apos;%2&apos; из пакета &apos;%3&apos;.
 Все равно продолжить?</translation>
@@ -119,7 +121,7 @@ Proceed?</source>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="203"/>
         <source>Please enable and start it with:
-'%1'
+&apos;%1&apos;
 &apos;%2&apos;</source>
         <translation>Пожалуйста, включите и запустите его с:
 &apos;%1&apos;
@@ -150,7 +152,7 @@ You can set &apos;%1&apos; for GPU switching in settings or install bbswitch for
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="237"/>
-        <source>GDM need to be patched for Prime switching. Follow &lt;a href='https://github.com/Askannz/optimus-manager'&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
+        <source>GDM need to be patched for Prime switching. Follow &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
 Continue anyway?</source>
         <translation>GDM должен быть пропатчен для переключения видеокарт. Следуйте &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;этой инструкции&lt;/a&gt;, чтобы установить исправленную версию. Без пропатченной версии GDM переключение GPU, скорее всего, не удастся.
 Все равно продолжить?</translation>
@@ -162,7 +164,7 @@ Continue anyway?</source>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="284"/>
-        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with '%1' and reboot your computer.
+        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with &apos;%1&apos; and reboot your computer.
 Ignore this warning and proceed with GPU switching now?</source>
         <translation>Это может помешать работе Optimus Manager. Перед попыткой переключения GPU рекомендуется отключить эту службу с помощью &apos;%1&apos; и перезагрузить компьютер.
 Проигнорировать это предупреждение сейчас и перейти к переключению GPU?</translation>
