@@ -30,12 +30,6 @@
         <translation>Salir</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="66"/>
-        <location filename="../../src/optimusmanager.cpp" line="171"/>
-        <source>Current videocard: </source>
-        <translation>GPU Actual: </translation>
-    </message>
-    <message>
         <location filename="../../src/optimusmanager.cpp" line="152"/>
         <location filename="../../src/optimusmanager.cpp" line="162"/>
         <source>The specified icon &apos;%1&apos; for the current GPU is invalid. The default icon will be used.</source>
@@ -118,6 +112,12 @@ Proceder?</translation>
         <translation>Tras aplicar la configuración, tendrás que re-loguear manualmente para cambiar de tarjeta de video.</translation>
     </message>
     <message>
+        <location filename="../../src/optimusmanager.cpp" line="66"/>
+        <location filename="../../src/optimusmanager.cpp" line="171"/>
+        <source>Current videocard: %1</source>
+        <translation>GPU Actual: %1</translation>
+    </message>
+    <message>
         <location filename="../../src/optimusmanager.cpp" line="203"/>
         <source>Please enable and start it with:
 &apos;%1&apos;
@@ -189,13 +189,13 @@ Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
     <name>OptimusSettings</name>
     <message>
         <location filename="../../src/optimussettings.cpp" line="64"/>
-        <source>Unable to connect to optimus-manager daemon to send startup mode: </source>
-        <translation>No se pudo conectar con el daemon de optimus-manager para enviar el modo de encendido: </translation>
+        <source>Unable to connect to optimus-manager daemon to send startup mode: %1</source>
+        <translation>No se pudo conectar con el daemon de optimus-manager para enviar el modo de encendido: %1</translation>
     </message>
     <message>
         <location filename="../../src/optimussettings.cpp" line="70"/>
-        <source>Unable to send startup mode to optimus-manager daemon: </source>
-        <translation>No se pudo enviar el modo de encendido al daemon de optimus manager: </translation>
+        <source>Unable to send startup mode to optimus-manager daemon: %1</source>
+        <translation>No se pudo enviar el modo de encendido al daemon de optimus manager: %1</translation>
     </message>
     <message>
         <location filename="../../src/optimussettings.cpp" line="79"/>
@@ -439,12 +439,8 @@ Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="730"/>
-        <source>Author:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../src/settingsdialog.ui" line="824"/>
-        <source>Autor:</source>
+        <source>Author:</source>
         <translation>Autor:</translation>
     </message>
     <message>

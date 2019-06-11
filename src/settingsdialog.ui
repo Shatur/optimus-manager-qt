@@ -821,7 +821,7 @@
             <item row="2" column="0">
              <widget class="QLabel" name="autorTitleLabel">
               <property name="text">
-               <string>Autor:</string>
+               <string>Author:</string>
               </property>
              </widget>
             </item>

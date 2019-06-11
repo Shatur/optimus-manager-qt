@@ -30,12 +30,6 @@
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="66"/>
-        <location filename="../../src/optimusmanager.cpp" line="171"/>
-        <source>Current videocard: </source>
-        <translation>目前使用的显卡：</translation>
-    </message>
-    <message>
         <location filename="../../src/optimusmanager.cpp" line="152"/>
         <location filename="../../src/optimusmanager.cpp" line="162"/>
         <source>The specified icon &apos;%1&apos; for the current GPU is invalid. The default icon will be used.</source>
@@ -113,6 +107,12 @@ Proceed?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../src/optimusmanager.cpp" line="66"/>
+        <location filename="../../src/optimusmanager.cpp" line="171"/>
+        <source>Current videocard: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../src/optimusmanager.cpp" line="203"/>
         <source>Please enable and start it with:
 &apos;%1&apos;
@@ -179,13 +179,13 @@ Ignore this warning and proceed with GPU switching now?</source>
     <name>OptimusSettings</name>
     <message>
         <location filename="../../src/optimussettings.cpp" line="64"/>
-        <source>Unable to connect to optimus-manager daemon to send startup mode: </source>
-        <translation>无法连接到 optimus-manager 后台以发送启动模式：</translation>
+        <source>Unable to connect to optimus-manager daemon to send startup mode: %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/optimussettings.cpp" line="70"/>
-        <source>Unable to send startup mode to optimus-manager daemon: </source>
-        <translation>无法发送启动模式到 optimus-manager-daemon 后台：</translation>
+        <source>Unable to send startup mode to optimus-manager daemon: %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/optimussettings.cpp" line="79"/>
@@ -430,13 +430,9 @@ Ignore this warning and proceed with GPU switching now?</source>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="730"/>
+        <location filename="../../src/settingsdialog.ui" line="824"/>
         <source>Author:</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="824"/>
-        <source>Autor:</source>
-        <translation>作者：</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="737"/>

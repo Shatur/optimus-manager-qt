@@ -63,7 +63,7 @@ OptimusManager::OptimusManager(QObject *parent) :
     m_trayIcon->setStandardActionsEnabled(false);
     m_trayIcon->setToolTipTitle(SingleApplication::applicationName());
     m_trayIcon->setCategory(KStatusNotifierItem::SystemServices);
-    m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<GPU>().valueToKey(m_currentGpu));
+    m_trayIcon->setToolTipSubTitle(tr("Current videocard: %1").arg(QMetaEnum::fromType<GPU>().valueToKey(m_currentGpu)));
 #else
     m_trayIcon = new QSystemTrayIcon(this);
 #endif
@@ -168,7 +168,7 @@ void OptimusManager::loadSettings()
 void OptimusManager::retranslateUi()
 {
 #ifdef PLASMA
-    m_trayIcon->setToolTipSubTitle(tr("Current videocard: ") + QMetaEnum::fromType<GPU>().valueToKey(m_currentGpu));
+    m_trayIcon->setToolTipSubTitle(tr("Current videocard: %1").arg(QMetaEnum::fromType<GPU>().valueToKey(m_currentGpu)));
 #endif
     m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
     m_contextMenu->actions().at(2)->setText(tr("Switch to Intel"));

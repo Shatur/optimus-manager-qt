@@ -30,12 +30,6 @@
         <translation>Sair</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="66"/>
-        <location filename="../../src/optimusmanager.cpp" line="171"/>
-        <source>Current videocard: </source>
-        <translation>Placa de vídeo atual:</translation>
-    </message>
-    <message>
         <location filename="../../src/optimusmanager.cpp" line="152"/>
         <location filename="../../src/optimusmanager.cpp" line="162"/>
         <source>The specified icon &apos;%1&apos; for the current GPU is invalid. The default icon will be used.</source>
@@ -119,6 +113,12 @@ Prosseguir?</translation>
         <translation>Depois de aplicar as configurações, você precisará fazer login novamente manualmente para alterar a placa de vídeo.</translation>
     </message>
     <message>
+        <location filename="../../src/optimusmanager.cpp" line="66"/>
+        <location filename="../../src/optimusmanager.cpp" line="171"/>
+        <source>Current videocard: %1</source>
+        <translation>Placa de vídeo atual: %1</translation>
+    </message>
+    <message>
         <location filename="../../src/optimusmanager.cpp" line="203"/>
         <source>Please enable and start it with:
 &apos;%1&apos;
@@ -187,13 +187,13 @@ Ignore this warning and proceed with GPU switching now?</source>
     <name>OptimusSettings</name>
     <message>
         <location filename="../../src/optimussettings.cpp" line="64"/>
-        <source>Unable to connect to optimus-manager daemon to send startup mode: </source>
-        <translation>Não foi possível conectar ao daemon do optimus-manager para enviar o modo de inicialização:</translation>
+        <source>Unable to connect to optimus-manager daemon to send startup mode: %1</source>
+        <translation>Não foi possível conectar ao daemon do optimus-manager para enviar o modo de inicialização: %1</translation>
     </message>
     <message>
         <location filename="../../src/optimussettings.cpp" line="70"/>
-        <source>Unable to send startup mode to optimus-manager daemon: </source>
-        <translation>Não foi possível enviar o modo de inicialização para o daemon do optimus-manager:</translation>
+        <source>Unable to send startup mode to optimus-manager daemon: %1</source>
+        <translation>Não foi possível enviar o modo de inicialização para o daemon do optimus-manager: %1</translation>
     </message>
     <message>
         <location filename="../../src/optimussettings.cpp" line="79"/>
@@ -433,23 +433,19 @@ Ignore this warning and proceed with GPU switching now?</source>
         <location filename="../../src/settingsdialog.ui" line="716"/>
         <location filename="../../src/settingsdialog.ui" line="847"/>
         <source>Version:</source>
-        <translation>Versão</translation>
+        <translation>Versão:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="730"/>
-        <source>Author:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../src/settingsdialog.ui" line="824"/>
-        <source>Autor:</source>
+        <source>Author:</source>
         <translation>Autor:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="737"/>
         <location filename="../../src/settingsdialog.ui" line="861"/>
         <source>License:</source>
-        <translation>Licença</translation>
+        <translation>Licença:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="203"/>
