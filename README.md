@@ -22,8 +22,8 @@
   <img src="https://raw.githubusercontent.com/Shatur95/optimus-manager-qt/master/dist/screenshots/tray-menu.png" alt="Tray menu screenshot"/>
 </p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Shatur95/optimus-manager-qt/master/dist/screenshots/settings-general.png" width="250px" height="184px" alt="General settings screenshot"/>
-  <img src="https://raw.githubusercontent.com/Shatur95/optimus-manager-qt/master/dist/screenshots/settings-optimus.png" width="250px" height="184px" alt="Optimus settings screenshot"/>
+  <img src="https://raw.githubusercontent.com/Shatur95/optimus-manager-qt/master/dist/screenshots/settings-general.png" width="392px" height="300px" alt="General settings screenshot"/>
+  <img src="https://raw.githubusercontent.com/Shatur95/optimus-manager-qt/master/dist/screenshots/settings-optimus.png" width="392px" height="300px" alt="Optimus settings screenshot"/>
 </p>
 
 ## Features
