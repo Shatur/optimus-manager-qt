@@ -284,11 +284,6 @@ Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
         <translation>Nvidia (una vez)</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="389"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;At the moment this is only supported for Gnome, KDE Plasma and Xfce&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Desloguear automáticamente la sesión de escritorio al cambiar de GPUs&lt;/p&gt;&lt;p&gt;Por el momento solo es soportado por Gnome, KDE Plasma y Xfce&lt;/p&gt;&lt;p&gt;Si esta opción es desactivada o usas un entorno de escritorio distinto, el cambio de GPU solo se hará efectivo al hacer login en la próxima sesión gráfica&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../../src/settingsdialog.ui" line="392"/>
         <source>Automatic logout</source>
         <translation>Logout automático</translation>
@@ -405,6 +400,11 @@ Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
         <location filename="../../src/settingsdialog.ui" line="442"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Versión DRI&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="389"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;At the moment this is only supported for Gnome, KDE Plasma, Deepin and Xfce&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="560"/>
