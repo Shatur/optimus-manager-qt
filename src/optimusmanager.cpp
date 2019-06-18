@@ -457,6 +457,9 @@ void OptimusManager::logout()
 
     QDBusInterface xfce("org.xfce.SessionManager", "/org/xfce/SessionManager", "org.xfce.Session.Manager");
     xfce.call("Logout", false, true);
+
+    QDBusInterface deepin("com.deepin.SessionManager", "/com/deepin/SessionManager", "com.deepin.SessionManager");
+    deepin.call("RequestLogout");
 }
 
 QString OptimusManager::gpuString(GPU gpu)
