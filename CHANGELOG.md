@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file. This projec
 **Changed**
 
 -   Fix memory leak in DaemonClient.
+-   Fix the wrong language flag for Brazil.
 
 ## [1.2.2](https://github.com/Shatur95/optimus-manager-qt/tree/1.2.2) (2019-06-04)
 
