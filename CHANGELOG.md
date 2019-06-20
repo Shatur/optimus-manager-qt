@@ -4,7 +4,17 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)
 
-[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.2.2...HEAD)
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.2.3...HEAD)
+
+_No unreleased changes yet_
+
+## [1.2.3](https://github.com/Shatur95/optimus-manager-qt/tree/1.2.3) (2019-06-04)
+
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.2.2...1.2.3)
+
+**Added**
+
+-   Automatic logout support for Deepin.
 
 **Changed**
 
