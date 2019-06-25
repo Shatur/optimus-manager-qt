@@ -4,7 +4,13 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)
 
-[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.2.3...HEAD)
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.2.4...HEAD)
+
+_No unreleased changes yet_
+
+## [1.2.4](https://github.com/Shatur95/optimus-manager-qt/tree/1.2.4) (2019-06-26)
+
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.2.3...1.2.4)
 
 **Added**
 
@@ -14,7 +20,7 @@ All notable changes to this project will be documented in this file. This projec
 
 -   Fix incorrect generation of the nvidia/options.
 
-## [1.2.3](https://github.com/Shatur95/optimus-manager-qt/tree/1.2.3) (2019-06-04)
+## [1.2.3](https://github.com/Shatur95/optimus-manager-qt/tree/1.2.3) (2019-06-21)
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.2.2...1.2.3)
 
