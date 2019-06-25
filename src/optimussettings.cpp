@@ -48,27 +48,27 @@ void OptimusSettings::apply()
     m_settings->sync();
 
     // Move generated settings to config path
-    QProcess process;
-    process.setProgram("pkexec");
-    process.setArguments({"cp", "/tmp/optimus-manager.conf", "/etc/optimus-manager/optimus-manager.conf"});
-    process.start();
-    process.waitForFinished();
-
-    if (m_startupModeString.isEmpty())
+    if (QProcess::execute("pkexec", {"cp", "/tmp/optimus-manager.conf", "/etc/optimus-manager/optimus-manager.conf"}) != 0)
         return;
 
-    // Set startup mode
-    DaemonClient client;
-    client.connect();
-    if (client.error()) {
-        QMessageBox message(QMessageBox::Warning, SingleApplication::applicationName(), tr("Unable to connect to optimus-manager daemon to send startup mode: %1").arg(client.errorString()));
-        message.exec();
-        return;
-    }
+    if (!m_startupModeString.isEmpty()) {
+        // Set startup mode
+        DaemonClient client;
+        client.connect();
+        if (client.error()) {
+            QMessageBox message;
+            message.setIcon(QMessageBox::Warning);
+            message.setText(tr("Unable to connect to optimus-manager daemon to send startup mode: %1").arg(client.errorString()));
+            message.exec();
+            return;
+        }
 
-    if (client.send(m_startupModeString) == -1) {
-        QMessageBox message(QMessageBox::Warning, SingleApplication::applicationName(), tr("Unable to send startup mode to optimus-manager daemon: %1").arg(client.errorString()));
-        message.exec();
+        if (client.send(m_startupModeString) == -1) {
+            QMessageBox message;
+            message.setIcon(QMessageBox::Warning);
+            message.setText(tr("Unable to send startup mode to optimus-manager daemon: %1").arg(client.errorString()));
+            message.exec();
+        }
     }
 }
 
