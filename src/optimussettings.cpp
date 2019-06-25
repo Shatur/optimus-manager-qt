@@ -322,14 +322,15 @@ OptimusSettings::NvidiaOptions OptimusSettings::nvidiaOptions() const
 void OptimusSettings::setNvidiaOptions(NvidiaOptions options)
 {
     QStringList optionsStrings;
-
     if (options.testFlag(Overclocking))
         optionsStrings.append("overclocking");
-
     if (options.testFlag(TripleBuffer))
         optionsStrings.append("triple_buffer");
 
-    m_settings->setValue("nvidia/options", optionsStrings);
+    if (optionsStrings.empty())
+        m_settings->remove("nvidia/options");
+    else
+        m_settings->setValue("nvidia/options", optionsStrings);
 }
 
 QString OptimusSettings::boolToOption(bool value)
