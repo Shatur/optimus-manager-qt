@@ -460,6 +460,10 @@ void OptimusManager::logout()
 
     QDBusInterface deepin("com.deepin.SessionManager", "/com/deepin/SessionManager", "com.deepin.SessionManager");
     deepin.call("RequestLogout");
+
+    QProcess::execute("i3-msg", {"exit"});
+
+    QProcess::execute("sway-msg", {"exit"});
 }
 
 QString OptimusManager::gpuString(GPU gpu)
