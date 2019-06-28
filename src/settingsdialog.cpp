@@ -64,7 +64,7 @@ bool SettingsDialog::languageChanged() const
     return m_languageChanged;
 }
 
-void SettingsDialog::on_SettingsDialog_accepted()
+void SettingsDialog::accept()
 {
     // Check if language changed
     AppSettings appSettings;
@@ -104,6 +104,8 @@ void SettingsDialog::on_SettingsDialog_accepted()
     optimusSettings.setNvidiaOptions(nvidiaOptions);
 
     optimusSettings.apply();
+
+    QDialog::accept();
 }
 
 void SettingsDialog::restoreDefaults()
@@ -169,23 +171,23 @@ void SettingsDialog::loadSettings()
     ui->nvidiaTripleBuffercheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::TripleBuffer));
 }
 
-void SettingsDialog::on_intelIconButton_clicked()
+void SettingsDialog::chooseIntelIcon()
 {
     ui->intelIconEdit->setText(chooseIcon());
 }
 
-void SettingsDialog::on_nvidiaIconButton_clicked()
+void SettingsDialog::chooseNvidiaIcon()
 {
     ui->nvidiaIconEdit->setText(chooseIcon());
 }
 
-void SettingsDialog::on_intelIconEdit_textChanged(const QString &fileName)
+void SettingsDialog::loadIntelIcon(const QString &fileName)
 {
     const QIcon icon = OptimusManager::trayGpuIcon(fileName);
     ui->intelIconButton->setIcon(icon);
 }
 
-void SettingsDialog::on_nvidiaIconEdit_textChanged(const QString &fileName)
+void SettingsDialog::loadNvidiaIcon(const QString &fileName)
 {
     const QIcon icon = OptimusManager::trayGpuIcon(fileName);
     ui->nvidiaIconButton->setIcon(icon);
@@ -234,7 +236,7 @@ QString SettingsDialog::optimusManagerVersion()
     return data.mid(versionStartIndex, versionEndIndex - versionStartIndex);
 }
 
-void SettingsDialog::on_switchingBackendComboBox_currentIndexChanged(int index)
+void SettingsDialog::processSwitchingBackendChanged(int index)
 {
     if (index == OptimusSettings::Bbswitch)
         ui->intelModesetCheckBox->setEnabled(false);
@@ -242,7 +244,7 @@ void SettingsDialog::on_switchingBackendComboBox_currentIndexChanged(int index)
         ui->intelModesetCheckBox->setEnabled(true);
 }
 
-void SettingsDialog::on_intelDriverComboBox_currentIndexChanged(int index)
+void SettingsDialog::processIntelDriverChanged(int index)
 {
     if (index == OptimusSettings::IntelDriver) {
         ui->intelAccelMethodComboBox->setEnabled(true);

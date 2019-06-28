@@ -102,7 +102,7 @@
      </widget>
      <widget class="QStackedWidget" name="pagesStackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="generalPage">
        <layout class="QVBoxLayout" name="generalPageLayout">
@@ -945,5 +945,109 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>intelIconButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SettingsDialog</receiver>
+   <slot>chooseIntelIcon()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>313</x>
+     <y>197</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>nvidiaIconButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SettingsDialog</receiver>
+   <slot>chooseNvidiaIcon()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>313</x>
+     <y>235</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>intelIconEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>SettingsDialog</receiver>
+   <slot>loadIntelIcon(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>557</x>
+     <y>197</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>nvidiaIconEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>SettingsDialog</receiver>
+   <slot>loadNvidiaIcon(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>557</x>
+     <y>235</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>switchingBackendComboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>SettingsDialog</receiver>
+   <slot>processSwitchingBackendChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>423</x>
+     <y>99</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>intelDriverComboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>SettingsDialog</receiver>
+   <slot>processIntelDriverChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>411</x>
+     <y>61</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>chooseNvidiaIcon()</slot>
+  <slot>chooseIntelIcon()</slot>
+  <slot>loadNvidiaIcon(QString)</slot>
+  <slot>loadIntelIcon(QString)</slot>
+  <slot>processIntelDriverChanged(int)</slot>
+  <slot>processSwitchingBackendChanged(int)</slot>
+ </slots>
 </ui>

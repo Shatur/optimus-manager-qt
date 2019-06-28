@@ -38,15 +38,16 @@ public:
 
     bool languageChanged() const;
 
-private slots:
-    void on_SettingsDialog_accepted();
-    void on_intelIconButton_clicked();
-    void on_nvidiaIconButton_clicked();
-    void on_intelIconEdit_textChanged(const QString &fileName);
-    void on_nvidiaIconEdit_textChanged(const QString &fileName);
-    void on_switchingBackendComboBox_currentIndexChanged(int index);
-    void on_intelDriverComboBox_currentIndexChanged(int index);
+public slots:
+    void accept() override;
 
+//private slots:
+    void chooseIntelIcon();
+    void chooseNvidiaIcon();
+    void loadIntelIcon(const QString &fileName);
+    void loadNvidiaIcon(const QString &fileName);
+    void processSwitchingBackendChanged(int index);
+    void processIntelDriverChanged(int index);
     void restoreDefaults();
 
 private:
