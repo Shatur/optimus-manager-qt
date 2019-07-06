@@ -124,6 +124,15 @@
              </item>
              <item>
               <property name="text">
+               <string notr="true">Deutsch</string>
+              </property>
+              <property name="icon">
+               <iconset resource="../data/resources.qrc">
+                <normaloff>:/flags/de.svg</normaloff>:/flags/de.svg</iconset>
+              </property>
+             </item>
+             <item>
+              <property name="text">
                <string notr="true">English</string>
               </property>
               <property name="icon">
