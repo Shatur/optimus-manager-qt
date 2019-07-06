@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_BR" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pt_BR">
 <context>
     <name>AppSettings</name>
     <message>
@@ -79,7 +81,7 @@ Continuar mesmo assim?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="325"/>
-        <source>Optimus Manager will use '%1' driver instead. You can change driver in settings or install the '%2' driver from the package '%3'.
+        <source>Optimus Manager will use &apos;%1&apos; driver instead. You can change driver in settings or install the &apos;%2&apos; driver from the package &apos;%3&apos;.
 Continue anyway?</source>
         <translation>O Optimus Manager irá usar o driver &apos;%1&apos;. Você pode alterar o driver nas configurações ou instalar o driver &apos;%2&apos; do pacote &apos;%3&apos;.
 Continuar mesmo assim?</translation>
@@ -119,7 +121,7 @@ Prosseguir?</translation>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="203"/>
         <source>Please enable and start it with:
-'%1'
+&apos;%1&apos;
 &apos;%2&apos;</source>
         <translation>Por favor, habilite e inicie com:
 &apos;%1&apos;
@@ -149,7 +151,7 @@ You can set &apos;%1&apos; for GPU switching in settings or install bbswitch for
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="237"/>
-        <source>GDM need to be patched for Prime switching. Follow &lt;a href='https://github.com/Askannz/optimus-manager'&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
+        <source>GDM need to be patched for Prime switching. Follow &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
 Continue anyway?</source>
         <translation>O GDM precisa de um patch para uma troca Prime. Siga &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;estas&lt;/a&gt; instruções para instalar uma versão corrigida. Sem uma versão GDM corrigida, a troca da GPU provavelmente falhará. Continuar mesmo assim?</translation>
     </message>
@@ -160,7 +162,7 @@ Continue anyway?</source>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="284"/>
-        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with '%1' and reboot your computer.
+        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with &apos;%1&apos; and reboot your computer.
 Ignore this warning and proceed with GPU switching now?</source>
         <translation>Isso pode interferir no Optimus Manager. Antes de tentar uma troca de GPU, é recomendável desabilitar este serviço com &apos;%1&apos; e reiniciar seu computador. Ignorar esse aviso e continuar com a troca de GPU agora?</translation>
     </message>
@@ -184,12 +186,12 @@ Ignore this warning and proceed with GPU switching now?</source>
 <context>
     <name>OptimusSettings</name>
     <message>
-        <location filename="../../src/optimussettings.cpp" line="64"/>
+        <location filename="../../src/optimussettings.cpp" line="61"/>
         <source>Unable to connect to optimus-manager daemon to send startup mode: %1</source>
         <translation>Não foi possível conectar ao daemon do optimus-manager para enviar o modo de inicialização: %1</translation>
     </message>
     <message>
-        <location filename="../../src/optimussettings.cpp" line="70"/>
+        <location filename="../../src/optimussettings.cpp" line="69"/>
         <source>Unable to send startup mode to optimus-manager daemon: %1</source>
         <translation>Não foi possível enviar o modo de inicialização para o daemon do optimus-manager: %1</translation>
     </message>
@@ -225,12 +227,12 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation>Sobre</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="190"/>
+        <location filename="../../src/settingsdialog.ui" line="199"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Application language&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Idioma da aplicação&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="193"/>
+        <location filename="../../src/settingsdialog.ui" line="202"/>
         <source>Language:</source>
         <translation>Idioma:</translation>
     </message>
@@ -240,98 +242,98 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation>&lt;Idioma do sistema&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="216"/>
+        <location filename="../../src/settingsdialog.ui" line="225"/>
         <source>Launch at startup</source>
         <translation>Iniciar com o sistema</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="223"/>
+        <location filename="../../src/settingsdialog.ui" line="232"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show confirmation dialog when switching GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Exibir caixa de diálogo de confirmação ao trocar de GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="226"/>
+        <location filename="../../src/settingsdialog.ui" line="235"/>
         <source>Confirm switching</source>
         <translation>Confirmar troca</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="263"/>
+        <location filename="../../src/settingsdialog.ui" line="272"/>
         <source>Nvidia icon:</source>
         <translation>Ícone da Nvidia:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="242"/>
+        <location filename="../../src/settingsdialog.ui" line="251"/>
         <source>Intel icon:</source>
         <translation>Ícone da Intel:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="345"/>
+        <location filename="../../src/settingsdialog.ui" line="354"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Specify which GPU will be used by default when the system boots&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Especifica qual GPU será usada por padrão quando o sistema for inicializado&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="399"/>
+        <location filename="../../src/settingsdialog.ui" line="408"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Module used for power switching&lt;/p&gt;&lt;p&gt;If you select &amp;quot;None&amp;quot;, no power switching will be done at all (the Nvidia GPU will stay powered at all times)&lt;/p&gt;&lt;p&gt;If you use bbswitch, you will not be able to use video outputs attached to your Nvidia GPU in Intel mode&lt;/p&gt;&lt;p&gt;To use the bbswitch mode, the bbswitch module must be installed for your current kernel&lt;/p&gt;&lt;p&gt;You can install it for the default kernel with &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Módulo usado para a troca por desligamento&lt;/p&gt;&lt;p&gt;Se você selecionar &amp;quot;Nenhum&amp;quot;, nenhuma troca por desligamento será feita (a GPU Nvidia permanecerá ligada o tempo todo)&lt;/p&gt;&lt;p&gt;Se você usar bbswitch, você não poderá usar as saídas de vídeo conectadas à sua GPU Nvidia no modo Intel&lt;/p&gt;&lt;p&gt;Para usar o modo bbswitch, o módulo deve ser instalado para o seu kernel atual&lt;/p&gt;&lt;p&gt;Você pode instalar com &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="377"/>
+        <location filename="../../src/settingsdialog.ui" line="386"/>
         <source>Nvidia (one boot)</source>
         <translation>Nvidia (um boot)</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="392"/>
+        <location filename="../../src/settingsdialog.ui" line="401"/>
         <source>Automatic logout</source>
         <translation>Desconectar automaticamente</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="459"/>
+        <location filename="../../src/settingsdialog.ui" line="468"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Intel GPU&lt;br/&gt;&lt;br/&gt;To use the intel driver, you need to install the package &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver para o uso da Intel GPU&lt;br/&gt;&lt;br/&gt;Para usar o driver da Intel, você precisa instalar o pacote &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="603"/>
+        <location filename="../../src/settingsdialog.ui" line="612"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manager&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Isso será definido usando o script Xsetup passado para o seu gerenciador de login&lt;br/&gt;Irá executar o comando&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Deixe 0 para o padrão&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="636"/>
+        <location filename="../../src/settingsdialog.ui" line="645"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Se deve ou não habilitar a opção NVreg_UsePageAttributeTable no driver da Nvidia&lt;span style=&quot; font-style:italic;&quot;&gt;Recomendado&lt;/span&gt;, pode causar um desempenho ruim da CPU, caso contrário&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="649"/>
+        <location filename="../../src/settingsdialog.ui" line="658"/>
         <source>Overclocking options</source>
         <translation>Opções de overclock</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="402"/>
+        <location filename="../../src/settingsdialog.ui" line="411"/>
         <source>Switching backend:</source>
         <translation>Backend da troca:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="213"/>
+        <location filename="../../src/settingsdialog.ui" line="222"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart will be used&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart será usado&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="236"/>
+        <location filename="../../src/settingsdialog.ui" line="245"/>
         <source>Tray icons</source>
         <translation>ìcones da bandeja</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="270"/>
-        <location filename="../../src/settingsdialog.ui" line="277"/>
+        <location filename="../../src/settingsdialog.ui" line="279"/>
+        <location filename="../../src/settingsdialog.ui" line="286"/>
         <source>Choose icon</source>
         <translation>Escolha um ícone</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="348"/>
+        <location filename="../../src/settingsdialog.ui" line="357"/>
         <source>Startup mode:</source>
         <translation>Modo de inicialização:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="314"/>
+        <location filename="../../src/settingsdialog.ui" line="323"/>
         <source>None</source>
         <translation>Nenhum</translation>
     </message>
@@ -341,132 +343,132 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Idioma da interface&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="249"/>
-        <location filename="../../src/settingsdialog.ui" line="256"/>
+        <location filename="../../src/settingsdialog.ui" line="258"/>
+        <location filename="../../src/settingsdialog.ui" line="265"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Caminho do ícone ou o nome do ícone do tema&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="310"/>
+        <location filename="../../src/settingsdialog.ui" line="319"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Backend to be used for switching GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Backend que será usado na troca da GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="355"/>
+        <location filename="../../src/settingsdialog.ui" line="364"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU that will be used during normal system startup&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU que será usada durante o inicialização normal do sistema&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="389"/>
+        <location filename="../../src/settingsdialog.ui" line="398"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;At the moment this is only supported for Gnome, KDE Plasma, Deepin, Xfce, i3 and Sway.&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Desconecta-se automaticamente da sessão atual da área de trabalho ao trocar GPUs&lt;/p&gt;&lt;p&gt;No momento, isso é suportado apenas para o Gnome, KDE Plasma, Deepin, Xfce, i3 e Sway&lt;/p&gt;&lt;p&gt;Se esta opção estiver desativada ou você usar um ambiente de área de trabalho diferente, a troca da GPU só se tornará eficaz no próximo login da sessão gráfica&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="435"/>
+        <location filename="../../src/settingsdialog.ui" line="444"/>
         <source>Driver:</source>
         <translation>Driver:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="525"/>
+        <location filename="../../src/settingsdialog.ui" line="534"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable AccelMethod option in the Xorg configuration&lt;br/&gt;&lt;br/&gt;This option compatible only with the Intel driver and will be ignored if it is not selected&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita a opção AccelMethod na configuração do Xorg&lt;br/&gt;&lt;br/&gt;Esta opção é compatível apenas com o driver Intel e será ignorada se não estiver selecionada&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="476"/>
+        <location filename="../../src/settingsdialog.ui" line="485"/>
         <source>Acceleration method:</source>
         <translation>Método de aceleração:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="497"/>
-        <location filename="../../src/settingsdialog.ui" line="529"/>
+        <location filename="../../src/settingsdialog.ui" line="506"/>
+        <location filename="../../src/settingsdialog.ui" line="538"/>
         <source>Default</source>
         <translation>Padrão</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="493"/>
+        <location filename="../../src/settingsdialog.ui" line="502"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;br/&gt;&lt;br/&gt;This option compatible only with the Intel driver and will be ignored if it is not selected&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita a opção TearFree na configuração do Xorg&lt;br/&gt;&lt;br/&gt;Esta opção é compatível apenas com o driver Intel e será ignorada se não estiver selecionada&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="502"/>
+        <location filename="../../src/settingsdialog.ui" line="511"/>
         <source>Yes</source>
         <translation>Sim</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="507"/>
+        <location filename="../../src/settingsdialog.ui" line="516"/>
         <source>No</source>
         <translation>Não</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="442"/>
+        <location filename="../../src/settingsdialog.ui" line="451"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Versão do DRI&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="560"/>
+        <location filename="../../src/settingsdialog.ui" line="569"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Se deve ou não habilitar o modesetting para o driver nouveau&lt;/p&gt;&lt;p&gt;Não afeta o modesetting para o driver da Intel GPU&lt;/p&gt;&lt;p&gt;Esta opção é incompatível com o bbswitch e será ignorada se estiver ativada&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="626"/>
+        <location filename="../../src/settingsdialog.ui" line="635"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Se deve ou não habilitar o modesetting&lt;/p&gt;&lt;p&gt;Obrigatório para a Sincronização PRIME &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="646"/>
+        <location filename="../../src/settingsdialog.ui" line="655"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration and unlock clocking options in the Nvidia control panel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilite o CoolBits na configuração do Xorg e desbloqueia as opções de clock no painel de controle da Nvidia&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="656"/>
+        <location filename="../../src/settingsdialog.ui" line="665"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o buffer triplo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="659"/>
+        <location filename="../../src/settingsdialog.ui" line="668"/>
         <source>Triple buffer</source>
         <translation>Buffer triplo</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="716"/>
-        <location filename="../../src/settingsdialog.ui" line="847"/>
+        <location filename="../../src/settingsdialog.ui" line="725"/>
+        <location filename="../../src/settingsdialog.ui" line="856"/>
         <source>Version:</source>
         <translation>Versão:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="730"/>
-        <location filename="../../src/settingsdialog.ui" line="824"/>
+        <location filename="../../src/settingsdialog.ui" line="739"/>
+        <location filename="../../src/settingsdialog.ui" line="833"/>
         <source>Author:</source>
         <translation>Autor:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="737"/>
-        <location filename="../../src/settingsdialog.ui" line="861"/>
+        <location filename="../../src/settingsdialog.ui" line="746"/>
+        <location filename="../../src/settingsdialog.ui" line="870"/>
         <source>License:</source>
         <translation>Licença:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="203"/>
+        <location filename="../../src/settingsdialog.cpp" line="206"/>
         <source>Select icon</source>
         <translation>Selecionar um ícone</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="204"/>
+        <location filename="../../src/settingsdialog.cpp" line="207"/>
         <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
         <translation>Imagens (*.png *.jpg *.bmp);;Todos os arquivos(*)</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="223"/>
+        <location filename="../../src/settingsdialog.cpp" line="226"/>
         <source>Unable to find Optimus Manager daemon.</source>
         <translation>Não foi possível encontrar o daemon do Optimus Manager.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="224"/>
+        <location filename="../../src/settingsdialog.cpp" line="227"/>
         <source>Please check the integrity of the package that provides Optimus Manager.</source>
         <translation>Por favor, verifique a integridade do pacote que fornece o Optimus Manager.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="226"/>
+        <location filename="../../src/settingsdialog.cpp" line="229"/>
         <source>Not found!</source>
         <translation>Não encontrado!</translation>
     </message>
