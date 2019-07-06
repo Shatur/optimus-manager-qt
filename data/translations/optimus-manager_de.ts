@@ -116,7 +116,7 @@ Fortfahren?</translation>
         <location filename="../../src/optimusmanager.cpp" line="66"/>
         <location filename="../../src/optimusmanager.cpp" line="171"/>
         <source>Current videocard: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktuelle GPU: %1</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="203"/>
@@ -191,12 +191,12 @@ Warnung ignorieren und mit GPU-Wechsel fortfahren?</translation>
     <message>
         <location filename="../../src/optimussettings.cpp" line="61"/>
         <source>Unable to connect to optimus-manager daemon to send startup mode: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbindung zum Optimus Manager daemon für Übertragung des Startup-Modus nicht möglich: %1</translation>
     </message>
     <message>
         <location filename="../../src/optimussettings.cpp" line="69"/>
         <source>Unable to send startup mode to optimus-manager daemon: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Konnte Startup-Modus nicht an Optimus Manager daemon senden: %1</translation>
     </message>
     <message>
         <location filename="../../src/optimussettings.cpp" line="79"/>
@@ -364,7 +364,7 @@ Warnung ignorieren und mit GPU-Wechsel fortfahren?</translation>
     <message>
         <location filename="../../src/settingsdialog.ui" line="398"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;At the moment this is only supported for Gnome, KDE Plasma, Deepin, Xfce, i3 and Sway.&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Aktuelle Desktop-Sitzung bei GPU-Wechsel automatisch ausloggen&lt;/p&gt;&lt;p&gt;Zurzeit nur unter Gnome, KDE Plasma, Deepin, Xfce, i3 und Sway ünterstützt.&lt;/p&gt;&lt;p&gt;Ist diese Option deaktiviert oder eine andere Desktopumgebung wird verwendet, wird der GPU-Wechsel erst beim nächsten manuellen Logout der Sitzung aktiv.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="444"/>
@@ -380,7 +380,7 @@ Warnung ignorieren und mit GPU-Wechsel fortfahren?</translation>
         <location filename="../../src/settingsdialog.ui" line="739"/>
         <location filename="../../src/settingsdialog.ui" line="833"/>
         <source>Author:</source>
-        <translation type="unfinished"></translation>
+        <translation>Autor:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="485"/>
