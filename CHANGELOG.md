@@ -6,7 +6,9 @@ All notable changes to this project will be documented in this file. This projec
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.2.5...HEAD)
 
-_No unreleased changes yet_
+**Added**
+
+-   Automatic logout for Openbox.
 
 ## [1.2.5](https://github.com/Shatur95/optimus-manager-qt/tree/1.2.5) (2019-07-07)
 

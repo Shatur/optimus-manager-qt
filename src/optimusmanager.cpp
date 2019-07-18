@@ -464,6 +464,8 @@ void OptimusManager::logout()
     QProcess::execute("i3-msg", {"exit"});
 
     QProcess::execute("sway-msg", {"exit"});
+
+    QProcess::execute("openbox", {"--exit"});
 }
 
 QString OptimusManager::gpuString(GPU gpu)
