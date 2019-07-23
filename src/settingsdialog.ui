@@ -102,7 +102,7 @@
      </widget>
      <widget class="QStackedWidget" name="pagesStackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="generalPage">
        <layout class="QVBoxLayout" name="generalPageLayout">
@@ -124,11 +124,11 @@
              </item>
              <item>
               <property name="text">
-               <string notr="true">Deutsch</string>
+               <string notr="true">简体中文 (中国)</string>
               </property>
               <property name="icon">
                <iconset resource="../data/resources.qrc">
-                <normaloff>:/flags/de.svg</normaloff>:/flags/de.svg</iconset>
+                <normaloff>:/flags/cn.svg</normaloff>:/flags/cn.svg</iconset>
               </property>
              </item>
              <item>
@@ -151,20 +151,20 @@
              </item>
              <item>
               <property name="text">
+               <string notr="true">Deutsch</string>
+              </property>
+              <property name="icon">
+               <iconset resource="../data/resources.qrc">
+                <normaloff>:/flags/de.svg</normaloff>:/flags/de.svg</iconset>
+              </property>
+             </item>
+             <item>
+              <property name="text">
                <string notr="true">Português (Brasil)</string>
               </property>
               <property name="icon">
                <iconset resource="../data/resources.qrc">
                 <normaloff>:/flags/br.svg</normaloff>:/flags/br.svg</iconset>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">Español</string>
-              </property>
-              <property name="icon">
-               <iconset resource="../data/resources.qrc">
-                <normaloff>:/flags/es.svg</normaloff>:/flags/es.svg</iconset>
               </property>
              </item>
              <item>
@@ -178,11 +178,20 @@
              </item>
              <item>
               <property name="text">
-               <string notr="true">简体中文 (中国)</string>
+               <string notr="true">Español</string>
               </property>
               <property name="icon">
                <iconset resource="../data/resources.qrc">
-                <normaloff>:/flags/cn.svg</normaloff>:/flags/cn.svg</iconset>
+                <normaloff>:/flags/es.svg</normaloff>:/flags/es.svg</iconset>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Türk</string>
+              </property>
+              <property name="icon">
+               <iconset resource="../data/resources.qrc">
+                <normaloff>:/flags/tr.svg</normaloff>:/flags/tr.svg</iconset>
               </property>
              </item>
             </widget>
