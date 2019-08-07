@@ -257,7 +257,7 @@ void OptimusManager::switchGpu(OptimusManager::GPU switchingGpu)
     }
 
     // Check if Wayland sessions are running
-    foreach (const Session &session, sessions) {
+    for (const Session &session : sessions) {
         const QDBusInterface sessionInterface("org.freedesktop.login1", session.sessionObjectPath.path(), "org.freedesktop.login1.Session", QDBusConnection::systemBus());
         if (sessionInterface.property("Type").toString() == "wayland") {
             QMessageBox message;
@@ -437,7 +437,7 @@ QVector<OptimusManager::Session> OptimusManager::activeSessions()
 int OptimusManager::sessionsCountWithoutGdm(const QVector<OptimusManager::Session> &sessions)
 {
     int sessionCount = 0;
-    foreach (const Session &session, sessions) {
+    for (const Session &session : sessions) {
         if (session.userName == "gdm")
             continue;
 
