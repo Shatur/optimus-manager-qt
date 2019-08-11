@@ -23,6 +23,8 @@
 
 #include <QDialog>
 
+class QLineEdit;
+
 namespace Ui {
 class SettingsDialog;
 }
@@ -41,7 +43,7 @@ public:
 public slots:
     void accept() override;
 
-//private slots:
+private slots:
     void chooseIntelIcon();
     void chooseNvidiaIcon();
     void loadIntelIcon(const QString &fileName);
@@ -52,7 +54,7 @@ public slots:
 
 private:
     void loadSettings();
-    QString chooseIcon();
+    void chooseIcon(QLineEdit *iconNameEdit);
 
     static QString optimusManagerVersion();
 

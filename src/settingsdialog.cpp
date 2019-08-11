@@ -175,12 +175,12 @@ void SettingsDialog::loadSettings()
 
 void SettingsDialog::chooseIntelIcon()
 {
-    ui->intelIconEdit->setText(chooseIcon());
+    chooseIcon(ui->intelIconEdit);
 }
 
 void SettingsDialog::chooseNvidiaIcon()
 {
-    ui->nvidiaIconEdit->setText(chooseIcon());
+    chooseIcon(ui->nvidiaIconEdit);
 }
 
 void SettingsDialog::loadIntelIcon(const QString &fileName)
@@ -195,24 +195,25 @@ void SettingsDialog::loadNvidiaIcon(const QString &fileName)
     ui->nvidiaIconButton->setIcon(icon);
 }
 
-QString SettingsDialog::chooseIcon()
+void SettingsDialog::chooseIcon(QLineEdit *iconNameEdit)
 {
 #ifdef PLASMA
     KIconDialog dialog(this);
     dialog.setup(KIconLoader::Panel, KIconLoader::StatusIcon);
 
-    return  dialog.openDialog();
+    const QString iconName = dialog.openDialog();
+    if (!iconName.isEmpty())
+        iconNameEdit->setText(iconName);
 #else
-
     QFileDialog dialog(this, tr("Select icon"));
     dialog.setNameFilter(tr("Images (*.png *.jpg *.bmp);;All files(*)"));
-    dialog.setDirectory(QDir::homePath());
     dialog.setFileMode(QFileDialog::ExistingFile);
 
-    if (!dialog.exec())
-        return QString();
+    const QFileInfo previousName = iconNameEdit->text();
+    dialog.setDirectory(previousName.exists() ? previousName.path() : QDir::homePath());
 
-    return dialog.selectedFiles().at(0);
+    if (dialog.exec())
+        iconNameEdit->setText(dialog.selectedFiles().first());
 #endif
 }
 

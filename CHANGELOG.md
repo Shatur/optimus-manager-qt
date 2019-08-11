@@ -6,7 +6,10 @@ All notable changes to this project will be documented in this file. This projec
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.2.7...HEAD)
 
-_No unreleased changes yet_
+**Changed**
+
+-   Fix resetting the icon name when the dialog is canceled.
+-   Use the last selected directory of an icon when choosing a new one.
 
 ## [1.2.7](https://github.com/Shatur95/optimus-manager-qt/tree/1.2.7) (2019-07-25)
 
