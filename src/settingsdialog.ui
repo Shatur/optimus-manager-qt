@@ -77,7 +77,7 @@
         <string notr="true">Intel</string>
        </property>
        <property name="icon">
-        <iconset theme="prime-intel">
+        <iconset theme="intel">
          <normaloff>.</normaloff>.</iconset>
        </property>
       </item>
@@ -86,7 +86,7 @@
         <string notr="true">Nvidia</string>
        </property>
        <property name="icon">
-        <iconset theme="prime-nvidia">
+        <iconset theme="nvidia">
          <normaloff>.</normaloff>.</iconset>
        </property>
       </item>
@@ -102,7 +102,7 @@
      </widget>
      <widget class="QStackedWidget" name="pagesStackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="generalPage">
        <layout class="QVBoxLayout" name="generalPageLayout">
