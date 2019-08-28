@@ -72,7 +72,7 @@ void OptimusSettings::apply()
     }
 }
 
-OptimusSettings::StartupMode OptimusSettings::startupMode() const
+OptimusSettings::GPU OptimusSettings::startupMode() const
 {
     QFile file("/var/lib/optimus-manager/startup_mode");
     if (!file.open(QIODevice::ReadOnly)) {
@@ -91,15 +91,12 @@ OptimusSettings::StartupMode OptimusSettings::startupMode() const
     if (modeString == "nvidia")
         return Nvidia;
 
-    if (modeString == "nvidia_once")
-        return NvidiaOnce;
-
     QMessageBox message(QMessageBox::Warning, SingleApplication::applicationName(), tr("Unknown mode in startup file"));
     message.exec();
     return Intel;
 }
 
-void OptimusSettings::setStartupMode(OptimusSettings::StartupMode mode)
+void OptimusSettings::setStartupMode(GPU mode)
 {
     switch (mode) {
     case Intel:
@@ -107,9 +104,6 @@ void OptimusSettings::setStartupMode(OptimusSettings::StartupMode mode)
         break;
     case Nvidia:
         m_startupModeString = QStringLiteral("startup_nvidia");
-        break;
-    case NvidiaOnce:
-        m_startupModeString = QStringLiteral("startup_nvidia_once");
         break;
     }
 }

@@ -37,11 +37,6 @@ public:
         Nouveau,
         Bbswitch
     };
-    enum StartupMode {
-        Intel,
-        Nvidia,
-        NvidiaOnce
-    };
     enum Driver {
         Modesetting,
         IntelDriver
@@ -56,6 +51,11 @@ public:
         EnableTearFree,
         DisableTearFree
     };
+    enum GPU {
+        Intel,
+        Nvidia,
+    };
+    Q_ENUM(GPU)
     enum DRI {
         DRI2 = 2,
         DRI3 = 3,
@@ -72,8 +72,8 @@ public:
 
     void apply();
 
-    StartupMode startupMode() const;
-    void setStartupMode(StartupMode mode);
+    GPU startupMode() const;
+    void setStartupMode(GPU mode);
 
     // Optimus
     SwitchingBackend switchingBackend() const;

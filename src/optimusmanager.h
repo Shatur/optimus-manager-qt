@@ -21,6 +21,8 @@
 #ifndef OPTIMUSMANAGER_H
 #define OPTIMUSMANAGER_H
 
+#include "optimussettings.h"
+
 #include <QObject>
 #include <QDBusObjectPath>
 
@@ -37,12 +39,6 @@ class OptimusManager : public QObject
     Q_DISABLE_COPY(OptimusManager)
 
 public:
-    enum GPU {
-        Intel,
-        Nvidia,
-    };
-    Q_ENUM(GPU)
-
     OptimusManager(QObject *parent = nullptr);
     ~OptimusManager() override;
 
@@ -67,9 +63,9 @@ private:
     void showNotification(const QString &message, const QString &iconName, int interval = 10000);
     void loadSettings();
     void retranslateUi();
-    void switchGpu(GPU switchingGpu);
+    void switchGpu(OptimusSettings::GPU switchingGpu);
 
-    static GPU detectGpu();
+    static OptimusSettings::GPU detectGpu();
     static bool isModuleAvailable(const QString &moduleName);
     static bool isServiceActive(const QString &serviceName);
     static bool isGdmPatched();
@@ -78,7 +74,7 @@ private:
     static int sessionsCountWithoutGdm(const QVector<Session> &sessions);
     static void logout();
 
-    static QString gpuString(OptimusManager::GPU gpu);
+    static QString gpuString(OptimusSettings::GPU gpu);
 
     QMenu *m_contextMenu;
 #ifdef PLASMA
@@ -86,7 +82,7 @@ private:
 #else
     QSystemTrayIcon *m_trayIcon;
 #endif
-    GPU m_currentGpu;
+    OptimusSettings::GPU m_currentGpu;
 };
 
 #endif // OPTIMUSMANAGER_H

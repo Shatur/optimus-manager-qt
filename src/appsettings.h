@@ -21,7 +21,7 @@
 #ifndef APPSETTINGS_H
 #define APPSETTINGS_H
 
-#include "optimusmanager.h"
+#include "optimussettings.h"
 
 #include <QSettings>
 #include <QTranslator>
@@ -48,9 +48,9 @@ public:
     bool isConfirmSwitching() const;
     void setConfirmSwitching(bool confirm);
 
-    QString gpuIconName(OptimusManager::GPU gpu) const;
-    void setGpuIconName(OptimusManager::GPU gpu, const QString &name);
-    static QString defaultTrayIconName(OptimusManager::GPU trayStatus);
+    QString gpuIconName(OptimusSettings::GPU gpu) const;
+    void setGpuIconName(OptimusSettings::GPU gpu, const QString &name);
+    static QString defaultTrayIconName(OptimusSettings::GPU trayStatus);
 
 private:
     void applyLocale(QLocale::Language lang);

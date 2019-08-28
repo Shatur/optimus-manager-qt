@@ -21,6 +21,7 @@
 #include "settingsdialog.h"
 #include "ui_settingsdialog.h"
 #include "appsettings.h"
+#include "optimusmanager.h"
 #include "optimussettings.h"
 #include "singleapplication.h"
 
@@ -79,12 +80,12 @@ void SettingsDialog::accept()
     // General settings
     appSettings.setAutostartEnabled(ui->autostartCheckBox->isChecked());
     appSettings.setConfirmSwitching(ui->confirmSwitchingCheckBox->isChecked());
-    appSettings.setGpuIconName(OptimusManager::Intel, ui->intelIconEdit->text());
-    appSettings.setGpuIconName(OptimusManager::Nvidia, ui->nvidiaIconEdit->text());
+    appSettings.setGpuIconName(OptimusSettings::Intel, ui->intelIconEdit->text());
+    appSettings.setGpuIconName(OptimusSettings::Nvidia, ui->nvidiaIconEdit->text());
 
     // Optimus settings
     OptimusSettings optimusSettings;
-    optimusSettings.setStartupMode(static_cast<OptimusSettings::StartupMode>(ui->startupModeComboBox->currentIndex()));
+    optimusSettings.setStartupMode(static_cast<OptimusSettings::GPU>(ui->startupModeComboBox->currentIndex()));
     optimusSettings.setSwitchingBackend(static_cast<OptimusSettings::SwitchingBackend>(ui->switchingBackendComboBox->currentIndex()));
     optimusSettings.setAutoLogoutEnabled(ui->autoLogoutCheckBox->isChecked());
 
@@ -117,8 +118,8 @@ void SettingsDialog::restoreDefaults()
     ui->languageComboBox->setCurrentIndex(0);
     ui->autostartCheckBox->setChecked(false);
     ui->confirmSwitchingCheckBox->setChecked(true);
-    ui->intelIconEdit->setText(AppSettings::defaultTrayIconName(OptimusManager::Intel));
-    ui->nvidiaIconEdit->setText(AppSettings::defaultTrayIconName(OptimusManager::Nvidia));
+    ui->intelIconEdit->setText(AppSettings::defaultTrayIconName(OptimusSettings::Intel));
+    ui->nvidiaIconEdit->setText(AppSettings::defaultTrayIconName(OptimusSettings::Nvidia));
 
     // Optimus settings
     ui->startupModeComboBox->setCurrentIndex(0);
@@ -147,8 +148,8 @@ void SettingsDialog::loadSettings()
     ui->languageComboBox->setCurrentIndex(ui->languageComboBox->findData(settings.language()));
     ui->autostartCheckBox->setChecked(settings.isAutostartEnabled());
     ui->confirmSwitchingCheckBox->setChecked(settings.isConfirmSwitching());
-    ui->intelIconEdit->setText(settings.gpuIconName(OptimusManager::Intel));
-    ui->nvidiaIconEdit->setText(settings.gpuIconName(OptimusManager::Nvidia));
+    ui->intelIconEdit->setText(settings.gpuIconName(OptimusSettings::Intel));
+    ui->nvidiaIconEdit->setText(settings.gpuIconName(OptimusSettings::Nvidia));
 
     // Optimus settings
     const OptimusSettings optimusSettings;
