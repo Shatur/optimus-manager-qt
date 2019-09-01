@@ -361,8 +361,8 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="398"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;At the moment this is only supported for Gnome, KDE Plasma, Deepin, Xfce, i3, Sway and Openbox&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kirjaudut ulos työpöydän istunnosta automaattisesti, kun vaihdat GPUta&lt;/p&gt;&lt;p&gt;Tällä hetkellä sitä tukee vain Gnome, KDE Plasma, Deepin, Xfce, i3, Sway ja Openbox.&lt;/p&gt;&lt;p&gt;Jos tämä asetus on poistettu käytöstä tai käytät eri työpöytäympäristöä, GPU-vaihto tulee voimaan vasta seuraavassa graafisessa istunnossa&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;At the moment this is only supported for Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox and AwesomeWM&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kirjaudut ulos työpöydän istunnosta automaattisesti, kun vaihdat GPUta&lt;/p&gt;&lt;p&gt;Tällä hetkellä sitä tukee vain Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox ja AwesomeWM.&lt;/p&gt;&lt;p&gt;Jos tämä asetus on poistettu käytöstä tai käytät eri työpöytäympäristöä, GPU-vaihto tulee voimaan vasta seuraavassa graafisessa istunnossa&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="444"/>
