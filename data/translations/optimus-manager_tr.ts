@@ -164,7 +164,7 @@ Devam edilsin mi?</translation>
         <location filename="../../src/optimusmanager.cpp" line="284"/>
         <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with '%1' and reboot your computer.
 Ignore this warning and proceed with GPU switching now?</source>
-        <translation>Bu, Optimus Manager ile etkileşime girebilir. Bir GPU değişimini denemeden önce, bu hizmeti &apos;% 1&apos; ile devre dışı bırakmanız ve bilgisayarınızı yeniden başlatmanız önerilir. 
+        <translation>Bu, Optimus Manager ile etkileşime girebilir. Bir GPU değişimini denemeden önce, bu hizmeti &apos;% 1&apos; ile devre dışı bırakmanız ve bilgisayarınızı yeniden başlatmanız önerilir.
 Bu uyarıyı dikkate almayın ve şimdi GPU geçişi ile devam edin.</translation>
     </message>
     <message>
@@ -361,8 +361,8 @@ Bu uyarıyı dikkate almayın ve şimdi GPU geçişi ile devam edin.</translatio
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="398"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;At the moment this is only supported for Gnome, KDE Plasma, Deepin, Xfce, i3, Sway and Openbox&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU&apos;ları değiştirirken mevcut masaüstü oturumunu otomatik olarak kapat.&lt;/p&gt;&lt;p&gt;Şu anda bu sadece Gnome, KDE Plazma, Deepin, Xfce, i3, Sway ve Openbox için desteklenmektedir.&lt;/p&gt;&lt;p&gt;Bu seçenekler devre dışı bırakılırsa veya farklı bir masaüstü ortamı kullanıyorsanız, GPU geçişi yalnızca bir sonraki grafik oturumunda etkinleşir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;At the moment this is only supported for Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox and AwesomeWM&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU&apos;ları değiştirirken mevcut masaüstü oturumunu otomatik olarak kapat.&lt;/p&gt;&lt;p&gt;Şu anda bu sadece Gnome, KDE Plazma, Deepin, Xfce, i3, Sway, Openbox ve AwesomeWM için desteklenmektedir.&lt;/p&gt;&lt;p&gt;Bu seçenekler devre dışı bırakılırsa veya farklı bir masaüstü ortamı kullanıyorsanız, GPU geçişi yalnızca bir sonraki grafik oturumunda etkinleşir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="444"/>
