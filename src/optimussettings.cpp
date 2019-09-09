@@ -140,7 +140,7 @@ void OptimusSettings::setSwitchingBackend(OptimusSettings::SwitchingBackend back
 
 bool OptimusSettings::isPciPowerControlEnabled() const
 {
-    const QString powerControlString = m_settings->value("optimus/pci_power_control", boolToOption(true)).toString();
+    const QString powerControlString = m_settings->value("optimus/pci_power_control", boolToOption(false)).toString();
     return optionToBool(powerControlString);
 }
 

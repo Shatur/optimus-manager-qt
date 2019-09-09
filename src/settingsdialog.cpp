@@ -87,6 +87,7 @@ void SettingsDialog::accept()
     OptimusSettings optimusSettings;
     optimusSettings.setStartupMode(static_cast<OptimusSettings::GPU>(ui->startupModeComboBox->currentIndex()));
     optimusSettings.setSwitchingBackend(static_cast<OptimusSettings::SwitchingBackend>(ui->switchingBackendComboBox->currentIndex()));
+    optimusSettings.setPciPowerControlEnabled(ui->pciPowerControlCheckBox->isChecked());
     optimusSettings.setAutoLogoutEnabled(ui->autoLogoutCheckBox->isChecked());
 
     // Intel settings
@@ -124,6 +125,7 @@ void SettingsDialog::restoreDefaults()
     // Optimus settings
     ui->startupModeComboBox->setCurrentIndex(0);
     ui->switchingBackendComboBox->setCurrentIndex(0);
+    ui->pciPowerControlCheckBox->setChecked(false);
     ui->autoLogoutCheckBox->setChecked(true);
 
     // Intel settings
@@ -155,6 +157,7 @@ void SettingsDialog::loadSettings()
     const OptimusSettings optimusSettings;
     ui->startupModeComboBox->setCurrentIndex(optimusSettings.startupMode());
     ui->switchingBackendComboBox->setCurrentIndex(optimusSettings.switchingBackend());
+    ui->pciPowerControlCheckBox->setChecked(optimusSettings.isPciPowerControlEnabled());
     ui->autoLogoutCheckBox->setChecked(optimusSettings.isAutoLogoutEnabled());
 
     // Intel settings
@@ -242,10 +245,20 @@ QString SettingsDialog::optimusManagerVersion()
 
 void SettingsDialog::processSwitchingBackendChanged(int index)
 {
-    if (index == OptimusSettings::Bbswitch)
-        ui->intelModesetCheckBox->setEnabled(false);
-    else
+    switch (index) {
+    case OptimusSettings::Nouveau:
         ui->intelModesetCheckBox->setEnabled(true);
+        ui->pciPowerControlCheckBox->setEnabled(true);
+        break;
+    case OptimusSettings::Bbswitch:
+        ui->intelModesetCheckBox->setEnabled(false);
+        ui->pciPowerControlCheckBox->setEnabled(false);
+        break;
+    case OptimusSettings::NoneBackend:
+        ui->intelModesetCheckBox->setEnabled(false);
+        ui->pciPowerControlCheckBox->setEnabled(true);
+        break;
+    }
 }
 
 void SettingsDialog::processIntelDriverChanged(int index)
