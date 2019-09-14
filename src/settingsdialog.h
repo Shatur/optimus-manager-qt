@@ -48,8 +48,11 @@ private slots:
     void chooseNvidiaIcon();
     void loadIntelIcon(const QString &fileName);
     void loadNvidiaIcon(const QString &fileName);
-    void processSwitchingBackendChanged(int index);
-    void processIntelDriverChanged(int index);
+
+    void disableSwitchingBackendIgnored(int index);
+    void disablePciResetIgnored(int index);
+    void disableIntelDriverIgnored(int index);
+
     void restoreDefaults();
 
 private:

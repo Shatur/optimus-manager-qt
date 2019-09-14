@@ -319,7 +319,44 @@
            <string notr="true">Optimus</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_3">
-           <item row="2" column="0" colspan="3">
+           <item row="0" column="0">
+            <widget class="QLabel" name="startupModeLabel">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Specify which GPU will be used by default when the system boots&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="text">
+              <string>Startup mode:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="switchingBackendComboBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Backend to be used for switching GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>None</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">Nouveau</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">Bbswitch</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>ACPI call</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="3">
             <widget class="QCheckBox" name="pciPowerControlCheckBox">
              <property name="toolTip">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching backends, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -328,6 +365,19 @@
               <string>PCI power control</string>
              </property>
             </widget>
+           </item>
+           <item row="1" column="2">
+            <spacer name="optimusBoxSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
            </item>
            <item row="0" column="1">
             <widget class="QComboBox" name="startupModeComboBox">
@@ -354,51 +404,6 @@
              </item>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QComboBox" name="switchingBackendComboBox">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Backend to be used for switching GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-             <item>
-              <property name="text">
-               <string>None</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">Nouveau</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">Bbswitch</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="startupModeLabel">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Specify which GPU will be used by default when the system boots&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-             <property name="text">
-              <string>Startup mode:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <spacer name="optimusBoxSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
            <item row="1" column="0">
             <widget class="QLabel" name="switchingBackendLabel">
              <property name="toolTip">
@@ -409,13 +414,52 @@
              </property>
             </widget>
            </item>
-           <item row="4" column="0" colspan="3">
+           <item row="6" column="0" colspan="3">
             <widget class="QCheckBox" name="autoLogoutCheckBox">
              <property name="toolTip">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;At the moment this is only supported for Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox and AwesomeWM&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string>Automatic logout</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="pciResetLabel">
+             <property name="text">
+              <string>PCI reset:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="pciResetComboBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset the Nvidia card at the PCI level before reloading the nvidia module&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;No&lt;/span&gt;: does not perform any reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Function level&lt;/span&gt;: perform a light &amp;quot;function-level&amp;quot; reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Hot reset&lt;/span&gt;: perform a &amp;quot;hot reset&amp;quot; of the PCI bridge (this method messes with the hardware directly and will perform a PCI remove even if it disabled, please read the online documentation of Optimus Manager before using it)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>No</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Function level</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Hot reset</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QCheckBox" name="pciRemoveCheckBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove the Nvidia card from the PCI bus&lt;/p&gt;&lt;p&gt;May prevent crashes caused by power switching&lt;/p&gt;&lt;p&gt;Ignored if switching backend is Nouveau or Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="text">
+              <string>PCI remove</string>
              </property>
             </widget>
            </item>
@@ -1029,7 +1073,7 @@
    <sender>switchingBackendComboBox</sender>
    <signal>currentIndexChanged(int)</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>processSwitchingBackendChanged(int)</slot>
+   <slot>disableSwitchingBackendIgnored(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>423</x>
@@ -1045,11 +1089,27 @@
    <sender>intelDriverComboBox</sender>
    <signal>currentIndexChanged(int)</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>processIntelDriverChanged(int)</slot>
+   <slot>disableIntelDriverIgnored(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>411</x>
      <y>61</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pciResetComboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>SettingsDialog</receiver>
+   <slot>disablePciResetIgnored(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>390</x>
+     <y>137</y>
     </hint>
     <hint type="destinationlabel">
      <x>399</x>
@@ -1063,7 +1123,8 @@
   <slot>chooseIntelIcon()</slot>
   <slot>loadNvidiaIcon(QString)</slot>
   <slot>loadIntelIcon(QString)</slot>
-  <slot>processIntelDriverChanged(int)</slot>
-  <slot>processSwitchingBackendChanged(int)</slot>
+  <slot>disableIntelDriverIgnored(int)</slot>
+  <slot>disableSwitchingBackendIgnored(int)</slot>
+  <slot>disablePciResetIgnored(int)</slot>
  </slots>
 </ui>

@@ -87,7 +87,9 @@ void SettingsDialog::accept()
     OptimusSettings optimusSettings;
     optimusSettings.setStartupMode(static_cast<OptimusSettings::GPU>(ui->startupModeComboBox->currentIndex()));
     optimusSettings.setSwitchingBackend(static_cast<OptimusSettings::SwitchingBackend>(ui->switchingBackendComboBox->currentIndex()));
+    optimusSettings.setPciReset(static_cast<OptimusSettings::PciReset>(ui->pciResetComboBox->currentIndex()));
     optimusSettings.setPciPowerControlEnabled(ui->pciPowerControlCheckBox->isChecked());
+    optimusSettings.setPciRemoveEnabled(ui->pciRemoveCheckBox->isChecked());
     optimusSettings.setAutoLogoutEnabled(ui->autoLogoutCheckBox->isChecked());
 
     // Intel settings
@@ -124,7 +126,9 @@ void SettingsDialog::restoreDefaults()
     // Optimus settings
     ui->startupModeComboBox->setCurrentIndex(OptimusSettings::defaultStartupMode());
     ui->switchingBackendComboBox->setCurrentIndex(OptimusSettings::defaultSwitchingBackend());
+    ui->pciResetComboBox->setCurrentIndex(OptimusSettings::defaultPciReset());
     ui->pciPowerControlCheckBox->setChecked(OptimusSettings::defaultPciPowerControlEnabled());
+    ui->pciRemoveCheckBox->setChecked(OptimusSettings::defaultPciRemoveEnabled());
     ui->autoLogoutCheckBox->setChecked(OptimusSettings::defaultAutoLogoutEnabled());
 
     // Intel settings
@@ -158,7 +162,9 @@ void SettingsDialog::loadSettings()
     const OptimusSettings optimusSettings;
     ui->startupModeComboBox->setCurrentIndex(optimusSettings.startupMode());
     ui->switchingBackendComboBox->setCurrentIndex(optimusSettings.switchingBackend());
+    ui->pciResetComboBox->setCurrentIndex(optimusSettings.pciReset());
     ui->pciPowerControlCheckBox->setChecked(optimusSettings.isPciPowerControlEnabled());
+    ui->pciRemoveCheckBox->setChecked(optimusSettings.isPciRemoveEnabled());
     ui->autoLogoutCheckBox->setChecked(optimusSettings.isAutoLogoutEnabled());
 
     // Intel settings
@@ -244,25 +250,43 @@ QString SettingsDialog::optimusManagerVersion()
     return data.mid(versionStartIndex, versionEndIndex - versionStartIndex);
 }
 
-void SettingsDialog::processSwitchingBackendChanged(int index)
+void SettingsDialog::disableSwitchingBackendIgnored(int index)
 {
     switch (index) {
-    case OptimusSettings::Nouveau:
-        ui->intelModesetCheckBox->setEnabled(true);
+    case OptimusSettings::NoneBackend:
         ui->pciPowerControlCheckBox->setEnabled(true);
+        ui->intelModesetCheckBox->setEnabled(false);
+        if (ui->pciResetComboBox->currentIndex() != OptimusSettings::HotReset)
+            ui->pciRemoveCheckBox->setEnabled(true); // Can be disabled by Hot reset option
+        break;
+    case OptimusSettings::Nouveau:
+        ui->pciPowerControlCheckBox->setEnabled(true);
+        ui->intelModesetCheckBox->setEnabled(true);
+        ui->pciRemoveCheckBox->setEnabled(false);
         break;
     case OptimusSettings::Bbswitch:
-        ui->intelModesetCheckBox->setEnabled(false);
         ui->pciPowerControlCheckBox->setEnabled(false);
-        break;
-    case OptimusSettings::NoneBackend:
         ui->intelModesetCheckBox->setEnabled(false);
-        ui->pciPowerControlCheckBox->setEnabled(true);
+        ui->pciRemoveCheckBox->setEnabled(false);
+        break;
+    case OptimusSettings::AcpiCall:
+        ui->pciPowerControlCheckBox->setEnabled(false);
+        ui->intelModesetCheckBox->setEnabled(false);
+        if (ui->pciResetComboBox->currentIndex() != OptimusSettings::HotReset)
+            ui->pciRemoveCheckBox->setEnabled(true);
         break;
     }
 }
 
-void SettingsDialog::processIntelDriverChanged(int index)
+void SettingsDialog::disablePciResetIgnored(int index)
+{
+    if (index == OptimusSettings::HotReset)
+        ui->pciRemoveCheckBox->setEnabled(false);
+    else if (ui->switchingBackendComboBox->currentIndex() != OptimusSettings::Bbswitch && ui->switchingBackendComboBox->currentIndex() != OptimusSettings::Nouveau)
+        ui->pciRemoveCheckBox->setEnabled(true); // Can be disabled by switching backend
+}
+
+void SettingsDialog::disableIntelDriverIgnored(int index)
 {
     if (index == OptimusSettings::IntelDriver) {
         ui->intelAccelMethodComboBox->setEnabled(true);

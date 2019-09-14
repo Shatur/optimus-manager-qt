@@ -32,7 +32,11 @@ const QMap<bool, QString> OptimusSettings::boolMap = { { false, QStringLiteral("
                                                        { true, QStringLiteral("yes") } };
 const QMap<OptimusSettings::SwitchingBackend, QString> OptimusSettings::switchingBackendMap = { { NoneBackend, QStringLiteral("none") },
                                                                                                 { Nouveau, QStringLiteral("nouveau") },
-                                                                                                { Bbswitch, QStringLiteral("bbswitch") } };
+                                                                                                { Bbswitch, QStringLiteral("bbswitch") },
+                                                                                                { AcpiCall, QStringLiteral("acpi_call") } };
+const QMap<OptimusSettings::PciReset, QString> OptimusSettings::pciResetMap = { { NoReset, boolMap[false] },
+                                                                                { FunctionLevelReset, QStringLiteral("function_level") },
+                                                                                { HotReset, QStringLiteral("hot_reset") } };
 const QMap<OptimusSettings::Driver, QString> OptimusSettings::driverMap = { { Modesetting, QStringLiteral("modesetting") },
                                                                             { IntelDriver, QStringLiteral("intel") } };
 const QMap<OptimusSettings::AccelMethod, QString> OptimusSettings::accelMethodMap = { { DefaultMethod, {} },
@@ -146,6 +150,38 @@ void OptimusSettings::setPciPowerControlEnabled(bool enable)
 bool OptimusSettings::defaultPciPowerControlEnabled()
 {
     return false;
+}
+
+bool OptimusSettings::isPciRemoveEnabled() const
+{
+    const QString pciRemoveString = m_settings->value("optimus/pci_remove").toString();
+    return boolMap.key(pciRemoveString, defaultPciRemoveEnabled());
+}
+
+void OptimusSettings::setPciRemoveEnabled(bool enable)
+{
+    m_settings->setValue("optimus/pci_remove", boolMap[enable]);
+}
+
+bool OptimusSettings::defaultPciRemoveEnabled()
+{
+    return false;
+}
+
+OptimusSettings::PciReset OptimusSettings::pciReset() const
+{
+    const QString pciResetString = m_settings->value("optimus/pci_reset").toString();
+    return pciResetMap.key(pciResetString, defaultPciReset());
+}
+
+void OptimusSettings::setPciReset(PciReset type)
+{
+    m_settings->setValue("optimus/pci_reset", pciResetMap[type]);
+}
+
+OptimusSettings::PciReset OptimusSettings::defaultPciReset()
+{
+    return NoReset;
 }
 
 bool OptimusSettings::isAutoLogoutEnabled() const

@@ -35,7 +35,13 @@ public:
     enum SwitchingBackend {
         NoneBackend,
         Nouveau,
-        Bbswitch
+        Bbswitch,
+        AcpiCall
+    };
+    enum PciReset {
+        NoReset,
+        FunctionLevelReset,
+        HotReset
     };
     enum Driver {
         Modesetting,
@@ -85,6 +91,14 @@ public:
     void setPciPowerControlEnabled(bool enable);
     static bool defaultPciPowerControlEnabled();
 
+    bool isPciRemoveEnabled() const;
+    void setPciRemoveEnabled(bool enable);
+    static bool defaultPciRemoveEnabled();
+
+    PciReset pciReset() const;
+    void setPciReset(PciReset type);
+    static PciReset defaultPciReset();
+
     bool isAutoLogoutEnabled() const;
     void setAutoLogoutEnabled(bool enable);
     static bool defaultAutoLogoutEnabled();
@@ -131,9 +145,10 @@ private:
     static QStringList nvidiaOptionsToStrings(NvidiaOptions options);
     static NvidiaOptions stringToNvidiaOptions(const QStringList &optionStrings);
 
-    // Convert enum values into strings
+    // Convert enum values into Optimus Manager strings (no, yes, none etc).
     static const QMap<bool, QString> boolMap;
     static const QMap<SwitchingBackend, QString> switchingBackendMap;
+    static const QMap<PciReset, QString> pciResetMap;
     static const QMap<Driver, QString> driverMap;
     static const QMap<AccelMethod, QString> accelMethodMap;
     static const QMap<TearFree, QString> tearFreeMap;
