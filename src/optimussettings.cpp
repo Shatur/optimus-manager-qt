@@ -28,6 +28,24 @@
 #include <QDebug>
 #include <QMessageBox>
 
+const QMap<bool, QString> OptimusSettings::boolMap = { { false, QStringLiteral("no") },
+                                                       { true, QStringLiteral("yes") } };
+const QMap<OptimusSettings::SwitchingBackend, QString> OptimusSettings::switchingBackendMap = { { NoneBackend, QStringLiteral("none") },
+                                                                                                { Nouveau, QStringLiteral("nouveau") },
+                                                                                                { Bbswitch, QStringLiteral("bbswitch") } };
+const QMap<OptimusSettings::Driver, QString> OptimusSettings::driverMap = { { Modesetting, QStringLiteral("modesetting") },
+                                                                            { IntelDriver, QStringLiteral("intel") } };
+const QMap<OptimusSettings::AccelMethod, QString> OptimusSettings::accelMethodMap = { { DefaultMethod, {} },
+                                                                                      { SNA, QStringLiteral("sna") },
+                                                                                      { XNA, QStringLiteral("xna") } };
+const QMap<OptimusSettings::TearFree, QString> OptimusSettings::tearFreeMap = { { DefaultTearFree, {} },
+                                                                                { EnableTearFree, boolMap[true] },
+                                                                                { DisableTearFree, boolMap[false] } };
+const QMap<OptimusSettings::GPU, QString> OptimusSettings::gpuMap = { { Intel, QStringLiteral("intel") },
+                                                                      { Nvidia, QStringLiteral("nvidia") } };
+const QMap<OptimusSettings::NvidiaOption, QString> OptimusSettings::nvidiaOptionMap = { { Overclocking, QStringLiteral("overclocking") },
+                                                                                        { TripleBuffer, QStringLiteral("triple_buffer") } };
+
 OptimusSettings::OptimusSettings(QObject *parent) :
     QObject(parent)
 {
@@ -78,174 +96,125 @@ OptimusSettings::GPU OptimusSettings::startupMode() const
     if (!file.open(QIODevice::ReadOnly)) {
         QMessageBox message(QMessageBox::Warning, SingleApplication::applicationName(), tr("Unable to open startup mode file"));
         message.exec();
-        return Intel;
+        return defaultStartupMode();
     }
 
     QByteArray modeString = file.readAll();
     if (modeString.back() == '\n')
         modeString.chop(1);
 
-    if (modeString == "intel")
-        return Intel;
-
-    if (modeString == "nvidia")
-        return Nvidia;
-
-    QMessageBox message(QMessageBox::Warning, SingleApplication::applicationName(), tr("Unknown mode in startup file"));
-    message.exec();
-    return Intel;
+    return gpuMap.key(modeString, defaultStartupMode());
 }
 
 void OptimusSettings::setStartupMode(GPU mode)
 {
-    switch (mode) {
-    case Intel:
-        m_startupModeString = QStringLiteral("startup_intel");
-        break;
-    case Nvidia:
-        m_startupModeString = QStringLiteral("startup_nvidia");
-        break;
-    }
+    m_startupModeString = gpuMap[mode];
+}
+
+OptimusSettings::GPU OptimusSettings::defaultStartupMode()
+{
+    return Intel;
 }
 
 OptimusSettings::SwitchingBackend OptimusSettings::switchingBackend() const
 {
-    const QString backend = m_settings->value("optimus/switching", "nouveau").toString();
-
-    // Parse backend
-    if (backend == "nouveau")
-        return Nouveau;
-    if (backend == "bbswitch")
-        return Bbswitch;
-    return NoneBackend;
+    const QString backend = m_settings->value("optimus/switching").toString();
+    return switchingBackendMap.key(backend, defaultSwitchingBackend());
 }
 
 void OptimusSettings::setSwitchingBackend(OptimusSettings::SwitchingBackend backend)
 {
-    QString backendString;
-    switch (backend) {
-    case NoneBackend:
-        backendString = QStringLiteral("none");
-        break;
-    case Nouveau:
-        backendString = QStringLiteral("nouveau");
-        break;
-    case Bbswitch:
-        backendString = QStringLiteral("bbswitch");
-        break;
-    }
+    m_settings->setValue("optimus/switching", switchingBackendMap[backend]);
+}
 
-    m_settings->setValue("optimus/switching", backendString);
+OptimusSettings::SwitchingBackend OptimusSettings::defaultSwitchingBackend()
+{
+    return NoneBackend;
 }
 
 bool OptimusSettings::isPciPowerControlEnabled() const
 {
-    const QString powerControlString = m_settings->value("optimus/pci_power_control", boolToOption(false)).toString();
-    return optionToBool(powerControlString);
+    const QString powerControlString = m_settings->value("optimus/pci_power_control").toString();
+    return boolMap.key(powerControlString, defaultPciPowerControlEnabled());
 }
 
 void OptimusSettings::setPciPowerControlEnabled(bool enable)
 {
-    m_settings->setValue("optimus/pci_power_control", boolToOption(enable));
+    m_settings->setValue("optimus/pci_power_control", boolMap[enable]);
+}
+
+bool OptimusSettings::defaultPciPowerControlEnabled()
+{
+    return false;
 }
 
 bool OptimusSettings::isAutoLogoutEnabled() const
 {
-    const QString terminateSessionsString = m_settings->value("optimus/auto_logout", boolToOption(true)).toString();
-    return optionToBool(terminateSessionsString);
+    const QString terminateSessionsString = m_settings->value("optimus/auto_logout").toString();
+    return boolMap.key(terminateSessionsString, defaultAutoLogoutEnabled());
 }
 
 void OptimusSettings::setAutoLogoutEnabled(bool enable)
 {
-    m_settings->setValue("optimus/auto_logout", boolToOption(enable));
+    m_settings->setValue("optimus/auto_logout", boolMap[enable]);
+}
+
+bool OptimusSettings::defaultAutoLogoutEnabled()
+{
+    return true;
 }
 
 OptimusSettings::Driver OptimusSettings::intelDriver() const
 {
-    const QString driverString = m_settings->value("intel/driver", "modesetting").toString();
-
-    // Parse driver
-    if (driverString == "modesetting")
-        return Modesetting;
-    return IntelDriver;
+    const QString driverString = m_settings->value("intel/driver").toString();
+    return driverMap.key(driverString, defaultIntelDriver());
 }
 
 void OptimusSettings::setIntelDriver(OptimusSettings::Driver driver)
 {
-    QString driverString;
-    switch (driver) {
-    case Modesetting:
-        driverString = QStringLiteral("modesetting");
-        break;
-    case IntelDriver:
-        driverString = QStringLiteral("intel");
-        break;
-    }
+    m_settings->setValue("intel/driver", driverMap[driver]);
+}
 
-    m_settings->setValue("intel/driver", driverString);
+OptimusSettings::Driver OptimusSettings::defaultIntelDriver()
+{
+    return Modesetting;
 }
 
 OptimusSettings::AccelMethod OptimusSettings::intelAccelMethod() const
 {
-    const QString accelMethodString = m_settings->value("intel/accel", QString()).toString();
-
-    // Parse method
-    if (accelMethodString == "sna")
-        return SNA;
-    if (accelMethodString == "xna")
-        return XNA;
-    return DefaultMethod;
+    const QString accelMethodString = m_settings->value("intel/accel").toString();
+    return accelMethodMap.key(accelMethodString, defaultIntelAccelMethod());
 }
 
 void OptimusSettings::setIntelAccelMethod(OptimusSettings::AccelMethod method)
 {
-    QString accelMethodString;
-    switch (method) {
-    case SNA:
-        accelMethodString = QStringLiteral("sna");
-        break;
-    case XNA:
-        accelMethodString = QStringLiteral("xna");
-        break;
-    default:
-        break;
-    }
+    m_settings->setValue("intel/accel", accelMethodMap[method]);
+}
 
-    m_settings->setValue("intel/accel", accelMethodString);
+OptimusSettings::AccelMethod OptimusSettings::defaultIntelAccelMethod()
+{
+    return DefaultMethod;
 }
 
 OptimusSettings::TearFree OptimusSettings::intelTearFree() const
 {
-    const QString tearFreeString = m_settings->value("intel/tearfree", QString()).toString();
-
-    // Parse tearfree
-    if (tearFreeString == boolToOption(true))
-        return EnableTearFree;
-    if (tearFreeString == boolToOption(false))
-        return DisableTearFree;
-    return DefaultTearFree;
+    const QString tearFreeString = m_settings->value("intel/tearfree").toString();
+    return tearFreeMap.key(tearFreeString, defaultIntelTearFree());
 }
 
 void OptimusSettings::setIntelTearFree(OptimusSettings::TearFree tearFree)
 {
-    QString tearFreeString;
-    switch (tearFree) {
-    case EnableTearFree:
-        tearFreeString = boolToOption(true);
-        break;
-    case DisableTearFree:
-        tearFreeString = boolToOption(false);
-        break;
-    default:
-        break;
-    }
+    m_settings->setValue("intel/tearfree", tearFreeMap[tearFree]);
+}
 
-    m_settings->setValue("intel/tearfree", tearFreeString);
+OptimusSettings::TearFree OptimusSettings::defaultIntelTearFree()
+{
+    return DefaultTearFree;
 }
 
 OptimusSettings::DRI OptimusSettings::intelDri() const
 {
-    return m_settings->value("intel/DRI", DRI3).value<DRI>();
+    return m_settings->value("intel/DRI", defaultIntelDri()).value<DRI>();
 }
 
 void OptimusSettings::setIntelDri(OptimusSettings::DRI dri)
@@ -253,86 +222,111 @@ void OptimusSettings::setIntelDri(OptimusSettings::DRI dri)
     m_settings->setValue("intel/DRI", dri);
 }
 
+OptimusSettings::DRI OptimusSettings::defaultIntelDri()
+{
+    return DRI3;
+}
+
 bool OptimusSettings::isIntelModesetEnabled() const
 {
-    const QString modesetString = m_settings->value("intel/modeset", boolToOption(true)).toString();
-    return optionToBool(modesetString);
+    const QString modesetString = m_settings->value("intel/modeset").toString();
+    return boolMap.key(modesetString, defaultIntelModesetEnabled());
 }
 
 void OptimusSettings::setIntelModesetEnabled(bool enabled)
 {
-    m_settings->setValue("intel/modeset", boolToOption(enabled));
+    m_settings->setValue("intel/modeset", boolMap[enabled]);
+}
+
+bool OptimusSettings::defaultIntelModesetEnabled()
+{
+    return true;
 }
 
 bool OptimusSettings::isNvidiaModesetEnabled() const
 {
-    const QString modesetString = m_settings->value("nvidia/modeset", boolToOption(true)).toString();
-    return optionToBool(modesetString);
+    const QString modesetString = m_settings->value("nvidia/modeset").toString();
+    return boolMap.key(modesetString, defaultNvidiaModesetEnabled());
 }
 
 void OptimusSettings::setNvidiaModesetEnabled(bool enabled)
 {
-    m_settings->setValue("nvidia/modeset", boolToOption(enabled));
+    m_settings->setValue("nvidia/modeset", boolMap[enabled]);
+}
+
+bool OptimusSettings::defaultNvidiaModesetEnabled()
+{
+    return true;
 }
 
 bool OptimusSettings::isNvidiaPatEnabled() const
 {
-    const QString patString = m_settings->value("nvidia/PAT", boolToOption(true)).toString();
-    return optionToBool(patString);
+    const QString patString = m_settings->value("nvidia/PAT").toString();
+    return boolMap.key(patString, defaultNvidiaPatEnabled());
 }
 
 void OptimusSettings::setNvidiaPatEnabled(bool enabled)
 {
-    m_settings->setValue("nvidia/PAT", boolToOption(enabled));
+    m_settings->setValue("nvidia/PAT", boolMap[enabled]);
+}
+
+bool OptimusSettings::defaultNvidiaPatEnabled()
+{
+    return true;
 }
 
 int OptimusSettings::nvidiaDpi() const
 {
-    return m_settings->value("nvidia/DPI", 96).toInt();
+    return m_settings->value("nvidia/DPI", defaultNvidiaDpi()).toInt();
 }
 
 void OptimusSettings::setNvidiaDpi(int dpi)
 {
     if (dpi == 0)
-        m_settings->setValue("nvidia/DPI", QString());
+        m_settings->setValue("nvidia/DPI", {});
     else
         m_settings->setValue("nvidia/DPI", dpi);
 }
 
+int OptimusSettings::defaultNvidiaDpi()
+{
+    return 96;
+}
+
 OptimusSettings::NvidiaOptions OptimusSettings::nvidiaOptions() const
 {
-    const QStringList optionsStrings = m_settings->value("nvidia/options", "overclocking").toStringList();
-
-    // Parse options
-    NvidiaOptions options;
-    if (optionsStrings.contains("overclocking"))
-        options |= Overclocking;
-    if (optionsStrings.contains("triple_buffer"))
-        options |= TripleBuffer;
-
-    return options;
+    const QStringList optionStrings = m_settings->value("nvidia/options", nvidiaOptionsToStrings(defaultNvidiaOptions())).toStringList();
+    return stringToNvidiaOptions(optionStrings);
 }
 
 void OptimusSettings::setNvidiaOptions(NvidiaOptions options)
 {
-    QStringList optionsStrings;
-    if (options.testFlag(Overclocking))
-        optionsStrings.append("overclocking");
-    if (options.testFlag(TripleBuffer))
-        optionsStrings.append("triple_buffer");
-
-    if (optionsStrings.empty())
-        m_settings->remove("nvidia/options");
-    else
-        m_settings->setValue("nvidia/options", optionsStrings);
+    m_settings->setValue("nvidia/options", nvidiaOptionsToStrings(options));
 }
 
-QString OptimusSettings::boolToOption(bool value)
+OptimusSettings::NvidiaOptions OptimusSettings::defaultNvidiaOptions()
 {
-    return value ? QStringLiteral("yes") : QStringLiteral("no");
+    return Overclocking;
 }
 
-bool OptimusSettings::optionToBool(const QString &option)
+QStringList OptimusSettings::nvidiaOptionsToStrings(NvidiaOptions options)
 {
-    return option == "yes";
+    QStringList optionStrings;
+    for (auto it = nvidiaOptionMap.cbegin(); it != nvidiaOptionMap.cend(); ++it) {
+        if (options.testFlag(it.key()))
+            optionStrings.append(it.value());
+    }
+
+    return optionStrings;
+}
+
+OptimusSettings::NvidiaOptions OptimusSettings::stringToNvidiaOptions(const QStringList &optionStrings)
+{
+    NvidiaOptions options;
+    for (auto it = nvidiaOptionMap.cbegin(); it != nvidiaOptionMap.cend(); ++it) {
+        if (optionStrings.contains(it.value()))
+            options |= it.key();
+    }
+
+    return options;
 }

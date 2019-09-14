@@ -41,12 +41,15 @@ public:
     void initTranslator();
     QLocale::Language language() const;
     void setLocale(QLocale::Language lang);
+    static QLocale::Language defaultLocale();
 
     bool isAutostartEnabled() const;
     void setAutostartEnabled(bool enabled);
+    static bool defaultAutostartEnabled();
 
     bool isConfirmSwitching() const;
     void setConfirmSwitching(bool confirm);
+    static bool defaultConfirmSwitching();
 
     QString gpuIconName(OptimusSettings::GPU gpu) const;
     void setGpuIconName(OptimusSettings::GPU gpu, const QString &name);

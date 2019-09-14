@@ -115,32 +115,33 @@ void SettingsDialog::accept()
 void SettingsDialog::restoreDefaults()
 {
     // General settings
-    const AppSettings settings;
-    ui->languageComboBox->setCurrentIndex(0);
-    ui->autostartCheckBox->setChecked(false);
-    ui->confirmSwitchingCheckBox->setChecked(true);
+    ui->languageComboBox->setCurrentIndex(AppSettings::defaultLocale());
+    ui->autostartCheckBox->setChecked(AppSettings::defaultAutostartEnabled());
+    ui->confirmSwitchingCheckBox->setChecked(AppSettings::defaultConfirmSwitching());
     ui->intelIconEdit->setText(AppSettings::defaultTrayIconName(OptimusSettings::Intel));
     ui->nvidiaIconEdit->setText(AppSettings::defaultTrayIconName(OptimusSettings::Nvidia));
 
     // Optimus settings
-    ui->startupModeComboBox->setCurrentIndex(0);
-    ui->switchingBackendComboBox->setCurrentIndex(0);
-    ui->pciPowerControlCheckBox->setChecked(false);
-    ui->autoLogoutCheckBox->setChecked(true);
+    ui->startupModeComboBox->setCurrentIndex(OptimusSettings::defaultStartupMode());
+    ui->switchingBackendComboBox->setCurrentIndex(OptimusSettings::defaultSwitchingBackend());
+    ui->pciPowerControlCheckBox->setChecked(OptimusSettings::defaultPciPowerControlEnabled());
+    ui->autoLogoutCheckBox->setChecked(OptimusSettings::defaultAutoLogoutEnabled());
 
     // Intel settings
-    ui->intelDriverComboBox->setCurrentIndex(0);
-    ui->intelAccelMethodComboBox->setCurrentIndex(0);
-    ui->intelTearFreeComboBox->setCurrentIndex(0);
-    ui->intelDriComboBox->setCurrentIndex(0);
-    ui->intelModesetCheckBox->setChecked(false);
+    ui->intelDriverComboBox->setCurrentIndex(OptimusSettings::defaultIntelDriver());
+    ui->intelAccelMethodComboBox->setCurrentIndex(OptimusSettings::defaultIntelAccelMethod());
+    ui->intelTearFreeComboBox->setCurrentIndex(OptimusSettings::defaultIntelTearFree());
+    ui->intelDriComboBox->setCurrentIndex(OptimusSettings::defaultIntelDri());
+    ui->intelModesetCheckBox->setChecked(OptimusSettings::defaultIntelModesetEnabled());
 
     // Nvidia settings
-    ui->nvidiaDpiSpinBox->setValue(0);
-    ui->nvidiaModesetCheckBox->setChecked(true);
-    ui->nvidiaPatCheckBox->setChecked(true);
-    ui->nvidiaOverclockingCheckBox->setChecked(true);
-    ui->nvidiaTripleBuffercheckBox->setChecked(false);
+    ui->nvidiaDpiSpinBox->setValue(OptimusSettings::defaultNvidiaDpi());
+    ui->nvidiaModesetCheckBox->setChecked(OptimusSettings::defaultNvidiaModesetEnabled());
+    ui->nvidiaPatCheckBox->setChecked(OptimusSettings::defaultNvidiaPatEnabled());
+
+    const OptimusSettings::NvidiaOptions nvidiaOptions = OptimusSettings::defaultNvidiaOptions();
+    ui->nvidiaOverclockingCheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::Overclocking));
+    ui->nvidiaTripleBuffercheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::TripleBuffer));
 }
 
 void SettingsDialog::loadSettings()

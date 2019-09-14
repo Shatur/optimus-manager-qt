@@ -41,7 +41,7 @@ void AppSettings::initTranslator()
 
 QLocale::Language AppSettings::language() const
 {
-    return value("Locale", QLocale::AnyLanguage).value<QLocale::Language>();
+    return value("Locale", defaultLocale()).value<QLocale::Language>();
 }
 
 void AppSettings::setLocale(QLocale::Language lang)
@@ -51,6 +51,11 @@ void AppSettings::setLocale(QLocale::Language lang)
 
     setValue("Locale", lang);
     applyLocale(lang);
+}
+
+QLocale::Language AppSettings::defaultLocale()
+{
+    return QLocale::AnyLanguage;
 }
 
 bool AppSettings::isAutostartEnabled() const
@@ -77,14 +82,24 @@ void AppSettings::setAutostartEnabled(bool enabled)
     }
 }
 
+bool AppSettings::defaultAutostartEnabled()
+{
+    return false;
+}
+
 bool AppSettings::isConfirmSwitching() const
 {
-    return value("ConfirmSwitching", true).toBool();
+    return value("ConfirmSwitching", defaultConfirmSwitching()).toBool();
 }
 
 void AppSettings::setConfirmSwitching(bool confirm)
 {
     setValue("ConfirmSwitching", confirm);
+}
+
+bool AppSettings::defaultConfirmSwitching()
+{
+    return true;
 }
 
 QString AppSettings::gpuIconName(OptimusSettings::GPU gpu) const
