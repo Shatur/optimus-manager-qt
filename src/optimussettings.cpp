@@ -30,7 +30,7 @@
 
 const QMap<bool, QString> OptimusSettings::boolMap = { { false, QStringLiteral("no") },
                                                        { true, QStringLiteral("yes") } };
-const QMap<OptimusSettings::SwitchingBackend, QString> OptimusSettings::switchingBackendMap = { { NoneBackend, QStringLiteral("none") },
+const QMap<OptimusSettings::SwitchingMethod, QString> OptimusSettings::switchingMethodMap = { { NoneMethod, QStringLiteral("none") },
                                                                                                 { Nouveau, QStringLiteral("nouveau") },
                                                                                                 { Bbswitch, QStringLiteral("bbswitch") },
                                                                                                 { AcpiCall, QStringLiteral("acpi_call") } };
@@ -120,20 +120,20 @@ OptimusSettings::GPU OptimusSettings::defaultStartupMode()
     return Intel;
 }
 
-OptimusSettings::SwitchingBackend OptimusSettings::switchingBackend() const
+OptimusSettings::SwitchingMethod OptimusSettings::switchingMethod() const
 {
-    const QString backend = m_settings->value("optimus/switching").toString();
-    return switchingBackendMap.key(backend, defaultSwitchingBackend());
+    const QString method = m_settings->value("optimus/switching").toString();
+    return switchingMethodMap.key(method, defaultSwitchingMethod());
 }
 
-void OptimusSettings::setSwitchingBackend(OptimusSettings::SwitchingBackend backend)
+void OptimusSettings::setSwitchingMethod(OptimusSettings::SwitchingMethod method)
 {
-    m_settings->setValue("optimus/switching", switchingBackendMap[backend]);
+    m_settings->setValue("optimus/switching", switchingMethodMap[method]);
 }
 
-OptimusSettings::SwitchingBackend OptimusSettings::defaultSwitchingBackend()
+OptimusSettings::SwitchingMethod OptimusSettings::defaultSwitchingMethod()
 {
-    return NoneBackend;
+    return NoneMethod;
 }
 
 bool OptimusSettings::isPciPowerControlEnabled() const

@@ -49,7 +49,7 @@ private slots:
     void loadIntelIcon(const QString &fileName);
     void loadNvidiaIcon(const QString &fileName);
 
-    void disableSwitchingBackendIgnored(int index);
+    void disableSwitchingMethodIgnored(int index);
     void disablePciResetIgnored(int index);
     void disableIntelDriverIgnored(int index);
 

@@ -1,8 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fi">
 <context>
     <name>AppSettings</name>
     <message>
-        <location filename="../../src/appsettings.cpp" line="71"/>
+        <location filename="../../src/appsettings.cpp" line="76"/>
         <source>Unable to create autorun file from &apos;%1&apos;</source>
         <translation>Autorun-tiedostoa ei voi luoda osoitteesta &apos;%1&apos;</translation>
     </message>
@@ -79,7 +81,7 @@ Jatka joka tapauksessa?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="326"/>
-        <source>Optimus Manager will use '%1' driver instead. You can change driver in settings or install the '%2' driver from the package '%3'.
+        <source>Optimus Manager will use &apos;%1&apos; driver instead. You can change driver in settings or install the &apos;%2&apos; driver from the package &apos;%3&apos;.
 Continue anyway?</source>
         <translation>Optimus Manager käyttää sen sijaan &apos;%1&apos; -ohjainta. Voit muuttaa ohjaimen asetuksissa tai asentaa &apos;%2&apos; -ohjaimen paketista &apos;%3&apos;.
 Jatka joka tapauksessa?</translation>
@@ -119,7 +121,7 @@ Jatketaanko?</translation>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="202"/>
         <source>Please enable and start it with:
-'%1'
+&apos;%1&apos;
 &apos;%2&apos;</source>
         <translation>Ota käyttöön ja käynnistä se seuraavasti:
 &apos;%1&apos;
@@ -150,7 +152,7 @@ Voit asettaa &apos;%1&apos; GPU-kytkimille asetuksissa tai asentaa bbswitch-olet
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="236"/>
-        <source>GDM need to be patched for Prime switching. Follow &lt;a href='https://github.com/Askannz/optimus-manager'&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
+        <source>GDM need to be patched for Prime switching. Follow &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
 Continue anyway?</source>
         <translation>GDM on korjattava, jotta se voidaan vaihtaa. Asenna korjattu versio noudattamalla &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;näitä &lt;/a&gt;ohjeita. Ilman korjattua GDM-versiota GPU-kytkentä todennäköisesti epäonnistuu.
 Jatka joka tapauksessa?</translation>
@@ -162,7 +164,7 @@ Jatka joka tapauksessa?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="283"/>
-        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with '%1' and reboot your computer.
+        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with &apos;%1&apos; and reboot your computer.
 Ignore this warning and proceed with GPU switching now?</source>
         <translation>Tämä voi häiritä Optimus Manageria. Ennen kuin yrität GPU kytkentää, on suositeltavaa, että poistat tämän palvelun käytöstä painikkeella &apos;%1&apos; ja käynnistät tietokoneen uudelleen.
 Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
@@ -187,24 +189,19 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
 <context>
     <name>OptimusSettings</name>
     <message>
-        <location filename="../../src/optimussettings.cpp" line="61"/>
+        <location filename="../../src/optimussettings.cpp" line="83"/>
         <source>Unable to connect to optimus-manager daemon to send startup mode: %1</source>
         <translation>Ei voi muodostaa yhteyttä Optimus-Manager taustaprosessiin. Lähettä käynnistystila seuraavasti: %1</translation>
     </message>
     <message>
-        <location filename="../../src/optimussettings.cpp" line="69"/>
+        <location filename="../../src/optimussettings.cpp" line="91"/>
         <source>Unable to send startup mode to optimus-manager daemon: %1</source>
         <translation>Käynnistystilaa ei voi lähettää Optimus-Manager taustaprosessiin: %1</translation>
     </message>
     <message>
-        <location filename="../../src/optimussettings.cpp" line="79"/>
+        <location filename="../../src/optimussettings.cpp" line="101"/>
         <source>Unable to open startup mode file</source>
         <translation>Käynnistystilan tiedoston avaaminen ei onnistu</translation>
-    </message>
-    <message>
-        <location filename="../../src/optimussettings.cpp" line="94"/>
-        <source>Unknown mode in startup file</source>
-        <translation>Tuntematon tila käynnistystiedostossa</translation>
     </message>
 </context>
 <context>
@@ -269,48 +266,58 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="325"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching backends, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ota PCI-virran hallinta käyttöön Intel-tilassa&lt;/p&gt;&lt;p&gt;Tämä vaihtoehto ei ole yhteensopiva ACPI-ja Bbswitch-kytkennän kanssa, joten se ohitetaan niissä jokatapauksessa&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="382"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Specify which GPU will be used by default when the system boots&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Määritä, mitä GPU:ta käytetään oletuksena, kun järjestelmä käynnistyy&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="405"/>
+        <location filename="../../src/settingsdialog.ui" line="335"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Method to power switch the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;None&lt;/span&gt;: do not use an external module for power management (for some laptop models it&apos;s preferable to use this option in combination with PCI power control)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: load the nouveau module on the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;: power off the card using the bbswitch module (requires the &amp;quot;bbswitch&amp;quot;dependency)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI call&lt;/span&gt;: try various ACPI method calls to power the card on and off (requires the &amp;quot;acpi_call&amp;quot; dependency)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="354"/>
+        <source>ACPI call</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="410"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Module used for power switching&lt;/p&gt;&lt;p&gt;If you select &amp;quot;None&amp;quot;, no power switching will be done at all (the Nvidia GPU will stay powered at all times)&lt;/p&gt;&lt;p&gt;If you use bbswitch, you will not be able to use video outputs attached to your Nvidia GPU in Intel mode&lt;/p&gt;&lt;p&gt;To use the bbswitch mode, the bbswitch module must be installed for your current kernel&lt;/p&gt;&lt;p&gt;You can install it for the default kernel with &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Moduuli, jota käytetään vaihtoon&lt;/p&gt;&lt;p&gt;Jos valitset &quot;ei mitään&quot; &amp;quot;None&amp;quot, katkaisinta ei tehdä ollenkaan (NVIDIA GPU on aina päällä).&lt;/p&gt;&lt;p&gt;Jos käytät bbswitch-toimintoa, et voi käyttää Nvidia GPU -laitteeseen liitettyjä videolähtöjä Intel-tilassa&lt;/p&gt;&lt;p&gt;Bbswitch-tilan käyttämiseksi bbswitch-moduuli on asennettava nykyiselle ytimellesi&lt;/p&gt;&lt;p&gt;Voit asentaa sen ytimeen &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="418"/>
+        <location filename="../../src/settingsdialog.ui" line="420"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox and AwesomeWM&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="423"/>
         <source>Automatic logout</source>
         <translation>Automaattinen uloskirjautuminen</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="475"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Intel GPU&lt;br/&gt;&lt;br/&gt;To use the intel driver, you need to install the package &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ohjain, jota käytetään Intelin GPU:ssa&lt;br/&gt;&lt;br/&gt;Intelin ohjaimen käyttäminen edellyttää paketin asentamista &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <location filename="../../src/settingsdialog.ui" line="620"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with Bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="619"/>
+        <location filename="../../src/settingsdialog.ui" line="663"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manager&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tämä asetetaan Xsetup-sktiptin avulla kirjautumishallintaan&lt;br/&gt;Se suorittaa komennon&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Jätä oletusarvoksi 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="652"/>
+        <location filename="../../src/settingsdialog.ui" line="696"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Otetaanko NVreg_UsePageAttributeTable vaihtoehto käyttöön Nvidia-ohjaimessa vai ei&lt;span style=&quot; font-style:italic;&quot;&gt;Suositus&lt;/span&gt;, voi muuten heikentää CPU suorittimen suorituskykyä</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="665"/>
-        <source>Overclocking options</source>
-        <translation>Ylikellotuksen asetukset</translation>
+        <location filename="../../src/settingsdialog.ui" line="706"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="408"/>
-        <source>Switching backend:</source>
-        <translation>Taustamuutoksen vaihtaminen:</translation>
+        <location filename="../../src/settingsdialog.ui" line="709"/>
+        <source>Overclocking options</source>
+        <translation>Ylikellotuksen asetukset</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="228"/>
@@ -329,12 +336,12 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
         <translation>Valitse kuvake</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="385"/>
+        <location filename="../../src/settingsdialog.ui" line="328"/>
         <source>Startup mode:</source>
         <translation>Käynnistystila:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="364"/>
+        <location filename="../../src/settingsdialog.ui" line="339"/>
         <source>None</source>
         <translation>Mitään</translation>
     </message>
@@ -350,131 +357,157 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Teeman kuvakkeen tai kuvakkeen nimen polku&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="360"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Backend to be used for switching GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tausta, jota käytetään GPU:n vaihtamiseen&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="335"/>
+        <location filename="../../src/settingsdialog.ui" line="385"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU that will be used during normal system startup&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU, jota käytetään normaalisti käynnistyksen aikana&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="415"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;At the moment this is only supported for Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox and AwesomeWM&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kirjaudut ulos työpöydän istunnosta automaattisesti, kun vaihdat GPUta&lt;/p&gt;&lt;p&gt;Tällä hetkellä sitä tukee vain Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox ja AwesomeWM.&lt;/p&gt;&lt;p&gt;Jos tämä asetus on poistettu käytöstä tai käytät eri työpöytäympäristöä, GPU-vaihto tulee voimaan vasta seuraavassa graafisessa istunnossa&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="451"/>
+        <location filename="../../src/settingsdialog.ui" line="495"/>
         <source>Driver:</source>
         <translation>Ajuri:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="541"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable AccelMethod option in the Xorg configuration&lt;br/&gt;&lt;br/&gt;This option compatible only with the Intel driver and will be ignored if it is not selected&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ota AccelMethod käyttöön Xorg-kokoonpanossa&lt;br/&gt;&lt;br/&gt;Tämä vaihtoehto on yhteensopiva vain Intel-ohjaimen kanssa, ja sitä ei oteta huomioon, jos sitä ei ole valittu&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="492"/>
+        <location filename="../../src/settingsdialog.ui" line="536"/>
         <source>Acceleration method:</source>
         <translation>Kiihdytysmenetelmä:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="513"/>
-        <location filename="../../src/settingsdialog.ui" line="545"/>
+        <location filename="../../src/settingsdialog.ui" line="557"/>
+        <location filename="../../src/settingsdialog.ui" line="589"/>
         <source>Default</source>
         <translation>Oletus</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="509"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;br/&gt;&lt;br/&gt;This option compatible only with the Intel driver and will be ignored if it is not selected&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ota TearFree käyttöön Xorg-kokoonpanossa&lt;br/&gt;&lt;br/&gt;Tämä vaihtoehto on yhteensopiva vain Intel-ohjaimen kanssa, ja sitä ei oteta huomioon, jos sitä ei ole valittu&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="518"/>
+        <location filename="../../src/settingsdialog.ui" line="562"/>
         <source>Yes</source>
         <translation>Kyllä</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="523"/>
+        <location filename="../../src/settingsdialog.ui" line="441"/>
+        <location filename="../../src/settingsdialog.ui" line="567"/>
         <source>No</source>
         <translation>Ei</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="458"/>
+        <location filename="../../src/settingsdialog.ui" line="430"/>
+        <source>PCI reset:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="437"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset the Nvidia card at the PCI level before reloading the nvidia module&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;No&lt;/span&gt;: does not perform any reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Function level&lt;/span&gt;: perform a light &amp;quot;function-level&amp;quot; reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Hot reset&lt;/span&gt;: perform a &amp;quot;hot reset&amp;quot; of the PCI bridge (this method messes with the hardware directly and will perform a PCI remove even if it disabled, please read the online documentation of Optimus Manager before using it)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="446"/>
+        <source>Function level</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="451"/>
+        <source>Hot reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="462"/>
+        <source>PCI remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="502"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI versio&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="328"/>
+        <location filename="../../src/settingsdialog.ui" line="365"/>
         <source>PCI power control</source>
         <translation>PCI-tehon säätö</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="576"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sallitaanko nouveau-ajurien tilojen käyttöönotto vai ei&lt;/p&gt;&lt;p&gt;Ei vaikuta Intel GPU -ohjaimen tilaan&lt;/p&gt;&lt;p&gt;Tämä vaihtoehto ei ole yhteensopiva bbswitchin kanssa, ja se jätetään huomiotta, jos se on käytössä&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <location filename="../../src/settingsdialog.ui" line="362"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching methods, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="642"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sallitaanko modesetting käyttöönottoa vai ei&lt;/p&gt;&lt;p&gt;Vaaditaan PRIME-synkronointiin</translation>
+        <location filename="../../src/settingsdialog.ui" line="413"/>
+        <source>Switching method:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="662"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration and unlock clocking options in the Nvidia control panel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ota CoolBits käyttöön Xorg-kokoonpanossa ja avaa kellotuksen valinnat Nvidian ohjauspaneelissa&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <location filename="../../src/settingsdialog.ui" line="459"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove the Nvidia card from the PCI bus&lt;/p&gt;&lt;p&gt;May prevent crashes caused by power switching&lt;/p&gt;&lt;p&gt;Ignored if switching method is Nouveau or Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="672"/>
+        <location filename="../../src/settingsdialog.ui" line="519"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Intel GPU&lt;br/&gt;&lt;br/&gt;To use the Intel driver, you need to install the package &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="553"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="585"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Acceleration method (corresponds to AccelMethod in the Xorg configuration)&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="686"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization (which prevents tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="716"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kolminkertainen puskurointi käyttöön&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="675"/>
+        <location filename="../../src/settingsdialog.ui" line="719"/>
         <source>Triple buffer</source>
         <translation>Kolminkertainen puskurointi</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="732"/>
-        <location filename="../../src/settingsdialog.ui" line="863"/>
+        <location filename="../../src/settingsdialog.ui" line="776"/>
+        <location filename="../../src/settingsdialog.ui" line="907"/>
         <source>Version:</source>
         <translation>Versio:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="746"/>
-        <location filename="../../src/settingsdialog.ui" line="840"/>
+        <location filename="../../src/settingsdialog.ui" line="790"/>
+        <location filename="../../src/settingsdialog.ui" line="884"/>
         <source>Author:</source>
         <translation>Tekijä:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="753"/>
-        <location filename="../../src/settingsdialog.ui" line="877"/>
+        <location filename="../../src/settingsdialog.ui" line="797"/>
+        <location filename="../../src/settingsdialog.ui" line="921"/>
         <source>License:</source>
         <translation>Lisenssi:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="212"/>
+        <location filename="../../src/settingsdialog.cpp" line="219"/>
         <source>Select icon</source>
         <translation>Valitse kuvake</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="213"/>
+        <location filename="../../src/settingsdialog.cpp" line="220"/>
         <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
         <translation>Kuvat (*.png *.jpg *.bmp);;Kaikki tiedostot(*)</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="232"/>
+        <location filename="../../src/settingsdialog.cpp" line="239"/>
         <source>Unable to find Optimus Manager daemon.</source>
         <translation>Optimus Manager -taustaprosessia ei löydy.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="233"/>
+        <location filename="../../src/settingsdialog.cpp" line="240"/>
         <source>Please check the integrity of the package that provides Optimus Manager.</source>
         <translation>Tarkista Optimus Manageria tarjoavan paketin eheys.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="235"/>
+        <location filename="../../src/settingsdialog.cpp" line="242"/>
         <source>Not found!</source>
         <translation>Ei löydetty!</translation>
     </message>

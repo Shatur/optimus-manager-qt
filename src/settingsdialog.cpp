@@ -86,7 +86,7 @@ void SettingsDialog::accept()
     // Optimus settings
     OptimusSettings optimusSettings;
     optimusSettings.setStartupMode(static_cast<OptimusSettings::GPU>(ui->startupModeComboBox->currentIndex()));
-    optimusSettings.setSwitchingBackend(static_cast<OptimusSettings::SwitchingBackend>(ui->switchingBackendComboBox->currentIndex()));
+    optimusSettings.setSwitchingMethod(static_cast<OptimusSettings::SwitchingMethod>(ui->switchingMethodComboBox->currentIndex()));
     optimusSettings.setPciReset(static_cast<OptimusSettings::PciReset>(ui->pciResetComboBox->currentIndex()));
     optimusSettings.setPciPowerControlEnabled(ui->pciPowerControlCheckBox->isChecked());
     optimusSettings.setPciRemoveEnabled(ui->pciRemoveCheckBox->isChecked());
@@ -125,7 +125,7 @@ void SettingsDialog::restoreDefaults()
 
     // Optimus settings
     ui->startupModeComboBox->setCurrentIndex(OptimusSettings::defaultStartupMode());
-    ui->switchingBackendComboBox->setCurrentIndex(OptimusSettings::defaultSwitchingBackend());
+    ui->switchingMethodComboBox->setCurrentIndex(OptimusSettings::defaultSwitchingMethod());
     ui->pciResetComboBox->setCurrentIndex(OptimusSettings::defaultPciReset());
     ui->pciPowerControlCheckBox->setChecked(OptimusSettings::defaultPciPowerControlEnabled());
     ui->pciRemoveCheckBox->setChecked(OptimusSettings::defaultPciRemoveEnabled());
@@ -161,7 +161,7 @@ void SettingsDialog::loadSettings()
     // Optimus settings
     const OptimusSettings optimusSettings;
     ui->startupModeComboBox->setCurrentIndex(optimusSettings.startupMode());
-    ui->switchingBackendComboBox->setCurrentIndex(optimusSettings.switchingBackend());
+    ui->switchingMethodComboBox->setCurrentIndex(optimusSettings.switchingMethod());
     ui->pciResetComboBox->setCurrentIndex(optimusSettings.pciReset());
     ui->pciPowerControlCheckBox->setChecked(optimusSettings.isPciPowerControlEnabled());
     ui->pciRemoveCheckBox->setChecked(optimusSettings.isPciRemoveEnabled());
@@ -250,10 +250,10 @@ QString SettingsDialog::optimusManagerVersion()
     return data.mid(versionStartIndex, versionEndIndex - versionStartIndex);
 }
 
-void SettingsDialog::disableSwitchingBackendIgnored(int index)
+void SettingsDialog::disableSwitchingMethodIgnored(int index)
 {
     switch (index) {
-    case OptimusSettings::NoneBackend:
+    case OptimusSettings::NoneMethod:
         ui->pciPowerControlCheckBox->setEnabled(true);
         ui->intelModesetCheckBox->setEnabled(false);
         if (ui->pciResetComboBox->currentIndex() != OptimusSettings::HotReset)
@@ -282,8 +282,8 @@ void SettingsDialog::disablePciResetIgnored(int index)
 {
     if (index == OptimusSettings::HotReset)
         ui->pciRemoveCheckBox->setEnabled(false);
-    else if (ui->switchingBackendComboBox->currentIndex() != OptimusSettings::Bbswitch && ui->switchingBackendComboBox->currentIndex() != OptimusSettings::Nouveau)
-        ui->pciRemoveCheckBox->setEnabled(true); // Can be disabled by switching backend
+    else if (ui->switchingMethodComboBox->currentIndex() != OptimusSettings::Bbswitch && ui->switchingMethodComboBox->currentIndex() != OptimusSettings::Nouveau)
+        ui->pciRemoveCheckBox->setEnabled(true); // Can be disabled by switching method
 }
 
 void SettingsDialog::disableIntelDriverIgnored(int index)

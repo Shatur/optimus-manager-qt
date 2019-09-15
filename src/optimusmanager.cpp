@@ -206,7 +206,7 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
     }
 
     // Check if bbswitch module is available
-    if (optimusSettings.switchingBackend() == OptimusSettings::Bbswitch && !isModuleAvailable("bbswitch")) {
+    if (optimusSettings.switchingMethod() == OptimusSettings::Bbswitch && !isModuleAvailable("bbswitch")) {
         QMessageBox message;
         message.setIcon(QMessageBox::Warning);
         message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg("bbswitch"));

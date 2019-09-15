@@ -32,8 +32,8 @@ class OptimusSettings : private QObject
     Q_DISABLE_COPY(OptimusSettings)
 
 public:
-    enum SwitchingBackend {
-        NoneBackend,
+    enum SwitchingMethod {
+        NoneMethod,
         Nouveau,
         Bbswitch,
         AcpiCall
@@ -83,9 +83,9 @@ public:
     static GPU defaultStartupMode();
 
     // Optimus
-    SwitchingBackend switchingBackend() const;
-    void setSwitchingBackend(SwitchingBackend backend);
-    static SwitchingBackend defaultSwitchingBackend();
+    SwitchingMethod switchingMethod() const;
+    void setSwitchingMethod(SwitchingMethod method);
+    static SwitchingMethod defaultSwitchingMethod();
 
     bool isPciPowerControlEnabled() const;
     void setPciPowerControlEnabled(bool enable);
@@ -147,7 +147,7 @@ private:
 
     // Convert enum values into Optimus Manager strings (no, yes, none etc).
     static const QMap<bool, QString> boolMap;
-    static const QMap<SwitchingBackend, QString> switchingBackendMap;
+    static const QMap<SwitchingMethod, QString> switchingMethodMap;
     static const QMap<PciReset, QString> pciResetMap;
     static const QMap<Driver, QString> driverMap;
     static const QMap<AccelMethod, QString> accelMethodMap;
