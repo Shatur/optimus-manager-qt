@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fi">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.1">
 <context>
     <name>AppSettings</name>
     <message>
@@ -81,7 +79,7 @@ Jatka joka tapauksessa?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="326"/>
-        <source>Optimus Manager will use &apos;%1&apos; driver instead. You can change driver in settings or install the &apos;%2&apos; driver from the package &apos;%3&apos;.
+        <source>Optimus Manager will use '%1' driver instead. You can change driver in settings or install the '%2' driver from the package '%3'.
 Continue anyway?</source>
         <translation>Optimus Manager käyttää sen sijaan &apos;%1&apos; -ohjainta. Voit muuttaa ohjaimen asetuksissa tai asentaa &apos;%2&apos; -ohjaimen paketista &apos;%3&apos;.
 Jatka joka tapauksessa?</translation>
@@ -121,7 +119,7 @@ Jatketaanko?</translation>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="202"/>
         <source>Please enable and start it with:
-&apos;%1&apos;
+'%1'
 &apos;%2&apos;</source>
         <translation>Ota käyttöön ja käynnistä se seuraavasti:
 &apos;%1&apos;
@@ -152,7 +150,7 @@ Voit asettaa &apos;%1&apos; GPU-kytkimille asetuksissa tai asentaa bbswitch-olet
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="236"/>
-        <source>GDM need to be patched for Prime switching. Follow &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
+        <source>GDM need to be patched for Prime switching. Follow &lt;a href='https://github.com/Askannz/optimus-manager'&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
 Continue anyway?</source>
         <translation>GDM on korjattava, jotta se voidaan vaihtaa. Asenna korjattu versio noudattamalla &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;näitä &lt;/a&gt;ohjeita. Ilman korjattua GDM-versiota GPU-kytkentä todennäköisesti epäonnistuu.
 Jatka joka tapauksessa?</translation>
@@ -164,7 +162,7 @@ Jatka joka tapauksessa?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="283"/>
-        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with &apos;%1&apos; and reboot your computer.
+        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with '%1' and reboot your computer.
 Ignore this warning and proceed with GPU switching now?</source>
         <translation>Tämä voi häiritä Optimus Manageria. Ennen kuin yrität GPU kytkentää, on suositeltavaa, että poistat tämän palvelun käytöstä painikkeella &apos;%1&apos; ja käynnistät tietokoneen uudelleen.
 Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
@@ -272,12 +270,12 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
     <message>
         <location filename="../../src/settingsdialog.ui" line="335"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Method to power switch the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;None&lt;/span&gt;: do not use an external module for power management (for some laptop models it&apos;s preferable to use this option in combination with PCI power control)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: load the nouveau module on the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;: power off the card using the bbswitch module (requires the &amp;quot;bbswitch&amp;quot;dependency)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI call&lt;/span&gt;: try various ACPI method calls to power the card on and off (requires the &amp;quot;acpi_call&amp;quot; dependency)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tavat kytkeä virta Nvidia-korteille&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Ei mitään&lt;/span&gt;: Älä käytä ulkoista moduulia virranhallintaan (joissakin kannettavissa malleissa on parempi käyttää tätä vaihtoehtoa yhdessä PCI-tehonohjauksen kanssa)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: lataa nouveau moduli Nvidia kortille&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;:sammuta kortti bbswitch-modulin avulla (vaatii &quot;bbswitch&quot; riippuvuuden)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI kutsu&lt;/span&gt;: Kokeile erilaisia ACPI-menetelmän kutsuja korttille. Vita päälle ja pois (vaatii &quot;acpi_call&quot; riippuvuuden) &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="354"/>
         <source>ACPI call</source>
-        <translation type="unfinished"></translation>
+        <translation>ACPI kutsu</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="410"/>
@@ -287,7 +285,7 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
     <message>
         <location filename="../../src/settingsdialog.ui" line="420"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox and AwesomeWM&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kirjaudut ulos työpöydän istunnosta automaattisesti, kun vaihdat GPUta&lt;/p&gt;&lt;p&gt;Tällä hetkellä sitä tukee Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox ja AwesomeWM.&lt;/p&gt;&lt;p&gt;Jos tämä asetus on poistettu käytöstä tai käytät eri työpöytäympäristöä, GPU vaihto tulee voimaan vasta seuraavassa graafisessa istunnossa&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="423"/>
@@ -297,7 +295,7 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
     <message>
         <location filename="../../src/settingsdialog.ui" line="620"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with Bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sallitaanko nouveau tilojen käyttöönotto vai ei&lt;/p&gt;&lt;p&gt;Ei vaikutusta Intel GPU -ohjaimen tilaan&lt;/p&gt;&lt;p&gt;Tämä vaihtoehto ei ole yhteensopiva bbswitchin kanssa, ja se jätetään huomiotta, jos se on käytössä&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="663"/>
@@ -312,7 +310,7 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
     <message>
         <location filename="../../src/settingsdialog.ui" line="706"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ota CoolBits käyttöön Xorg-kokoonpanossa, joka avaa kellotusasetukset&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="709"/>
@@ -391,27 +389,27 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
     <message>
         <location filename="../../src/settingsdialog.ui" line="430"/>
         <source>PCI reset:</source>
-        <translation type="unfinished"></translation>
+        <translation>PCI nollaus:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="437"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset the Nvidia card at the PCI level before reloading the nvidia module&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;No&lt;/span&gt;: does not perform any reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Function level&lt;/span&gt;: perform a light &amp;quot;function-level&amp;quot; reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Hot reset&lt;/span&gt;: perform a &amp;quot;hot reset&amp;quot; of the PCI bridge (this method messes with the hardware directly and will perform a PCI remove even if it disabled, please read the online documentation of Optimus Manager before using it)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Nollaa NVIDIA kortti PCI-tasolla, ennen kuin NVIDIA moduli ladataan uudelleen&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Ei&lt;/span&gt;: Nollaus toimintoa ei tehdä&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Toimintotaso&lt;/span&gt;: Suorita kevyt &quot;toimintotason&quot; nollaus&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Välitön nollaus&lt;/span&gt;: Suorittaa nollauksen suoraan PCI-siltaan (tämä menetelmä ajetaan suoraan laitteistoon ja suorittaa PCI:n poistamisen, vaikka se olisi poistettu käytöstä. Lue Optimus Manager -sovelluksen ohjeet verkossa ennen sen käyttöä)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="446"/>
         <source>Function level</source>
-        <translation type="unfinished"></translation>
+        <translation>Toimintotaso</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="451"/>
         <source>Hot reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Välitön nollaus</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="462"/>
         <source>PCI remove</source>
-        <translation type="unfinished"></translation>
+        <translation>PCI poisto</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="502"/>
@@ -426,37 +424,37 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
     <message>
         <location filename="../../src/settingsdialog.ui" line="362"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching methods, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ota PCI-virran hallinta käyttöön Intel-tilassa&lt;/p&gt;&lt;p&gt;Tämä vaihtoehto ei ole yhteensopiva ACPI- ja Bbswitch-kytkennän kanssa, joten se ohitetaan niissä jokatapauksessa&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="413"/>
         <source>Switching method:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kytkentä tapa:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="459"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove the Nvidia card from the PCI bus&lt;/p&gt;&lt;p&gt;May prevent crashes caused by power switching&lt;/p&gt;&lt;p&gt;Ignored if switching method is Nouveau or Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Nvidia-kortin poistaminen PCI-väylästä&lt;/p&gt;&lt;p&gt;Voi estää virrankytkennän aiheuttamat kaatumiset&lt;/p&gt;&lt;p&gt;Suljettu pois, jos kytkentätapa on Nouveau tai Bbswitch &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="519"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Intel GPU&lt;br/&gt;&lt;br/&gt;To use the Intel driver, you need to install the package &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ohjainta käytetään Intelin GPU:ssa&lt;br/&gt;&lt;br/&gt;Intelin ohjaimen käyttäminen edellyttää pakettien asentamista &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="553"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ota TearFree-vaihtoehto käyttöön Xorg kokoonpanossa&lt;/p&gt;&lt;p&gt;Koskee vain Intel-ohjainta&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="585"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Acceleration method (corresponds to AccelMethod in the Xorg configuration)&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kiihdytysmenetelmä (vastaa AccelMethodia Xorg-kokoonpanossa)&lt;/p&gt;&lt;p&gt;Koskee vain Intel-ohjainta &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="686"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization (which prevents tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Käytä moodien säätöä&lt;/p&gt;&lt;p&gt;Tarvitaan PRIME-synkronointiin (joka estää repeytymisen)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="716"/>
