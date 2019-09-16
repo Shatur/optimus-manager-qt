@@ -28,25 +28,25 @@
 #include <QDebug>
 #include <QMessageBox>
 
-const QMap<bool, QString> OptimusSettings::boolMap = { { false, QStringLiteral("no") },
-                                                       { true, QStringLiteral("yes") } };
-const QMap<OptimusSettings::SwitchingMethod, QString> OptimusSettings::switchingMethodMap = { { NoneMethod, QStringLiteral("none") },
-                                                                                                { Nouveau, QStringLiteral("nouveau") },
-                                                                                                { Bbswitch, QStringLiteral("bbswitch") },
-                                                                                                { AcpiCall, QStringLiteral("acpi_call") } };
-const QMap<OptimusSettings::PciReset, QString> OptimusSettings::pciResetMap = { { NoReset, boolMap[false] },
-                                                                                { FunctionLevelReset, QStringLiteral("function_level") },
-                                                                                { HotReset, QStringLiteral("hot_reset") } };
-const QMap<OptimusSettings::Driver, QString> OptimusSettings::driverMap = { { Modesetting, QStringLiteral("modesetting") },
-                                                                            { IntelDriver, QStringLiteral("intel") } };
-const QMap<OptimusSettings::AccelMethod, QString> OptimusSettings::accelMethodMap = { { DefaultMethod, {} },
-                                                                                      { SNA, QStringLiteral("sna") },
-                                                                                      { XNA, QStringLiteral("xna") } };
-const QMap<OptimusSettings::TearFree, QString> OptimusSettings::tearFreeMap = { { DefaultTearFree, {} },
-                                                                                { EnableTearFree, boolMap[true] },
-                                                                                { DisableTearFree, boolMap[false] } };
-const QMap<OptimusSettings::NvidiaOption, QString> OptimusSettings::nvidiaOptionMap = { { Overclocking, QStringLiteral("overclocking") },
-                                                                                        { TripleBuffer, QStringLiteral("triple_buffer") } };
+const QMap<bool, QString> OptimusSettings::boolMap = {{false, QStringLiteral("no")},
+                                                       {true, QStringLiteral("yes")}};
+const QMap<OptimusSettings::SwitchingMethod, QString> OptimusSettings::switchingMethodMap = {{NoneMethod, QStringLiteral("none")},
+                                                                                             {Nouveau, QStringLiteral("nouveau")},
+                                                                                             {Bbswitch, QStringLiteral("bbswitch")},
+                                                                                             {AcpiCall, QStringLiteral("acpi_call")}};
+const QMap<OptimusSettings::PciReset, QString> OptimusSettings::pciResetMap = {{NoReset, boolMap[false]},
+                                                                               {FunctionLevelReset, QStringLiteral("function_level")},
+                                                                               {HotReset, QStringLiteral("hot_reset")}};
+const QMap<OptimusSettings::Driver, QString> OptimusSettings::driverMap = {{Modesetting, QStringLiteral("modesetting")},
+                                                                           {IntelDriver, QStringLiteral("intel")}};
+const QMap<OptimusSettings::AccelMethod, QString> OptimusSettings::accelMethodMap = {{DefaultMethod, {}},
+                                                                                     {SNA, QStringLiteral("sna")},
+                                                                                     {XNA, QStringLiteral("xna")}};
+const QMap<OptimusSettings::TearFree, QString> OptimusSettings::tearFreeMap = {{DefaultTearFree, {}},
+                                                                               {EnableTearFree, boolMap[true]},
+                                                                               {DisableTearFree, boolMap[false]}};
+const QMap<OptimusSettings::NvidiaOption, QString> OptimusSettings::nvidiaOptionMap = {{Overclocking, QStringLiteral("overclocking")},
+                                                                                       {TripleBuffer, QStringLiteral("triple_buffer")}};
 
 OptimusSettings::OptimusSettings(QObject *parent) :
     QObject(parent)
