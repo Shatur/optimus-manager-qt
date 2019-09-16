@@ -21,25 +21,42 @@
 #ifndef DAEMONCLIENT_H
 #define DAEMONCLIENT_H
 
-#include <QString>
+#include <QCoreApplication>
 
 class DaemonClient
 {
+    Q_GADGET
+    Q_DECLARE_TR_FUNCTIONS(DaemonClient)
     Q_DISABLE_COPY(DaemonClient)
 
 public:
+    enum GPU {
+        Intel,
+        Nvidia,
+    };
+    Q_ENUM(GPU)
+
     DaemonClient() = default;
     ~DaemonClient();
 
     void connect();
     void disconnect();
-    ssize_t send(const QString &message);
+
+    bool setGpu(GPU gpu);
+    bool setStartupMode(GPU gpu);
+    bool setTempConfig(const QString &path);
 
     bool error();
     QString errorString();
 
+    static GPU startupMode();
+    static GPU defaultStartupMode();
+
 private:
+    bool sendCommand(const QString &type, const std::initializer_list<QPair<QString, QJsonValue>> &args);
     void setError(bool error);
+
+    static const QMap<GPU, QString> gpuMap;
 
     QString m_errorString;
     bool m_error = false;

@@ -57,11 +57,6 @@ public:
         EnableTearFree,
         DisableTearFree
     };
-    enum GPU {
-        Intel,
-        Nvidia,
-    };
-    Q_ENUM(GPU)
     enum DRI {
         DRI2 = 2,
         DRI3 = 3,
@@ -77,10 +72,6 @@ public:
     ~OptimusSettings() override;
 
     void apply();
-
-    GPU startupMode() const;
-    void setStartupMode(GPU mode);
-    static GPU defaultStartupMode();
 
     // Optimus
     SwitchingMethod switchingMethod() const;
@@ -152,10 +143,8 @@ private:
     static const QMap<Driver, QString> driverMap;
     static const QMap<AccelMethod, QString> accelMethodMap;
     static const QMap<TearFree, QString> tearFreeMap;
-    static const QMap<GPU, QString> gpuMap;
     static const QMap<NvidiaOption, QString> nvidiaOptionMap;
 
-    QString m_startupModeString;
     QSettings *m_settings;
 };
 

@@ -53,6 +53,7 @@ private slots:
     void disablePciResetIgnored(int index);
     void disableIntelDriverIgnored(int index);
 
+    void changeStartupMode();
     void restoreDefaults();
 
 private:
@@ -63,6 +64,7 @@ private:
 
     Ui::SettingsDialog *ui;
     bool m_languageChanged = false;
+    bool m_startupModeChanged = true;
 };
 
 #endif // SETTINGSDIALOG_H

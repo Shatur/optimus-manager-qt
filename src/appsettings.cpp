@@ -102,36 +102,36 @@ bool AppSettings::defaultConfirmSwitching()
     return true;
 }
 
-QString AppSettings::gpuIconName(OptimusSettings::GPU gpu) const
+QString AppSettings::gpuIconName(DaemonClient::GPU gpu) const
 {
     switch (gpu) {
-    case OptimusSettings::Intel:
-        return value("IntelIcon", defaultTrayIconName(OptimusSettings::Intel)).toString();
-    case OptimusSettings::Nvidia:
-        return value("NvidiaIcon", defaultTrayIconName(OptimusSettings::Nvidia)).toString();
+    case DaemonClient::Intel:
+        return value("IntelIcon", defaultTrayIconName(DaemonClient::Intel)).toString();
+    case DaemonClient::Nvidia:
+        return value("NvidiaIcon", defaultTrayIconName(DaemonClient::Nvidia)).toString();
     }
 
     qFatal("Unknown GPU");
 }
 
-void AppSettings::setGpuIconName(OptimusSettings::GPU gpu, const QString &name)
+void AppSettings::setGpuIconName(DaemonClient::GPU gpu, const QString &name)
 {
     switch (gpu) {
-    case OptimusSettings::Intel:
+    case DaemonClient::Intel:
         setValue("IntelIcon", name);
         break;
-    case OptimusSettings::Nvidia:
+    case DaemonClient::Nvidia:
         setValue("NvidiaIcon", name);
         break;
     }
 }
 
-QString AppSettings::defaultTrayIconName(OptimusSettings::GPU trayStatus)
+QString AppSettings::defaultTrayIconName(DaemonClient::GPU trayStatus)
 {
     switch (trayStatus) {
-    case OptimusSettings::Intel:
+    case DaemonClient::Intel:
         return QStringLiteral("prime-intel");
-    case OptimusSettings::Nvidia:
+    case DaemonClient::Nvidia:
         return QStringLiteral("prime-nvidia");
     }
 

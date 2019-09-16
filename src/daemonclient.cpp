@@ -19,6 +19,12 @@
  */
 
 #include "daemonclient.h"
+#include "singleapplication.h"
+
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QFile>
+#include <QMessageBox>
 
 #include <unistd.h>
 #include <sys/socket.h>
@@ -26,6 +32,8 @@
 
 constexpr sockaddr_un m_saddr = {AF_UNIX, "/tmp/optimus-manager"};
 constexpr socklen_t m_addrlen = sizeof(m_saddr);
+const QMap<DaemonClient::GPU, QString> DaemonClient::gpuMap = {{Intel, QStringLiteral("intel")},
+                                                               {Nvidia, QStringLiteral("nvidia")}};
 
 DaemonClient::~DaemonClient()
 {
@@ -59,12 +67,19 @@ void DaemonClient::disconnect()
     }
 }
 
-ssize_t DaemonClient::send(const QString &message)
+bool DaemonClient::setGpu(GPU gpu)
 {
-    const ssize_t bytesSent = ::send(m_sockfd, qPrintable(message), static_cast<size_t>(message.size()), 0);
-    setError(bytesSent == -1);
+    return sendCommand(QStringLiteral("startup"), {{QStringLiteral("mode"), gpuMap[gpu]}});
+}
 
-    return bytesSent;
+bool DaemonClient::setStartupMode(GPU gpu)
+{
+    return sendCommand(QStringLiteral("switch"), {{QStringLiteral("mode"), gpuMap[gpu]}});
+}
+
+bool DaemonClient::setTempConfig(const QString &path)
+{
+    return sendCommand(QStringLiteral("temp_config"), {{QStringLiteral("path"), path}});
 }
 
 bool DaemonClient::error()
@@ -75,6 +90,38 @@ bool DaemonClient::error()
 QString DaemonClient::errorString()
 {
     return m_errorString;
+}
+
+DaemonClient::GPU DaemonClient::startupMode()
+{
+    QFile file("/var/lib/optimus-manager/startup_mode");
+    if (!file.open(QIODevice::ReadOnly)) {
+        QMessageBox message(QMessageBox::Warning, SingleApplication::applicationName(), tr("Unable to open startup mode file"));
+        message.exec();
+        return defaultStartupMode();
+    }
+
+    QByteArray modeString = file.readAll();
+    if (modeString.back() == '\n')
+        modeString.chop(1);
+
+    return gpuMap.key(modeString, defaultStartupMode());
+}
+
+DaemonClient::GPU DaemonClient::defaultStartupMode()
+{
+    return Intel;
+}
+
+bool DaemonClient::sendCommand(const QString &type, const std::initializer_list<QPair<QString, QJsonValue>> &args)
+{
+    const QJsonDocument command{{{QStringLiteral("type"), type}, {QStringLiteral("args"), {args}}}};
+    const QByteArray json = command.toJson();
+
+    const bool succes = ::send(m_sockfd, json.data(), static_cast<size_t>(json.size()), 0) != -1;
+
+    setError(succes);
+    return succes;
 }
 
 void DaemonClient::setError(bool error)

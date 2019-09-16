@@ -80,12 +80,11 @@ void SettingsDialog::accept()
     // General settings
     appSettings.setAutostartEnabled(ui->autostartCheckBox->isChecked());
     appSettings.setConfirmSwitching(ui->confirmSwitchingCheckBox->isChecked());
-    appSettings.setGpuIconName(OptimusSettings::Intel, ui->intelIconEdit->text());
-    appSettings.setGpuIconName(OptimusSettings::Nvidia, ui->nvidiaIconEdit->text());
+    appSettings.setGpuIconName(DaemonClient::Intel, ui->intelIconEdit->text());
+    appSettings.setGpuIconName(DaemonClient::Nvidia, ui->nvidiaIconEdit->text());
 
     // Optimus settings
     OptimusSettings optimusSettings;
-    optimusSettings.setStartupMode(static_cast<OptimusSettings::GPU>(ui->startupModeComboBox->currentIndex()));
     optimusSettings.setSwitchingMethod(static_cast<OptimusSettings::SwitchingMethod>(ui->switchingMethodComboBox->currentIndex()));
     optimusSettings.setPciReset(static_cast<OptimusSettings::PciReset>(ui->pciResetComboBox->currentIndex()));
     optimusSettings.setPciPowerControlEnabled(ui->pciPowerControlCheckBox->isChecked());
@@ -111,6 +110,25 @@ void SettingsDialog::accept()
 
     optimusSettings.apply();
 
+    if (m_startupModeChanged) {
+        DaemonClient client;
+        client.connect();
+        if (client.error()) {
+            QMessageBox message;
+            message.setIcon(QMessageBox::Warning);
+            message.setText(tr("Unable to connect to optimus-manager daemon to send startup mode: %1").arg(client.errorString()));
+            message.exec();
+            return;
+        }
+
+        if (client.setStartupMode(static_cast<DaemonClient::GPU>(ui->startupModeComboBox->currentIndex()))) {
+            QMessageBox message;
+            message.setIcon(QMessageBox::Warning);
+            message.setText(tr("Unable to send startup mode to optimus-manager daemon: %1").arg(client.errorString()));
+            message.exec();
+        }
+    }
+
     QDialog::accept();
 }
 
@@ -120,11 +138,11 @@ void SettingsDialog::restoreDefaults()
     ui->languageComboBox->setCurrentIndex(AppSettings::defaultLocale());
     ui->autostartCheckBox->setChecked(AppSettings::defaultAutostartEnabled());
     ui->confirmSwitchingCheckBox->setChecked(AppSettings::defaultConfirmSwitching());
-    ui->intelIconEdit->setText(AppSettings::defaultTrayIconName(OptimusSettings::Intel));
-    ui->nvidiaIconEdit->setText(AppSettings::defaultTrayIconName(OptimusSettings::Nvidia));
+    ui->intelIconEdit->setText(AppSettings::defaultTrayIconName(DaemonClient::Intel));
+    ui->nvidiaIconEdit->setText(AppSettings::defaultTrayIconName(DaemonClient::Nvidia));
 
     // Optimus settings
-    ui->startupModeComboBox->setCurrentIndex(OptimusSettings::defaultStartupMode());
+    ui->startupModeComboBox->setCurrentIndex(DaemonClient::defaultStartupMode());
     ui->switchingMethodComboBox->setCurrentIndex(OptimusSettings::defaultSwitchingMethod());
     ui->pciResetComboBox->setCurrentIndex(OptimusSettings::defaultPciReset());
     ui->pciPowerControlCheckBox->setChecked(OptimusSettings::defaultPciPowerControlEnabled());
@@ -155,12 +173,12 @@ void SettingsDialog::loadSettings()
     ui->languageComboBox->setCurrentIndex(ui->languageComboBox->findData(settings.language()));
     ui->autostartCheckBox->setChecked(settings.isAutostartEnabled());
     ui->confirmSwitchingCheckBox->setChecked(settings.isConfirmSwitching());
-    ui->intelIconEdit->setText(settings.gpuIconName(OptimusSettings::Intel));
-    ui->nvidiaIconEdit->setText(settings.gpuIconName(OptimusSettings::Nvidia));
+    ui->intelIconEdit->setText(settings.gpuIconName(DaemonClient::Intel));
+    ui->nvidiaIconEdit->setText(settings.gpuIconName(DaemonClient::Nvidia));
 
     // Optimus settings
     const OptimusSettings optimusSettings;
-    ui->startupModeComboBox->setCurrentIndex(optimusSettings.startupMode());
+    ui->startupModeComboBox->setCurrentIndex(DaemonClient::startupMode());
     ui->switchingMethodComboBox->setCurrentIndex(optimusSettings.switchingMethod());
     ui->pciResetComboBox->setCurrentIndex(optimusSettings.pciReset());
     ui->pciPowerControlCheckBox->setChecked(optimusSettings.isPciPowerControlEnabled());
@@ -295,4 +313,9 @@ void SettingsDialog::disableIntelDriverIgnored(int index)
         ui->intelAccelMethodComboBox->setEnabled(false);
         ui->intelTearFreeComboBox->setEnabled(false);
     }
+}
+
+void SettingsDialog::changeStartupMode()
+{
+    m_startupModeChanged = true;
 }

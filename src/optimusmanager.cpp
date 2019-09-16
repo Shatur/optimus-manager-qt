@@ -22,6 +22,7 @@
 #include "appsettings.h"
 #include "settingsdialog.h"
 #include "singleapplication.h"
+#include "optimussettings.h"
 #include "daemonclient.h"
 
 #include <QProcess>
@@ -95,12 +96,12 @@ QIcon OptimusManager::trayGpuIcon(const QString &iconName)
 
 void OptimusManager::switchToIntel()
 {
-    switchGpu(OptimusSettings::Intel);
+    switchGpu(DaemonClient::Intel);
 }
 
 void OptimusManager::switchToNvidia()
 {
-    switchGpu(OptimusSettings::Nvidia);
+    switchGpu(DaemonClient::Nvidia);
 }
 
 void OptimusManager::openSettings()
@@ -139,8 +140,8 @@ void OptimusManager::loadSettings()
     AppSettings appSettings;
 
     // Context menu icons
-    m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(appSettings.gpuIconName(OptimusSettings::Intel)));
-    m_contextMenu->actions().at(3)->setIcon(trayGpuIcon(appSettings.gpuIconName(OptimusSettings::Nvidia)));
+    m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(appSettings.gpuIconName(DaemonClient::Intel)));
+    m_contextMenu->actions().at(3)->setIcon(trayGpuIcon(appSettings.gpuIconName(DaemonClient::Nvidia)));
 
     // Tray icon
     QString gpuIconName = appSettings.gpuIconName(m_currentGpu);
@@ -167,7 +168,7 @@ void OptimusManager::loadSettings()
 void OptimusManager::retranslateUi()
 {
 #ifdef PLASMA
-    m_trayIcon->setToolTipSubTitle(tr("Current videocard: %1").arg(QMetaEnum::fromType<OptimusSettings::GPU>().valueToKey(m_currentGpu)));
+    m_trayIcon->setToolTipSubTitle(tr("Current videocard: %1").arg(QMetaEnum::fromType<DaemonClient::GPU>().valueToKey(m_currentGpu)));
 #endif
     m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
     m_contextMenu->actions().at(2)->setText(tr("Switch to Intel"));
@@ -175,7 +176,7 @@ void OptimusManager::retranslateUi()
     m_contextMenu->actions().at(5)->setText(tr("Exit"));
 }
 
-void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
+void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
 {
     const AppSettings appSettings;
     const OptimusSettings optimusSettings;
@@ -218,7 +219,7 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
     }
 
     // Check if nvidia module is available
-    if (switchingGpu == OptimusSettings::Nvidia && !isModuleAvailable("nvidia")) {
+    if (switchingGpu == DaemonClient::Nvidia && !isModuleAvailable("nvidia")) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
         message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg("nvidia"));
@@ -317,7 +318,7 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
     }
 
     // Check if the Xorg driver 'intel' is installed
-    if (switchingGpu == OptimusSettings::Intel
+    if (switchingGpu == DaemonClient::Intel
             && optimusSettings.intelDriver() == OptimusSettings::IntelDriver
             && !QFileInfo::exists("/usr/lib/xorg/modules/drivers/intel_drv.so")) {
         QMessageBox message;
@@ -344,7 +345,7 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
     }
 
     // Send GPU string to Optimus Manager daemon
-    if (client.send(gpuString(switchingGpu)) == -1) {
+    if (!client.setGpu(switchingGpu)) {
         QMessageBox message;
         message.setIcon(QMessageBox::Critical);
         message.setText(tr("Unable to send GPU name to switch to Optimus Manager daemon: %1").arg(client.errorString()));
@@ -357,7 +358,7 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
         showNotification(tr("Configuration successfully applied. Your GPU will be switched after next login."), appSettings.gpuIconName(switchingGpu));
 }
 
-OptimusSettings::GPU OptimusManager::detectGpu()
+DaemonClient::GPU OptimusManager::detectGpu()
 {
     QWindow window;
     window.setSurfaceType(QSurface::OpenGLSurface);
@@ -371,10 +372,10 @@ OptimusSettings::GPU OptimusManager::detectGpu()
     const QByteArray vendorString(reinterpret_cast<const char *>(functions.glGetString(GL_VENDOR)));
 
     if (vendorString.startsWith("Intel"))
-        return OptimusSettings::Intel;
+        return DaemonClient::Intel;
 
     if (vendorString.startsWith("NVIDIA"))
-        return OptimusSettings::Nvidia;
+        return DaemonClient::Nvidia;
 
     qFatal("Unable to detect GPU");
 }
@@ -471,14 +472,14 @@ void OptimusManager::logout()
     QProcess::execute("awesome-client", {"\"awesome.quit()\""});
 }
 
-QString OptimusManager::gpuString(OptimusSettings::GPU gpu)
+QString OptimusManager::gpuString(DaemonClient::GPU gpu)
 {
     QString gpuString;
     switch (gpu) {
-    case OptimusSettings::Intel:
+    case DaemonClient::Intel:
         gpuString = QStringLiteral("intel");
         break;
-    case OptimusSettings::Nvidia:
+    case DaemonClient::Nvidia:
         gpuString = QStringLiteral("nvidia");
         break;
     }

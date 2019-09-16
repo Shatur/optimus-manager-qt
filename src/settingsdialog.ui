@@ -1117,6 +1117,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>startupModeComboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>SettingsDialog</receiver>
+   <slot>changeStartupMode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>398</x>
+     <y>61</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>chooseNvidiaIcon()</slot>
@@ -1126,5 +1142,6 @@
   <slot>disableIntelDriverIgnored(int)</slot>
   <slot>disableSwitchingMethodIgnored(int)</slot>
   <slot>disablePciResetIgnored(int)</slot>
+  <slot>changeStartupMode()</slot>
  </slots>
 </ui>

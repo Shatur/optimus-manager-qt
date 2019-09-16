@@ -21,7 +21,7 @@
 #ifndef APPSETTINGS_H
 #define APPSETTINGS_H
 
-#include "optimussettings.h"
+#include "daemonclient.h"
 
 #include <QSettings>
 #include <QTranslator>
@@ -51,9 +51,9 @@ public:
     void setConfirmSwitching(bool confirm);
     static bool defaultConfirmSwitching();
 
-    QString gpuIconName(OptimusSettings::GPU gpu) const;
-    void setGpuIconName(OptimusSettings::GPU gpu, const QString &name);
-    static QString defaultTrayIconName(OptimusSettings::GPU trayStatus);
+    QString gpuIconName(DaemonClient::GPU gpu) const;
+    void setGpuIconName(DaemonClient::GPU gpu, const QString &name);
+    static QString defaultTrayIconName(DaemonClient::GPU trayStatus);
 
 private:
     void applyLocale(QLocale::Language lang);

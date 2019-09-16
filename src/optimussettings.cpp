@@ -45,8 +45,6 @@ const QMap<OptimusSettings::AccelMethod, QString> OptimusSettings::accelMethodMa
 const QMap<OptimusSettings::TearFree, QString> OptimusSettings::tearFreeMap = { { DefaultTearFree, {} },
                                                                                 { EnableTearFree, boolMap[true] },
                                                                                 { DisableTearFree, boolMap[false] } };
-const QMap<OptimusSettings::GPU, QString> OptimusSettings::gpuMap = { { Intel, QStringLiteral("intel") },
-                                                                      { Nvidia, QStringLiteral("nvidia") } };
 const QMap<OptimusSettings::NvidiaOption, QString> OptimusSettings::nvidiaOptionMap = { { Overclocking, QStringLiteral("overclocking") },
                                                                                         { TripleBuffer, QStringLiteral("triple_buffer") } };
 
@@ -72,52 +70,6 @@ void OptimusSettings::apply()
     // Move generated settings to config path
     if (QProcess::execute("pkexec", {"cp", "/tmp/optimus-manager.conf", "/etc/optimus-manager/optimus-manager.conf"}) != 0)
         return;
-
-    if (!m_startupModeString.isEmpty()) {
-        // Set startup mode
-        DaemonClient client;
-        client.connect();
-        if (client.error()) {
-            QMessageBox message;
-            message.setIcon(QMessageBox::Warning);
-            message.setText(tr("Unable to connect to optimus-manager daemon to send startup mode: %1").arg(client.errorString()));
-            message.exec();
-            return;
-        }
-
-        if (client.send(m_startupModeString) == -1) {
-            QMessageBox message;
-            message.setIcon(QMessageBox::Warning);
-            message.setText(tr("Unable to send startup mode to optimus-manager daemon: %1").arg(client.errorString()));
-            message.exec();
-        }
-    }
-}
-
-OptimusSettings::GPU OptimusSettings::startupMode() const
-{
-    QFile file("/var/lib/optimus-manager/startup_mode");
-    if (!file.open(QIODevice::ReadOnly)) {
-        QMessageBox message(QMessageBox::Warning, SingleApplication::applicationName(), tr("Unable to open startup mode file"));
-        message.exec();
-        return defaultStartupMode();
-    }
-
-    QByteArray modeString = file.readAll();
-    if (modeString.back() == '\n')
-        modeString.chop(1);
-
-    return gpuMap.key(modeString, defaultStartupMode());
-}
-
-void OptimusSettings::setStartupMode(GPU mode)
-{
-    m_startupModeString = gpuMap[mode];
-}
-
-OptimusSettings::GPU OptimusSettings::defaultStartupMode()
-{
-    return Intel;
 }
 
 OptimusSettings::SwitchingMethod OptimusSettings::switchingMethod() const
