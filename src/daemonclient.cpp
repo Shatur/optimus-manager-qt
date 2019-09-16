@@ -35,6 +35,11 @@ constexpr socklen_t m_addrlen = sizeof(m_saddr);
 const QMap<DaemonClient::GPU, QString> DaemonClient::gpuMap = {{Intel, QStringLiteral("intel")},
                                                                {Nvidia, QStringLiteral("nvidia")}};
 
+DaemonClient::DaemonClient(QObject *parent) :
+    QObject(parent)
+{
+}
+
 DaemonClient::~DaemonClient()
 {
     disconnect();

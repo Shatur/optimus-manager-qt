@@ -21,12 +21,10 @@
 #ifndef DAEMONCLIENT_H
 #define DAEMONCLIENT_H
 
-#include <QCoreApplication>
+#include <QObject>
 
-class DaemonClient
+class DaemonClient : public QObject
 {
-    Q_GADGET
-    Q_DECLARE_TR_FUNCTIONS(DaemonClient)
     Q_DISABLE_COPY(DaemonClient)
 
 public:
@@ -36,7 +34,7 @@ public:
     };
     Q_ENUM(GPU)
 
-    DaemonClient() = default;
+    explicit DaemonClient(QObject *parent = nullptr);
     ~DaemonClient();
 
     void connect();
