@@ -74,8 +74,6 @@ private:
     static int sessionsCountWithoutGdm(const QVector<Session> &sessions);
     static void logout();
 
-    static QString gpuString(DaemonClient::GPU gpu);
-
     QMenu *m_contextMenu;
 #ifdef PLASMA
     KStatusNotifierItem *m_trayIcon;

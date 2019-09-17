@@ -82,6 +82,7 @@ void SettingsDialog::accept()
     appSettings.setConfirmSwitching(ui->confirmSwitchingCheckBox->isChecked());
     appSettings.setGpuIconName(DaemonClient::Intel, ui->intelIconEdit->text());
     appSettings.setGpuIconName(DaemonClient::Nvidia, ui->nvidiaIconEdit->text());
+    appSettings.setGpuIconName(DaemonClient::Hybrid, ui->hybridIconEdit->text());
 
     // Optimus settings
     OptimusSettings optimusSettings;
@@ -140,6 +141,7 @@ void SettingsDialog::restoreDefaults()
     ui->confirmSwitchingCheckBox->setChecked(AppSettings::defaultConfirmSwitching());
     ui->intelIconEdit->setText(AppSettings::defaultTrayIconName(DaemonClient::Intel));
     ui->nvidiaIconEdit->setText(AppSettings::defaultTrayIconName(DaemonClient::Nvidia));
+    ui->hybridIconEdit->setText(AppSettings::defaultTrayIconName(DaemonClient::Hybrid));
 
     // Optimus settings
     ui->startupModeComboBox->setCurrentIndex(DaemonClient::defaultStartupMode());
@@ -175,6 +177,7 @@ void SettingsDialog::loadSettings()
     ui->confirmSwitchingCheckBox->setChecked(settings.isConfirmSwitching());
     ui->intelIconEdit->setText(settings.gpuIconName(DaemonClient::Intel));
     ui->nvidiaIconEdit->setText(settings.gpuIconName(DaemonClient::Nvidia));
+    ui->hybridIconEdit->setText(settings.gpuIconName(DaemonClient::Hybrid));
 
     // Optimus settings
     const OptimusSettings optimusSettings;
@@ -212,16 +215,27 @@ void SettingsDialog::chooseNvidiaIcon()
     chooseIcon(ui->nvidiaIconEdit);
 }
 
-void SettingsDialog::loadIntelIcon(const QString &fileName)
+void SettingsDialog::chooseHybridIcon()
+{
+    chooseIcon(ui->hybridIconEdit);
+}
+
+void SettingsDialog::previewIntelIcon(const QString &fileName)
 {
     const QIcon icon = OptimusManager::trayGpuIcon(fileName);
     ui->intelIconButton->setIcon(icon);
 }
 
-void SettingsDialog::loadNvidiaIcon(const QString &fileName)
+void SettingsDialog::previewNvidiaIcon(const QString &fileName)
 {
     const QIcon icon = OptimusManager::trayGpuIcon(fileName);
     ui->nvidiaIconButton->setIcon(icon);
+}
+
+void SettingsDialog::previewHybridIcon(const QString &fileName)
+{
+    const QIcon icon = OptimusManager::trayGpuIcon(fileName);
+    ui->hybridIconButton->setIcon(icon);
 }
 
 void SettingsDialog::chooseIcon(QLineEdit *iconNameEdit)

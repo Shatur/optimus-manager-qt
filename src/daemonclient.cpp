@@ -33,7 +33,8 @@
 constexpr sockaddr_un m_saddr = {AF_UNIX, "/tmp/optimus-manager"};
 constexpr socklen_t m_addrlen = sizeof(m_saddr);
 const QMap<DaemonClient::GPU, QString> DaemonClient::gpuMap = {{Intel, QStringLiteral("intel")},
-                                                               {Nvidia, QStringLiteral("nvidia")}};
+                                                               {Nvidia, QStringLiteral("nvidia")},
+                                                               {Hybrid, QStringLiteral("hybrid")}};
 
 DaemonClient::DaemonClient(QObject *parent) :
     QObject(parent)

@@ -471,18 +471,3 @@ void OptimusManager::logout()
 
     QProcess::execute("awesome-client", {"\"awesome.quit()\""});
 }
-
-QString OptimusManager::gpuString(DaemonClient::GPU gpu)
-{
-    QString gpuString;
-    switch (gpu) {
-    case DaemonClient::Intel:
-        gpuString = QStringLiteral("intel");
-        break;
-    case DaemonClient::Nvidia:
-        gpuString = QStringLiteral("nvidia");
-        break;
-    }
-
-    return gpuString;
-}

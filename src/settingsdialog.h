@@ -46,8 +46,10 @@ public slots:
 private slots:
     void chooseIntelIcon();
     void chooseNvidiaIcon();
-    void loadIntelIcon(const QString &fileName);
-    void loadNvidiaIcon(const QString &fileName);
+    void chooseHybridIcon();
+    void previewIntelIcon(const QString &fileName);
+    void previewNvidiaIcon(const QString &fileName);
+    void previewHybridIcon(const QString &fileName);
 
     void disableSwitchingMethodIgnored(int index);
     void disablePciResetIgnored(int index);

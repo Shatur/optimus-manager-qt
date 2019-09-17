@@ -25,12 +25,14 @@
 
 class DaemonClient : public QObject
 {
+    Q_OBJECT
     Q_DISABLE_COPY(DaemonClient)
 
 public:
     enum GPU {
         Intel,
         Nvidia,
+        Hybrid
     };
     Q_ENUM(GPU)
 

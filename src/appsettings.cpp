@@ -109,6 +109,8 @@ QString AppSettings::gpuIconName(DaemonClient::GPU gpu) const
         return value("IntelIcon", defaultTrayIconName(DaemonClient::Intel)).toString();
     case DaemonClient::Nvidia:
         return value("NvidiaIcon", defaultTrayIconName(DaemonClient::Nvidia)).toString();
+    case DaemonClient::Hybrid:
+        return value("HybridIcon", defaultTrayIconName(DaemonClient::Hybrid)).toString();
     }
 
     qFatal("Unknown GPU");
@@ -123,6 +125,8 @@ void AppSettings::setGpuIconName(DaemonClient::GPU gpu, const QString &name)
     case DaemonClient::Nvidia:
         setValue("NvidiaIcon", name);
         break;
+    case DaemonClient::Hybrid:
+        setValue("HybridIcon", name);
     }
 }
 
@@ -133,6 +137,8 @@ QString AppSettings::defaultTrayIconName(DaemonClient::GPU trayStatus)
         return QStringLiteral("prime-intel");
     case DaemonClient::Nvidia:
         return QStringLiteral("prime-nvidia");
+    case DaemonClient::Hybrid:
+        return QStringLiteral("prime-hybrid");
     }
 
     return QString();
