@@ -195,6 +195,16 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
             return;
     }
 
+    // Check if power switching enabled
+    if (optimusSettings.switchingMethod() == OptimusSettings::NoneMethod && !optimusSettings.isPciPowerControlEnabled()) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Warning);
+        message.setText(tr("No power management option is currently enabled"));
+        message.setInformativeText(tr("Switching between GPUs will work but you will likely experience poor battery life."));
+        message.exec();
+        return;
+    }
+
     // Check if daemon is active
     if (!isServiceActive(QStringLiteral("optimus-manager.service"))) {
         QMessageBox message;
