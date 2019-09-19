@@ -23,7 +23,6 @@
 
 #include <QStandardPaths>
 #include <QFileInfo>
-#include <QDebug>
 #include <QIcon>
 
 QTranslator AppSettings::m_appTranslator;

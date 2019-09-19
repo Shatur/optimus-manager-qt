@@ -27,7 +27,6 @@
 
 #include <QProcess>
 #include <QFileInfo>
-#include <QDebug>
 #include <QMenu>
 #include <QMessageBox>
 #include <QMetaEnum>

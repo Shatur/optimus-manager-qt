@@ -75,12 +75,12 @@ void DaemonClient::disconnect()
 
 bool DaemonClient::setGpu(GPU gpu)
 {
-    return sendCommand(QStringLiteral("startup"), {{QStringLiteral("mode"), gpuMap[gpu]}});
+    return sendCommand(QStringLiteral("switch"), {{QStringLiteral("mode"), gpuMap[gpu]}});
 }
 
 bool DaemonClient::setStartupMode(GPU gpu)
 {
-    return sendCommand(QStringLiteral("switch"), {{QStringLiteral("mode"), gpuMap[gpu]}});
+    return sendCommand(QStringLiteral("startup"), {{QStringLiteral("mode"), gpuMap[gpu]}});
 }
 
 bool DaemonClient::setTempConfig(const QString &path)

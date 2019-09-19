@@ -25,7 +25,6 @@
 #include <QProcess>
 #include <QFile>
 #include <QSettings>
-#include <QDebug>
 #include <QMessageBox>
 
 const QMap<bool, QString> OptimusSettings::boolMap = {{false, QStringLiteral("no")},

@@ -122,7 +122,7 @@ void SettingsDialog::accept()
             return;
         }
 
-        if (client.setStartupMode(static_cast<DaemonClient::GPU>(ui->startupModeComboBox->currentIndex()))) {
+        if (!client.setStartupMode(static_cast<DaemonClient::GPU>(ui->startupModeComboBox->currentIndex()))) {
             QMessageBox message;
             message.setIcon(QMessageBox::Warning);
             message.setText(tr("Unable to send startup mode to optimus-manager daemon: %1").arg(client.errorString()));
