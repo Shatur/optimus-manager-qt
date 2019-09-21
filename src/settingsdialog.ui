@@ -417,10 +417,11 @@
              </item>
              <item>
               <property name="text">
-               <string>Hybrid</string>
+               <string notr="true">Hybrid</string>
               </property>
               <property name="icon">
-               <iconset theme="prime-hybrid"/>
+               <iconset theme="prime-hybrid">
+                <normaloff>.</normaloff>.</iconset>
               </property>
              </item>
             </widget>
