@@ -4,7 +4,13 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)
 
-[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.2.7...HEAD)
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.3.0...HEAD)
+
+_No unreleased changes yet_
+
+## [1.3.0](https://github.com/Shatur95/optimus-manager-qt/tree/1.3.0) (2019-09-21)
+
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.2.7...1.3.0)
 
 **Changed**
 
