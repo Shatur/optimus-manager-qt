@@ -6,7 +6,9 @@ All notable changes to this project will be documented in this file. This projec
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.3.0...HEAD)
 
-_No unreleased changes yet_
+**Changed**
+
+-   Fix switching after the power management warning.
 
 ## [1.3.0](https://github.com/Shatur95/optimus-manager-qt/tree/1.3.0) (2019-09-21)
 
