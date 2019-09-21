@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file. This projec
 
 **Changed**
 
+-   Automatic logout for bspwm.
+-   Update options and API for Optimus Manager 1.2.
 -   Fix resetting the icon name when the dialog is canceled.
 -   Use the last selected directory of an icon when choosing a new one.
 

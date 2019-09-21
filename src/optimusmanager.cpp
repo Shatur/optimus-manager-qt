@@ -479,4 +479,6 @@ void OptimusManager::logout()
     QProcess::execute("openbox", {"--exit"});
 
     QProcess::execute("awesome-client", {"\"awesome.quit()\""});
+
+    QProcess::execute("bspc", {"quit"});
 }
