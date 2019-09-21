@@ -402,7 +402,7 @@
                <string notr="true">Intel</string>
               </property>
               <property name="icon">
-               <iconset theme="cpu">
+               <iconset theme="prime-intel">
                 <normaloff>.</normaloff>.</iconset>
               </property>
              </item>
@@ -411,8 +411,16 @@
                <string notr="true">Nvidia</string>
               </property>
               <property name="icon">
-               <iconset theme="nvidia">
+               <iconset theme="prime-nvidia">
                 <normaloff>.</normaloff>.</iconset>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Hybrid</string>
+              </property>
+              <property name="icon">
+               <iconset theme="prime-hybrid"/>
               </property>
              </item>
             </widget>
