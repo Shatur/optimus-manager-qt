@@ -53,6 +53,7 @@ OptimusManager::OptimusManager(QObject *parent) :
     m_contextMenu->addSeparator();
     m_contextMenu->addAction(tr("Switch to Intel"), this, &OptimusManager::switchToIntel);
     m_contextMenu->addAction(tr("Switch to Nvidia"), this, &OptimusManager::switchToNvidia);
+    m_contextMenu->addAction(tr("Switch to Hybrid"), this, &OptimusManager::switchToHybrid);
     m_contextMenu->addSeparator();
     m_contextMenu->addAction(QIcon::fromTheme("application-exit"), tr("Exit"), SingleApplication::instance(), &SingleApplication::quit);
 
@@ -103,6 +104,11 @@ void OptimusManager::switchToNvidia()
     switchGpu(DaemonClient::Nvidia);
 }
 
+void OptimusManager::switchToHybrid()
+{
+    switchGpu(DaemonClient::Hybrid);
+}
+
 void OptimusManager::openSettings()
 {
     SettingsDialog dialog;
@@ -141,6 +147,7 @@ void OptimusManager::loadSettings()
     // Context menu icons
     m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(appSettings.gpuIconName(DaemonClient::Intel)));
     m_contextMenu->actions().at(3)->setIcon(trayGpuIcon(appSettings.gpuIconName(DaemonClient::Nvidia)));
+    m_contextMenu->actions().at(4)->setIcon(trayGpuIcon(appSettings.gpuIconName(DaemonClient::Hybrid)));
 
     // Tray icon
     QString gpuIconName = appSettings.gpuIconName(m_currentGpu);

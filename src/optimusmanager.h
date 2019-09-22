@@ -47,6 +47,7 @@ public:
 private slots:
     void switchToIntel();
     void switchToNvidia();
+    void switchToHybrid();
     void openSettings();
 
 private:
