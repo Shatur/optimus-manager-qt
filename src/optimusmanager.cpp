@@ -51,10 +51,13 @@ OptimusManager::OptimusManager(QObject *parent) :
     m_contextMenu = new QMenu;
     m_contextMenu->addAction(QIcon::fromTheme("preferences-system"), SettingsDialog::tr("Settings"), this, &OptimusManager::openSettings);
     m_contextMenu->addSeparator();
-    m_contextMenu->addAction(tr("Switch to Intel"), this, &OptimusManager::switchToIntel);
-    m_contextMenu->addAction(tr("Switch to Nvidia"), this, &OptimusManager::switchToNvidia);
-    m_contextMenu->addAction(tr("Switch to Hybrid"), this, &OptimusManager::switchToHybrid);
+
+    const QMetaEnum gpuEnum = QMetaEnum::fromType<DaemonClient::GPU>();
+    m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(DaemonClient::Intel)), this, &OptimusManager::switchToIntel);
+    m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(DaemonClient::Nvidia)), this, &OptimusManager::switchToNvidia);
+    m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(DaemonClient::Hybrid)), this, &OptimusManager::switchToHybrid);
     m_contextMenu->addSeparator();
+
     m_contextMenu->addAction(QIcon::fromTheme("application-exit"), tr("Exit"), SingleApplication::instance(), &SingleApplication::quit);
 
     // Setup tray
