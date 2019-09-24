@@ -24,7 +24,9 @@
 #include "singleapplication.h"
 #include "optimussettings.h"
 #include "daemonclient.h"
+#include "x11deleters.h"
 
+#include <QtX11Extras/QX11Info>
 #include <QProcess>
 #include <QFileInfo>
 #include <QMenu>
@@ -32,9 +34,6 @@
 #include <QMetaEnum>
 #include <QDBusArgument>
 #include <QDBusInterface>
-#include <QOpenGLContext>
-#include <QOpenGLFunctions>
-#include <QWindow>
 #ifdef PLASMA
 #include <KStatusNotifierItem>
 #else
@@ -378,22 +377,30 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
 
 DaemonClient::GPU OptimusManager::detectGpu()
 {
-    QWindow window;
-    window.setSurfaceType(QSurface::OpenGLSurface);
-    window.create();
+    const unsigned long root = RootWindow(QX11Info::display(), QX11Info::appScreen());
 
-    QOpenGLContext context;
-    context.create();
-    context.makeCurrent(&window);
+    QScopedPointer<XRRScreenResources, ScreenResourcesDeleter> screenResources(XRRGetScreenResourcesCurrent(QX11Info::display(), root));
+    if (screenResources.isNull())
+        qFatal("Unable to get screen resources");
 
-    QOpenGLFunctions functions(&context);
-    const QByteArray vendorString(reinterpret_cast<const char *>(functions.glGetString(GL_VENDOR)));
+    QScopedPointer<XRRProviderResources, ProviderResourcesDeleter> providerResources(XRRGetProviderResources(QX11Info::display(), root));
+    if (providerResources.isNull())
+        qFatal("Unable to get provider resources");
 
-    if (vendorString.startsWith("Intel"))
-        return DaemonClient::Intel;
-
-    if (vendorString.startsWith("NVIDIA"))
+    QScopedPointer<XRRProviderInfo, ProviderInfoDeleter> providerInfo(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[0]));
+    if (qstrcmp(providerInfo->name, "NVIDIA-0") == 0)
         return DaemonClient::Nvidia;
+
+    if (qstrcmp(providerInfo->name, "modesetting") == 0) {
+        if (providerResources->nproviders == 1)
+            return DaemonClient::Intel;
+
+        for (int i = 1; i < providerResources->nproviders; ++i) {
+            providerInfo.reset(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[i]));
+            if (qstrcmp(providerInfo->name, "NVIDIA-G0") == 0)
+                return DaemonClient::Hybrid;
+        }
+    }
 
     qFatal("Unable to detect GPU");
 }

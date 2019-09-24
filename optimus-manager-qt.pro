@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT += core gui widgets dbus
+QT += core gui widgets dbus x11extras
 TARGET = optimus-manager-qt
 TEMPLATE = app
 CONFIG += c++1z
@@ -34,7 +34,8 @@ HEADERS += \
     src/settingsdialog.h \
     src/optimussettings.h \
     src/appsettings.h \
-    src/daemonclient.h
+    src/daemonclient.h \
+    src/x11deleters.h
 
 FORMS += \
     src/settingsdialog.ui
@@ -56,6 +57,8 @@ INSTALLS += \
 
 RESOURCES += \
     data/resources.qrc
+
+LIBS += -lXrandr
 
 # Rules for deployment
 bin.path = /usr/bin
