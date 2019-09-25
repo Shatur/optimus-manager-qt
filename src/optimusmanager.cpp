@@ -391,7 +391,7 @@ DaemonClient::GPU OptimusManager::detectGpu()
     if (qstrcmp(providerInfo->name, "NVIDIA-0") == 0)
         return DaemonClient::Nvidia;
 
-    if (qstrcmp(providerInfo->name, "modesetting") == 0) {
+    if (qstrcmp(providerInfo->name, "modesetting") == 0 || qstrcmp(providerInfo->name, "Intel") == 0) {
         if (providerResources->nproviders == 1)
             return DaemonClient::Intel;
 
