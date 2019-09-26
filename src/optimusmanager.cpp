@@ -392,14 +392,13 @@ DaemonClient::GPU OptimusManager::detectGpu()
         return DaemonClient::Nvidia;
 
     if (qstrcmp(providerInfo->name, "modesetting") == 0 || qstrcmp(providerInfo->name, "Intel") == 0) {
-        if (providerResources->nproviders == 1)
-            return DaemonClient::Intel;
-
         for (int i = 1; i < providerResources->nproviders; ++i) {
             providerInfo.reset(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[i]));
             if (qstrcmp(providerInfo->name, "NVIDIA-G0") == 0)
                 return DaemonClient::Hybrid;
         }
+
+        return DaemonClient::Intel;
     }
 
     qFatal("Unable to detect GPU");
