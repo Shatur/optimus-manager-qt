@@ -4,9 +4,17 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)
 
-[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.3.1...HEAD)
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.3.2...HEAD)
 
 _No unreleased changes yet_
+
+## [1.3.2](https://github.com/Shatur95/optimus-manager-qt/tree/1.3.2) (2019-09-26)
+
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.3.1...1.3.2)
+
+**Added**
+
+-   Switching to hybrid mode support.
 
 ## [1.3.1](https://github.com/Shatur95/optimus-manager-qt/tree/1.3.1) (2019-09-21)
 
