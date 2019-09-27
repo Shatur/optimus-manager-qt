@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pt_BR">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_BR" version="2.1">
 <context>
     <name>AppSettings</name>
     <message>
@@ -14,7 +12,7 @@
     <message>
         <location filename="../../src/daemonclient.cpp" line="105"/>
         <source>Unable to open startup mode file</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível abrir o arquivo do modo de inicialização</translation>
     </message>
 </context>
 <context>
@@ -40,7 +38,7 @@
         <location filename="../../src/optimusmanager.cpp" line="57"/>
         <location filename="../../src/optimusmanager.cpp" line="58"/>
         <source>Switch to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Trocar para %1</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="161"/>
@@ -61,12 +59,12 @@
     <message>
         <location filename="../../src/optimusmanager.cpp" line="211"/>
         <source>No power management option is currently enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Atualmente, nenhum gerenciador de energia está habilitado</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="212"/>
         <source>Switching between GPUs will work but you will likely experience poor battery life.</source>
-        <translation type="unfinished"></translation>
+        <translation>A troca entre GPUs funcionará, mas você terá uma experiência ruim com a vida útil da bateria</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="220"/>
@@ -104,7 +102,7 @@ Continuar mesmo assim?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="345"/>
-        <source>Optimus Manager will use &apos;%1&apos; driver instead. You can change driver in settings or install the &apos;%2&apos; driver from the package &apos;%3&apos;.
+        <source>Optimus Manager will use '%1' driver instead. You can change driver in settings or install the '%2' driver from the package '%3'.
 Continue anyway?</source>
         <translation>O Optimus Manager irá usar o driver &apos;%1&apos;. Você pode alterar o driver nas configurações ou instalar o driver &apos;%2&apos; do pacote &apos;%3&apos;.
 Continuar mesmo assim?</translation>
@@ -144,7 +142,7 @@ Prosseguir?</translation>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="221"/>
         <source>Please enable and start it with:
-&apos;%1&apos;
+'%1'
 &apos;%2&apos;</source>
         <translation>Por favor, habilite e inicie com:
 &apos;%1&apos;
@@ -174,7 +172,7 @@ You can set &apos;%1&apos; for GPU switching in settings or install bbswitch for
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="255"/>
-        <source>GDM need to be patched for Prime switching. Follow &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
+        <source>GDM need to be patched for Prime switching. Follow &lt;a href='https://github.com/Askannz/optimus-manager'&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
 Continue anyway?</source>
         <translation>O GDM precisa de um patch para uma troca Prime. Siga &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;estas&lt;/a&gt; instruções para instalar uma versão corrigida. Sem uma versão GDM corrigida, a troca da GPU provavelmente falhará. Continuar mesmo assim?</translation>
     </message>
@@ -185,7 +183,7 @@ Continue anyway?</source>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="302"/>
-        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with &apos;%1&apos; and reboot your computer.
+        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with '%1' and reboot your computer.
 Ignore this warning and proceed with GPU switching now?</source>
         <translation>Isso pode interferir no Optimus Manager. Antes de tentar uma troca de GPU, é recomendável desabilitar este serviço com &apos;%1&apos; e reiniciar seu computador. Ignorar esse aviso e continuar com a troca de GPU agora?</translation>
     </message>
@@ -274,7 +272,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
         <location filename="../../src/settingsdialog.ui" line="367"/>
         <source>ACPI call</source>
-        <translation type="unfinished"></translation>
+        <translation>ACPI call</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="432"/>
@@ -289,7 +287,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
         <location filename="../../src/settingsdialog.ui" line="642"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with Bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Se deve ou não habilitar o modesetting para o driver nouveau&lt;/p&gt;&lt;p&gt;Não afeta o modesetting para o driver da GPU Intel&lt;/p&gt;&lt;p&gt;Esta opção é incompatível com o Bbswitch e será ignorada se estiver ativada&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="685"/>
@@ -304,7 +302,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
         <location filename="../../src/settingsdialog.ui" line="728"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o CoolBits na configuração do Xorg e desbloqueia as opções de clocking&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="731"/>
@@ -383,27 +381,27 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
         <location filename="../../src/settingsdialog.ui" line="452"/>
         <source>PCI reset:</source>
-        <translation type="unfinished"></translation>
+        <translation>Reinício da PCI:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="459"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset the Nvidia card at the PCI level before reloading the nvidia module&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;No&lt;/span&gt;: does not perform any reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Function level&lt;/span&gt;: perform a light &amp;quot;function-level&amp;quot; reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Hot reset&lt;/span&gt;: perform a &amp;quot;hot reset&amp;quot; of the PCI bridge (this method messes with the hardware directly and will perform a PCI remove even if it disabled, please read the online documentation of Optimus Manager before using it)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reinicia a placa Nvidia, ao nível PCI, antes de recarregar o módulo da Nvidia&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Não&lt;/span&gt;: não faz nenhum tipo de reinício&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nível funcional&lt;/span&gt;: faz um leve reinício de &amp;quot;function-level&amp;quot;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Reinício agressivo&lt;/span&gt;: faz um &amp;quot;hot reset&amp;quot; da PCI brigde (este método desordena diretamente com o hardware e executa uma remoção da PCI, mesmo se desativada, leia a documentação on-line do Optimus Manager antes de usar)</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="468"/>
         <source>Function level</source>
-        <translation type="unfinished"></translation>
+        <translation>Nível funcional</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="473"/>
         <source>Hot reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Reinício agressivo</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="484"/>
         <source>PCI remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Remoção da PCI</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="524"/>
@@ -418,52 +416,52 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
         <location filename="../../src/settingsdialog.ui" line="299"/>
         <source>Hybrid icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ícone Híbrido:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="348"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Method to power switch the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;None&lt;/span&gt;: do not use an external module for power management (for some laptop models it&apos;s preferable to use this option in combination with PCI power control), you can use the scipts nvidia-enable.sh and nvidia-disable.sh to execute custom commands for power management that will be executed only with this method&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: load the nouveau module on the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;: power off the card using the bbswitch module (requires the &amp;quot;bbswitch&amp;quot;dependency)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI call&lt;/span&gt;: try various ACPI method calls to power the card on and off (requires the &amp;quot;acpi_call&amp;quot; dependency)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Método de troca de energia da placa Nvidia&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nenhum&lt;/span&gt;: não utiliza nenhum módulo para o gerenciamento de energia (para alguns modelos de notebooks é preferível que se use esta opção em combinação com o controle de energia da PCI), você pode usar scripts nvidia-enable.sh e nvidia-disable.sh para criar comandos personalizados para o gerenciador de energia que executará apenas neste método&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: carrega o módulo nouveau na placa Nvidia&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;: desliga a placa usando o módulo bbswitch (requer o pacote &amp;quot;bbswitch&amp;quot; instalado)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI call&lt;/span&gt;: tenta vários métodos de chamadas ACPI para ligar e desligar a placa (requer o pacote &amp;quot;acpi_call&amp;quot; instalado)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="375"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching methods, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o gerenciamento de energia da PCI no modo Intel&lt;/p&gt;&lt;p&gt;Esta opção é incompatível com os métodos de troca de ACPI call e Bbswitch, portanto será ignorada nestes casos&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="435"/>
         <source>Switching method:</source>
-        <translation type="unfinished"></translation>
+        <translation>Método da troca:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="442"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM and bspwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Desconecta-se automaticamente da atual sessão da área de trabalho quando trocar as GPUs&lt;/p&gt;&lt;p&gt;Atualmente, este recurso é compatível com: Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM e bspwm&lt;/p&gt;&lt;p&gt;Se esta opção estiver desativada ou você usar um ambiente de área de trabalho diferente, a troca da GPU só se tornará eficaz no próximo login da sessão gráfica&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="481"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove the Nvidia card from the PCI bus&lt;/p&gt;&lt;p&gt;May prevent crashes caused by power switching&lt;/p&gt;&lt;p&gt;Ignored if switching method is Nouveau or Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove a placa Nvidia do PCI bus&lt;/p&gt;&lt;p&gt;Pode prevenir crashes causados pela troca de energia&lt;/p&gt;&lt;p&gt;Esta opção é ignorada caso o método de troca seja Nouveau ou Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="541"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Intel GPU&lt;br/&gt;&lt;br/&gt;To use the Intel driver, you need to install the package &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver para o uso da Intel GPU&lt;br/&gt;&lt;br/&gt;Para usar o driver Intel, você precisa instalar o pacote &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="575"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita a opção TearFree na configuração do Xorg&lt;/p&gt;&lt;p&gt;Esta opção é compatível apenas com o driver Intel&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="607"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Acceleration method (corresponds to AccelMethod in the Xorg configuration)&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Método de aceleração (corresponde ao AccelMethod na configuração do Xorg)&lt;/p&gt;&lt;p&gt;Esta opção é compatível apenas com o driver Intel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="708"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization (which prevents tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o modesetting&lt;/p&gt;&lt;p&gt;Requerido para o Sincronização PRIME (que previne tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="738"/>
@@ -496,12 +494,12 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="120"/>
         <source>Unable to connect to optimus-manager daemon to send startup mode: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível conectar-se ao daemon do optimus-manager para enviar o modo de inicialização: %1</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="128"/>
         <source>Unable to send startup mode to optimus-manager daemon: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível enviar o modo de inicialização para o daemon do optimus-manager: %1</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="251"/>
