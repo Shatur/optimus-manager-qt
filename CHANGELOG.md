@@ -4,9 +4,18 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)
 
-[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.3.2...HEAD)
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.3.3...HEAD)
 
 _No unreleased changes yet_
+
+## [1.3.3](https://github.com/Shatur95/optimus-manager-qt/tree/1.3.3) (2019-09-27)
+
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.3.2...1.3.3)
+
+**Changed**
+
+-   Update translations.
+-   Fix crash with multiple Intel providers.
 
 ## [1.3.2](https://github.com/Shatur95/optimus-manager-qt/tree/1.3.2) (2019-09-26)
 
