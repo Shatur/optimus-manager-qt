@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fi">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.1">
 <context>
     <name>AppSettings</name>
     <message>
@@ -14,7 +12,7 @@
     <message>
         <location filename="../../src/daemonclient.cpp" line="105"/>
         <source>Unable to open startup mode file</source>
-        <translation type="unfinished">Käynnistystilan tiedoston avaaminen ei onnistu</translation>
+        <translation>Käynnistystilan tiedostoa ei voi avata</translation>
     </message>
 </context>
 <context>
@@ -40,7 +38,7 @@
         <location filename="../../src/optimusmanager.cpp" line="57"/>
         <location filename="../../src/optimusmanager.cpp" line="58"/>
         <source>Switch to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaihda %1</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="161"/>
@@ -61,12 +59,12 @@
     <message>
         <location filename="../../src/optimusmanager.cpp" line="211"/>
         <source>No power management option is currently enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Mikään virranhallintavaihtoehto ei ole tällä hetkellä käytössä</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="212"/>
         <source>Switching between GPUs will work but you will likely experience poor battery life.</source>
-        <translation type="unfinished"></translation>
+        <translation>GPUn vaihtaminen toimii, mutta akun käyttöikä on todennäköisesti heikko.</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="220"/>
@@ -104,7 +102,7 @@ Jatka joka tapauksessa?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="345"/>
-        <source>Optimus Manager will use &apos;%1&apos; driver instead. You can change driver in settings or install the &apos;%2&apos; driver from the package &apos;%3&apos;.
+        <source>Optimus Manager will use '%1' driver instead. You can change driver in settings or install the '%2' driver from the package '%3'.
 Continue anyway?</source>
         <translation>Optimus Manager käyttää sen sijaan &apos;%1&apos; -ohjainta. Voit muuttaa ohjaimen asetuksissa tai asentaa &apos;%2&apos; -ohjaimen paketista &apos;%3&apos;.
 Jatka joka tapauksessa?</translation>
@@ -144,7 +142,7 @@ Jatketaanko?</translation>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="221"/>
         <source>Please enable and start it with:
-&apos;%1&apos;
+'%1'
 &apos;%2&apos;</source>
         <translation>Ota käyttöön ja käynnistä se seuraavasti:
 &apos;%1&apos;
@@ -175,7 +173,7 @@ Voit asettaa &apos;%1&apos; GPU-kytkimille asetuksissa tai asentaa bbswitch-olet
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="255"/>
-        <source>GDM need to be patched for Prime switching. Follow &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
+        <source>GDM need to be patched for Prime switching. Follow &lt;a href='https://github.com/Askannz/optimus-manager'&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
 Continue anyway?</source>
         <translation>GDM on korjattava, jotta se voidaan vaihtaa. Asenna korjattu versio noudattamalla &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;näitä &lt;/a&gt;ohjeita. Ilman korjattua GDM-versiota GPU-kytkentä todennäköisesti epäonnistuu.
 Jatka joka tapauksessa?</translation>
@@ -187,7 +185,7 @@ Jatka joka tapauksessa?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="302"/>
-        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with &apos;%1&apos; and reboot your computer.
+        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with '%1' and reboot your computer.
 Ignore this warning and proceed with GPU switching now?</source>
         <translation>Tämä voi häiritä Optimus Manageria. Ennen kuin yrität GPU kytkentää, on suositeltavaa, että poistat tämän palvelun käytöstä painikkeella &apos;%1&apos; ja käynnistät tietokoneen uudelleen.
 Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
@@ -421,12 +419,12 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
     <message>
         <location filename="../../src/settingsdialog.ui" line="299"/>
         <source>Hybrid icon:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hybridi kuvake:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="348"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Method to power switch the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;None&lt;/span&gt;: do not use an external module for power management (for some laptop models it&apos;s preferable to use this option in combination with PCI power control), you can use the scipts nvidia-enable.sh and nvidia-disable.sh to execute custom commands for power management that will be executed only with this method&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: load the nouveau module on the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;: power off the card using the bbswitch module (requires the &amp;quot;bbswitch&amp;quot;dependency)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI call&lt;/span&gt;: try various ACPI method calls to power the card on and off (requires the &amp;quot;acpi_call&amp;quot; dependency)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tavat kytkeä virta Nvidia-korteille on&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Ei mitään&lt;/span&gt;: Älä käytä ulkoista moduulia virranhallintaan (joissakin kannettavissa on parempi käyttää tätä vaihtoehtoa yhdessä PCI-tehonohjauksen kanssa). Voit käyttää skriptejä nvidia-enable.sh ja nvidia-disable.sh suorittaaksesi mukautettuja käskyjä virranhallintaan.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: lataa nouveau moduli Nvidia kortille&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;:sammuta kortti bbswitch-modulin avulla (vaatii &quot;bbswitch&quot; riippuvuuden)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI kutsu&lt;/span&gt;: Kokeile erilaisia ACPI-menetelmän kutsuja korttille. Vita päälle ja pois (vaatii &quot;acpi_call&quot; riippuvuuden) &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="375"/>
@@ -441,7 +439,7 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
     <message>
         <location filename="../../src/settingsdialog.ui" line="442"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM and bspwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kirjaudut ulos työpöydän istunnosta automaattisesti, kun vaihdat GPUta&lt;/p&gt;&lt;p&gt;Tällä hetkellä sitä tukee Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM ja bspwm.&lt;/p&gt;&lt;p&gt;Jos tämä asetus on poistettu käytöstä tai käytät eri työpöytäympäristöä, GPU vaihto tulee voimaan vasta seuraavassa graafisessa istunnossa&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="481"/>
@@ -499,12 +497,12 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="120"/>
         <source>Unable to connect to optimus-manager daemon to send startup mode: %1</source>
-        <translation type="unfinished">Ei voi muodostaa yhteyttä Optimus-Manager taustaprosessiin. Lähettä käynnistystila seuraavasti: %1</translation>
+        <translation>Yhteyden muodostaminen optimus-manager-taustaprosessilla, ei onnistu lähettämään käynnistystapaa: %1</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="128"/>
         <source>Unable to send startup mode to optimus-manager daemon: %1</source>
-        <translation type="unfinished">Käynnistystilaa ei voi lähettää Optimus-Manager taustaprosessiin: %1</translation>
+        <translation>Käynnistystapaa ei voi lähettää optimus-manager taustaprosessiin: %1</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="251"/>
