@@ -208,7 +208,9 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
         QMessageBox message;
         message.setIcon(QMessageBox::Warning);
         message.setText(tr("No power management option is currently enabled"));
-        message.setInformativeText(tr("Switching between GPUs will work but you will likely experience poor battery life."));
+        message.setInformativeText(tr("Switching between GPUs will work but you will likely experience poor battery life.\n"
+                                      "If you have already enabled the new Runtime D3 power management inside the Nvidia driver"
+                                      " (for Turing+ GPU with Coffee Lake+ CPU), you can safely ignore this warning."));
         message.exec();
     }
 
