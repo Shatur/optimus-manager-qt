@@ -83,6 +83,11 @@ bool DaemonClient::setStartupMode(GPU gpu)
     return sendCommand(QStringLiteral("startup"), {{QStringLiteral("mode"), gpuMap[gpu]}});
 }
 
+bool DaemonClient::setConfig(const QString &path)
+{
+    return sendCommand(QStringLiteral("user_config"), {{QStringLiteral("path"), path}});
+}
+
 bool DaemonClient::setTempConfig(const QString &path)
 {
     return sendCommand(QStringLiteral("temp_config"), {{QStringLiteral("path"), path}});

@@ -27,6 +27,8 @@
 #include <QSettings>
 #include <QMessageBox>
 
+const QString OptimusSettings::filePath = QStringLiteral("/tmp/optimus-manager.conf");
+
 const QMap<bool, QString> OptimusSettings::boolMap = {{false, QStringLiteral("no")},
                                                        {true, QStringLiteral("yes")}};
 const QMap<OptimusSettings::SwitchingMethod, QString> OptimusSettings::switchingMethodMap = {{NoneMethod, QStringLiteral("none")},
@@ -50,25 +52,26 @@ const QMap<OptimusSettings::NvidiaOption, QString> OptimusSettings::nvidiaOption
 OptimusSettings::OptimusSettings(QObject *parent) :
     QObject(parent)
 {
-    QFile configFile("/etc/optimus-manager/optimus-manager.conf");
+    QFile configFile(QStringLiteral("/etc/optimus-manager/optimus-manager.conf"));
     if (configFile.exists())
-        configFile.copy("/tmp/optimus-manager.conf");
+        configFile.copy(filePath);
 
-    m_settings = new QSettings("/tmp/optimus-manager.conf", QSettings::IniFormat, this);
+    m_settings = new QSettings(filePath, QSettings::IniFormat, this);
 }
 
 OptimusSettings::~OptimusSettings()
 {
-    QFile::remove("/tmp/optimus-manager.conf");
+    QFile::remove(filePath);
 }
 
-void OptimusSettings::apply()
+QString OptimusSettings::fileName()
+{
+    return m_settings->fileName();
+}
+
+void OptimusSettings::sync()
 {
     m_settings->sync();
-
-    // Move generated settings to config path
-    if (QProcess::execute("pkexec", {"cp", "/tmp/optimus-manager.conf", "/etc/optimus-manager/optimus-manager.conf"}) != 0)
-        return;
 }
 
 OptimusSettings::SwitchingMethod OptimusSettings::switchingMethod() const

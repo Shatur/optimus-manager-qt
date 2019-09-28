@@ -6,7 +6,9 @@ All notable changes to this project will be documented in this file. This projec
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.3.3...HEAD)
 
-_No unreleased changes yet_
+**Changed**
+
+-   Use new Optimus Manager daemon command to send settings instead of `pkexec`.
 
 ## [1.3.3](https://github.com/Shatur95/optimus-manager-qt/tree/1.3.3) (2019-09-27)
 

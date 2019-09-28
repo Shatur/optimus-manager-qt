@@ -71,7 +71,8 @@ public:
     OptimusSettings(QObject *parent = nullptr);
     ~OptimusSettings() override;
 
-    void apply();
+    QString fileName();
+    void sync();
 
     // Optimus
     SwitchingMethod switchingMethod() const;
@@ -135,6 +136,8 @@ public:
 private:
     static QStringList nvidiaOptionsToStrings(NvidiaOptions options);
     static NvidiaOptions stringToNvidiaOptions(const QStringList &optionStrings);
+
+    static const QString filePath;
 
     // Convert enum values into Optimus Manager strings (no, yes, none etc).
     static const QMap<bool, QString> boolMap;

@@ -109,24 +109,32 @@ void SettingsDialog::accept()
     nvidiaOptions.setFlag(OptimusSettings::TripleBuffer, ui->nvidiaTripleBuffercheckBox->isChecked());
     optimusSettings.setNvidiaOptions(nvidiaOptions);
 
-    optimusSettings.apply();
+    DaemonClient client;
+    client.connect();
+    if (client.error()) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Warning);
+        message.setText(tr("Unable to connect to Optimus Manager daemon: %1").arg(client.errorString()));
+        message.exec();
+        return;
+    }
+
+    optimusSettings.sync();
+    if (!client.setConfig(optimusSettings.fileName())) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Warning);
+        message.setText(tr("Unable to send configuration file to Optimus Manager daemon: %1").arg(client.errorString()));
+        message.exec();
+        return;
+    }
 
     if (m_startupModeChanged) {
-        DaemonClient client;
-        client.connect();
-        if (client.error()) {
-            QMessageBox message;
-            message.setIcon(QMessageBox::Warning);
-            message.setText(tr("Unable to connect to optimus-manager daemon to send startup mode: %1").arg(client.errorString()));
-            message.exec();
-            return;
-        }
-
         if (!client.setStartupMode(static_cast<DaemonClient::GPU>(ui->startupModeComboBox->currentIndex()))) {
             QMessageBox message;
             message.setIcon(QMessageBox::Warning);
-            message.setText(tr("Unable to send startup mode to optimus-manager daemon: %1").arg(client.errorString()));
+            message.setText(tr("Unable to send startup mode to Optimus Manager daemon: %1").arg(client.errorString()));
             message.exec();
+            return;
         }
     }
 

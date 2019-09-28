@@ -44,6 +44,7 @@ public:
 
     bool setGpu(GPU gpu);
     bool setStartupMode(GPU gpu);
+    bool setConfig(const QString &path);
     bool setTempConfig(const QString &path);
 
     bool error();
