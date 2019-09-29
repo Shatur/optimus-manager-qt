@@ -358,16 +358,17 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
     if (client.error()) {
         QMessageBox message;
         message.setIcon(QMessageBox::Critical);
-        message.setText(tr("Unable to connect to Optimus Manager daemon to switch GPU: %1").arg(client.errorString()));
+        message.setText(DaemonClient::tr("Unable to connect to Optimus Manager daemon: %1").arg(client.errorString()));
         message.exec();
         return;
     }
 
     // Send GPU string to Optimus Manager daemon
-    if (!client.setGpu(switchingGpu)) {
+    client.setGpu(switchingGpu);
+    if (client.error()) {
         QMessageBox message;
         message.setIcon(QMessageBox::Critical);
-        message.setText(tr("Unable to send GPU name to switch to Optimus Manager daemon: %1").arg(client.errorString()));
+        message.setText(DaemonClient::tr("Unable to send GPU name to switch to Optimus Manager daemon: %1").arg(client.errorString()));
         message.exec();
     }
 

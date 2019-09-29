@@ -114,25 +114,27 @@ void SettingsDialog::accept()
     if (client.error()) {
         QMessageBox message;
         message.setIcon(QMessageBox::Warning);
-        message.setText(tr("Unable to connect to Optimus Manager daemon: %1").arg(client.errorString()));
+        message.setText(DaemonClient::tr("Unable to connect to Optimus Manager daemon: %1").arg(client.errorString()));
         message.exec();
         return;
     }
 
     optimusSettings.sync();
-    if (!client.setConfig(optimusSettings.fileName())) {
+    client.setConfig(optimusSettings.fileName());
+    if (client.error()) {
         QMessageBox message;
         message.setIcon(QMessageBox::Warning);
-        message.setText(tr("Unable to send configuration file to Optimus Manager daemon: %1").arg(client.errorString()));
+        message.setText(DaemonClient::tr("Unable to send configuration file to Optimus Manager daemon: %1").arg(client.errorString()));
         message.exec();
         return;
     }
 
     if (m_startupModeChanged) {
-        if (!client.setStartupMode(static_cast<DaemonClient::GPU>(ui->startupModeComboBox->currentIndex()))) {
+        client.setStartupMode(static_cast<DaemonClient::GPU>(ui->startupModeComboBox->currentIndex()));
+        if (client.error()) {
             QMessageBox message;
             message.setIcon(QMessageBox::Warning);
-            message.setText(tr("Unable to send startup mode to Optimus Manager daemon: %1").arg(client.errorString()));
+            message.setText(DaemonClient::tr("Unable to send startup mode to Optimus Manager daemon: %1").arg(client.errorString()));
             message.exec();
             return;
         }

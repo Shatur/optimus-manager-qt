@@ -42,10 +42,10 @@ public:
     void connect();
     void disconnect();
 
-    bool setGpu(GPU gpu);
-    bool setStartupMode(GPU gpu);
-    bool setConfig(const QString &path);
-    bool setTempConfig(const QString &path);
+    void setGpu(GPU gpu);
+    void setStartupMode(GPU gpu);
+    void setConfig(const QString &path);
+    void setTempConfig(const QString &path);
 
     bool error();
     QString errorString();
@@ -54,7 +54,7 @@ public:
     static GPU defaultStartupMode();
 
 private:
-    bool sendCommand(const QString &type, const std::initializer_list<QPair<QString, QJsonValue>> &args);
+    void sendCommand(const QString &type, const std::initializer_list<QPair<QString, QJsonValue>> &args);
     void setError(bool error);
 
     static const QMap<GPU, QString> gpuMap;

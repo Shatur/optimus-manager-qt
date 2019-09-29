@@ -30,8 +30,6 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 
-constexpr sockaddr_un m_saddr = {AF_UNIX, "/tmp/optimus-manager"};
-constexpr socklen_t m_addrlen = sizeof(m_saddr);
 const QMap<DaemonClient::GPU, QString> DaemonClient::gpuMap = {{Intel, QStringLiteral("intel")},
                                                                {Nvidia, QStringLiteral("nvidia")},
                                                                {Hybrid, QStringLiteral("hybrid")}};
@@ -56,7 +54,8 @@ void DaemonClient::connect()
         return;
     }
 
-    const int connectionStatus = ::connect(m_sockfd, reinterpret_cast<const sockaddr *>(&m_saddr), m_addrlen);
+    constexpr sockaddr_un saddr = {AF_UNIX, "/tmp/optimus-manager"};
+    const int connectionStatus = ::connect(m_sockfd, reinterpret_cast<const sockaddr *>(&saddr), sizeof(saddr));
     setError(connectionStatus == -1);
 }
 
@@ -73,24 +72,24 @@ void DaemonClient::disconnect()
     }
 }
 
-bool DaemonClient::setGpu(GPU gpu)
+void DaemonClient::setGpu(GPU gpu)
 {
-    return sendCommand(QStringLiteral("switch"), {{QStringLiteral("mode"), gpuMap[gpu]}});
+    sendCommand(QStringLiteral("switch"), {{QStringLiteral("mode"), gpuMap[gpu]}});
 }
 
-bool DaemonClient::setStartupMode(GPU gpu)
+void DaemonClient::setStartupMode(GPU gpu)
 {
-    return sendCommand(QStringLiteral("startup"), {{QStringLiteral("mode"), gpuMap[gpu]}});
+    sendCommand(QStringLiteral("startup"), {{QStringLiteral("mode"), gpuMap[gpu]}});
 }
 
-bool DaemonClient::setConfig(const QString &path)
+void DaemonClient::setConfig(const QString &path)
 {
-    return sendCommand(QStringLiteral("user_config"), {{QStringLiteral("path"), path}});
+    sendCommand(QStringLiteral("user_config"), {{QStringLiteral("path"), path}});
 }
 
-bool DaemonClient::setTempConfig(const QString &path)
+void DaemonClient::setTempConfig(const QString &path)
 {
-    return sendCommand(QStringLiteral("temp_config"), {{QStringLiteral("path"), path}});
+    sendCommand(QStringLiteral("temp_config"), {{QStringLiteral("path"), path}});
 }
 
 bool DaemonClient::error()
@@ -124,15 +123,14 @@ DaemonClient::GPU DaemonClient::defaultStartupMode()
     return Intel;
 }
 
-bool DaemonClient::sendCommand(const QString &type, const std::initializer_list<QPair<QString, QJsonValue>> &args)
+void DaemonClient::sendCommand(const QString &type, const std::initializer_list<QPair<QString, QJsonValue>> &args)
 {
     const QJsonDocument command{{{QStringLiteral("type"), type}, {QStringLiteral("args"), {args}}}};
     const QByteArray json = command.toJson();
 
     const bool succes = ::send(m_sockfd, json.data(), static_cast<size_t>(json.size()), 0) != -1;
 
-    setError(succes);
-    return succes;
+    setError(!succes);
 }
 
 void DaemonClient::setError(bool error)
