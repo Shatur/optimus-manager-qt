@@ -18,7 +18,7 @@
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="361"/>
-        <location filename="../../src/settingsdialog.cpp" line="117"/>
+        <location filename="../../src/settingsdialog.cpp" line="128"/>
         <source>Unable to connect to Optimus Manager daemon: %1</source>
         <translation>Не удается подключиться к демону Optimus Manager: %1</translation>
     </message>
@@ -28,12 +28,12 @@
         <translation>Не удается отправить имя GPU для переключения демону Optimus Manager: %1</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="127"/>
+        <location filename="../../src/settingsdialog.cpp" line="143"/>
         <source>Unable to send configuration file to Optimus Manager daemon: %1</source>
         <translation>Не удается отправить файл конфигурации демону Optimus Manager: %1</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="137"/>
+        <location filename="../../src/settingsdialog.cpp" line="152"/>
         <source>Unable to send startup mode to Optimus Manager daemon: %1</source>
         <translation>Не удается отправить режим запуска демону Optimus Manager: %1</translation>
     </message>
@@ -233,304 +233,349 @@ Ignore this warning and proceed with GPU switching now?</source>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="59"/>
-        <location filename="../../src/settingsdialog.ui" line="109"/>
+        <location filename="../../src/settingsdialog.ui" line="118"/>
         <source>General</source>
         <translation>Общее</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="95"/>
+        <location filename="../../src/settingsdialog.ui" line="104"/>
         <source>About</source>
         <translation>О программе</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="205"/>
+        <location filename="../../src/settingsdialog.ui" line="214"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Application language&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Язык приложения&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="208"/>
+        <location filename="../../src/settingsdialog.ui" line="217"/>
         <source>Language:</source>
         <translation>Язык:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="119"/>
+        <location filename="../../src/settingsdialog.ui" line="128"/>
         <source>&lt;System language&gt;</source>
         <translation>&lt;Язык системы&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="231"/>
+        <location filename="../../src/settingsdialog.ui" line="240"/>
         <source>Launch at startup</source>
         <translation>Запускать при старте системы</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="238"/>
+        <location filename="../../src/settingsdialog.ui" line="247"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show confirmation dialog when switching GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Показать диалог подтверждения при переключении GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="241"/>
+        <location filename="../../src/settingsdialog.ui" line="250"/>
         <source>Confirm switching</source>
         <translation>Подтверждать переключение</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="292"/>
+        <location filename="../../src/settingsdialog.ui" line="301"/>
         <source>Nvidia icon:</source>
         <translation>Значок Nvidia:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="278"/>
+        <location filename="../../src/settingsdialog.ui" line="287"/>
         <source>Intel icon:</source>
         <translation>Значок Intel:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="338"/>
+        <location filename="../../src/settingsdialog.ui" line="381"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Specify which GPU will be used by default when the system boots&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Указать какой GPU будет использоваться по умолчанию при загрузке системы&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="367"/>
+        <location filename="../../src/settingsdialog.ui" line="588"/>
         <source>ACPI call</source>
         <translation>ACPI вызов</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="432"/>
+        <location filename="../../src/settingsdialog.ui" line="596"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Module used for power switching&lt;/p&gt;&lt;p&gt;If you select &amp;quot;None&amp;quot;, no power switching will be done at all (the Nvidia GPU will stay powered at all times)&lt;/p&gt;&lt;p&gt;If you use bbswitch, you will not be able to use video outputs attached to your Nvidia GPU in Intel mode&lt;/p&gt;&lt;p&gt;To use the bbswitch mode, the bbswitch module must be installed for your current kernel&lt;/p&gt;&lt;p&gt;You can install it for the default kernel with &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Модуль, который используется для переключения питания&lt;/p&gt;&lt;p&gt;Если вы выберете &amp;quot;Отсутствует&amp;quot;, питание переключаться не будет (Nvidia GPU будет работать постоянно)&lt;/p&gt;&lt;p&gt;Если вы используете bbswitch, то не сможете использовать видеовыходы, подключенные к Nvidia GPU в режиме Intel&lt;/p&gt;&lt;p&gt;Чтобы использовать режим bbswitch, модуль bbswitch должен быть установлен для вашего текущего ядра&lt;/p&gt;&lt;p&gt;Вы можете установить его для ядра по умолчанию с помощью &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="445"/>
+        <location filename="../../src/settingsdialog.ui" line="522"/>
         <source>Automatic logout</source>
         <translation>Автоматический выход</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="642"/>
+        <location filename="../../src/settingsdialog.ui" line="757"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with Bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включение или отключение modesettings для драйвера nouveau&lt;/p&gt;&lt;p&gt;Не влияет на modesetting для драйвера Intel GPU&lt;/p&gt;&lt;p&gt;Эта опция несовместима с Bbswitch и будет игнорироваться, если он включен&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="685"/>
+        <location filename="../../src/settingsdialog.ui" line="800"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manager&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Это будет установлено с помощью скрипта Xsetup, который передается вашему менеджеру входа&lt;br/&gt;Он запускает команду&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Оставьте 0 для значения по умолчанию&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="718"/>
+        <location filename="../../src/settingsdialog.ui" line="833"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить или нет параметр NVreg_UsePageAttributeTable в драйвере Nvidia&lt;span style=&quot; font-style:italic;&quot;&gt;Рекомендуется&lt;/span&gt;, в противном случае может привести к снижению производительности процессора&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="728"/>
+        <location filename="../../src/settingsdialog.ui" line="843"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить CoolBits в конфигурации Xorg, которая разблокирует параметры разгона&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="731"/>
+        <location filename="../../src/settingsdialog.ui" line="846"/>
         <source>Overclocking options</source>
         <translation>Опции разгона</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="228"/>
+        <location filename="../../src/settingsdialog.ui" line="237"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart will be used&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>Будет использован ~/.config/autostart</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="251"/>
+        <location filename="../../src/settingsdialog.ui" line="260"/>
         <source>Tray icons</source>
         <translation>Иконки в трее</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="257"/>
-        <location filename="../../src/settingsdialog.ui" line="264"/>
+        <location filename="../../src/settingsdialog.ui" line="266"/>
+        <location filename="../../src/settingsdialog.ui" line="273"/>
         <source>Choose icon</source>
         <translation>Выбрать значок</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="341"/>
+        <location filename="../../src/settingsdialog.ui" line="384"/>
         <source>Startup mode:</source>
         <translation>Режим при загрузке:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="352"/>
+        <location filename="../../src/settingsdialog.ui" line="573"/>
         <source>None</source>
         <translation>Отсутствует</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="115"/>
+        <location filename="../../src/settingsdialog.ui" line="124"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Interface language&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Язык интерфейса&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="271"/>
-        <location filename="../../src/settingsdialog.ui" line="285"/>
+        <location filename="../../src/settingsdialog.ui" line="280"/>
+        <location filename="../../src/settingsdialog.ui" line="294"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Путь к значку или название значка из темы&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="398"/>
+        <location filename="../../src/settingsdialog.ui" line="347"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU that will be used during normal system startup&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU, который будет использоваться при обычном запуске системы&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="517"/>
+        <location filename="../../src/settingsdialog.ui" line="632"/>
         <source>Driver:</source>
         <translation>Драйвер:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="558"/>
+        <location filename="../../src/settingsdialog.ui" line="673"/>
         <source>Acceleration method:</source>
         <translation>Метод графического ускорения:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="579"/>
-        <location filename="../../src/settingsdialog.ui" line="611"/>
+        <location filename="../../src/settingsdialog.ui" line="694"/>
+        <location filename="../../src/settingsdialog.ui" line="726"/>
         <source>Default</source>
         <translation>По умолчанию</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="584"/>
+        <location filename="../../src/settingsdialog.ui" line="699"/>
         <source>Yes</source>
         <translation>Да</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="463"/>
-        <location filename="../../src/settingsdialog.ui" line="589"/>
+        <location filename="../../src/settingsdialog.ui" line="501"/>
+        <location filename="../../src/settingsdialog.ui" line="704"/>
         <source>No</source>
         <translation>Нет</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="452"/>
+        <location filename="../../src/settingsdialog.ui" line="529"/>
         <source>PCI reset:</source>
         <translation>Сброс PCI:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="459"/>
+        <location filename="../../src/settingsdialog.ui" line="497"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset the Nvidia card at the PCI level before reloading the nvidia module&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;No&lt;/span&gt;: does not perform any reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Function level&lt;/span&gt;: perform a light &amp;quot;function-level&amp;quot; reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Hot reset&lt;/span&gt;: perform a &amp;quot;hot reset&amp;quot; of the PCI bridge (this method messes with the hardware directly and will perform a PCI remove even if it disabled, please read the online documentation of Optimus Manager before using it)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Сбросьте карту Nvidia на уровене PCI перед перезагрузкой модуля nvidia&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Нет&lt;/span&gt;: не выполнять сброс&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Функциональный уровень&lt;/span&gt;: выполнить легкий сброс на функциональном уровне&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Горячий сброс&lt;/span&gt;: Выполнить гарячий сброс на мосте PCI (этот метод напрямую связан с оборудованием а также выполняет удаление PCI, даже если опция отключена, пожалуйста, прочитайте онлайн-документацию Optimus Manager перед его использованием)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="468"/>
+        <location filename="../../src/settingsdialog.ui" line="506"/>
         <source>Function level</source>
         <translation>Функциональный уровень</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="473"/>
+        <location filename="../../src/settingsdialog.ui" line="511"/>
         <source>Hot reset</source>
         <translation>Гарячий сброс</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="484"/>
+        <location filename="../../src/settingsdialog.ui" line="552"/>
         <source>PCI remove</source>
         <translation>Удаление PCI</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="524"/>
+        <location filename="../../src/settingsdialog.ui" line="639"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Версия DRI&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="378"/>
+        <location filename="../../src/settingsdialog.ui" line="562"/>
         <source>PCI power control</source>
         <translation>Управление питанием PCI</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="299"/>
+        <location filename="../../src/settingsdialog.ui" line="308"/>
         <source>Hybrid icon:</source>
         <translation>Значок Hybrid:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="348"/>
+        <location filename="../../src/settingsdialog.ui" line="569"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Method to power switch the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;None&lt;/span&gt;: do not use an external module for power management (for some laptop models it&apos;s preferable to use this option in combination with PCI power control), you can use the scipts nvidia-enable.sh and nvidia-disable.sh to execute custom commands for power management that will be executed only with this method&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: load the nouveau module on the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;: power off the card using the bbswitch module (requires the &amp;quot;bbswitch&amp;quot;dependency)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI call&lt;/span&gt;: try various ACPI method calls to power the card on and off (requires the &amp;quot;acpi_call&amp;quot; dependency)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Метод для переключения питания видеокарты Nvidia&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Отсутствует&lt;/span&gt;: не использовать внешний модуль для управления питанием (для некоторых моделей ноутбуков предпочтительно использовать эту опцию в сочетании с управлением питанием PCI), вы можете использовать скрипты nvidia-enable.sh и nvidia-disable.sh для выполнения пользовательских команд управления питанием, которые будут выполняться только для этого метода&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: загрузить модуль nouveau на видеокарту Nvidia&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;: выключать видеокарту с помощью модуля bbswitch (требуется зависимость &amp;quot;bbswitch&amp;quot;)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI вызов&lt;/span&gt;: пробовать различные вызовы методов ACPI для включения и выключения видеокарты (требуется зависимость &amp;quot;acpi_call&amp;quot;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="375"/>
+        <location filename="../../src/settingsdialog.ui" line="559"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching methods, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить управление питанием PCI в режиме Intel&lt;/p&gt;&lt;p&gt;Эта опция несовместима с методами переключения ACPI вызов и Bbswitch, поэтому в этих случаях она будет игнорироваться&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="435"/>
+        <location filename="../../src/settingsdialog.ui" line="599"/>
         <source>Switching method:</source>
         <translation>Метод переключения:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="442"/>
+        <location filename="../../src/settingsdialog.ui" line="519"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM and bspwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Автоматически выходить из текущего сеанса рабочего стола при переключении GPU&lt;/p&gt;&lt;p&gt;Эта функция в настоящее время поддерживается для  Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM и bspwm&lt;/p&gt;&lt;p&gt;Если этот параметр отключен или вы используете другую среду рабочего стола, переключение графического процессора вступает в силу только при следующем входе в графическую сессию&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="481"/>
+        <location filename="../../src/settingsdialog.ui" line="68"/>
+        <source>Configuration files</source>
+        <translation>Конфигурационные файлы</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="341"/>
+        <source>Startup</source>
+        <translation>Запуск</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="407"/>
+        <source>Optimus Manager config</source>
+        <translation>Конфигурация Optimus Manager</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="413"/>
+        <source>Type:</source>
+        <translation>Тип:</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="423"/>
+        <source>Path:</source>
+        <translation>Путь:</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="437"/>
+        <source>Permanent</source>
+        <translation>Постоянный</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="442"/>
+        <source>Temporary</source>
+        <translation>Временный</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="549"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove the Nvidia card from the PCI bus&lt;/p&gt;&lt;p&gt;May prevent crashes caused by power switching&lt;/p&gt;&lt;p&gt;Ignored if switching method is Nouveau or Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Извлечь видеокарту Nvidia из шины PCI&lt;/p&gt;&lt;p&gt;Может предотвратить сбои, вызванные переключением питания&lt;/p&gt;&lt;p&gt;Игнорируется, если используется метод переключения Nouveau или Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="541"/>
+        <location filename="../../src/settingsdialog.ui" line="656"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Intel GPU&lt;br/&gt;&lt;br/&gt;To use the Intel driver, you need to install the package &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Драйвер для использования с Intel GPU&lt;br/&gt;&lt;br/&gt;Чтобы использовать драйвер Intel, вам необходимо установить пакет &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="575"/>
+        <location filename="../../src/settingsdialog.ui" line="690"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить опцию TearFree в конфигурации Xorg&lt;/p&gt;&lt;p&gt;Применяется только к драйверу Intel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="607"/>
+        <location filename="../../src/settingsdialog.ui" line="722"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Acceleration method (corresponds to AccelMethod in the Xorg configuration)&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Метод акселерации (соответствует AccelMethod в конфигурации Xorg)&lt;/p&gt;&lt;p&gt;Применяется только к драйверу Intel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="708"/>
+        <location filename="../../src/settingsdialog.ui" line="823"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization (which prevents tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить modesetting&lt;/p&gt;&lt;p&gt;Требуется для PRIME Synchronization (которая предотвращает тиринг)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="738"/>
+        <location filename="../../src/settingsdialog.ui" line="853"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить тройную буферизацию&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="741"/>
+        <location filename="../../src/settingsdialog.ui" line="856"/>
         <source>Triple buffer</source>
         <translation>Тройная буферизация</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="798"/>
-        <location filename="../../src/settingsdialog.ui" line="929"/>
+        <location filename="../../src/settingsdialog.ui" line="913"/>
+        <location filename="../../src/settingsdialog.ui" line="1044"/>
         <source>Version:</source>
         <translation>Версия:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="812"/>
-        <location filename="../../src/settingsdialog.ui" line="906"/>
+        <location filename="../../src/settingsdialog.ui" line="927"/>
+        <location filename="../../src/settingsdialog.ui" line="1021"/>
         <source>Author:</source>
         <translation>Автор:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="819"/>
-        <location filename="../../src/settingsdialog.ui" line="943"/>
+        <location filename="../../src/settingsdialog.ui" line="934"/>
+        <location filename="../../src/settingsdialog.ui" line="1058"/>
         <source>License:</source>
         <translation>Лицензия:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="261"/>
+        <location filename="../../src/settingsdialog.cpp" line="311"/>
+        <source>Select temporary configuration file</source>
+        <translation>Выберите временный файл конфигурации</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.cpp" line="312"/>
+        <source>Config files (*.conf);;All files(*)</source>
+        <translation>Файлы конфигурации (*.conf);;Все файлы(*)</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.cpp" line="358"/>
         <source>Select icon</source>
         <translation>Выбрать иконку</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="262"/>
+        <location filename="../../src/settingsdialog.cpp" line="359"/>
         <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
         <translation>Изображения (*.png *.jpg *.bmp);;Все файлы(*)</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="281"/>
+        <location filename="../../src/settingsdialog.cpp" line="378"/>
         <source>Unable to find Optimus Manager daemon.</source>
         <translation>Не удается найти демон Optimus Manager.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="282"/>
+        <location filename="../../src/settingsdialog.cpp" line="379"/>
         <source>Please check the integrity of the package that provides Optimus Manager.</source>
         <translation>Пожалуйста, проверьте целостность пакета, который предоставляет Optimus Manager.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="284"/>
+        <location filename="../../src/settingsdialog.cpp" line="381"/>
         <source>Not found!</source>
         <translation>Не найден!</translation>
     </message>

@@ -44,9 +44,9 @@ public slots:
     void accept() override;
 
 private slots:
-    void chooseIntelIcon();
-    void chooseNvidiaIcon();
-    void chooseHybridIcon();
+    void browseIntelIcon();
+    void browseNvidiaIcon();
+    void browseHybridIcon();
     void previewIntelIcon(const QString &fileName);
     void previewNvidiaIcon(const QString &fileName);
     void previewHybridIcon(const QString &fileName);
@@ -54,8 +54,11 @@ private slots:
     void disableSwitchingMethodIgnored(int index);
     void disablePciResetIgnored(int index);
     void disableIntelDriverIgnored(int index);
+    void disableOptimusPath(int configType);
 
-    void changeStartupMode();
+    void browseTempConfigPath();
+    void loadOptimusSettings(const QString &path);
+
     void restoreDefaults();
 
 private:
@@ -66,7 +69,6 @@ private:
 
     Ui::SettingsDialog *ui;
     bool m_languageChanged = false;
-    bool m_startupModeChanged = true;
 };
 
 #endif // SETTINGSDIALOG_H

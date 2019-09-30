@@ -21,17 +21,19 @@
 #ifndef OPTIMUSSETTINGS_H
 #define OPTIMUSSETTINGS_H
 
-#include <QObject>
+#include <QSettings>
 #include <QFlags>
 
-class QSettings;
-
-class OptimusSettings : private QObject
+class OptimusSettings : public QSettings
 {
     Q_OBJECT
     Q_DISABLE_COPY(OptimusSettings)
 
 public:
+    enum ConfigType {
+        Permanent,
+        Temporary
+    };
     enum SwitchingMethod {
         NoneMethod,
         Nouveau,
@@ -68,11 +70,8 @@ public:
     };
     Q_DECLARE_FLAGS(NvidiaOptions, NvidiaOption)
 
-    OptimusSettings(QObject *parent = nullptr);
-    ~OptimusSettings() override;
-
-    QString fileName();
-    void sync();
+    explicit OptimusSettings(QObject *parent = nullptr);
+    explicit OptimusSettings(const QString &filename, QObject *parent = nullptr);
 
     // Optimus
     SwitchingMethod switchingMethod() const;
@@ -133,11 +132,12 @@ public:
     void setNvidiaOptions(NvidiaOptions options);
     static NvidiaOptions defaultNvidiaOptions();
 
+    static QString permanentConfigPath();
+    static QPair<QString, ConfigType> detectConfigPath();
+
 private:
     static QStringList nvidiaOptionsToStrings(NvidiaOptions options);
     static NvidiaOptions stringToNvidiaOptions(const QStringList &optionStrings);
-
-    static const QString filePath;
 
     // Convert enum values into Optimus Manager strings (no, yes, none etc).
     static const QMap<bool, QString> boolMap;
@@ -147,8 +147,6 @@ private:
     static const QMap<AccelMethod, QString> accelMethodMap;
     static const QMap<TearFree, QString> tearFreeMap;
     static const QMap<NvidiaOption, QString> nvidiaOptionMap;
-
-    QSettings *m_settings;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(OptimusSettings::NvidiaOptions)

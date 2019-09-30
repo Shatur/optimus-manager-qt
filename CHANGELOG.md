@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file. This projec
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.3.3...HEAD)
 
+**Added**
+
+-   Temporary configuration support.
+
 **Changed**
 
 -   Use new Optimus Manager daemon command to send settings instead of `pkexec`.

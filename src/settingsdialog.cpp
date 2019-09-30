@@ -29,6 +29,7 @@
 #include <QStandardItemModel>
 #include <QPushButton>
 #include <QMessageBox>
+#include <QTemporaryFile>
 #ifdef PLASMA
 #include <KIconDialog>
 #endif
@@ -84,8 +85,18 @@ void SettingsDialog::accept()
     appSettings.setGpuIconName(DaemonClient::Nvidia, ui->nvidiaIconEdit->text());
     appSettings.setGpuIconName(DaemonClient::Hybrid, ui->hybridIconEdit->text());
 
+    QString optimusConfigPath;
+    QTemporaryFile temporaryFile;
+    if (ui->optimusConfigTypeComboBox->currentIndex() == OptimusSettings::Permanent) {
+        temporaryFile.open();
+        QFile::copy(OptimusSettings::permanentConfigPath(), temporaryFile.fileName());
+        optimusConfigPath = temporaryFile.fileName();
+    } else {
+        optimusConfigPath = ui->optimusConfigPathEdit->text();
+    }
+
     // Optimus settings
-    OptimusSettings optimusSettings;
+    OptimusSettings optimusSettings(optimusConfigPath);
     optimusSettings.setSwitchingMethod(static_cast<OptimusSettings::SwitchingMethod>(ui->switchingMethodComboBox->currentIndex()));
     optimusSettings.setPciReset(static_cast<OptimusSettings::PciReset>(ui->pciResetComboBox->currentIndex()));
     optimusSettings.setPciPowerControlEnabled(ui->pciPowerControlCheckBox->isChecked());
@@ -120,7 +131,12 @@ void SettingsDialog::accept()
     }
 
     optimusSettings.sync();
-    client.setConfig(optimusSettings.fileName());
+    if (ui->optimusConfigTypeComboBox->currentIndex() == OptimusSettings::Permanent) {
+        client.setConfig(optimusSettings.fileName());
+        client.setTempConfig({});
+    } else {
+        client.setTempConfig(optimusSettings.fileName());
+    }
     if (client.error()) {
         QMessageBox message;
         message.setIcon(QMessageBox::Warning);
@@ -129,15 +145,13 @@ void SettingsDialog::accept()
         return;
     }
 
-    if (m_startupModeChanged) {
-        client.setStartupMode(static_cast<DaemonClient::GPU>(ui->startupModeComboBox->currentIndex()));
-        if (client.error()) {
-            QMessageBox message;
-            message.setIcon(QMessageBox::Warning);
-            message.setText(DaemonClient::tr("Unable to send startup mode to Optimus Manager daemon: %1").arg(client.errorString()));
-            message.exec();
-            return;
-        }
+    client.setStartupMode(static_cast<DaemonClient::GPU>(ui->startupModeComboBox->currentIndex()));
+    if (client.error()) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Warning);
+        message.setText(DaemonClient::tr("Unable to send startup mode to Optimus Manager daemon: %1").arg(client.errorString()));
+        message.exec();
+        return;
     }
 
     QDialog::accept();
@@ -189,43 +203,25 @@ void SettingsDialog::loadSettings()
     ui->nvidiaIconEdit->setText(settings.gpuIconName(DaemonClient::Nvidia));
     ui->hybridIconEdit->setText(settings.gpuIconName(DaemonClient::Hybrid));
 
-    // Optimus settings
-    const OptimusSettings optimusSettings;
+    // Configuration files settings
     ui->startupModeComboBox->setCurrentIndex(DaemonClient::startupMode());
-    ui->switchingMethodComboBox->setCurrentIndex(optimusSettings.switchingMethod());
-    ui->pciResetComboBox->setCurrentIndex(optimusSettings.pciReset());
-    ui->pciPowerControlCheckBox->setChecked(optimusSettings.isPciPowerControlEnabled());
-    ui->pciRemoveCheckBox->setChecked(optimusSettings.isPciRemoveEnabled());
-    ui->autoLogoutCheckBox->setChecked(optimusSettings.isAutoLogoutEnabled());
 
-    // Intel settings
-    ui->intelDriverComboBox->setCurrentIndex(optimusSettings.intelDriver());
-    ui->intelAccelMethodComboBox->setCurrentIndex(optimusSettings.intelAccelMethod());
-    ui->intelTearFreeComboBox->setCurrentIndex(optimusSettings.intelTearFree());
-    ui->intelDriComboBox->setCurrentText(QString::number(optimusSettings.intelDri()));
-    ui->intelModesetCheckBox->setChecked(optimusSettings.isIntelModesetEnabled());
-
-    // Nvidia settings
-    ui->nvidiaDpiSpinBox->setValue(optimusSettings.nvidiaDpi());
-    ui->nvidiaModesetCheckBox->setChecked(optimusSettings.isNvidiaModesetEnabled());
-    ui->nvidiaPatCheckBox->setChecked(optimusSettings.isNvidiaPatEnabled());
-
-    const OptimusSettings::NvidiaOptions nvidiaOptions = optimusSettings.nvidiaOptions();
-    ui->nvidiaOverclockingCheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::Overclocking));
-    ui->nvidiaTripleBuffercheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::TripleBuffer));
+    auto [path, type] = OptimusSettings::detectConfigPath();
+    ui->optimusConfigTypeComboBox->setCurrentIndex(type);
+    ui->optimusConfigPathEdit->setText(path);
 }
 
-void SettingsDialog::chooseIntelIcon()
+void SettingsDialog::browseIntelIcon()
 {
     chooseIcon(ui->intelIconEdit);
 }
 
-void SettingsDialog::chooseNvidiaIcon()
+void SettingsDialog::browseNvidiaIcon()
 {
     chooseIcon(ui->nvidiaIconEdit);
 }
 
-void SettingsDialog::chooseHybridIcon()
+void SettingsDialog::browseHybridIcon()
 {
     chooseIcon(ui->hybridIconEdit);
 }
@@ -246,50 +242,6 @@ void SettingsDialog::previewHybridIcon(const QString &fileName)
 {
     const QIcon icon = OptimusManager::trayGpuIcon(fileName);
     ui->hybridIconButton->setIcon(icon);
-}
-
-void SettingsDialog::chooseIcon(QLineEdit *iconNameEdit)
-{
-#ifdef PLASMA
-    KIconDialog dialog(this);
-    dialog.setup(KIconLoader::Panel, KIconLoader::StatusIcon);
-
-    const QString iconName = dialog.openDialog();
-    if (!iconName.isEmpty())
-        iconNameEdit->setText(iconName);
-#else
-    QFileDialog dialog(this, tr("Select icon"));
-    dialog.setNameFilter(tr("Images (*.png *.jpg *.bmp);;All files(*)"));
-    dialog.setFileMode(QFileDialog::ExistingFile);
-
-    const QFileInfo previousName = iconNameEdit->text();
-    dialog.setDirectory(previousName.exists() ? previousName.path() : QDir::homePath());
-
-    if (dialog.exec())
-        iconNameEdit->setText(dialog.selectedFiles().first());
-#endif
-}
-
-// Parse Optimus Manager version
-QString SettingsDialog::optimusManagerVersion()
-{
-    // Parse Optimus Manager version
-    QFile optimusManagerBin("/usr/bin/optimus-manager-daemon");
-    if (!optimusManagerBin.open(QIODevice::ReadOnly)) {
-        QMessageBox message;
-        message.setIcon(QMessageBox::Critical);
-        message.setText(tr("Unable to find Optimus Manager daemon."));
-        message.setInformativeText(tr("Please check the integrity of the package that provides Optimus Manager."));
-        message.exec();
-        return tr("Not found!");
-    }
-
-    const QByteArray data = optimusManagerBin.readAll();
-    const QByteArray optimusManagerString = "optimus-manager==";
-    const int versionStartIndex = data.indexOf(optimusManagerString) + optimusManagerString.size();
-    const int versionEndIndex = data.indexOf('\'', versionStartIndex);
-
-    return data.mid(versionStartIndex, versionEndIndex - versionStartIndex);
 }
 
 void SettingsDialog::disableSwitchingMethodIgnored(int index)
@@ -339,7 +291,100 @@ void SettingsDialog::disableIntelDriverIgnored(int index)
     }
 }
 
-void SettingsDialog::changeStartupMode()
+void SettingsDialog::disableOptimusPath(int configType)
 {
-    m_startupModeChanged = true;
+    if (configType == OptimusSettings::Permanent) {
+        ui->optimusConfigPathEdit->setText(OptimusSettings::permanentConfigPath());
+        ui->optimusConfigPathEdit->setEnabled(false);
+        ui->optimusConfigPathLabel->setEnabled(false);
+        ui->browseOptimusConfigButton->setEnabled(false);
+    } else {
+        ui->optimusConfigPathEdit->clear();
+        ui->optimusConfigPathEdit->setEnabled(true);
+        ui->optimusConfigPathLabel->setEnabled(true);
+        ui->browseOptimusConfigButton->setEnabled(true);
+    }
+}
+
+void SettingsDialog::browseTempConfigPath()
+{
+    QFileDialog dialog(this, tr("Select temporary configuration file"));
+    dialog.setNameFilter(tr("Config files (*.conf);;All files(*)"));
+
+    const QFileInfo previousName = ui->optimusConfigPathEdit->text();
+    dialog.setDirectory(previousName.exists() ? previousName.path() : QDir::homePath());
+
+    if (dialog.exec())
+        ui->optimusConfigPathEdit->setText(dialog.selectedFiles().first());
+}
+
+void SettingsDialog::loadOptimusSettings(const QString &path)
+{
+    // Optimus settings
+    const OptimusSettings optimusSettings(path);
+    ui->switchingMethodComboBox->setCurrentIndex(optimusSettings.switchingMethod());
+    ui->pciResetComboBox->setCurrentIndex(optimusSettings.pciReset());
+    ui->pciPowerControlCheckBox->setChecked(optimusSettings.isPciPowerControlEnabled());
+    ui->pciRemoveCheckBox->setChecked(optimusSettings.isPciRemoveEnabled());
+    ui->autoLogoutCheckBox->setChecked(optimusSettings.isAutoLogoutEnabled());
+
+    // Intel settings
+    ui->intelDriverComboBox->setCurrentIndex(optimusSettings.intelDriver());
+    ui->intelAccelMethodComboBox->setCurrentIndex(optimusSettings.intelAccelMethod());
+    ui->intelTearFreeComboBox->setCurrentIndex(optimusSettings.intelTearFree());
+    ui->intelDriComboBox->setCurrentText(QString::number(optimusSettings.intelDri()));
+    ui->intelModesetCheckBox->setChecked(optimusSettings.isIntelModesetEnabled());
+
+    // Nvidia settings
+    ui->nvidiaDpiSpinBox->setValue(optimusSettings.nvidiaDpi());
+    ui->nvidiaModesetCheckBox->setChecked(optimusSettings.isNvidiaModesetEnabled());
+    ui->nvidiaPatCheckBox->setChecked(optimusSettings.isNvidiaPatEnabled());
+
+    const OptimusSettings::NvidiaOptions nvidiaOptions = optimusSettings.nvidiaOptions();
+    ui->nvidiaOverclockingCheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::Overclocking));
+    ui->nvidiaTripleBuffercheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::TripleBuffer));
+}
+
+void SettingsDialog::chooseIcon(QLineEdit *iconNameEdit)
+{
+#ifdef PLASMA
+    KIconDialog dialog(this);
+    dialog.setup(KIconLoader::Panel, KIconLoader::StatusIcon);
+
+    const QString iconName = dialog.openDialog();
+    if (!iconName.isEmpty())
+        iconNameEdit->setText(iconName);
+#else
+    QFileDialog dialog(this, tr("Select icon"));
+    dialog.setNameFilter(tr("Images (*.png *.jpg *.bmp);;All files(*)"));
+    dialog.setFileMode(QFileDialog::ExistingFile);
+
+    const QFileInfo previousName = iconNameEdit->text();
+    dialog.setDirectory(previousName.exists() ? previousName.path() : QDir::homePath());
+
+    if (dialog.exec())
+        iconNameEdit->setText(dialog.selectedFiles().first());
+#endif
+}
+
+// Parse Optimus Manager version
+QString SettingsDialog::optimusManagerVersion()
+{
+    // Parse Optimus Manager version
+    QFile optimusManagerBin("/usr/bin/optimus-manager-daemon");
+    if (!optimusManagerBin.open(QIODevice::ReadOnly)) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Critical);
+        message.setText(tr("Unable to find Optimus Manager daemon."));
+        message.setInformativeText(tr("Please check the integrity of the package that provides Optimus Manager."));
+        message.exec();
+        return tr("Not found!");
+    }
+
+    const QByteArray data = optimusManagerBin.readAll();
+    const QByteArray optimusManagerString = "optimus-manager==";
+    const int versionStartIndex = data.indexOf(optimusManagerString) + optimusManagerString.size();
+    const int versionEndIndex = data.indexOf('\'', versionStartIndex);
+
+    return data.mid(versionStartIndex, versionEndIndex - versionStartIndex);
 }
