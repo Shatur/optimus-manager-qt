@@ -284,42 +284,42 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Especifica qual GPU será usada por padrão quando o sistema for inicializado&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="588"/>
+        <location filename="../../src/settingsdialog.ui" line="600"/>
         <source>ACPI call</source>
         <translation>ACPI call</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="596"/>
+        <location filename="../../src/settingsdialog.ui" line="608"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Module used for power switching&lt;/p&gt;&lt;p&gt;If you select &amp;quot;None&amp;quot;, no power switching will be done at all (the Nvidia GPU will stay powered at all times)&lt;/p&gt;&lt;p&gt;If you use bbswitch, you will not be able to use video outputs attached to your Nvidia GPU in Intel mode&lt;/p&gt;&lt;p&gt;To use the bbswitch mode, the bbswitch module must be installed for your current kernel&lt;/p&gt;&lt;p&gt;You can install it for the default kernel with &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Módulo usado para a troca por desligamento&lt;/p&gt;&lt;p&gt;Se você selecionar &amp;quot;Nenhum&amp;quot;, nenhuma troca por desligamento será feita (a GPU Nvidia permanecerá ligada o tempo todo)&lt;/p&gt;&lt;p&gt;Se você usar bbswitch, você não poderá usar as saídas de vídeo conectadas à sua GPU Nvidia no modo Intel&lt;/p&gt;&lt;p&gt;Para usar o modo bbswitch, o módulo deve ser instalado para o seu kernel atual&lt;/p&gt;&lt;p&gt;Você pode instalar com &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="522"/>
+        <location filename="../../src/settingsdialog.ui" line="534"/>
         <source>Automatic logout</source>
         <translation>Desconectar automaticamente</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="757"/>
+        <location filename="../../src/settingsdialog.ui" line="769"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with Bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Se deve ou não habilitar o modesetting para o driver nouveau&lt;/p&gt;&lt;p&gt;Não afeta o modesetting para o driver da GPU Intel&lt;/p&gt;&lt;p&gt;Esta opção é incompatível com o Bbswitch e será ignorada se estiver ativada&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="800"/>
+        <location filename="../../src/settingsdialog.ui" line="812"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manager&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Isso será definido usando o script Xsetup passado para o seu gerenciador de login&lt;br/&gt;Irá executar o comando&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Deixe 0 para o padrão&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="833"/>
+        <location filename="../../src/settingsdialog.ui" line="845"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Se deve ou não habilitar a opção NVreg_UsePageAttributeTable no driver da Nvidia&lt;span style=&quot; font-style:italic;&quot;&gt;Recomendado&lt;/span&gt;, pode causar um desempenho ruim da CPU, caso contrário&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="843"/>
+        <location filename="../../src/settingsdialog.ui" line="855"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o CoolBits na configuração do Xorg e desbloqueia as opções de clocking&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="846"/>
+        <location filename="../../src/settingsdialog.ui" line="858"/>
         <source>Overclocking options</source>
         <translation>Opções de overclock</translation>
     </message>
@@ -345,7 +345,7 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation>Modo de inicialização:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="573"/>
+        <location filename="../../src/settingsdialog.ui" line="585"/>
         <source>None</source>
         <translation>Nenhum</translation>
     </message>
@@ -366,64 +366,64 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU que será usada durante o inicialização normal do sistema&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="632"/>
+        <location filename="../../src/settingsdialog.ui" line="644"/>
         <source>Driver:</source>
         <translation>Driver:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="673"/>
+        <location filename="../../src/settingsdialog.ui" line="685"/>
         <source>Acceleration method:</source>
         <translation>Método de aceleração:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="694"/>
-        <location filename="../../src/settingsdialog.ui" line="726"/>
+        <location filename="../../src/settingsdialog.ui" line="706"/>
+        <location filename="../../src/settingsdialog.ui" line="738"/>
         <source>Default</source>
         <translation>Padrão</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="699"/>
+        <location filename="../../src/settingsdialog.ui" line="711"/>
         <source>Yes</source>
         <translation>Sim</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="501"/>
-        <location filename="../../src/settingsdialog.ui" line="704"/>
+        <location filename="../../src/settingsdialog.ui" line="513"/>
+        <location filename="../../src/settingsdialog.ui" line="716"/>
         <source>No</source>
         <translation>Não</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="529"/>
+        <location filename="../../src/settingsdialog.ui" line="541"/>
         <source>PCI reset:</source>
         <translation>Reinício da PCI:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="497"/>
+        <location filename="../../src/settingsdialog.ui" line="509"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset the Nvidia card at the PCI level before reloading the nvidia module&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;No&lt;/span&gt;: does not perform any reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Function level&lt;/span&gt;: perform a light &amp;quot;function-level&amp;quot; reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Hot reset&lt;/span&gt;: perform a &amp;quot;hot reset&amp;quot; of the PCI bridge (this method messes with the hardware directly and will perform a PCI remove even if it disabled, please read the online documentation of Optimus Manager before using it)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reinicia a placa Nvidia, ao nível PCI, antes de recarregar o módulo da Nvidia&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Não&lt;/span&gt;: não faz nenhum tipo de reinício&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nível funcional&lt;/span&gt;: faz um leve reinício de &amp;quot;function-level&amp;quot;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Reinício agressivo&lt;/span&gt;: faz um &amp;quot;hot reset&amp;quot; da PCI brigde (este método desordena diretamente com o hardware e executa uma remoção da PCI, mesmo se desativada, leia a documentação on-line do Optimus Manager antes de usar)</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="506"/>
+        <location filename="../../src/settingsdialog.ui" line="518"/>
         <source>Function level</source>
         <translation>Nível funcional</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="511"/>
+        <location filename="../../src/settingsdialog.ui" line="523"/>
         <source>Hot reset</source>
         <translation>Reinício agressivo</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="552"/>
+        <location filename="../../src/settingsdialog.ui" line="564"/>
         <source>PCI remove</source>
         <translation>Remoção da PCI</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="639"/>
+        <location filename="../../src/settingsdialog.ui" line="651"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Versão do DRI&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="562"/>
+        <location filename="../../src/settingsdialog.ui" line="574"/>
         <source>PCI power control</source>
         <translation>Controle de energia da PCI</translation>
     </message>
@@ -433,22 +433,22 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation>Ícone Híbrido:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="569"/>
+        <location filename="../../src/settingsdialog.ui" line="581"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Method to power switch the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;None&lt;/span&gt;: do not use an external module for power management (for some laptop models it&apos;s preferable to use this option in combination with PCI power control), you can use the scipts nvidia-enable.sh and nvidia-disable.sh to execute custom commands for power management that will be executed only with this method&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: load the nouveau module on the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;: power off the card using the bbswitch module (requires the &amp;quot;bbswitch&amp;quot;dependency)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI call&lt;/span&gt;: try various ACPI method calls to power the card on and off (requires the &amp;quot;acpi_call&amp;quot; dependency)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Método de troca de energia da placa Nvidia&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nenhum&lt;/span&gt;: não utiliza nenhum módulo para o gerenciamento de energia (para alguns modelos de notebooks é preferível que se use esta opção em combinação com o controle de energia da PCI), você pode usar scripts nvidia-enable.sh e nvidia-disable.sh para criar comandos personalizados para o gerenciador de energia que executará apenas neste método&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: carrega o módulo nouveau na placa Nvidia&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;: desliga a placa usando o módulo bbswitch (requer o pacote &amp;quot;bbswitch&amp;quot; instalado)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI call&lt;/span&gt;: tenta vários métodos de chamadas ACPI para ligar e desligar a placa (requer o pacote &amp;quot;acpi_call&amp;quot; instalado)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="559"/>
+        <location filename="../../src/settingsdialog.ui" line="571"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching methods, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o gerenciamento de energia da PCI no modo Intel&lt;/p&gt;&lt;p&gt;Esta opção é incompatível com os métodos de troca de ACPI call e Bbswitch, portanto será ignorada nestes casos&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="599"/>
+        <location filename="../../src/settingsdialog.ui" line="611"/>
         <source>Switching method:</source>
         <translation>Método da troca:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="519"/>
+        <location filename="../../src/settingsdialog.ui" line="531"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM and bspwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Desconecta-se automaticamente da atual sessão da área de trabalho quando trocar as GPUs&lt;/p&gt;&lt;p&gt;Atualmente, este recurso é compatível com: Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM e bspwm&lt;/p&gt;&lt;p&gt;Se esta opção estiver desativada ou você usar um ambiente de área de trabalho diferente, a troca da GPU só se tornará eficaz no próximo login da sessão gráfica&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -478,65 +478,90 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="437"/>
+        <location filename="../../src/settingsdialog.ui" line="436"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Type of the configuration&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Permanent&lt;/span&gt;: configuration file that will be used every time it starts&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Temporary&lt;/span&gt;: configuration file that will be used only once at the next boot&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="440"/>
         <source>Permanent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="442"/>
+        <location filename="../../src/settingsdialog.ui" line="445"/>
         <source>Temporary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="549"/>
+        <location filename="../../src/settingsdialog.ui" line="456"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to configuration file that will be loaded&lt;/p&gt;&lt;p&gt;If such a file does not exist, then it will be created automatically&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="459"/>
+        <source>Path to configuration file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="469"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Browse configuration file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="472"/>
+        <source>Browse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="561"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove the Nvidia card from the PCI bus&lt;/p&gt;&lt;p&gt;May prevent crashes caused by power switching&lt;/p&gt;&lt;p&gt;Ignored if switching method is Nouveau or Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove a placa Nvidia do PCI bus&lt;/p&gt;&lt;p&gt;Pode prevenir crashes causados pela troca de energia&lt;/p&gt;&lt;p&gt;Esta opção é ignorada caso o método de troca seja Nouveau ou Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="656"/>
+        <location filename="../../src/settingsdialog.ui" line="668"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Intel GPU&lt;br/&gt;&lt;br/&gt;To use the Intel driver, you need to install the package &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver para o uso da Intel GPU&lt;br/&gt;&lt;br/&gt;Para usar o driver Intel, você precisa instalar o pacote &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="690"/>
+        <location filename="../../src/settingsdialog.ui" line="702"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita a opção TearFree na configuração do Xorg&lt;/p&gt;&lt;p&gt;Esta opção é compatível apenas com o driver Intel&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="722"/>
+        <location filename="../../src/settingsdialog.ui" line="734"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Acceleration method (corresponds to AccelMethod in the Xorg configuration)&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Método de aceleração (corresponde ao AccelMethod na configuração do Xorg)&lt;/p&gt;&lt;p&gt;Esta opção é compatível apenas com o driver Intel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="823"/>
+        <location filename="../../src/settingsdialog.ui" line="835"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization (which prevents tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o modesetting&lt;/p&gt;&lt;p&gt;Requerido para o Sincronização PRIME (que previne tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="853"/>
+        <location filename="../../src/settingsdialog.ui" line="865"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o buffer triplo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="856"/>
+        <location filename="../../src/settingsdialog.ui" line="868"/>
         <source>Triple buffer</source>
         <translation>Buffer triplo</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="913"/>
-        <location filename="../../src/settingsdialog.ui" line="1044"/>
+        <location filename="../../src/settingsdialog.ui" line="925"/>
+        <location filename="../../src/settingsdialog.ui" line="1056"/>
         <source>Version:</source>
         <translation>Versão:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="927"/>
-        <location filename="../../src/settingsdialog.ui" line="1021"/>
+        <location filename="../../src/settingsdialog.ui" line="939"/>
+        <location filename="../../src/settingsdialog.ui" line="1033"/>
         <source>Author:</source>
         <translation>Autor:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="934"/>
-        <location filename="../../src/settingsdialog.ui" line="1058"/>
+        <location filename="../../src/settingsdialog.ui" line="946"/>
+        <location filename="../../src/settingsdialog.ui" line="1070"/>
         <source>License:</source>
         <translation>Licença:</translation>
     </message>
