@@ -70,6 +70,23 @@ bool SettingsDialog::languageChanged() const
 
 void SettingsDialog::accept()
 {
+    // Check Optimus Manager config path
+    const QString optimusManagerConfig = configurationPath();
+    if (optimusManagerConfig.isEmpty()) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Critical);
+        message.setText(tr("Optimus Manager temporary configuration file path cannot be empty"));
+        message.exec();
+        return;
+    }
+    if (optimusManagerConfig == OptimusSettings::permanentConfigPath()) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Critical);
+        message.setText(tr("Optimus Manager temporary configuration file path cannot be a permanent configuration file path"));
+        message.exec();
+        return;
+    }
+
     // Check if language changed
     AppSettings appSettings;
     const auto language = ui->languageComboBox->currentData().value<QLocale::Language>();
@@ -85,18 +102,8 @@ void SettingsDialog::accept()
     appSettings.setGpuIconName(DaemonClient::Nvidia, ui->nvidiaIconEdit->text());
     appSettings.setGpuIconName(DaemonClient::Hybrid, ui->hybridIconEdit->text());
 
-    QString optimusConfigPath;
-    QTemporaryFile temporaryFile;
-    if (ui->optimusConfigTypeComboBox->currentIndex() == OptimusSettings::Permanent) {
-        temporaryFile.open();
-        QFile::copy(OptimusSettings::permanentConfigPath(), temporaryFile.fileName());
-        optimusConfigPath = temporaryFile.fileName();
-    } else {
-        optimusConfigPath = ui->optimusConfigPathEdit->text();
-    }
-
     // Optimus settings
-    OptimusSettings optimusSettings(optimusConfigPath);
+    OptimusSettings optimusSettings(optimusManagerConfig);
     optimusSettings.setSwitchingMethod(static_cast<OptimusSettings::SwitchingMethod>(ui->switchingMethodComboBox->currentIndex()));
     optimusSettings.setPciReset(static_cast<OptimusSettings::PciReset>(ui->pciResetComboBox->currentIndex()));
     optimusSettings.setPciPowerControlEnabled(ui->pciPowerControlCheckBox->isChecked());
@@ -124,7 +131,7 @@ void SettingsDialog::accept()
     client.connect();
     if (client.error()) {
         QMessageBox message;
-        message.setIcon(QMessageBox::Warning);
+        message.setIcon(QMessageBox::Critical);
         message.setText(DaemonClient::tr("Unable to connect to Optimus Manager daemon: %1").arg(client.errorString()));
         message.exec();
         return;
@@ -134,12 +141,13 @@ void SettingsDialog::accept()
     if (ui->optimusConfigTypeComboBox->currentIndex() == OptimusSettings::Permanent) {
         client.setConfig(optimusSettings.fileName());
         client.setTempConfig({});
+        QFile::remove(optimusManagerConfig);
     } else {
         client.setTempConfig(optimusSettings.fileName());
     }
     if (client.error()) {
         QMessageBox message;
-        message.setIcon(QMessageBox::Warning);
+        message.setIcon(QMessageBox::Critical);
         message.setText(DaemonClient::tr("Unable to send configuration file to Optimus Manager daemon: %1").arg(client.errorString()));
         message.exec();
         return;
@@ -148,7 +156,7 @@ void SettingsDialog::accept()
     client.setStartupMode(static_cast<DaemonClient::GPU>(ui->startupModeComboBox->currentIndex()));
     if (client.error()) {
         QMessageBox message;
-        message.setIcon(QMessageBox::Warning);
+        message.setIcon(QMessageBox::Critical);
         message.setText(DaemonClient::tr("Unable to send startup mode to Optimus Manager daemon: %1").arg(client.errorString()));
         message.exec();
         return;
@@ -365,6 +373,18 @@ void SettingsDialog::chooseIcon(QLineEdit *iconNameEdit)
     if (dialog.exec())
         iconNameEdit->setText(dialog.selectedFiles().first());
 #endif
+}
+
+QString SettingsDialog::configurationPath()
+{
+    if (ui->optimusConfigTypeComboBox->currentIndex() == OptimusSettings::Permanent) {
+        // Create a temporary file that will be used for sending to the daemon
+        const QString path = QDir::tempPath() + QStringLiteral("/optimus-manager.conf");
+        QFile::copy(OptimusSettings::permanentConfigPath(), path);
+        return path;
+    } else {
+        return ui->optimusConfigPathEdit->text();
+    }
 }
 
 // Parse Optimus Manager version

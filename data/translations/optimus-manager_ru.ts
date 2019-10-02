@@ -18,7 +18,7 @@
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="361"/>
-        <location filename="../../src/settingsdialog.cpp" line="128"/>
+        <location filename="../../src/settingsdialog.cpp" line="135"/>
         <source>Unable to connect to Optimus Manager daemon: %1</source>
         <translation>Не удается подключиться к демону Optimus Manager: %1</translation>
     </message>
@@ -28,12 +28,12 @@
         <translation>Не удается отправить имя GPU для переключения демону Optimus Manager: %1</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="143"/>
+        <location filename="../../src/settingsdialog.cpp" line="151"/>
         <source>Unable to send configuration file to Optimus Manager daemon: %1</source>
         <translation>Не удается отправить файл конфигурации демону Optimus Manager: %1</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="152"/>
+        <location filename="../../src/settingsdialog.cpp" line="160"/>
         <source>Unable to send startup mode to Optimus Manager daemon: %1</source>
         <translation>Не удается отправить режим запуска демону Optimus Manager: %1</translation>
     </message>
@@ -570,37 +570,47 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation>Лицензия:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="311"/>
+        <location filename="../../src/settingsdialog.cpp" line="78"/>
+        <source>Optimus Manager temporary configuration file path cannot be empty</source>
+        <translation>Путь к временному файлу конфигурации Optimus Manager не может быть пустым</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.cpp" line="85"/>
+        <source>Optimus Manager temporary configuration file path cannot be a permanent configuration file path</source>
+        <translation>Путь к временному файлу конфигурации Optimus Manager не может являтся путем к постоянному файлу конфигурации</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.cpp" line="319"/>
         <source>Select temporary configuration file</source>
         <translation>Выберите временный файл конфигурации</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="312"/>
+        <location filename="../../src/settingsdialog.cpp" line="320"/>
         <source>Config files (*.conf);;All files(*)</source>
         <translation>Файлы конфигурации (*.conf);;Все файлы(*)</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="358"/>
+        <location filename="../../src/settingsdialog.cpp" line="366"/>
         <source>Select icon</source>
         <translation>Выбрать иконку</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="359"/>
+        <location filename="../../src/settingsdialog.cpp" line="367"/>
         <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
         <translation>Изображения (*.png *.jpg *.bmp);;Все файлы(*)</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="378"/>
+        <location filename="../../src/settingsdialog.cpp" line="398"/>
         <source>Unable to find Optimus Manager daemon.</source>
         <translation>Не удается найти демон Optimus Manager.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="379"/>
+        <location filename="../../src/settingsdialog.cpp" line="399"/>
         <source>Please check the integrity of the package that provides Optimus Manager.</source>
         <translation>Пожалуйста, проверьте целостность пакета, который предоставляет Optimus Manager.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="381"/>
+        <location filename="../../src/settingsdialog.cpp" line="401"/>
         <source>Not found!</source>
         <translation>Не найден!</translation>
     </message>

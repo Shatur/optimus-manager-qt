@@ -64,6 +64,7 @@ private slots:
 private:
     void loadSettings();
     void chooseIcon(QLineEdit *iconNameEdit);
+    QString configurationPath();
 
     static QString optimusManagerVersion();
 
