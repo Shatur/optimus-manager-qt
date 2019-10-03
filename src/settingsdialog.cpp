@@ -55,7 +55,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->languageComboBox->setItemData(7, QLocale::Spanish);
     ui->languageComboBox->setItemData(8, QLocale::Turkish);
 
-    loadSettings();
+    loadAllSettings();
 }
 
 SettingsDialog::~SettingsDialog()
@@ -102,30 +102,8 @@ void SettingsDialog::accept()
     appSettings.setGpuIconName(DaemonClient::Nvidia, ui->nvidiaIconEdit->text());
     appSettings.setGpuIconName(DaemonClient::Hybrid, ui->hybridIconEdit->text());
 
-    // Optimus settings
-    OptimusSettings optimusSettings(optimusManagerConfig);
-    optimusSettings.setSwitchingMethod(static_cast<OptimusSettings::SwitchingMethod>(ui->switchingMethodComboBox->currentIndex()));
-    optimusSettings.setPciReset(static_cast<OptimusSettings::PciReset>(ui->pciResetComboBox->currentIndex()));
-    optimusSettings.setPciPowerControlEnabled(ui->pciPowerControlCheckBox->isChecked());
-    optimusSettings.setPciRemoveEnabled(ui->pciRemoveCheckBox->isChecked());
-    optimusSettings.setAutoLogoutEnabled(ui->autoLogoutCheckBox->isChecked());
-
-    // Intel settings
-    optimusSettings.setIntelDriver(static_cast<OptimusSettings::Driver>(ui->intelDriverComboBox->currentIndex()));
-    optimusSettings.setIntelAccelMethod(static_cast<OptimusSettings::AccelMethod>(ui->intelAccelMethodComboBox->currentIndex()));
-    optimusSettings.setIntelTearFree(static_cast<OptimusSettings::TearFree>(ui->intelTearFreeComboBox->currentIndex()));
-    optimusSettings.setIntelDri(static_cast<OptimusSettings::DRI>(ui->intelDriComboBox->currentText().toInt()));
-    optimusSettings.setIntelModesetEnabled(ui->intelModesetCheckBox->isChecked());
-
-    // Nvidia settings
-    optimusSettings.setNvidiaDpi(ui->nvidiaDpiSpinBox->value());
-    optimusSettings.setNvidiaModesetEnabled(ui->nvidiaModesetCheckBox->isChecked());
-    optimusSettings.setNvidiaPatEnabled(ui->nvidiaPatCheckBox->isChecked());
-
-    OptimusSettings::NvidiaOptions nvidiaOptions;
-    nvidiaOptions.setFlag(OptimusSettings::Overclocking, ui->nvidiaOverclockingCheckBox->isChecked());
-    nvidiaOptions.setFlag(OptimusSettings::TripleBuffer, ui->nvidiaTripleBuffercheckBox->isChecked());
-    optimusSettings.setNvidiaOptions(nvidiaOptions);
+    // All other optimus settings
+    saveOptimusSettings(optimusManagerConfig);
 
     DaemonClient client;
     client.connect();
@@ -137,13 +115,12 @@ void SettingsDialog::accept()
         return;
     }
 
-    optimusSettings.sync();
     if (ui->optimusConfigTypeComboBox->currentIndex() == OptimusSettings::Permanent) {
-        client.setConfig(optimusSettings.fileName());
+        client.setConfig(optimusManagerConfig);
         client.setTempConfig({});
         QFile::remove(optimusManagerConfig);
     } else {
-        client.setTempConfig(optimusSettings.fileName());
+        client.setTempConfig(optimusManagerConfig);
     }
     if (client.error()) {
         QMessageBox message;
@@ -200,7 +177,35 @@ void SettingsDialog::restoreDefaults()
     ui->nvidiaTripleBuffercheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::TripleBuffer));
 }
 
-void SettingsDialog::loadSettings()
+void SettingsDialog::saveOptimusSettings(const QString &path) const
+{
+    // Optimus settings
+    OptimusSettings optimusSettings(path);
+    optimusSettings.setSwitchingMethod(static_cast<OptimusSettings::SwitchingMethod>(ui->switchingMethodComboBox->currentIndex()));
+    optimusSettings.setPciReset(static_cast<OptimusSettings::PciReset>(ui->pciResetComboBox->currentIndex()));
+    optimusSettings.setPciPowerControlEnabled(ui->pciPowerControlCheckBox->isChecked());
+    optimusSettings.setPciRemoveEnabled(ui->pciRemoveCheckBox->isChecked());
+    optimusSettings.setAutoLogoutEnabled(ui->autoLogoutCheckBox->isChecked());
+
+    // Intel settings
+    optimusSettings.setIntelDriver(static_cast<OptimusSettings::Driver>(ui->intelDriverComboBox->currentIndex()));
+    optimusSettings.setIntelAccelMethod(static_cast<OptimusSettings::AccelMethod>(ui->intelAccelMethodComboBox->currentIndex()));
+    optimusSettings.setIntelTearFree(static_cast<OptimusSettings::TearFree>(ui->intelTearFreeComboBox->currentIndex()));
+    optimusSettings.setIntelDri(static_cast<OptimusSettings::DRI>(ui->intelDriComboBox->currentText().toInt()));
+    optimusSettings.setIntelModesetEnabled(ui->intelModesetCheckBox->isChecked());
+
+    // Nvidia settings
+    optimusSettings.setNvidiaDpi(ui->nvidiaDpiSpinBox->value());
+    optimusSettings.setNvidiaModesetEnabled(ui->nvidiaModesetCheckBox->isChecked());
+    optimusSettings.setNvidiaPatEnabled(ui->nvidiaPatCheckBox->isChecked());
+
+    OptimusSettings::NvidiaOptions nvidiaOptions;
+    nvidiaOptions.setFlag(OptimusSettings::Overclocking, ui->nvidiaOverclockingCheckBox->isChecked());
+    nvidiaOptions.setFlag(OptimusSettings::TripleBuffer, ui->nvidiaTripleBuffercheckBox->isChecked());
+    optimusSettings.setNvidiaOptions(nvidiaOptions);
+}
+
+void SettingsDialog::loadAllSettings()
 {
     // General settings
     const AppSettings settings;
@@ -221,17 +226,17 @@ void SettingsDialog::loadSettings()
 
 void SettingsDialog::browseIntelIcon()
 {
-    chooseIcon(ui->intelIconEdit);
+    browseIcon(ui->intelIconEdit);
 }
 
 void SettingsDialog::browseNvidiaIcon()
 {
-    chooseIcon(ui->nvidiaIconEdit);
+    browseIcon(ui->nvidiaIconEdit);
 }
 
 void SettingsDialog::browseHybridIcon()
 {
-    chooseIcon(ui->hybridIconEdit);
+    browseIcon(ui->hybridIconEdit);
 }
 
 void SettingsDialog::previewIntelIcon(const QString &fileName)
@@ -326,6 +331,32 @@ void SettingsDialog::browseTempConfigPath()
         ui->optimusConfigPathEdit->setText(dialog.selectedFiles().first());
 }
 
+void SettingsDialog::exportOptimusConfig()
+{
+    QFileDialog dialog(this, tr("Export Optimus Manager settings"));
+    dialog.setNameFilter(tr("Config files (*.conf);;All files(*)"));
+    dialog.setAcceptMode(QFileDialog::AcceptSave);
+
+    const QFileInfo previousName = ui->optimusConfigPathEdit->text();
+    dialog.setDirectory(previousName.exists() ? previousName.path() : QDir::homePath());
+
+    if (dialog.exec())
+        saveOptimusSettings(dialog.selectedFiles().first());
+}
+
+void SettingsDialog::importOptimusConfig()
+{
+    QFileDialog dialog(this, tr("Import Optimus Manager settings"));
+    dialog.setNameFilter(tr("Config files (*.conf);;All files(*)"));
+    dialog.setFileMode(QFileDialog::ExistingFile);
+
+    const QFileInfo previousName = ui->optimusConfigPathEdit->text();
+    dialog.setDirectory(previousName.exists() ? previousName.path() : QDir::homePath());
+
+    if (dialog.exec())
+        loadOptimusSettings(dialog.selectedFiles().first());
+}
+
 void SettingsDialog::loadOptimusSettings(const QString &path)
 {
     // Optimus settings
@@ -353,7 +384,7 @@ void SettingsDialog::loadOptimusSettings(const QString &path)
     ui->nvidiaTripleBuffercheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::TripleBuffer));
 }
 
-void SettingsDialog::chooseIcon(QLineEdit *iconNameEdit)
+void SettingsDialog::browseIcon(QLineEdit *iconNameEdit)
 {
 #ifdef PLASMA
     KIconDialog dialog(this);
@@ -375,7 +406,7 @@ void SettingsDialog::chooseIcon(QLineEdit *iconNameEdit)
 #endif
 }
 
-QString SettingsDialog::configurationPath()
+QString SettingsDialog::configurationPath() const
 {
     if (ui->optimusConfigTypeComboBox->currentIndex() == OptimusSettings::Permanent) {
         // Create a temporary file that will be used for sending to the daemon

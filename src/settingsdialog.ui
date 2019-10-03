@@ -407,20 +407,26 @@
            <string>Optimus Manager config</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_5">
-           <item row="0" column="0">
-            <widget class="QLabel" name="optimusConfigTypeLabel">
-             <property name="text">
-              <string>Type:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
+           <item row="3" column="0">
             <widget class="QLabel" name="optimusConfigPathLabel">
              <property name="enabled">
               <bool>false</bool>
              </property>
              <property name="text">
               <string>Path:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="optimusConfigPathEdit">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to configuration file that will be loaded&lt;/p&gt;&lt;p&gt;If such a file does not exist, then it will be created automatically&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="placeholderText">
+              <string>Path to configuration file</string>
              </property>
             </widget>
            </item>
@@ -447,20 +453,7 @@
              </item>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QLineEdit" name="optimusConfigPathEdit">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to configuration file that will be loaded&lt;/p&gt;&lt;p&gt;If such a file does not exist, then it will be created automatically&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-             <property name="placeholderText">
-              <string>Path to configuration file</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
+           <item row="3" column="2">
             <widget class="QToolButton" name="browseOptimusConfigButton">
              <property name="enabled">
               <bool>false</bool>
@@ -476,6 +469,62 @@
                <normaloff>.</normaloff>.</iconset>
              </property>
             </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="optimusConfigTypeLabel">
+             <property name="text">
+              <string>Type:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="3">
+            <layout class="QHBoxLayout" name="importExportLayout">
+             <item>
+              <widget class="QPushButton" name="importOptimusConfigButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Import Optimus Manager settings from file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="text">
+                <string>Import</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="exportOptimusConfigButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Export current settings to file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="text">
+                <string>Export</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="importExportSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -1346,6 +1395,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>exportOptimusConfigButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SettingsDialog</receiver>
+   <slot>exportOptimusConfig()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>262</x>
+     <y>218</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>importOptimusConfigButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SettingsDialog</receiver>
+   <slot>importOptimusConfig()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>262</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>browseNvidiaIcon()</slot>
@@ -1361,5 +1442,7 @@
   <slot>loadOptimusSettings(QString)</slot>
   <slot>disableOptimusPath(int)</slot>
   <slot>browseTempConfigPath()</slot>
+  <slot>exportOptimusConfig()</slot>
+  <slot>importOptimusConfig()</slot>
  </slots>
 </ui>

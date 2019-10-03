@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file. This projec
 **Added**
 
 -   Temporary configuration support.
+-   The ability to import and export Optimus Manager settings.
 
 **Changed**
 

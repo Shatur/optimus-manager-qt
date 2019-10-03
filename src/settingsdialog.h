@@ -57,14 +57,18 @@ private slots:
     void disableOptimusPath(int configType);
 
     void browseTempConfigPath();
+    void exportOptimusConfig();
+    void importOptimusConfig();
     void loadOptimusSettings(const QString &path);
 
     void restoreDefaults();
 
 private:
-    void loadSettings();
-    void chooseIcon(QLineEdit *iconNameEdit);
-    QString configurationPath();
+    void loadAllSettings();
+    void saveOptimusSettings(const QString &path) const;
+
+    void browseIcon(QLineEdit *iconNameEdit);
+    QString configurationPath() const;
 
     static QString optimusManagerVersion();
 
