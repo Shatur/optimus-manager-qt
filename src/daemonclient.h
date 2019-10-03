@@ -37,7 +37,7 @@ public:
     Q_ENUM(GPU)
 
     explicit DaemonClient(QObject *parent = nullptr);
-    ~DaemonClient();
+    ~DaemonClient() override;
 
     void connect();
     void disconnect();

@@ -382,9 +382,9 @@ QString SettingsDialog::configurationPath()
         const QString path = QDir::tempPath() + QStringLiteral("/optimus-manager.conf");
         QFile::copy(OptimusSettings::permanentConfigPath(), path);
         return path;
-    } else {
-        return ui->optimusConfigPathEdit->text();
     }
+
+    return ui->optimusConfigPathEdit->text();
 }
 
 // Parse Optimus Manager version
