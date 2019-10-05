@@ -55,7 +55,13 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->languageComboBox->setItemData(7, QLocale::Spanish);
     ui->languageComboBox->setItemData(8, QLocale::Turkish);
 
-    loadAllSettings();
+    loadAppSettings();
+
+    auto [path, type] = OptimusSettings::detectConfigPath();
+    ui->optimusConfigTypeComboBox->setCurrentIndex(type);
+    ui->optimusConfigPathEdit->setText(path);
+
+    ui->startupModeComboBox->setCurrentIndex(DaemonClient::startupMode()); // Startup mode stored in a separate file
 }
 
 SettingsDialog::~SettingsDialog()
@@ -87,22 +93,6 @@ void SettingsDialog::accept()
         return;
     }
 
-    // Check if language changed
-    AppSettings appSettings;
-    const auto language = ui->languageComboBox->currentData().value<QLocale::Language>();
-    if (language != appSettings.language()) {
-        appSettings.setLocale(language);
-        m_languageChanged = true;
-    }
-
-    // General settings
-    appSettings.setAutostartEnabled(ui->autostartCheckBox->isChecked());
-    appSettings.setConfirmSwitching(ui->confirmSwitchingCheckBox->isChecked());
-    appSettings.setGpuIconName(DaemonClient::Intel, ui->intelIconEdit->text());
-    appSettings.setGpuIconName(DaemonClient::Nvidia, ui->nvidiaIconEdit->text());
-    appSettings.setGpuIconName(DaemonClient::Hybrid, ui->hybridIconEdit->text());
-
-    // All other optimus settings
     saveOptimusSettings(optimusManagerConfig);
 
     DaemonClient client;
@@ -122,6 +112,7 @@ void SettingsDialog::accept()
     } else {
         client.setTempConfig(optimusManagerConfig);
     }
+
     if (client.error()) {
         QMessageBox message;
         message.setIcon(QMessageBox::Critical);
@@ -138,6 +129,8 @@ void SettingsDialog::accept()
         message.exec();
         return;
     }
+
+    saveAppSettings();
 
     QDialog::accept();
 }
@@ -205,7 +198,7 @@ void SettingsDialog::saveOptimusSettings(const QString &path) const
     optimusSettings.setNvidiaOptions(nvidiaOptions);
 }
 
-void SettingsDialog::loadAllSettings()
+void SettingsDialog::loadAppSettings()
 {
     // General settings
     const AppSettings settings;
@@ -215,13 +208,24 @@ void SettingsDialog::loadAllSettings()
     ui->intelIconEdit->setText(settings.gpuIconName(DaemonClient::Intel));
     ui->nvidiaIconEdit->setText(settings.gpuIconName(DaemonClient::Nvidia));
     ui->hybridIconEdit->setText(settings.gpuIconName(DaemonClient::Hybrid));
+}
 
-    // Configuration files settings
-    ui->startupModeComboBox->setCurrentIndex(DaemonClient::startupMode());
+void SettingsDialog::saveAppSettings()
+{
+    // Check if language changed
+    AppSettings appSettings;
+    const auto language = ui->languageComboBox->currentData().value<QLocale::Language>();
+    if (language != appSettings.language()) {
+        appSettings.setLocale(language);
+        m_languageChanged = true;
+    }
 
-    auto [path, type] = OptimusSettings::detectConfigPath();
-    ui->optimusConfigTypeComboBox->setCurrentIndex(type);
-    ui->optimusConfigPathEdit->setText(path);
+    // General settings
+    appSettings.setAutostartEnabled(ui->autostartCheckBox->isChecked());
+    appSettings.setConfirmSwitching(ui->confirmSwitchingCheckBox->isChecked());
+    appSettings.setGpuIconName(DaemonClient::Intel, ui->intelIconEdit->text());
+    appSettings.setGpuIconName(DaemonClient::Nvidia, ui->nvidiaIconEdit->text());
+    appSettings.setGpuIconName(DaemonClient::Hybrid, ui->hybridIconEdit->text());
 }
 
 void SettingsDialog::browseIntelIcon()

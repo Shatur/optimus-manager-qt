@@ -64,7 +64,9 @@ private slots:
     void restoreDefaults();
 
 private:
-    void loadAllSettings();
+    void loadAppSettings();
+    void saveAppSettings();
+
     void saveOptimusSettings(const QString &path) const;
 
     void browseIcon(QLineEdit *iconNameEdit);
