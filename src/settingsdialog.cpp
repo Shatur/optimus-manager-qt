@@ -26,10 +26,7 @@
 #include "singleapplication.h"
 
 #include <QFileDialog>
-#include <QStandardItemModel>
-#include <QPushButton>
 #include <QMessageBox>
-#include <QTemporaryFile>
 #ifdef PLASMA
 #include <KIconDialog>
 #endif

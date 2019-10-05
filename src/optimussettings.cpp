@@ -20,12 +20,8 @@
 
 #include "optimussettings.h"
 #include "daemonclient.h"
-#include "singleapplication.h"
 
-#include <QProcess>
 #include <QFile>
-#include <QSettings>
-#include <QMessageBox>
 
 const QMap<bool, QString> OptimusSettings::boolMap = {{false, QStringLiteral("no")},
                                                        {true, QStringLiteral("yes")}};

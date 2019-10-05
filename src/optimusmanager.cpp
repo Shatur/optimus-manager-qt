@@ -23,7 +23,6 @@
 #include "settingsdialog.h"
 #include "singleapplication.h"
 #include "optimussettings.h"
-#include "daemonclient.h"
 #include "x11deleters.h"
 #include "session.h"
 

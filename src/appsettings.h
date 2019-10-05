@@ -24,7 +24,6 @@
 #include "daemonclient.h"
 
 #include <QSettings>
-#include <QTranslator>
 #include <QLocale>
 
 class QTranslator;

@@ -19,11 +19,11 @@
  */
 
 #include "daemonclient.h"
-#include "singleapplication.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QFile>
+#include <QMap>
 #include <QMessageBox>
 
 #include <unistd.h>
@@ -106,7 +106,9 @@ DaemonClient::GPU DaemonClient::startupMode()
 {
     QFile file("/var/lib/optimus-manager/startup_mode");
     if (!file.open(QIODevice::ReadOnly)) {
-        QMessageBox message(QMessageBox::Warning, SingleApplication::applicationName(), tr("Unable to open startup mode file"));
+        QMessageBox message;
+        message.setIcon(QMessageBox::Warning);
+        message.setText(tr("Unable to open startup mode file"));
         message.exec();
         return defaultStartupMode();
     }
