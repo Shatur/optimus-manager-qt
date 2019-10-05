@@ -27,7 +27,7 @@
 #include "x11deleters.h"
 #include "session.h"
 
-#include <QtX11Extras/QX11Info>
+#include <QX11Info>
 #include <QProcess>
 #include <QFileInfo>
 #include <QMenu>
@@ -408,15 +408,18 @@ DaemonClient::GPU OptimusManager::detectGpu()
     qFatal("Unable to detect GPU");
 }
 
-bool OptimusManager::isModuleAvailable(const QString &moduleName)
+bool OptimusManager::isModuleAvailable(const QByteArray &moduleName)
 {
-    QProcess process;
-    process.setProgram("modinfo");
-    process.setArguments({moduleName});
-    process.start();
-    process.waitForFinished();
+    QFile modulesFile(QStringLiteral("/proc/modules"));
+    if (!modulesFile.open(QIODevice::ReadOnly))
+        return false;
 
-    return process.exitCode() == 0;
+    for (QByteArray moduleInfo = modulesFile.readLine(); !moduleInfo.isNull(); moduleInfo = modulesFile.readLine()) {
+        if (moduleInfo.startsWith(moduleName) && moduleInfo.at(moduleName.size()) == ' ')
+            return true;
+    }
+
+    return false;
 }
 
 bool OptimusManager::isServiceActive(const QString &serviceName)

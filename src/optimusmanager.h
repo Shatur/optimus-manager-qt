@@ -57,7 +57,7 @@ private:
     void switchGpu(DaemonClient::GPU switchingGpu);
 
     static DaemonClient::GPU detectGpu();
-    static bool isModuleAvailable(const QString &moduleName);
+    static bool isModuleAvailable(const QByteArray &moduleName);
     static bool isServiceActive(const QString &serviceName);
     static bool isGdmPatched();
     static QString currentDisplayManager();
