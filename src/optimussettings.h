@@ -134,6 +134,7 @@ public:
 
     static QString permanentConfigPath();
     static QPair<QString, ConfigType> detectConfigPath();
+    static ConfigType defaultConfigType();
 
 private:
     static QStringList nvidiaOptionsToStrings(NvidiaOptions options);

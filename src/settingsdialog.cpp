@@ -145,6 +145,9 @@ void SettingsDialog::restoreDefaults()
     ui->nvidiaIconEdit->setText(AppSettings::defaultTrayIconName(DaemonClient::Nvidia));
     ui->hybridIconEdit->setText(AppSettings::defaultTrayIconName(DaemonClient::Hybrid));
 
+    // Configuration files settings
+    ui->optimusConfigTypeComboBox->setCurrentIndex(OptimusSettings::defaultConfigType());
+
     // Optimus settings
     ui->startupModeComboBox->setCurrentIndex(DaemonClient::defaultStartupMode());
     ui->switchingMethodComboBox->setCurrentIndex(OptimusSettings::defaultSwitchingMethod());

@@ -296,6 +296,11 @@ QPair<QString, OptimusSettings::ConfigType> OptimusSettings::detectConfigPath()
     return {permanentConfigPath(), Permanent};
 }
 
+OptimusSettings::ConfigType OptimusSettings::defaultConfigType()
+{
+    return Permanent;
+}
+
 QStringList OptimusSettings::nvidiaOptionsToStrings(NvidiaOptions options)
 {
     QStringList optionStrings;
