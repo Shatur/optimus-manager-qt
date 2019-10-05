@@ -24,8 +24,8 @@
 #include "daemonclient.h"
 
 #include <QObject>
-#include <QDBusObjectPath>
 
+class Session;
 class QMenu;
 #ifdef PLASMA
 class KStatusNotifierItem;
@@ -51,16 +51,6 @@ private slots:
     void openSettings();
 
 private:
-    // To demarshall QDBusArgument
-    struct Session
-    {
-        QString sessionId;
-        int userId = 0;
-        QString userName;
-        QString seatId;
-        QDBusObjectPath sessionObjectPath;
-    };
-
     void showNotification(const QString &message, const QString &iconName, int interval = 10000);
     void loadSettings();
     void retranslateUi();

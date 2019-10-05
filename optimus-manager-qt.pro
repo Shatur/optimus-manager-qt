@@ -31,6 +31,7 @@ SOURCES += \
 
 HEADERS += \
     src/optimusmanager.h \
+    src/session.h \
     src/settingsdialog.h \
     src/optimussettings.h \
     src/appsettings.h \

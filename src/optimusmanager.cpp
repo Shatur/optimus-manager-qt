@@ -25,6 +25,7 @@
 #include "optimussettings.h"
 #include "daemonclient.h"
 #include "x11deleters.h"
+#include "session.h"
 
 #include <QtX11Extras/QX11Info>
 #include <QProcess>
@@ -441,7 +442,7 @@ QString OptimusManager::currentDisplayManager()
     return displayManager.value("Service/ExecStart").toString();
 }
 
-QVector<OptimusManager::Session> OptimusManager::activeSessions()
+QVector<Session> OptimusManager::activeSessions()
 {
     // Get list of sessions
     QDBusInterface logind("org.freedesktop.login1", "/org/freedesktop/login1", "org.freedesktop.login1.Manager", QDBusConnection::systemBus());
@@ -455,7 +456,7 @@ QVector<OptimusManager::Session> OptimusManager::activeSessions()
         sessionList.beginStructure();
         sessionList >> session.sessionId >> session.userId >> session.userName >> session.seatId >> session.sessionObjectPath;
         sessionList.endStructure();
-        activeSessions << session;
+        activeSessions << qMove(session);
     }
     sessionList.endArray();
 
@@ -463,7 +464,7 @@ QVector<OptimusManager::Session> OptimusManager::activeSessions()
 }
 
 // Return number of sessions, ignore gdm user
-int OptimusManager::sessionsCountWithoutGdm(const QVector<OptimusManager::Session> &sessions)
+int OptimusManager::sessionsCountWithoutGdm(const QVector<Session> &sessions)
 {
     int sessionCount = 0;
     for (const Session &session : sessions) {
