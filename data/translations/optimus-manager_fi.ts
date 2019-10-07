@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fi">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.1">
 <context>
     <name>AppSettings</name>
     <message>
@@ -20,22 +18,22 @@
         <location filename="../../src/optimusmanager.cpp" line="361"/>
         <location filename="../../src/settingsdialog.cpp" line="113"/>
         <source>Unable to connect to Optimus Manager daemon: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Yhteyden muodostaminen Optimus Manager taustaprosessiin ei onnistu: %1</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="371"/>
         <source>Unable to send GPU name to switch to Optimus Manager daemon: %1</source>
-        <translation type="unfinished">GPU-nimeä ei voi vaihtaa Optimus Manager -taustaprosessiin: %1</translation>
+        <translation>GPU-nimeä ei voi vaihtaa Optimus Manager -taustaprosessiin: %1</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="128"/>
         <source>Unable to send configuration file to Optimus Manager daemon: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Asetukset tiedostoa ei voi lähettää Optimus Manager -taustaprosessiin: %1</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="137"/>
         <source>Unable to send startup mode to Optimus Manager daemon: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Käynnistystilaa ei voi lähettää Optimus Manager taustaprosessiin: %1</translation>
     </message>
 </context>
 <context>
@@ -88,7 +86,8 @@
         <location filename="../../src/optimusmanager.cpp" line="211"/>
         <source>Switching between GPUs will work but you will likely experience poor battery life.
 If you have already enabled the new Runtime D3 power management inside the Nvidia driver (for Turing+ GPU with Coffee Lake+ CPU), you can safely ignore this warning.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaihto GPU:n välillä toimii, mutta akun kesto on todennäköisesti heikko.
+Jos olet jo ottanut käyttöön uuden D3-virranhallinnan Nvidia-ohjaimessa, voit ohittaa tämän varoituksen (vaihto + GPU with Coffee Lake + CPU).</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="221"/>
@@ -126,7 +125,7 @@ Jatka joka tapauksessa?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="346"/>
-        <source>Optimus Manager will use &apos;%1&apos; driver instead. You can change driver in settings or install the &apos;%2&apos; driver from the package &apos;%3&apos;.
+        <source>Optimus Manager will use '%1' driver instead. You can change driver in settings or install the '%2' driver from the package '%3'.
 Continue anyway?</source>
         <translation>Optimus Manager käyttää sen sijaan &apos;%1&apos; -ohjainta. Voit muuttaa ohjaimen asetuksissa tai asentaa &apos;%2&apos; -ohjaimen paketista &apos;%3&apos;.
 Jatka joka tapauksessa?</translation>
@@ -161,7 +160,7 @@ Jatketaanko?</translation>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="222"/>
         <source>Please enable and start it with:
-&apos;%1&apos;
+'%1'
 &apos;%2&apos;</source>
         <translation>Ota käyttöön ja käynnistä se seuraavasti:
 &apos;%1&apos;
@@ -192,7 +191,7 @@ Voit asettaa &apos;%1&apos; GPU-kytkimille asetuksissa tai asentaa bbswitch-olet
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="256"/>
-        <source>GDM need to be patched for Prime switching. Follow &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
+        <source>GDM need to be patched for Prime switching. Follow &lt;a href='https://github.com/Askannz/optimus-manager'&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
 Continue anyway?</source>
         <translation>GDM on korjattava, jotta se voidaan vaihtaa. Asenna korjattu versio noudattamalla &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;näitä &lt;/a&gt;ohjeita. Ilman korjattua GDM-versiota GPU-kytkentä todennäköisesti epäonnistuu.
 Jatka joka tapauksessa?</translation>
@@ -204,7 +203,7 @@ Jatka joka tapauksessa?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="303"/>
-        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with &apos;%1&apos; and reboot your computer.
+        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with '%1' and reboot your computer.
 Ignore this warning and proceed with GPU switching now?</source>
         <translation>Tämä voi häiritä Optimus Manageria. Ennen kuin yrität GPU kytkentää, on suositeltavaa, että poistat tämän palvelun käytöstä painikkeella &apos;%1&apos; ja käynnistät tietokoneen uudelleen.
 Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
@@ -458,82 +457,82 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
     <message>
         <location filename="../../src/settingsdialog.ui" line="68"/>
         <source>Configuration files</source>
-        <translation type="unfinished"></translation>
+        <translation>Määritetyt tiedostot</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="341"/>
         <source>Startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Käynnistys</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="407"/>
         <source>Optimus Manager config</source>
-        <translation type="unfinished"></translation>
+        <translation>Optimus Manager asetus</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="476"/>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tyyppi:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="416"/>
         <source>Path:</source>
-        <translation type="unfinished"></translation>
+        <translation>Polku:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="442"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Type of the configuration&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Permanent&lt;/span&gt;: configuration file that will be used every time it starts&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Temporary&lt;/span&gt;: configuration file that will be used only once at the next boot&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Asetuksen valinta &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Pysyvä &lt;/span&gt;: Kokoonpanon tiedosto, jota käytetään käynnistyessä joka kerta. &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Tilapäinen&lt;/span&gt; : Asetus, jota käytetään vain kerran seuraavassa käynnistyksessä&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="446"/>
         <source>Permanent</source>
-        <translation type="unfinished"></translation>
+        <translation>Pysyvä</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="451"/>
         <source>Temporary</source>
-        <translation type="unfinished"></translation>
+        <translation>Väliaikainen</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="426"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to configuration file that will be loaded&lt;/p&gt;&lt;p&gt;If such a file does not exist, then it will be created automatically&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Polkumääritys tiedostoon, joka ladataan&lt;/p&gt;&lt;p&gt;, jos tällaista tiedostoa ei ole, se luodaan automaattisesti&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="429"/>
         <source>Path to configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>Polku määritystiedostoon</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="462"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Browse configuration file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Selaa määritystiedosto&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="465"/>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Selaa</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="491"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Import Optimus Manager settings from file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tuo Optimus Manager asetus tiedostosta&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="494"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuo</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="507"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Export current settings to file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Vie nykyiset asetukset tiedostoon&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="510"/>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Vie</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="610"/>
@@ -591,34 +590,34 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="78"/>
         <source>Optimus Manager temporary configuration file path cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Optimus Manager sovelluksen väliaikainen määritystiedoston polku ei voi olla tyhjä</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="85"/>
         <source>Optimus Manager temporary configuration file path cannot be a permanent configuration file path</source>
-        <translation type="unfinished"></translation>
+        <translation>Optimus Manager sovelluksen väliaikainen määritystiedoston polku ei voi olla pysyvän määritystiedoston polku</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="324"/>
         <source>Select temporary configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>Valitse väliaikainen määritystiedosto</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="325"/>
         <location filename="../../src/settingsdialog.cpp" line="337"/>
         <location filename="../../src/settingsdialog.cpp" line="350"/>
         <source>Config files (*.conf);;All files(*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Määritystiedostot (*.conf);;Kaikki tiedostot(*)</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="336"/>
         <source>Export Optimus Manager settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Vie Optimus Manager asetukset</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="349"/>
         <source>Import Optimus Manager settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuo Optimus Manager asetukset</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="397"/>
