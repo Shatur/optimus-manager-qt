@@ -105,7 +105,6 @@ void SettingsDialog::accept()
     if (ui->optimusConfigTypeComboBox->currentIndex() == OptimusSettings::Permanent) {
         client.setConfig(optimusManagerConfig);
         client.setTempConfig({});
-        QFile::remove(optimusManagerConfig);
     } else {
         client.setTempConfig(optimusManagerConfig);
     }
