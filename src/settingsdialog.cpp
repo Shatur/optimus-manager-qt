@@ -169,34 +169,6 @@ void SettingsDialog::restoreDefaults()
     ui->nvidiaTripleBuffercheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::TripleBuffer));
 }
 
-void SettingsDialog::saveOptimusSettings(const QString &path) const
-{
-    // Optimus settings
-    OptimusSettings optimusSettings(path);
-    optimusSettings.setSwitchingMethod(static_cast<OptimusSettings::SwitchingMethod>(ui->switchingMethodComboBox->currentIndex()));
-    optimusSettings.setPciReset(static_cast<OptimusSettings::PciReset>(ui->pciResetComboBox->currentIndex()));
-    optimusSettings.setPciPowerControlEnabled(ui->pciPowerControlCheckBox->isChecked());
-    optimusSettings.setPciRemoveEnabled(ui->pciRemoveCheckBox->isChecked());
-    optimusSettings.setAutoLogoutEnabled(ui->autoLogoutCheckBox->isChecked());
-
-    // Intel settings
-    optimusSettings.setIntelDriver(static_cast<OptimusSettings::Driver>(ui->intelDriverComboBox->currentIndex()));
-    optimusSettings.setIntelAccelMethod(static_cast<OptimusSettings::AccelMethod>(ui->intelAccelMethodComboBox->currentIndex()));
-    optimusSettings.setIntelTearFree(static_cast<OptimusSettings::TearFree>(ui->intelTearFreeComboBox->currentIndex()));
-    optimusSettings.setIntelDri(static_cast<OptimusSettings::DRI>(ui->intelDriComboBox->currentText().toInt()));
-    optimusSettings.setIntelModesetEnabled(ui->intelModesetCheckBox->isChecked());
-
-    // Nvidia settings
-    optimusSettings.setNvidiaDpi(ui->nvidiaDpiSpinBox->value());
-    optimusSettings.setNvidiaModesetEnabled(ui->nvidiaModesetCheckBox->isChecked());
-    optimusSettings.setNvidiaPatEnabled(ui->nvidiaPatCheckBox->isChecked());
-
-    OptimusSettings::NvidiaOptions nvidiaOptions;
-    nvidiaOptions.setFlag(OptimusSettings::Overclocking, ui->nvidiaOverclockingCheckBox->isChecked());
-    nvidiaOptions.setFlag(OptimusSettings::TripleBuffer, ui->nvidiaTripleBuffercheckBox->isChecked());
-    optimusSettings.setNvidiaOptions(nvidiaOptions);
-}
-
 void SettingsDialog::loadAppSettings()
 {
     // General settings
@@ -225,6 +197,61 @@ void SettingsDialog::saveAppSettings()
     appSettings.setGpuIconName(DaemonClient::Intel, ui->intelIconEdit->text());
     appSettings.setGpuIconName(DaemonClient::Nvidia, ui->nvidiaIconEdit->text());
     appSettings.setGpuIconName(DaemonClient::Hybrid, ui->hybridIconEdit->text());
+}
+
+void SettingsDialog::loadOptimusSettings(const QString &path)
+{
+    // Optimus settings
+    const OptimusSettings optimusSettings(path);
+    ui->switchingMethodComboBox->setCurrentIndex(optimusSettings.switchingMethod());
+    ui->pciResetComboBox->setCurrentIndex(optimusSettings.pciReset());
+    ui->pciPowerControlCheckBox->setChecked(optimusSettings.isPciPowerControlEnabled());
+    ui->pciRemoveCheckBox->setChecked(optimusSettings.isPciRemoveEnabled());
+    ui->autoLogoutCheckBox->setChecked(optimusSettings.isAutoLogoutEnabled());
+
+    // Intel settings
+    ui->intelDriverComboBox->setCurrentIndex(optimusSettings.intelDriver());
+    ui->intelAccelMethodComboBox->setCurrentIndex(optimusSettings.intelAccelMethod());
+    ui->intelTearFreeComboBox->setCurrentIndex(optimusSettings.intelTearFree());
+    ui->intelDriComboBox->setCurrentText(QString::number(optimusSettings.intelDri()));
+    ui->intelModesetCheckBox->setChecked(optimusSettings.isIntelModesetEnabled());
+
+    // Nvidia settings
+    ui->nvidiaDpiSpinBox->setValue(optimusSettings.nvidiaDpi());
+    ui->nvidiaModesetCheckBox->setChecked(optimusSettings.isNvidiaModesetEnabled());
+    ui->nvidiaPatCheckBox->setChecked(optimusSettings.isNvidiaPatEnabled());
+
+    const OptimusSettings::NvidiaOptions nvidiaOptions = optimusSettings.nvidiaOptions();
+    ui->nvidiaOverclockingCheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::Overclocking));
+    ui->nvidiaTripleBuffercheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::TripleBuffer));
+}
+
+void SettingsDialog::saveOptimusSettings(const QString &path) const
+{
+    // Optimus settings
+    OptimusSettings optimusSettings(path);
+    optimusSettings.setSwitchingMethod(static_cast<OptimusSettings::SwitchingMethod>(ui->switchingMethodComboBox->currentIndex()));
+    optimusSettings.setPciReset(static_cast<OptimusSettings::PciReset>(ui->pciResetComboBox->currentIndex()));
+    optimusSettings.setPciPowerControlEnabled(ui->pciPowerControlCheckBox->isChecked());
+    optimusSettings.setPciRemoveEnabled(ui->pciRemoveCheckBox->isChecked());
+    optimusSettings.setAutoLogoutEnabled(ui->autoLogoutCheckBox->isChecked());
+
+    // Intel settings
+    optimusSettings.setIntelDriver(static_cast<OptimusSettings::Driver>(ui->intelDriverComboBox->currentIndex()));
+    optimusSettings.setIntelAccelMethod(static_cast<OptimusSettings::AccelMethod>(ui->intelAccelMethodComboBox->currentIndex()));
+    optimusSettings.setIntelTearFree(static_cast<OptimusSettings::TearFree>(ui->intelTearFreeComboBox->currentIndex()));
+    optimusSettings.setIntelDri(static_cast<OptimusSettings::DRI>(ui->intelDriComboBox->currentText().toInt()));
+    optimusSettings.setIntelModesetEnabled(ui->intelModesetCheckBox->isChecked());
+
+    // Nvidia settings
+    optimusSettings.setNvidiaDpi(ui->nvidiaDpiSpinBox->value());
+    optimusSettings.setNvidiaModesetEnabled(ui->nvidiaModesetCheckBox->isChecked());
+    optimusSettings.setNvidiaPatEnabled(ui->nvidiaPatCheckBox->isChecked());
+
+    OptimusSettings::NvidiaOptions nvidiaOptions;
+    nvidiaOptions.setFlag(OptimusSettings::Overclocking, ui->nvidiaOverclockingCheckBox->isChecked());
+    nvidiaOptions.setFlag(OptimusSettings::TripleBuffer, ui->nvidiaTripleBuffercheckBox->isChecked());
+    optimusSettings.setNvidiaOptions(nvidiaOptions);
 }
 
 void SettingsDialog::browseIntelIcon()
@@ -307,7 +334,7 @@ void SettingsDialog::disableIntelDriverIgnored(int index)
     }
 }
 
-void SettingsDialog::disableOptimusPath(int configType)
+void SettingsDialog::loadOptimusConfigType(int configType)
 {
     if (configType == OptimusSettings::Permanent) {
         ui->optimusConfigPathEdit->setText(OptimusSettings::permanentConfigPath());
@@ -360,31 +387,12 @@ void SettingsDialog::importOptimusConfig()
         loadOptimusSettings(dialog.selectedFiles().first());
 }
 
-void SettingsDialog::loadOptimusSettings(const QString &path)
+void SettingsDialog::loadOptimusSettingsPath(const QString &path)
 {
-    // Optimus settings
-    const OptimusSettings optimusSettings(path);
-    ui->switchingMethodComboBox->setCurrentIndex(optimusSettings.switchingMethod());
-    ui->pciResetComboBox->setCurrentIndex(optimusSettings.pciReset());
-    ui->pciPowerControlCheckBox->setChecked(optimusSettings.isPciPowerControlEnabled());
-    ui->pciRemoveCheckBox->setChecked(optimusSettings.isPciRemoveEnabled());
-    ui->autoLogoutCheckBox->setChecked(optimusSettings.isAutoLogoutEnabled());
+    ui->exportOptimusConfigButton->setEnabled(!path.isEmpty());
+    ui->importOptimusConfigButton->setEnabled(!path.isEmpty());
 
-    // Intel settings
-    ui->intelDriverComboBox->setCurrentIndex(optimusSettings.intelDriver());
-    ui->intelAccelMethodComboBox->setCurrentIndex(optimusSettings.intelAccelMethod());
-    ui->intelTearFreeComboBox->setCurrentIndex(optimusSettings.intelTearFree());
-    ui->intelDriComboBox->setCurrentText(QString::number(optimusSettings.intelDri()));
-    ui->intelModesetCheckBox->setChecked(optimusSettings.isIntelModesetEnabled());
-
-    // Nvidia settings
-    ui->nvidiaDpiSpinBox->setValue(optimusSettings.nvidiaDpi());
-    ui->nvidiaModesetCheckBox->setChecked(optimusSettings.isNvidiaModesetEnabled());
-    ui->nvidiaPatCheckBox->setChecked(optimusSettings.isNvidiaPatEnabled());
-
-    const OptimusSettings::NvidiaOptions nvidiaOptions = optimusSettings.nvidiaOptions();
-    ui->nvidiaOverclockingCheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::Overclocking));
-    ui->nvidiaTripleBuffercheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::TripleBuffer));
+    loadOptimusSettings(path);
 }
 
 void SettingsDialog::browseIcon(QLineEdit *iconNameEdit)

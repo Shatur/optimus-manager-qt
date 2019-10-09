@@ -1351,7 +1351,7 @@
    <sender>optimusConfigPathEdit</sender>
    <signal>textChanged(QString)</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>loadOptimusSettings(QString)</slot>
+   <slot>loadOptimusSettingsPath(QString)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>500</x>
@@ -1367,7 +1367,7 @@
    <sender>optimusConfigTypeComboBox</sender>
    <signal>currentIndexChanged(int)</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>disableOptimusPath(int)</slot>
+   <slot>loadOptimusConfigType(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>300</x>
@@ -1439,8 +1439,8 @@
   <slot>changeStartupMode()</slot>
   <slot>previewHybridIcon(QString)</slot>
   <slot>browseHybridIcon()</slot>
-  <slot>loadOptimusSettings(QString)</slot>
-  <slot>disableOptimusPath(int)</slot>
+  <slot>loadOptimusSettingsPath(QString)</slot>
+  <slot>loadOptimusConfigType(int)</slot>
   <slot>browseTempConfigPath()</slot>
   <slot>exportOptimusConfig()</slot>
   <slot>importOptimusConfig()</slot>

@@ -54,12 +54,13 @@ private slots:
     void disableSwitchingMethodIgnored(int index);
     void disablePciResetIgnored(int index);
     void disableIntelDriverIgnored(int index);
-    void disableOptimusPath(int configType);
+    void loadOptimusConfigType(int configType);
 
     void browseTempConfigPath();
     void exportOptimusConfig();
     void importOptimusConfig();
-    void loadOptimusSettings(const QString &path);
+
+    void loadOptimusSettingsPath(const QString &path);
 
     void restoreDefaults();
 
@@ -67,6 +68,7 @@ private:
     void loadAppSettings();
     void saveAppSettings();
 
+    void loadOptimusSettings(const QString &path);
     void saveOptimusSettings(const QString &path) const;
 
     void browseIcon(QLineEdit *iconNameEdit);
