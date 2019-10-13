@@ -226,7 +226,7 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
     }
 
     // Check if bbswitch module is available
-    if (optimusSettings.switchingMethod() == OptimusSettings::Bbswitch && !isModuleAvailable("bbswitch")) {
+    if (optimusSettings.switchingMethod() == OptimusSettings::Bbswitch && !isModuleAvailable(QStringLiteral("bbswitch"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Warning);
         message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg("bbswitch"));
@@ -238,7 +238,7 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
     }
 
     // Check if nvidia module is available
-    if (switchingGpu == DaemonClient::Nvidia && !isModuleAvailable("nvidia")) {
+    if (switchingGpu == DaemonClient::Nvidia && !isModuleAvailable(QStringLiteral("nvidia"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
         message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg("nvidia"));
@@ -407,14 +407,18 @@ DaemonClient::GPU OptimusManager::detectGpu()
     qFatal("Unable to detect GPU");
 }
 
-bool OptimusManager::isModuleAvailable(const QByteArray &moduleName)
+bool OptimusManager::isModuleAvailable(const QString &moduleName)
 {
-    QFile modulesFile(QStringLiteral("/proc/modules"));
+    QFile modulesFile(QStringLiteral("/lib/modules/%1/modules.dep").arg(QSysInfo::kernelVersion()));
     if (!modulesFile.open(QIODevice::ReadOnly))
         return false;
 
     for (QByteArray moduleInfo = modulesFile.readLine(); !moduleInfo.isNull(); moduleInfo = modulesFile.readLine()) {
-        if (moduleInfo.startsWith(moduleName) && moduleInfo.at(moduleName.size()) == ' ')
+        moduleInfo = moduleInfo.trimmed();
+        if (moduleInfo.startsWith('#')) // Ignore comment lines
+            continue;
+
+        if (QFileInfo(moduleInfo.left(':')).baseName() == moduleName)
             return true;
     }
 
