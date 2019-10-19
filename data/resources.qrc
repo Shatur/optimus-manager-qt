@@ -15,5 +15,7 @@
         <file>translations/optimus-manager_de.qm</file>
         <file>flags/tr.svg</file>
         <file>translations/optimus-manager_tr.qm</file>
+        <file>translations/optimus-manager_hu.qm</file>
+        <file>flags/hu.svg</file>
     </qresource>
 </RCC>

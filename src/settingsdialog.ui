@@ -166,6 +166,15 @@
              </item>
              <item>
               <property name="text">
+               <string>Magyar</string>
+              </property>
+              <property name="icon">
+               <iconset resource="../data/resources.qrc">
+                <normaloff>:/flags/hu.svg</normaloff>:/flags/hu.svg</iconset>
+              </property>
+             </item>
+             <item>
+              <property name="text">
                <string notr="true">Português (Brasil)</string>
               </property>
               <property name="icon">

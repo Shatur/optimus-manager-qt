@@ -49,7 +49,8 @@ TRANSLATIONS += \
     data/translations/optimus-manager_pt_BR.ts \
     data/translations/optimus-manager_ru.ts \
     data/translations/optimus-manager_es.ts \
-    data/translations/optimus-manager_tr.ts
+    data/translations/optimus-manager_tr.ts \
+    data/translations/optimus-manager_hu.ts
 
 INSTALLS += \
     bin \
