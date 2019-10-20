@@ -12,13 +12,13 @@
 <context>
     <name>DaemonClient</name>
     <message>
-        <location filename="../../src/daemonclient.cpp" line="109"/>
+        <location filename="../../src/daemonclient.cpp" line="111"/>
         <source>Unable to open startup mode file</source>
         <translation type="unfinished">Başlangıç modu dosyası açılamıyor</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="361"/>
-        <location filename="../../src/settingsdialog.cpp" line="113"/>
+        <location filename="../../src/settingsdialog.cpp" line="101"/>
         <source>Unable to connect to Optimus Manager daemon: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28,12 +28,12 @@
         <translation type="unfinished">Optimus Manager arkaplana geçmek için GPU adı gönderilemiyor:% 1</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="128"/>
+        <location filename="../../src/settingsdialog.cpp" line="129"/>
         <source>Unable to send configuration file to Optimus Manager daemon: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="137"/>
+        <location filename="../../src/settingsdialog.cpp" line="138"/>
         <source>Unable to send startup mode to Optimus Manager daemon: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -242,12 +242,12 @@ Bu uyarıyı dikkate almayın ve şimdi GPU geçişi ile devam edin.</translatio
         <translation>Hakkında</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="214"/>
+        <location filename="../../src/settingsdialog.ui" line="223"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Application language&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Uygulama dili&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="217"/>
+        <location filename="../../src/settingsdialog.ui" line="226"/>
         <source>Language:</source>
         <translation>Dil:</translation>
     </message>
@@ -257,98 +257,98 @@ Bu uyarıyı dikkate almayın ve şimdi GPU geçişi ile devam edin.</translatio
         <translation>&lt;System language&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="240"/>
+        <location filename="../../src/settingsdialog.ui" line="249"/>
         <source>Launch at startup</source>
         <translation>Başlangıçta başlat</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="247"/>
+        <location filename="../../src/settingsdialog.ui" line="256"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show confirmation dialog when switching GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU’yu değiştirirken onay iletişim kutusunu göster&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="250"/>
+        <location filename="../../src/settingsdialog.ui" line="259"/>
         <source>Confirm switching</source>
         <translation>Geçişi Onayla</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="301"/>
+        <location filename="../../src/settingsdialog.ui" line="310"/>
         <source>Nvidia icon:</source>
         <translation>Nvidia simgesi:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="287"/>
+        <location filename="../../src/settingsdialog.ui" line="296"/>
         <source>Intel icon:</source>
         <translation>Intel simgesi:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="381"/>
+        <location filename="../../src/settingsdialog.ui" line="390"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Specify which GPU will be used by default when the system boots&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sistem önyüklenirken hangi GPU&apos;nun varsayılan olarak kullanılacağını belirtin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="649"/>
+        <location filename="../../src/settingsdialog.ui" line="658"/>
         <source>ACPI call</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="657"/>
+        <location filename="../../src/settingsdialog.ui" line="666"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Module used for power switching&lt;/p&gt;&lt;p&gt;If you select &amp;quot;None&amp;quot;, no power switching will be done at all (the Nvidia GPU will stay powered at all times)&lt;/p&gt;&lt;p&gt;If you use bbswitch, you will not be able to use video outputs attached to your Nvidia GPU in Intel mode&lt;/p&gt;&lt;p&gt;To use the bbswitch mode, the bbswitch module must be installed for your current kernel&lt;/p&gt;&lt;p&gt;You can install it for the default kernel with &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Güç değişimi için kullanılan modül&lt;/p&gt;&lt;p&gt;Eğer &amp;quot;yok&amp;quot; seçeneğini seçerseniz, hiçbir güç geçişi yapılmaz (Nvidia GPU her zaman güç kalacak)&lt;/p&gt;&lt;p&gt;Eğer bbswitch kullanıyorsanız, Nvidia GPU’nuza bağlı video çıkışlarını Intel modunda kullanamazsınız.&lt;/p&gt;&lt;p&gt;Bbswitch modunu kullanmak için, geçerli çekirdeğiniz için bbswitch modülünün kurulu olması gerekir.&lt;/p&gt;&lt;p&gt;Varsayılan çekirdek için &amp;quot;pacman-s bbswitch&amp;quot; ile yükleyebilirsiniz;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="583"/>
+        <location filename="../../src/settingsdialog.ui" line="592"/>
         <source>Automatic logout</source>
         <translation>Otomatik çıkış</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="818"/>
+        <location filename="../../src/settingsdialog.ui" line="827"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with Bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="861"/>
+        <location filename="../../src/settingsdialog.ui" line="873"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manager&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bu, oturum açma yöneticinize iletilen Xsetup komut dosyası kullanılarak ayarlanır.&lt;br/&gt;Komutu çalıştırır&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Varsayılan değer için 0 bırakın&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="894"/>
+        <location filename="../../src/settingsdialog.ui" line="863"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Nvidia sürücüsündeki NVreg_UsePageAttributeTable seçeneğinin etkinleştirilip etkinleştirilmeyeceği&lt;span style=&quot; font-style:italic;&quot;&gt;Tavsiye &lt;/span&gt;, aksi takdirde düşük CPU performansına neden olabilir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="904"/>
+        <location filename="../../src/settingsdialog.ui" line="923"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="907"/>
+        <location filename="../../src/settingsdialog.ui" line="926"/>
         <source>Overclocking options</source>
         <translation>Hızaşırtma seçenekleri</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="237"/>
+        <location filename="../../src/settingsdialog.ui" line="246"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart will be used&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart kullanılacak&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="260"/>
+        <location filename="../../src/settingsdialog.ui" line="269"/>
         <source>Tray icons</source>
         <translation>Tepsi simgeleri</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="266"/>
-        <location filename="../../src/settingsdialog.ui" line="273"/>
+        <location filename="../../src/settingsdialog.ui" line="275"/>
+        <location filename="../../src/settingsdialog.ui" line="282"/>
         <source>Choose icon</source>
         <translation>Simge seçin</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="384"/>
+        <location filename="../../src/settingsdialog.ui" line="393"/>
         <source>Startup mode:</source>
         <translation>Başlangıç modu:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="634"/>
+        <location filename="../../src/settingsdialog.ui" line="643"/>
         <source>None</source>
         <translation>Hiçbiri</translation>
     </message>
@@ -358,100 +358,100 @@ Bu uyarıyı dikkate almayın ve şimdi GPU geçişi ile devam edin.</translatio
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Arayüz dili&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="280"/>
-        <location filename="../../src/settingsdialog.ui" line="294"/>
+        <location filename="../../src/settingsdialog.ui" line="289"/>
+        <location filename="../../src/settingsdialog.ui" line="303"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Temadan simge veya simge adına giden yol&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="347"/>
+        <location filename="../../src/settingsdialog.ui" line="356"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU that will be used during normal system startup&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Normal sistem başlatma sırasında kullanılacak olan GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="693"/>
+        <location filename="../../src/settingsdialog.ui" line="702"/>
         <source>Driver:</source>
         <translation>Sürücü:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="734"/>
+        <location filename="../../src/settingsdialog.ui" line="743"/>
         <source>Acceleration method:</source>
         <translation>Hızlanma yöntemi:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="755"/>
-        <location filename="../../src/settingsdialog.ui" line="787"/>
+        <location filename="../../src/settingsdialog.ui" line="764"/>
+        <location filename="../../src/settingsdialog.ui" line="796"/>
         <source>Default</source>
         <translation>Varsayılan</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="760"/>
+        <location filename="../../src/settingsdialog.ui" line="769"/>
         <source>Yes</source>
         <translation>Evet</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="562"/>
-        <location filename="../../src/settingsdialog.ui" line="765"/>
+        <location filename="../../src/settingsdialog.ui" line="571"/>
+        <location filename="../../src/settingsdialog.ui" line="774"/>
         <source>No</source>
         <translation>Hayır</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="590"/>
+        <location filename="../../src/settingsdialog.ui" line="599"/>
         <source>PCI reset:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="558"/>
+        <location filename="../../src/settingsdialog.ui" line="567"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset the Nvidia card at the PCI level before reloading the nvidia module&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;No&lt;/span&gt;: does not perform any reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Function level&lt;/span&gt;: perform a light &amp;quot;function-level&amp;quot; reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Hot reset&lt;/span&gt;: perform a &amp;quot;hot reset&amp;quot; of the PCI bridge (this method messes with the hardware directly and will perform a PCI remove even if it disabled, please read the online documentation of Optimus Manager before using it)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="567"/>
+        <location filename="../../src/settingsdialog.ui" line="576"/>
         <source>Function level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="572"/>
+        <location filename="../../src/settingsdialog.ui" line="581"/>
         <source>Hot reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="613"/>
+        <location filename="../../src/settingsdialog.ui" line="622"/>
         <source>PCI remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="700"/>
+        <location filename="../../src/settingsdialog.ui" line="709"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI versiyonu&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="623"/>
+        <location filename="../../src/settingsdialog.ui" line="632"/>
         <source>PCI power control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="308"/>
+        <location filename="../../src/settingsdialog.ui" line="317"/>
         <source>Hybrid icon:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="630"/>
+        <location filename="../../src/settingsdialog.ui" line="639"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Method to power switch the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;None&lt;/span&gt;: do not use an external module for power management (for some laptop models it&apos;s preferable to use this option in combination with PCI power control), you can use the scipts nvidia-enable.sh and nvidia-disable.sh to execute custom commands for power management that will be executed only with this method&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: load the nouveau module on the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;: power off the card using the bbswitch module (requires the &amp;quot;bbswitch&amp;quot;dependency)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI call&lt;/span&gt;: try various ACPI method calls to power the card on and off (requires the &amp;quot;acpi_call&amp;quot; dependency)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="620"/>
+        <location filename="../../src/settingsdialog.ui" line="629"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching methods, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="660"/>
+        <location filename="../../src/settingsdialog.ui" line="669"/>
         <source>Switching method:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="580"/>
+        <location filename="../../src/settingsdialog.ui" line="589"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM and bspwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -461,187 +461,202 @@ Bu uyarıyı dikkate almayın ve şimdi GPU geçişi ile devam edin.</translatio
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="341"/>
+        <location filename="../../src/settingsdialog.ui" line="350"/>
         <source>Startup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="407"/>
+        <location filename="../../src/settingsdialog.ui" line="416"/>
         <source>Optimus Manager config</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="476"/>
+        <location filename="../../src/settingsdialog.ui" line="485"/>
         <source>Type:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="416"/>
+        <location filename="../../src/settingsdialog.ui" line="425"/>
         <source>Path:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="442"/>
+        <location filename="../../src/settingsdialog.ui" line="451"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Type of the configuration&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Permanent&lt;/span&gt;: configuration file that will be used every time it starts&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Temporary&lt;/span&gt;: configuration file that will be used only once at the next boot&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="446"/>
+        <location filename="../../src/settingsdialog.ui" line="455"/>
         <source>Permanent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="451"/>
+        <location filename="../../src/settingsdialog.ui" line="460"/>
         <source>Temporary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="426"/>
+        <location filename="../../src/settingsdialog.ui" line="435"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to configuration file that will be loaded&lt;/p&gt;&lt;p&gt;If such a file does not exist, then it will be created automatically&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="429"/>
+        <location filename="../../src/settingsdialog.ui" line="438"/>
         <source>Path to configuration file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="462"/>
+        <location filename="../../src/settingsdialog.ui" line="471"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Browse configuration file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="465"/>
+        <location filename="../../src/settingsdialog.ui" line="474"/>
         <source>Browse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="491"/>
+        <location filename="../../src/settingsdialog.ui" line="500"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Import Optimus Manager settings from file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="494"/>
+        <location filename="../../src/settingsdialog.ui" line="503"/>
         <source>Import</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="507"/>
+        <location filename="../../src/settingsdialog.ui" line="516"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Export current settings to file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="510"/>
+        <location filename="../../src/settingsdialog.ui" line="519"/>
         <source>Export</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="610"/>
+        <location filename="../../src/settingsdialog.ui" line="619"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove the Nvidia card from the PCI bus&lt;/p&gt;&lt;p&gt;May prevent crashes caused by power switching&lt;/p&gt;&lt;p&gt;Ignored if switching method is Nouveau or Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="717"/>
+        <location filename="../../src/settingsdialog.ui" line="726"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Intel GPU&lt;br/&gt;&lt;br/&gt;To use the Intel driver, you need to install the package &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="751"/>
+        <location filename="../../src/settingsdialog.ui" line="760"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="783"/>
+        <location filename="../../src/settingsdialog.ui" line="792"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Acceleration method (corresponds to AccelMethod in the Xorg configuration)&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="884"/>
+        <location filename="../../src/settingsdialog.ui" line="906"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization (which prevents tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="914"/>
+        <location filename="../../src/settingsdialog.ui" line="933"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you&apos;re running an updated version of xorg-server (let&apos;s say to get PRIME Render offload enabled), the Nvidia driver may not load because of an ABI version mismatch&lt;/p&gt;&lt;p&gt;Enabling this option will allow loading the Nvidia driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="883"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Üçlü arabelleklemeyi etkinleştir&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="917"/>
+        <location filename="../../src/settingsdialog.ui" line="886"/>
         <source>Triple buffer</source>
         <translation>Üçlü arabellek</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="974"/>
-        <location filename="../../src/settingsdialog.ui" line="1105"/>
+        <location filename="../../src/settingsdialog.ui" line="936"/>
+        <source>Ignore ABI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="993"/>
+        <location filename="../../src/settingsdialog.ui" line="1124"/>
         <source>Version:</source>
         <translation>Versiyon:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="988"/>
-        <location filename="../../src/settingsdialog.ui" line="1082"/>
+        <location filename="../../src/settingsdialog.ui" line="1007"/>
+        <location filename="../../src/settingsdialog.ui" line="1101"/>
         <source>Author:</source>
         <translation>Yazar:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="995"/>
-        <location filename="../../src/settingsdialog.ui" line="1119"/>
+        <location filename="../../src/settingsdialog.ui" line="1014"/>
+        <location filename="../../src/settingsdialog.ui" line="1138"/>
         <source>License:</source>
         <translation>Lisans:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="78"/>
+        <location filename="../../src/settingsdialog.cpp" line="82"/>
         <source>Optimus Manager temporary configuration file path cannot be empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="85"/>
+        <location filename="../../src/settingsdialog.cpp" line="89"/>
         <source>Optimus Manager temporary configuration file path cannot be a permanent configuration file path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="324"/>
+        <location filename="../../src/settingsdialog.cpp" line="111"/>
+        <source>Unable to read data from generated configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.cpp" line="371"/>
         <source>Select temporary configuration file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="325"/>
-        <location filename="../../src/settingsdialog.cpp" line="337"/>
-        <location filename="../../src/settingsdialog.cpp" line="350"/>
+        <location filename="../../src/settingsdialog.cpp" line="372"/>
+        <location filename="../../src/settingsdialog.cpp" line="384"/>
+        <location filename="../../src/settingsdialog.cpp" line="397"/>
         <source>Config files (*.conf);;All files(*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="336"/>
+        <location filename="../../src/settingsdialog.cpp" line="383"/>
         <source>Export Optimus Manager settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="349"/>
+        <location filename="../../src/settingsdialog.cpp" line="396"/>
         <source>Import Optimus Manager settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="397"/>
+        <location filename="../../src/settingsdialog.cpp" line="425"/>
         <source>Select icon</source>
         <translation>Simge Seç</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="398"/>
+        <location filename="../../src/settingsdialog.cpp" line="426"/>
         <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
         <translation>Resimler (*.png *.jpg *.bmp);;Tüm dosyalar(*)</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="429"/>
+        <location filename="../../src/settingsdialog.cpp" line="457"/>
         <source>Unable to find Optimus Manager daemon.</source>
         <translation>Optimus Manager arkaplanı bulunamadı.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="430"/>
+        <location filename="../../src/settingsdialog.cpp" line="458"/>
         <source>Please check the integrity of the package that provides Optimus Manager.</source>
         <translation>Lütfen Optimus Manager&apos;ı sağlayan paketin bütünlüğünü kontrol edin.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="432"/>
+        <location filename="../../src/settingsdialog.cpp" line="460"/>
         <source>Not found!</source>
         <translation>Bulunamadı!</translation>
     </message>

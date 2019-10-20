@@ -166,7 +166,7 @@
              </item>
              <item>
               <property name="text">
-               <string>Magyar</string>
+               <string notr="true">Magyar</string>
               </property>
               <property name="icon">
                <iconset resource="../data/resources.qrc">
@@ -857,10 +857,13 @@
            <string notr="true">Nvidia</string>
           </property>
           <layout class="QGridLayout" name="nvidiaLayout">
-           <item row="0" column="0">
-            <widget class="QLabel" name="nvidiaDpiLabel">
+           <item row="2" column="0" colspan="3">
+            <widget class="QCheckBox" name="nvidiaPatCheckBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
-              <string notr="true">DPI:</string>
+              <string notr="true">PAT</string>
              </property>
             </widget>
            </item>
@@ -871,6 +874,16 @@
              </property>
              <property name="maximum">
               <number>1000</number>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0" colspan="3">
+            <widget class="QCheckBox" name="nvidiaTripleBuffercheckBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="text">
+              <string>Triple buffer</string>
              </property>
             </widget>
            </item>
@@ -897,17 +910,14 @@
              </property>
             </widget>
            </item>
-           <item row="2" column="0" colspan="3">
-            <widget class="QCheckBox" name="nvidiaPatCheckBox">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="nvidiaDpiLabel">
              <property name="text">
-              <string notr="true">PAT</string>
+              <string notr="true">DPI:</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="0" colspan="3">
+           <item row="5" column="0" colspan="3">
             <widget class="QCheckBox" name="nvidiaOverclockingCheckBox">
              <property name="toolTip">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -917,13 +927,13 @@
              </property>
             </widget>
            </item>
-           <item row="5" column="0" colspan="3">
-            <widget class="QCheckBox" name="nvidiaTripleBuffercheckBox">
+           <item row="4" column="0" colspan="3">
+            <widget class="QCheckBox" name="nvidiaIgnoreAbiCheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you're running an updated version of xorg-server (let's say to get PRIME Render offload enabled), the Nvidia driver may not load because of an ABI version mismatch&lt;/p&gt;&lt;p&gt;Enabling this option will allow loading the Nvidia driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
-              <string>Triple buffer</string>
+              <string>Ignore ABI</string>
              </property>
             </widget>
            </item>

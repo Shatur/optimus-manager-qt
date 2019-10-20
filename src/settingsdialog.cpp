@@ -177,6 +177,7 @@ void SettingsDialog::restoreDefaults()
     ui->nvidiaDpiSpinBox->setValue(OptimusSettings::defaultNvidiaDpi());
     ui->nvidiaModesetCheckBox->setChecked(OptimusSettings::defaultNvidiaModesetEnabled());
     ui->nvidiaPatCheckBox->setChecked(OptimusSettings::defaultNvidiaPatEnabled());
+    ui->nvidiaIgnoreAbiCheckBox->setChecked(OptimusSettings::defaultNvidiaIgnoreAbi());
 
     const OptimusSettings::NvidiaOptions nvidiaOptions = OptimusSettings::defaultNvidiaOptions();
     ui->nvidiaOverclockingCheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::Overclocking));
@@ -234,6 +235,7 @@ void SettingsDialog::loadOptimusSettings(const QString &path)
     ui->nvidiaDpiSpinBox->setValue(optimusSettings.nvidiaDpi());
     ui->nvidiaModesetCheckBox->setChecked(optimusSettings.isNvidiaModesetEnabled());
     ui->nvidiaPatCheckBox->setChecked(optimusSettings.isNvidiaPatEnabled());
+    ui->nvidiaIgnoreAbiCheckBox->setChecked(optimusSettings.isNvidiaIgnoreAbi());
 
     const OptimusSettings::NvidiaOptions nvidiaOptions = optimusSettings.nvidiaOptions();
     ui->nvidiaOverclockingCheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::Overclocking));
@@ -261,6 +263,7 @@ void SettingsDialog::saveOptimusSettings(const QString &path) const
     optimusSettings.setNvidiaDpi(ui->nvidiaDpiSpinBox->value());
     optimusSettings.setNvidiaModesetEnabled(ui->nvidiaModesetCheckBox->isChecked());
     optimusSettings.setNvidiaPatEnabled(ui->nvidiaPatCheckBox->isChecked());
+    optimusSettings.setNvidiaIgnoreAbi(ui->nvidiaIgnoreAbiCheckBox->isChecked());
 
     OptimusSettings::NvidiaOptions nvidiaOptions;
     nvidiaOptions.setFlag(OptimusSettings::Overclocking, ui->nvidiaOverclockingCheckBox->isChecked());

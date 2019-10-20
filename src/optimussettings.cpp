@@ -262,6 +262,22 @@ int OptimusSettings::defaultNvidiaDpi()
     return 96;
 }
 
+bool OptimusSettings::isNvidiaIgnoreAbi() const
+{
+    const QString ignoreAbiString = value("nvidia/ignore_abi").toString();
+    return boolMap.key(ignoreAbiString, defaultNvidiaIgnoreAbi());
+}
+
+void OptimusSettings::setNvidiaIgnoreAbi(bool ignore)
+{
+    setValue("nvidia/ignore_abi", boolMap[ignore]);
+}
+
+bool OptimusSettings::defaultNvidiaIgnoreAbi()
+{
+    return false;
+}
+
 OptimusSettings::NvidiaOptions OptimusSettings::nvidiaOptions() const
 {
     const QStringList optionStrings = value("nvidia/options", nvidiaOptionsToStrings(defaultNvidiaOptions())).toStringList();

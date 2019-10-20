@@ -128,6 +128,10 @@ public:
     void setNvidiaDpi(int dpi);
     static int defaultNvidiaDpi();
 
+    bool isNvidiaIgnoreAbi() const;
+    void setNvidiaIgnoreAbi(bool ignore);
+    static bool defaultNvidiaIgnoreAbi();
+
     NvidiaOptions nvidiaOptions() const;
     void setNvidiaOptions(NvidiaOptions options);
     static NvidiaOptions defaultNvidiaOptions();
