@@ -117,7 +117,7 @@ void OptimusManager::openSettings()
     if (!dialog.exec())
         return;
 
-    if (dialog.languageChanged())
+    if (dialog.isLanguageChanged())
         retranslateUi();
 
     loadSettings();

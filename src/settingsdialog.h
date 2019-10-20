@@ -38,7 +38,7 @@ public:
     explicit SettingsDialog(QWidget *parent = nullptr);
     ~SettingsDialog() override;
 
-    bool languageChanged() const;
+    bool isLanguageChanged() const;
 
 public slots:
     void accept() override;
@@ -51,9 +51,9 @@ private slots:
     void previewNvidiaIcon(const QString &fileName);
     void previewHybridIcon(const QString &fileName);
 
-    void disableSwitchingMethodIgnored(int index);
-    void disablePciResetIgnored(int index);
-    void disableIntelDriverIgnored(int index);
+    void disableSwitchingMethodIgnored(int switchingMethod);
+    void disablePciResetIgnored(int pciResetType);
+    void disableIntelDriverIgnored(int intelDriver);
     void loadOptimusConfigType(int configType);
 
     void browseTempConfigPath();

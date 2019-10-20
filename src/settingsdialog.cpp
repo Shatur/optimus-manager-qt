@@ -67,7 +67,7 @@ SettingsDialog::~SettingsDialog()
     delete ui;
 }
 
-bool SettingsDialog::languageChanged() const
+bool SettingsDialog::isLanguageChanged() const
 {
     return m_languageChanged;
 }
@@ -143,6 +143,147 @@ void SettingsDialog::accept()
     saveAppSettings();
 
     QDialog::accept();
+}
+
+void SettingsDialog::browseIntelIcon()
+{
+    browseIcon(ui->intelIconEdit);
+}
+
+void SettingsDialog::browseNvidiaIcon()
+{
+    browseIcon(ui->nvidiaIconEdit);
+}
+
+void SettingsDialog::browseHybridIcon()
+{
+    browseIcon(ui->hybridIconEdit);
+}
+
+void SettingsDialog::previewIntelIcon(const QString &fileName)
+{
+    const QIcon icon = OptimusManager::trayGpuIcon(fileName);
+    ui->intelIconButton->setIcon(icon);
+}
+
+void SettingsDialog::previewNvidiaIcon(const QString &fileName)
+{
+    const QIcon icon = OptimusManager::trayGpuIcon(fileName);
+    ui->nvidiaIconButton->setIcon(icon);
+}
+
+void SettingsDialog::previewHybridIcon(const QString &fileName)
+{
+    const QIcon icon = OptimusManager::trayGpuIcon(fileName);
+    ui->hybridIconButton->setIcon(icon);
+}
+
+void SettingsDialog::disableSwitchingMethodIgnored(int switchingMethod)
+{
+    switch (switchingMethod) {
+    case OptimusSettings::NoneMethod:
+        ui->pciPowerControlCheckBox->setEnabled(true);
+        ui->intelModesetCheckBox->setEnabled(false);
+        if (ui->pciResetComboBox->currentIndex() != OptimusSettings::HotReset)
+            ui->pciRemoveCheckBox->setEnabled(true); // Can be disabled by Hot reset option
+        break;
+    case OptimusSettings::Nouveau:
+        ui->pciPowerControlCheckBox->setEnabled(true);
+        ui->intelModesetCheckBox->setEnabled(true);
+        ui->pciRemoveCheckBox->setEnabled(false);
+        break;
+    case OptimusSettings::Bbswitch:
+        ui->pciPowerControlCheckBox->setEnabled(false);
+        ui->intelModesetCheckBox->setEnabled(false);
+        ui->pciRemoveCheckBox->setEnabled(false);
+        break;
+    case OptimusSettings::AcpiCall:
+        ui->pciPowerControlCheckBox->setEnabled(false);
+        ui->intelModesetCheckBox->setEnabled(false);
+        if (ui->pciResetComboBox->currentIndex() != OptimusSettings::HotReset)
+            ui->pciRemoveCheckBox->setEnabled(true);
+        break;
+    }
+}
+
+void SettingsDialog::disablePciResetIgnored(int pciResetType)
+{
+    if (pciResetType == OptimusSettings::HotReset)
+        ui->pciRemoveCheckBox->setEnabled(false);
+    else if (ui->switchingMethodComboBox->currentIndex() != OptimusSettings::Bbswitch && ui->switchingMethodComboBox->currentIndex() != OptimusSettings::Nouveau)
+        ui->pciRemoveCheckBox->setEnabled(true); // Can be disabled by switching method
+}
+
+void SettingsDialog::disableIntelDriverIgnored(int intelDriver)
+{
+    if (intelDriver == OptimusSettings::IntelDriver) {
+        ui->intelAccelMethodComboBox->setEnabled(true);
+        ui->intelTearFreeComboBox->setEnabled(true);
+    } else {
+        ui->intelAccelMethodComboBox->setEnabled(false);
+        ui->intelTearFreeComboBox->setEnabled(false);
+    }
+}
+
+void SettingsDialog::loadOptimusConfigType(int configType)
+{
+    if (configType == OptimusSettings::Permanent) {
+        ui->optimusConfigPathEdit->setText(OptimusSettings::permanentConfigPath());
+        ui->optimusConfigPathEdit->setEnabled(false);
+        ui->optimusConfigPathLabel->setEnabled(false);
+        ui->browseOptimusConfigButton->setEnabled(false);
+    } else {
+        ui->optimusConfigPathEdit->clear();
+        ui->optimusConfigPathEdit->setEnabled(true);
+        ui->optimusConfigPathLabel->setEnabled(true);
+        ui->browseOptimusConfigButton->setEnabled(true);
+    }
+}
+
+void SettingsDialog::browseTempConfigPath()
+{
+    QFileDialog dialog(this, tr("Select temporary configuration file"));
+    dialog.setNameFilter(tr("Config files (*.conf);;All files(*)"));
+
+    const QFileInfo previousName = ui->optimusConfigPathEdit->text();
+    dialog.setDirectory(previousName.exists() ? previousName.path() : QDir::homePath());
+
+    if (dialog.exec())
+        ui->optimusConfigPathEdit->setText(dialog.selectedFiles().first());
+}
+
+void SettingsDialog::exportOptimusConfig()
+{
+    QFileDialog dialog(this, tr("Export Optimus Manager settings"));
+    dialog.setNameFilter(tr("Config files (*.conf);;All files(*)"));
+    dialog.setAcceptMode(QFileDialog::AcceptSave);
+
+    const QFileInfo previousName = ui->optimusConfigPathEdit->text();
+    dialog.setDirectory(previousName.exists() ? previousName.path() : QDir::homePath());
+
+    if (dialog.exec())
+        saveOptimusSettings(dialog.selectedFiles().first());
+}
+
+void SettingsDialog::importOptimusConfig()
+{
+    QFileDialog dialog(this, tr("Import Optimus Manager settings"));
+    dialog.setNameFilter(tr("Config files (*.conf);;All files(*)"));
+    dialog.setFileMode(QFileDialog::ExistingFile);
+
+    const QFileInfo previousName = ui->optimusConfigPathEdit->text();
+    dialog.setDirectory(previousName.exists() ? previousName.path() : QDir::homePath());
+
+    if (dialog.exec())
+        loadOptimusSettings(dialog.selectedFiles().first());
+}
+
+void SettingsDialog::loadOptimusSettingsPath(const QString &path)
+{
+    ui->exportOptimusConfigButton->setEnabled(!path.isEmpty());
+    ui->importOptimusConfigButton->setEnabled(!path.isEmpty());
+
+    loadOptimusSettings(path);
 }
 
 void SettingsDialog::restoreDefaults()
@@ -269,147 +410,6 @@ void SettingsDialog::saveOptimusSettings(const QString &path) const
     nvidiaOptions.setFlag(OptimusSettings::Overclocking, ui->nvidiaOverclockingCheckBox->isChecked());
     nvidiaOptions.setFlag(OptimusSettings::TripleBuffer, ui->nvidiaTripleBuffercheckBox->isChecked());
     optimusSettings.setNvidiaOptions(nvidiaOptions);
-}
-
-void SettingsDialog::browseIntelIcon()
-{
-    browseIcon(ui->intelIconEdit);
-}
-
-void SettingsDialog::browseNvidiaIcon()
-{
-    browseIcon(ui->nvidiaIconEdit);
-}
-
-void SettingsDialog::browseHybridIcon()
-{
-    browseIcon(ui->hybridIconEdit);
-}
-
-void SettingsDialog::previewIntelIcon(const QString &fileName)
-{
-    const QIcon icon = OptimusManager::trayGpuIcon(fileName);
-    ui->intelIconButton->setIcon(icon);
-}
-
-void SettingsDialog::previewNvidiaIcon(const QString &fileName)
-{
-    const QIcon icon = OptimusManager::trayGpuIcon(fileName);
-    ui->nvidiaIconButton->setIcon(icon);
-}
-
-void SettingsDialog::previewHybridIcon(const QString &fileName)
-{
-    const QIcon icon = OptimusManager::trayGpuIcon(fileName);
-    ui->hybridIconButton->setIcon(icon);
-}
-
-void SettingsDialog::disableSwitchingMethodIgnored(int index)
-{
-    switch (index) {
-    case OptimusSettings::NoneMethod:
-        ui->pciPowerControlCheckBox->setEnabled(true);
-        ui->intelModesetCheckBox->setEnabled(false);
-        if (ui->pciResetComboBox->currentIndex() != OptimusSettings::HotReset)
-            ui->pciRemoveCheckBox->setEnabled(true); // Can be disabled by Hot reset option
-        break;
-    case OptimusSettings::Nouveau:
-        ui->pciPowerControlCheckBox->setEnabled(true);
-        ui->intelModesetCheckBox->setEnabled(true);
-        ui->pciRemoveCheckBox->setEnabled(false);
-        break;
-    case OptimusSettings::Bbswitch:
-        ui->pciPowerControlCheckBox->setEnabled(false);
-        ui->intelModesetCheckBox->setEnabled(false);
-        ui->pciRemoveCheckBox->setEnabled(false);
-        break;
-    case OptimusSettings::AcpiCall:
-        ui->pciPowerControlCheckBox->setEnabled(false);
-        ui->intelModesetCheckBox->setEnabled(false);
-        if (ui->pciResetComboBox->currentIndex() != OptimusSettings::HotReset)
-            ui->pciRemoveCheckBox->setEnabled(true);
-        break;
-    }
-}
-
-void SettingsDialog::disablePciResetIgnored(int index)
-{
-    if (index == OptimusSettings::HotReset)
-        ui->pciRemoveCheckBox->setEnabled(false);
-    else if (ui->switchingMethodComboBox->currentIndex() != OptimusSettings::Bbswitch && ui->switchingMethodComboBox->currentIndex() != OptimusSettings::Nouveau)
-        ui->pciRemoveCheckBox->setEnabled(true); // Can be disabled by switching method
-}
-
-void SettingsDialog::disableIntelDriverIgnored(int index)
-{
-    if (index == OptimusSettings::IntelDriver) {
-        ui->intelAccelMethodComboBox->setEnabled(true);
-        ui->intelTearFreeComboBox->setEnabled(true);
-    } else {
-        ui->intelAccelMethodComboBox->setEnabled(false);
-        ui->intelTearFreeComboBox->setEnabled(false);
-    }
-}
-
-void SettingsDialog::loadOptimusConfigType(int configType)
-{
-    if (configType == OptimusSettings::Permanent) {
-        ui->optimusConfigPathEdit->setText(OptimusSettings::permanentConfigPath());
-        ui->optimusConfigPathEdit->setEnabled(false);
-        ui->optimusConfigPathLabel->setEnabled(false);
-        ui->browseOptimusConfigButton->setEnabled(false);
-    } else {
-        ui->optimusConfigPathEdit->clear();
-        ui->optimusConfigPathEdit->setEnabled(true);
-        ui->optimusConfigPathLabel->setEnabled(true);
-        ui->browseOptimusConfigButton->setEnabled(true);
-    }
-}
-
-void SettingsDialog::browseTempConfigPath()
-{
-    QFileDialog dialog(this, tr("Select temporary configuration file"));
-    dialog.setNameFilter(tr("Config files (*.conf);;All files(*)"));
-
-    const QFileInfo previousName = ui->optimusConfigPathEdit->text();
-    dialog.setDirectory(previousName.exists() ? previousName.path() : QDir::homePath());
-
-    if (dialog.exec())
-        ui->optimusConfigPathEdit->setText(dialog.selectedFiles().first());
-}
-
-void SettingsDialog::exportOptimusConfig()
-{
-    QFileDialog dialog(this, tr("Export Optimus Manager settings"));
-    dialog.setNameFilter(tr("Config files (*.conf);;All files(*)"));
-    dialog.setAcceptMode(QFileDialog::AcceptSave);
-
-    const QFileInfo previousName = ui->optimusConfigPathEdit->text();
-    dialog.setDirectory(previousName.exists() ? previousName.path() : QDir::homePath());
-
-    if (dialog.exec())
-        saveOptimusSettings(dialog.selectedFiles().first());
-}
-
-void SettingsDialog::importOptimusConfig()
-{
-    QFileDialog dialog(this, tr("Import Optimus Manager settings"));
-    dialog.setNameFilter(tr("Config files (*.conf);;All files(*)"));
-    dialog.setFileMode(QFileDialog::ExistingFile);
-
-    const QFileInfo previousName = ui->optimusConfigPathEdit->text();
-    dialog.setDirectory(previousName.exists() ? previousName.path() : QDir::homePath());
-
-    if (dialog.exec())
-        loadOptimusSettings(dialog.selectedFiles().first());
-}
-
-void SettingsDialog::loadOptimusSettingsPath(const QString &path)
-{
-    ui->exportOptimusConfigButton->setEnabled(!path.isEmpty());
-    ui->importOptimusConfigButton->setEnabled(!path.isEmpty());
-
-    loadOptimusSettings(path);
 }
 
 void SettingsDialog::browseIcon(QLineEdit *iconNameEdit)
