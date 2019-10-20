@@ -75,15 +75,15 @@ bool SettingsDialog::languageChanged() const
 void SettingsDialog::accept()
 {
     // Check Optimus Manager config path
-    const QString optimusManagerConfig = configurationPath();
-    if (optimusManagerConfig.isEmpty()) {
+    const QString configPath = configurationPath();
+    if (configPath.isEmpty()) {
         QMessageBox message;
         message.setIcon(QMessageBox::Critical);
         message.setText(tr("Optimus Manager temporary configuration file path cannot be empty"));
         message.exec();
         return;
     }
-    if (optimusManagerConfig == OptimusSettings::permanentConfigPath()) {
+    if (configPath == OptimusSettings::permanentConfigPath()) {
         QMessageBox message;
         message.setIcon(QMessageBox::Critical);
         message.setText(tr("Optimus Manager temporary configuration file path cannot be a permanent configuration file path"));
@@ -91,7 +91,7 @@ void SettingsDialog::accept()
         return;
     }
 
-    saveOptimusSettings(optimusManagerConfig);
+    saveOptimusSettings(configPath);
 
     DaemonClient client;
     client.connect();
@@ -104,10 +104,23 @@ void SettingsDialog::accept()
     }
 
     if (ui->optimusConfigTypeComboBox->currentIndex() == OptimusSettings::Permanent) {
-        client.setConfig(optimusManagerConfig);
+        QFile configFile(configPath);
+        if (!configFile.open(QIODevice::ReadOnly)) {
+            QMessageBox message;
+            message.setIcon(QMessageBox::Critical);
+            message.setText(tr("Unable to read data from generated configuration"));
+            message.exec();
+            return;
+        }
+
+        QTextStream configStream(&configFile);
+        const QString configData = configStream.readAll();
+        configFile.remove();
+
+        client.setConfig(configData);
         client.setTempConfig({});
     } else {
-        client.setTempConfig(optimusManagerConfig);
+        client.setTempConfig(configPath);
     }
 
     if (client.error()) {
