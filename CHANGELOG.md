@@ -4,7 +4,13 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)
 
-[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.3.3...HEAD)
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.4.0...HEAD)
+
+_No unreleased changes yet_
+
+## [1.4.0](https://github.com/Shatur95/optimus-manager-qt/tree/1.4.0) (2019-10-21)
+
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.3.3...1.4.0)
 
 **Added**
 
@@ -13,6 +19,7 @@ All notable changes to this project will be documented in this file. This projec
 
 **Changed**
 
+-   Update options for Optimus Manager 1.2.2
 -   Use new Optimus Manager daemon command to send settings instead of `pkexec`.
 
 ## [1.3.3](https://github.com/Shatur95/optimus-manager-qt/tree/1.3.3) (2019-09-27)
