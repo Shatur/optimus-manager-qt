@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pt_BR">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_BR" version="2.1">
 <context>
     <name>AppSettings</name>
     <message>
@@ -20,22 +18,22 @@
         <location filename="../../src/optimusmanager.cpp" line="361"/>
         <location filename="../../src/settingsdialog.cpp" line="101"/>
         <source>Unable to connect to Optimus Manager daemon: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível conectar ao daemon do Optimus Manager: %1</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="371"/>
         <source>Unable to send GPU name to switch to Optimus Manager daemon: %1</source>
-        <translation type="unfinished">Não foi possível enviar o nome da GPU para troca para o daemon do Optimus Manager: %1</translation>
+        <translation>Não possível enviar o nome da GPU para a troca do daemon do Optimus Manager: %1</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="129"/>
         <source>Unable to send configuration file to Optimus Manager daemon: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível enviar o arquivo de configuração para o daemon do Optimus Manager: %1</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="138"/>
         <source>Unable to send startup mode to Optimus Manager daemon: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possivel enviar o modo de inicialização para o daemon do Optimus Manager: %1</translation>
     </message>
 </context>
 <context>
@@ -88,7 +86,8 @@
         <location filename="../../src/optimusmanager.cpp" line="211"/>
         <source>Switching between GPUs will work but you will likely experience poor battery life.
 If you have already enabled the new Runtime D3 power management inside the Nvidia driver (for Turing+ GPU with Coffee Lake+ CPU), you can safely ignore this warning.</source>
-        <translation type="unfinished"></translation>
+        <translation>A troca entre GPUs funcionará, mas você poderá ter um experiência ruim com a vida útil da bateria.
+Se você já tiver habilitado o novo gerenciamento de energia Runtime D3 dentro do driver da Nvidia (para GPU Turing ou superior com CPU Coffee Lake ou superior), você pode ignorar este aviso.</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="221"/>
@@ -126,7 +125,7 @@ Continuar mesmo assim?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="346"/>
-        <source>Optimus Manager will use &apos;%1&apos; driver instead. You can change driver in settings or install the &apos;%2&apos; driver from the package &apos;%3&apos;.
+        <source>Optimus Manager will use '%1' driver instead. You can change driver in settings or install the '%2' driver from the package '%3'.
 Continue anyway?</source>
         <translation>O Optimus Manager irá usar o driver &apos;%1&apos;. Você pode alterar o driver nas configurações ou instalar o driver &apos;%2&apos; do pacote &apos;%3&apos;.
 Continuar mesmo assim?</translation>
@@ -161,7 +160,7 @@ Prosseguir?</translation>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="222"/>
         <source>Please enable and start it with:
-&apos;%1&apos;
+'%1'
 &apos;%2&apos;</source>
         <translation>Por favor, habilite e inicie com:
 &apos;%1&apos;
@@ -191,7 +190,7 @@ You can set &apos;%1&apos; for GPU switching in settings or install bbswitch for
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="256"/>
-        <source>GDM need to be patched for Prime switching. Follow &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
+        <source>GDM need to be patched for Prime switching. Follow &lt;a href='https://github.com/Askannz/optimus-manager'&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
 Continue anyway?</source>
         <translation>O GDM precisa de um patch para uma troca Prime. Siga &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;estas&lt;/a&gt; instruções para instalar uma versão corrigida. Sem uma versão GDM corrigida, a troca da GPU provavelmente falhará. Continuar mesmo assim?</translation>
     </message>
@@ -202,7 +201,7 @@ Continue anyway?</source>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="303"/>
-        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with &apos;%1&apos; and reboot your computer.
+        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with '%1' and reboot your computer.
 Ignore this warning and proceed with GPU switching now?</source>
         <translation>Isso pode interferir no Optimus Manager. Antes de tentar uma troca de GPU, é recomendável desabilitar este serviço com &apos;%1&apos; e reiniciar seu computador. Ignorar esse aviso e continuar com a troca de GPU agora?</translation>
     </message>
@@ -331,7 +330,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
         <location filename="../../src/settingsdialog.ui" line="269"/>
         <source>Tray icons</source>
-        <translation>ìcones da bandeja</translation>
+        <translation>Ícones da bandeja</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="275"/>
@@ -455,82 +454,82 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
         <location filename="../../src/settingsdialog.ui" line="68"/>
         <source>Configuration files</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivos de Configuração</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="350"/>
         <source>Startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Inicialização</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="416"/>
         <source>Optimus Manager config</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuração do Optimus Manager</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="485"/>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipo:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="425"/>
         <source>Path:</source>
-        <translation type="unfinished"></translation>
+        <translation>Caminho:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="451"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Type of the configuration&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Permanent&lt;/span&gt;: configuration file that will be used every time it starts&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Temporary&lt;/span&gt;: configuration file that will be used only once at the next boot&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tipo da configuração&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Permanente&lt;/span&gt;: o arquivo de configuração será utilizado toda vez que iniciar&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Temporário&lt;/span&gt;: o arquivo de configuração será utilizado apenas uma vez, no próximo boot&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="455"/>
         <source>Permanent</source>
-        <translation type="unfinished"></translation>
+        <translation>Permanente</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="460"/>
         <source>Temporary</source>
-        <translation type="unfinished"></translation>
+        <translation>Temporário</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="435"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to configuration file that will be loaded&lt;/p&gt;&lt;p&gt;If such a file does not exist, then it will be created automatically&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Caminho do arquivo de configuração que será carregado&lt;/p&gt;&lt;p&gt;Se o arquivo não existir, será criado um automaticamente&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="438"/>
         <source>Path to configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>Caminho do arquivo de configuração</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="471"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Browse configuration file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Procurar arquivo de configuração&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="474"/>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Navegar</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="500"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Import Optimus Manager settings from file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Importar as configurações do Optimus Manager a partir de um arquivo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="503"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="516"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Export current settings to file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Exportar as configurações atuais para um arquivo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="519"/>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Exportar</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="619"/>
@@ -560,7 +559,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
         <location filename="../../src/settingsdialog.ui" line="933"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you&apos;re running an updated version of xorg-server (let&apos;s say to get PRIME Render offload enabled), the Nvidia driver may not load because of an ABI version mismatch&lt;/p&gt;&lt;p&gt;Enabling this option will allow loading the Nvidia driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Se você estiver executando uma versão atualizada do xorg-server (para ter o PRIME Render Offload habilitado) o driver da Nvidia pode não carregar devido a uma incompatibilidade de versão ABI&lt;/p&gt;&lt;p&gt;Habilitando esta opção será permitido carregar o driver Nvidia&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="883"/>
@@ -575,7 +574,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
         <location filename="../../src/settingsdialog.ui" line="936"/>
         <source>Ignore ABI</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignorar ABI</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="993"/>
@@ -598,39 +597,39 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="82"/>
         <source>Optimus Manager temporary configuration file path cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>O caminho da configuração temporária do Optimus Manager não pode estar vazio</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="89"/>
         <source>Optimus Manager temporary configuration file path cannot be a permanent configuration file path</source>
-        <translation type="unfinished"></translation>
+        <translation>O caminho da configuração temporária do Optimus Manager não pode ser o mesmo caminho da configuração permanente</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="111"/>
         <source>Unable to read data from generated configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível ler os dados da configuração gerada</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="371"/>
         <source>Select temporary configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecione o arquivo de configuração temporário</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="372"/>
         <location filename="../../src/settingsdialog.cpp" line="384"/>
         <location filename="../../src/settingsdialog.cpp" line="397"/>
         <source>Config files (*.conf);;All files(*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivos de configuração (*.conf);;Todos os arquivos(*)</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="383"/>
         <source>Export Optimus Manager settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Exportar as configurações do Optimus Manager</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="396"/>
         <source>Import Optimus Manager settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar as configurações do Optimus Manager</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="425"/>
