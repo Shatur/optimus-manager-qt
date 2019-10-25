@@ -43,14 +43,14 @@ FORMS += \
 
 TRANSLATIONS += \
     data/translations/optimus-manager.ts \
-    data/translations/optimus-manager_zh_CN.ts \
-    data/translations/optimus-manager_fi.ts \
     data/translations/optimus-manager_de.ts \
+    data/translations/optimus-manager_es.ts \
+    data/translations/optimus-manager_fi.ts \
+    data/translations/optimus-manager_hu.ts \
     data/translations/optimus-manager_pt_BR.ts \
     data/translations/optimus-manager_ru.ts \
-    data/translations/optimus-manager_es.ts \
     data/translations/optimus-manager_tr.ts \
-    data/translations/optimus-manager_hu.ts
+    data/translations/optimus-manager_zh_CN.ts
 
 INSTALLS += \
     bin \

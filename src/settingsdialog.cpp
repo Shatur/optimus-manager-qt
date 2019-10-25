@@ -42,16 +42,16 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->versionLabel->setText(optimusManagerVersion());
 
     // Set languages data
-    ui->languageComboBox->setItemData(0, QLocale::AnyLanguage);
-    ui->languageComboBox->setItemData(1, QLocale::Chinese);
-    ui->languageComboBox->setItemData(2, QLocale::English);
-    ui->languageComboBox->setItemData(3, QLocale::Finnish);
-    ui->languageComboBox->setItemData(4, QLocale::German);
-    ui->languageComboBox->setItemData(5, QLocale::Hungarian);
-    ui->languageComboBox->setItemData(6, QLocale::Portuguese);
-    ui->languageComboBox->setItemData(7, QLocale::Russian);
-    ui->languageComboBox->setItemData(8, QLocale::Spanish);
-    ui->languageComboBox->setItemData(9, QLocale::Turkish);
+    ui->languageComboBox->addItem(tr("<System language>"), QLocale::AnyLanguage);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/flags/de.svg")), QStringLiteral("Deutsch"), QLocale::German);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/flags/en.svg")), QStringLiteral("English"), QLocale::English);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/flags/es.svg")), QStringLiteral("Español"), QLocale::Spanish);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/flags/hu.svg")), QStringLiteral("Magyar"), QLocale::Hungarian);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/flags/br.svg")), QStringLiteral("Português (Brasil)"), QLocale::Portuguese);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/flags/fi.svg")), QStringLiteral("Suomalainen"), QLocale::Finnish);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/flags/tr.svg")), QStringLiteral("Türk"), QLocale::Turkish);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/flags/ru.svg")), QStringLiteral("Русский"), QLocale::Russian);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/flags/cn.svg")), QStringLiteral("简体中文 (中国)"), QLocale::Chinese);
 
     loadAppSettings();
 
