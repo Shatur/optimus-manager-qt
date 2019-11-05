@@ -31,9 +31,9 @@
 #include <KIconDialog>
 #endif
 
-SettingsDialog::SettingsDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::SettingsDialog)
+SettingsDialog::SettingsDialog(QWidget *parent)
+    : QDialog(parent)
+    , ui(new Ui::SettingsDialog)
 {
     ui->setupUi(this);
     connect(ui->dialogButtonBox->button(QDialogButtonBox::RestoreDefaults), &QPushButton::clicked, this, &SettingsDialog::restoreDefaults);

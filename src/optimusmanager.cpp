@@ -40,14 +40,17 @@
 #include <QSystemTrayIcon>
 #endif
 
-OptimusManager::OptimusManager(QObject *parent) :
-    QObject(parent)
+OptimusManager::OptimusManager(QObject *parent)
+    : QObject(parent)
+    , m_contextMenu(new QMenu)
+#ifdef PLASMA
+    , m_trayIcon(new KStatusNotifierItem(this)
+#else
+    , m_trayIcon(new QSystemTrayIcon(this))
+#endif
+    , m_currentGpu(detectGpu())
 {
-    // Detect current GPU
-    m_currentGpu = detectGpu();
-
     // Setup context menu
-    m_contextMenu = new QMenu;
     m_contextMenu->addAction(QIcon::fromTheme("preferences-system"), SettingsDialog::tr("Settings"), this, &OptimusManager::openSettings);
     m_contextMenu->addSeparator();
 
@@ -61,13 +64,10 @@ OptimusManager::OptimusManager(QObject *parent) :
 
     // Setup tray
 #ifdef PLASMA
-    m_trayIcon = new KStatusNotifierItem(this);
     m_trayIcon->setStandardActionsEnabled(false);
     m_trayIcon->setToolTipTitle(SingleApplication::applicationName());
     m_trayIcon->setCategory(KStatusNotifierItem::SystemServices);
     m_trayIcon->setToolTipSubTitle(tr("Current videocard: %1").arg(QMetaEnum::fromType<DaemonClient::GPU>().valueToKey(m_currentGpu)));
-#else
-    m_trayIcon = new QSystemTrayIcon(this);
 #endif
     m_trayIcon->setContextMenu(m_contextMenu);
 
@@ -81,7 +81,7 @@ OptimusManager::OptimusManager(QObject *parent) :
 OptimusManager::~OptimusManager()
 {
 #ifndef PLASMA
-    delete m_contextMenu;
+    delete m_contextMenu; // QSystemTrayIcon does not take ownership of QMenu
 #endif
 }
 

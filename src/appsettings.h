@@ -56,7 +56,7 @@ public:
 
 private:
     void applyLocale(QLocale::Language lang);
-    static QTranslator m_appTranslator;
+    static QTranslator s_appTranslator;
 };
 
 #endif // APPSETTINGS_H

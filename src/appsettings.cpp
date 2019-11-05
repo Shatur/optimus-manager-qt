@@ -25,17 +25,17 @@
 #include <QFileInfo>
 #include <QTranslator>
 
-QTranslator AppSettings::m_appTranslator;
+QTranslator AppSettings::s_appTranslator;
 
-AppSettings::AppSettings(QObject *parent) :
-    QSettings(parent)
+AppSettings::AppSettings(QObject *parent)
+    : QSettings(parent)
 {
 }
 
 void AppSettings::initTranslator()
 {
     applyLocale(language());
-    SingleApplication::installTranslator(&m_appTranslator);
+    SingleApplication::installTranslator(&s_appTranslator);
 }
 
 QLocale::Language AppSettings::language() const
@@ -150,5 +150,5 @@ void AppSettings::applyLocale(QLocale::Language lang)
     else
         QLocale::setDefault(QLocale(lang));
 
-    m_appTranslator.load(QLocale(), "optimus-manager", "_", ":/translations");
+    s_appTranslator.load(QLocale(), "optimus-manager", "_", ":/translations");
 }

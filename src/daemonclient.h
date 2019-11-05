@@ -57,7 +57,7 @@ private:
     void sendCommand(const QString &type, const std::initializer_list<QPair<QString, QJsonValue>> &args);
     void setError(bool error);
 
-    static const QMap<GPU, QString> gpuMap;
+    static const QMap<GPU, QString> s_gpuMap;
 
     QString m_errorString;
     bool m_error = false;

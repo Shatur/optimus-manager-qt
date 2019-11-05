@@ -145,13 +145,13 @@ private:
     static NvidiaOptions stringToNvidiaOptions(const QStringList &optionStrings);
 
     // Convert enum values into Optimus Manager strings (no, yes, none etc).
-    static const QMap<bool, QString> boolMap;
-    static const QMap<SwitchingMethod, QString> switchingMethodMap;
-    static const QMap<PciReset, QString> pciResetMap;
-    static const QMap<Driver, QString> driverMap;
-    static const QMap<AccelMethod, QString> accelMethodMap;
-    static const QMap<TearFree, QString> tearFreeMap;
-    static const QMap<NvidiaOption, QString> nvidiaOptionMap;
+    static const QMap<bool, QString> s_boolMap;
+    static const QMap<SwitchingMethod, QString> s_switchingMethodMap;
+    static const QMap<PciReset, QString> s_pciResetMap;
+    static const QMap<Driver, QString> s_driverMap;
+    static const QMap<AccelMethod, QString> s_accelMethodMap;
+    static const QMap<TearFree, QString> s_tearFreeMap;
+    static const QMap<NvidiaOption, QString> s_nvidiaOptionMap;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(OptimusSettings::NvidiaOptions)

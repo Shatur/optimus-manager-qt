@@ -30,12 +30,12 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 
-const QMap<DaemonClient::GPU, QString> DaemonClient::gpuMap = {{Intel, QStringLiteral("intel")},
-                                                               {Nvidia, QStringLiteral("nvidia")},
-                                                               {Hybrid, QStringLiteral("hybrid")}};
+const QMap<DaemonClient::GPU, QString> DaemonClient::s_gpuMap = {{Intel, QStringLiteral("intel")},
+                                                                 {Nvidia, QStringLiteral("nvidia")},
+                                                                 {Hybrid, QStringLiteral("hybrid")}};
 
-DaemonClient::DaemonClient(QObject *parent) :
-    QObject(parent)
+DaemonClient::DaemonClient(QObject *parent)
+    : QObject(parent)
 {
 }
 
@@ -74,12 +74,12 @@ void DaemonClient::disconnect()
 
 void DaemonClient::setGpu(GPU gpu)
 {
-    sendCommand(QStringLiteral("switch"), {{QStringLiteral("mode"), gpuMap[gpu]}});
+    sendCommand(QStringLiteral("switch"), {{QStringLiteral("mode"), s_gpuMap[gpu]}});
 }
 
 void DaemonClient::setStartupMode(GPU gpu)
 {
-    sendCommand(QStringLiteral("startup"), {{QStringLiteral("mode"), gpuMap[gpu]}});
+    sendCommand(QStringLiteral("startup"), {{QStringLiteral("mode"), s_gpuMap[gpu]}});
 }
 
 void DaemonClient::setConfig(const QString &content)
@@ -117,7 +117,7 @@ DaemonClient::GPU DaemonClient::startupMode()
     if (modeString.back() == '\n')
         modeString.chop(1);
 
-    return gpuMap.key(modeString, defaultStartupMode());
+    return s_gpuMap.key(modeString, defaultStartupMode());
 }
 
 DaemonClient::GPU DaemonClient::defaultStartupMode()
