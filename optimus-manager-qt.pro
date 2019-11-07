@@ -7,7 +7,7 @@
 QT += core gui widgets dbus x11extras
 TARGET = optimus-manager-qt
 TEMPLATE = app
-CONFIG += c++1z
+CONFIG += c++1z lrelease embed_translations
 
 include(src/third-party/singleapplication/singleapplication.pri)
 

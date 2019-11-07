@@ -150,5 +150,5 @@ void AppSettings::applyLocale(QLocale::Language lang)
     else
         QLocale::setDefault(QLocale(lang));
 
-    s_appTranslator.load(QLocale(), "optimus-manager", "_", ":/translations");
+    s_appTranslator.load(QLocale(), "optimus-manager", "_", ":/i18n");
 }

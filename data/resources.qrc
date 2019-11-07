@@ -4,18 +4,10 @@
         <file>flags/en.svg</file>
         <file>flags/cn.svg</file>
         <file>flags/es.svg</file>
-        <file>translations/optimus-manager_es.qm</file>
-        <file>translations/optimus-manager_ru.qm</file>
-        <file>translations/optimus-manager_zh_CN.qm</file>
         <file>flags/fi.svg</file>
-        <file>translations/optimus-manager_pt_BR.qm</file>
-        <file>translations/optimus-manager_fi.qm</file>
         <file>flags/br.svg</file>
         <file>flags/de.svg</file>
-        <file>translations/optimus-manager_de.qm</file>
         <file>flags/tr.svg</file>
-        <file>translations/optimus-manager_tr.qm</file>
-        <file>translations/optimus-manager_hu.qm</file>
         <file>flags/hu.svg</file>
     </qresource>
 </RCC>
