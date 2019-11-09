@@ -37,10 +37,10 @@ public:
     AppSettings(QObject *parent = nullptr);
 
     // General settings
-    void initTranslator();
+    void setupLocalization() const;
     QLocale::Language language() const;
-    void setLocale(QLocale::Language lang);
-    static QLocale::Language defaultLocale();
+    void setLanguage(QLocale::Language lang);
+    static QLocale::Language defaultLanguage();
 
     bool isAutostartEnabled() const;
     void setAutostartEnabled(bool enabled);
@@ -55,7 +55,7 @@ public:
     static QString defaultTrayIconName(DaemonClient::GPU trayStatus);
 
 private:
-    void applyLocale(QLocale::Language lang);
+    static void loadLanguage(QLocale::Language lang);
     static QTranslator s_appTranslator;
 };
 

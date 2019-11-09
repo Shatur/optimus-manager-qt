@@ -32,27 +32,27 @@ AppSettings::AppSettings(QObject *parent)
 {
 }
 
-void AppSettings::initTranslator()
+void AppSettings::setupLocalization() const
 {
-    applyLocale(language());
+    loadLanguage(language());
     SingleApplication::installTranslator(&s_appTranslator);
 }
 
 QLocale::Language AppSettings::language() const
 {
-    return value("Locale", defaultLocale()).value<QLocale::Language>();
+    return value("Language", defaultLanguage()).value<QLocale::Language>();
 }
 
-void AppSettings::setLocale(QLocale::Language lang)
+void AppSettings::setLanguage(QLocale::Language lang)
 {
     if (lang == language())
         return;
 
-    setValue("Locale", lang);
-    applyLocale(lang);
+    setValue("Language", lang);
+    loadLanguage(lang);
 }
 
-QLocale::Language AppSettings::defaultLocale()
+QLocale::Language AppSettings::defaultLanguage()
 {
     return QLocale::AnyLanguage;
 }
@@ -143,7 +143,7 @@ QString AppSettings::defaultTrayIconName(DaemonClient::GPU trayStatus)
     return QString();
 }
 
-void AppSettings::applyLocale(QLocale::Language lang)
+void AppSettings::loadLanguage(QLocale::Language lang)
 {
     if (lang == QLocale::AnyLanguage)
         QLocale::setDefault(QLocale::system());

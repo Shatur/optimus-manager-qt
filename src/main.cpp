@@ -31,8 +31,8 @@ int main(int argc, char *argv[])
     SingleApplication::setQuitOnLastWindowClosed(false);
 
     // Set localization
-    AppSettings appSettings;
-    appSettings.initTranslator();
+    const AppSettings appSettings;
+    appSettings.setupLocalization();
 
     // Tray menu
     OptimusManager manager;

@@ -289,7 +289,7 @@ void SettingsDialog::loadOptimusSettingsPath(const QString &path)
 void SettingsDialog::restoreDefaults()
 {
     // General settings
-    ui->languageComboBox->setCurrentIndex(AppSettings::defaultLocale());
+    ui->languageComboBox->setCurrentIndex(AppSettings::defaultLanguage());
     ui->autostartCheckBox->setChecked(AppSettings::defaultAutostartEnabled());
     ui->confirmSwitchingCheckBox->setChecked(AppSettings::defaultConfirmSwitching());
     ui->intelIconEdit->setText(AppSettings::defaultTrayIconName(DaemonClient::Intel));
@@ -343,7 +343,7 @@ void SettingsDialog::saveAppSettings()
     AppSettings appSettings;
     const auto language = ui->languageComboBox->currentData().value<QLocale::Language>();
     if (language != appSettings.language()) {
-        appSettings.setLocale(language);
+        appSettings.setLanguage(language);
         m_languageChanged = true;
     }
 
