@@ -44,7 +44,7 @@ OptimusManager::OptimusManager(QObject *parent)
     : QObject(parent)
     , m_contextMenu(new QMenu)
 #ifdef PLASMA
-    , m_trayIcon(new KStatusNotifierItem(this)
+    , m_trayIcon(new KStatusNotifierItem(this))
 #else
     , m_trayIcon(new QSystemTrayIcon(this))
 #endif
