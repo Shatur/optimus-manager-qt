@@ -4,9 +4,17 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)
 
-[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.4.1...HEAD)
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.4.2...HEAD)
 
 _No unreleased changes yet_
+
+## [1.4.2](https://github.com/Shatur95/optimus-manager-qt/tree/1.4.2) (2019-11-17)
+
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.4.1...1.4.2)
+
+**Changed**
+
+-   Fix kernel modules parsing.
 
 ## [1.4.1](https://github.com/Shatur95/optimus-manager-qt/tree/1.4.1) (2019-11-12)
 
