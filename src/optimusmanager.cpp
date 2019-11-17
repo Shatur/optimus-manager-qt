@@ -421,7 +421,7 @@ bool OptimusManager::isModuleAvailable(const QString &moduleName)
         if (moduleInfo.startsWith('#')) // Ignore comment lines
             continue;
 
-        if (QFileInfo(moduleInfo.left(':')).baseName() == moduleName)
+        if (QFileInfo(moduleInfo.left(moduleInfo.indexOf(':'))).baseName() == moduleName)
             return true;
     }
 
