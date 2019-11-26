@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
     SingleApplication::setApplicationName("Optimus Manager");
     SingleApplication::setOrganizationName("optimus-manager");
     SingleApplication::setApplicationVersion("1.4.2");
+    SingleApplication::setDesktopFileName("io.optimus_manager.OptimusManagerQt.desktop");
     SingleApplication::setQuitOnLastWindowClosed(false);
 
     // Set localization

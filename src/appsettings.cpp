@@ -59,17 +59,17 @@ QLocale::Language AppSettings::defaultLanguage()
 
 bool AppSettings::isAutostartEnabled() const
 {
-    return QFileInfo::exists(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/autostart/optimus-manager-qt.desktop");
+    return QFileInfo::exists(QStringLiteral("%1/autostart/%2").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation), SingleApplication::desktopFileName()));
 }
 
 void AppSettings::setAutostartEnabled(bool enabled)
 {
-    QFile autorunFile(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/autostart/optimus-manager-qt.desktop");
+    QFile autorunFile(QStringLiteral("%1/autostart/%2").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation), SingleApplication::desktopFileName()));
 
     if (enabled) {
         // Create autorun file
         if (!autorunFile.exists()) {
-            const QString desktopFileName = QStringLiteral("/usr/share/applications/optimus-manager-qt.desktop");
+            const QString desktopFileName = QStringLiteral("/usr/share/applications/%1").arg(SingleApplication::desktopFileName());
 
             if (!QFile::copy(desktopFileName, autorunFile.fileName()))
                 qCritical() << tr("Unable to create autorun file from '%1'").arg(desktopFileName);

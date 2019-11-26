@@ -80,7 +80,7 @@ bin.path = /usr/bin
 bin.files = $${TARGET}
 
 desktop.path = /usr/share/applications
-desktop.files = dist/optimus-manager-qt.desktop
+desktop.files = dist/io.optimus_manager.OptimusManagerQt.desktop
 
 icon16.path = /usr/share/icons/hicolor/16x16/apps/
 icon16.files = dist/unix/generic/hicolor/16x16/apps/*
