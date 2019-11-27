@@ -55,19 +55,19 @@ TRANSLATIONS += \
 INSTALLS += \
     bin \
     desktop \
-    icon16
-    icon22
-    icon24
-    icon48
-    icon64
-    icon96
-    icon128
-    icon256
-    icon512
-    iconScalable
-    statusIcons16
-    statusIcons22
-    statusIcons24
+    icon16 \
+    icon22 \
+    icon24 \
+    icon48 \
+    icon64 \
+    icon96 \
+    icon128 \
+    icon256 \
+    icon512 \
+    iconScalable \
+    statusIcons16 \
+    statusIcons22 \
+    statusIcons24 \
     statusIconsScalable
 
 RESOURCES += \
@@ -83,31 +83,31 @@ desktop.path = /usr/share/applications
 desktop.files = dist/io.optimus_manager.OptimusManagerQt.desktop
 
 icon16.path = /usr/share/icons/hicolor/16x16/apps/
-icon16.files = dist/unix/generic/hicolor/16x16/apps/*
+icon16.files = dist/icons/16x16/apps/*
 icon22.path = /usr/share/icons/hicolor/22x22/apps/
-icon22.files = dist/unix/generic/hicolor/22x22/apps/*
+icon22.files = dist/icons/22x22/apps/*
 icon24.path = /usr/share/icons/hicolor/24x24/apps/
-icon24.files = dist/unix/generic/hicolor/24x24/apps/*
+icon24.files = dist/icons/24x24/apps/*
 icon48.path = /usr/share/icons/hicolor/48x48/apps/
-icon48.files = dist/unix/generic/hicolor/48x48/apps/*
+icon48.files = dist/icons/48x48/apps/*
 icon64.path = /usr/share/icons/hicolor/64x64/apps/
-icon64.files = dist/unix/generic/hicolor/64x64/apps/*
+icon64.files = dist/icons/64x64/apps/*
 icon96.path = /usr/share/icons/hicolor/96x96/apps/
-icon96.files = dist/unix/generic/hicolor/96x96/apps/*
+icon96.files = dist/icons/96x96/apps/*
 icon128.path = /usr/share/icons/hicolor/128x128/apps/
-icon128.files = dist/unix/generic/hicolor/128x128/apps/*
+icon128.files = dist/icons/128x128/apps/*
 icon256.path = /usr/share/icons/hicolor/256x256/apps/
-icon256.files = dist/unix/generic/hicolor/256x256/apps/*
+icon256.files = dist/icons/256x256/apps/*
 icon512.path = /usr/share/icons/hicolor/512x512/apps/
-icon512.files = dist/unix/generic/hicolor/512x512/apps/*
+icon512.files = dist/icons/512x512/apps/*
 iconScalable.path = /usr/share/icons/hicolor/scalable/apps/
-iconScalable.files = dist/unix/generic/hicolor/scalable/apps/*
+iconScalable.files = dist/icons/scalable/apps/*
 
 statusIcons16.path = /usr/share/icons/hicolor/16x16/status/
-statusIcons16.files = dist/unix/generic/hicolor/16x16/status/*
+statusIcons16.files = dist/icons/16x16/status/*
 statusIcons22.path = /usr/share/icons/hicolor/22x22/status/
-statusIcons22.files = dist/unix/generic/hicolor/22x22/status/*
+statusIcons22.files = dist/icons/22x22/status/*
 statusIcons24.path = /usr/share/icons/hicolor/24x24/status/
-statusIcons24.files = dist/unix/generic/hicolor/24x24/status/*
+statusIcons24.files = dist/icons/24x24/status/*
 statusIconsScalable.path = /usr/share/icons/hicolor/scalable/status/
-statusIconsScalable.files = dist/unix/generic/hicolor/scalable/status/*
+statusIconsScalable.files = dist/icons/scalable/status/*
