@@ -57,6 +57,7 @@ public:
 private:
     static void loadLanguage(QLocale::Language lang);
     static QTranslator s_appTranslator;
+    static const QString s_autostartFileName;
 };
 
 #endif // APPSETTINGS_H
