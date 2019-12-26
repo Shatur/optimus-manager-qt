@@ -40,6 +40,8 @@
 #include <QSystemTrayIcon>
 #endif
 
+#include <X11/extensions/Xrandr.h>
+
 OptimusManager::OptimusManager(QObject *parent)
     : QObject(parent)
     , m_contextMenu(new QMenu)

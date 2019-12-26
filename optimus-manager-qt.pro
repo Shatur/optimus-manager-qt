@@ -26,7 +26,8 @@ SOURCES += \
     src/settingsdialog.cpp \
     src/optimussettings.cpp \
     src/appsettings.cpp \
-    src/daemonclient.cpp
+    src/daemonclient.cpp \
+    src/x11deleters.cpp
 
 
 HEADERS += \

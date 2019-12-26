@@ -1,30 +1,26 @@
 #ifndef X11DELETERS_H
 #define X11DELETERS_H
 
-#include <X11/extensions/Xrandr.h>
+class _XRRProviderResources;
+class _XRRScreenResources;
+class _XRRProviderInfo;
+using XRRProviderResources = _XRRProviderResources;
+using XRRScreenResources = _XRRScreenResources;
+using XRRProviderInfo = _XRRProviderInfo;
 
 struct ProviderResourcesDeleter
 {
-    static inline void cleanup(XRRProviderResources *providerResources)
-    {
-        XRRFreeProviderResources(providerResources);
-    }
+    static void cleanup(XRRProviderResources *providerResources);
 };
 
 struct ScreenResourcesDeleter
 {
-    static inline void cleanup(XRRScreenResources *screenResources)
-    {
-        XRRFreeScreenResources(screenResources);
-    }
+    static void cleanup(XRRScreenResources *screenResources);
 };
 
 struct ProviderInfoDeleter
 {
-    static inline void cleanup(XRRProviderInfo *providerInfo)
-    {
-        XRRFreeProviderInfo(providerInfo);
-    }
+    static void cleanup(XRRProviderInfo *providerInfo);
 };
 
 

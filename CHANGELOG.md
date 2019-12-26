@@ -6,7 +6,9 @@ All notable changes to this project will be documented in this file. This projec
 
 [Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.4.3...HEAD)
 
-_No unreleased changes yet_
+**Changed**
+
+-   Fix build for Qt 5.14.
 
 ## [1.4.3](https://github.com/Shatur95/optimus-manager-qt/tree/1.4.3) (2019-12-04)
 
