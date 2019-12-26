@@ -25,10 +25,10 @@
 int main(int argc, char *argv[])
 {
     SingleApplication app(argc, argv);
-    SingleApplication::setApplicationName("Optimus Manager");
-    SingleApplication::setOrganizationName("optimus-manager");
-    SingleApplication::setApplicationVersion("1.4.3");
-    SingleApplication::setDesktopFileName("io.optimus_manager.OptimusManagerQt.desktop");
+    SingleApplication::setApplicationName(QStringLiteral("Optimus Manager"));
+    SingleApplication::setOrganizationName(QStringLiteral("optimus-manager"));
+    SingleApplication::setApplicationVersion(QStringLiteral("1.4.3"));
+    SingleApplication::setDesktopFileName(QStringLiteral("io.optimus_manager.OptimusManagerQt.desktop"));
     SingleApplication::setQuitOnLastWindowClosed(false);
 
     // Set localization
