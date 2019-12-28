@@ -26,7 +26,7 @@
 #include <QTranslator>
 
 QTranslator AppSettings::s_appTranslator;
-const QString AppSettings::s_autostartFileName = QStringLiteral("%1/autostart/%2").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation), SingleApplication::desktopFileName());
+const QString AppSettings::s_autostartLocation = QStringLiteral("%1/autostart/%2").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation));
 
 AppSettings::AppSettings(QObject *parent)
     : QSettings(parent)
@@ -60,12 +60,12 @@ QLocale::Language AppSettings::defaultLanguage()
 
 bool AppSettings::isAutostartEnabled() const
 {
-    return QFileInfo::exists(s_autostartFileName);
+    return QFileInfo::exists(s_autostartLocation.arg(SingleApplication::desktopFileName()));
 }
 
 void AppSettings::setAutostartEnabled(bool enabled)
 {
-    QFile autorunFile(s_autostartFileName);
+    QFile autorunFile(s_autostartLocation.arg(SingleApplication::desktopFileName()));
 
     if (enabled) {
         // Create autorun file
