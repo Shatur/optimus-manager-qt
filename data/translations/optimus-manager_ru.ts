@@ -414,7 +414,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
         <location filename="../../src/settingsdialog.ui" line="581"/>
         <source>Hot reset</source>
-        <translation>Гарячий сброс</translation>
+        <translation>Горячий сброс</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="622"/>
