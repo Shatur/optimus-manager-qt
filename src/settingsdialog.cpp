@@ -37,7 +37,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
 {
     ui->setupUi(this);
     connect(ui->dialogButtonBox->button(QDialogButtonBox::RestoreDefaults), &QPushButton::clicked, this, &SettingsDialog::restoreDefaults);
-    ui->logoLabel->setPixmap(QIcon::fromTheme("optimus-manager").pixmap(512, 512));
+    ui->logoLabel->setPixmap(QIcon::fromTheme(QStringLiteral("optimus-manager")).pixmap(512, 512));
     ui->versionGuiLabel->setText(SingleApplication::applicationVersion());
     ui->versionLabel->setText(optimusManagerVersion());
 
@@ -248,8 +248,8 @@ void SettingsDialog::browseTempConfigPath()
     const QFileInfo previousName = ui->optimusConfigPathEdit->text();
     dialog.setDirectory(previousName.exists() ? previousName.path() : QDir::homePath());
 
-    if (dialog.exec())
-        ui->optimusConfigPathEdit->setText(dialog.selectedFiles().first());
+    if (dialog.exec() == QDialog::Accepted)
+        ui->optimusConfigPathEdit->setText(dialog.selectedFiles().constFirst());
 }
 
 void SettingsDialog::exportOptimusConfig()
@@ -261,8 +261,8 @@ void SettingsDialog::exportOptimusConfig()
     const QFileInfo previousName = ui->optimusConfigPathEdit->text();
     dialog.setDirectory(previousName.exists() ? previousName.path() : QDir::homePath());
 
-    if (dialog.exec())
-        saveOptimusSettings(dialog.selectedFiles().first());
+    if (dialog.exec() == QDialog::Accepted)
+        saveOptimusSettings(dialog.selectedFiles().constFirst());
 }
 
 void SettingsDialog::importOptimusConfig()
@@ -274,8 +274,8 @@ void SettingsDialog::importOptimusConfig()
     const QFileInfo previousName = ui->optimusConfigPathEdit->text();
     dialog.setDirectory(previousName.exists() ? previousName.path() : QDir::homePath());
 
-    if (dialog.exec())
-        loadOptimusSettings(dialog.selectedFiles().first());
+    if (dialog.exec() == QDialog::Accepted)
+        loadOptimusSettings(dialog.selectedFiles().constFirst());
 }
 
 void SettingsDialog::loadOptimusSettingsPath(const QString &path)
@@ -330,7 +330,7 @@ void SettingsDialog::loadAppSettings()
     // General settings
     const AppSettings settings;
     ui->languageComboBox->setCurrentIndex(ui->languageComboBox->findData(settings.language()));
-    ui->autostartCheckBox->setChecked(settings.isAutostartEnabled());
+    ui->autostartCheckBox->setChecked(AppSettings::isAutostartEnabled());
     ui->confirmSwitchingCheckBox->setChecked(settings.isConfirmSwitching());
     ui->intelIconEdit->setText(settings.gpuIconName(DaemonClient::Intel));
     ui->nvidiaIconEdit->setText(settings.gpuIconName(DaemonClient::Nvidia));
@@ -348,7 +348,7 @@ void SettingsDialog::saveAppSettings()
     }
 
     // General settings
-    appSettings.setAutostartEnabled(ui->autostartCheckBox->isChecked());
+    AppSettings::setAutostartEnabled(ui->autostartCheckBox->isChecked());
     appSettings.setConfirmSwitching(ui->confirmSwitchingCheckBox->isChecked());
     appSettings.setGpuIconName(DaemonClient::Intel, ui->intelIconEdit->text());
     appSettings.setGpuIconName(DaemonClient::Nvidia, ui->nvidiaIconEdit->text());
@@ -429,8 +429,8 @@ void SettingsDialog::browseIcon(QLineEdit *iconNameEdit)
     const QFileInfo previousName = iconNameEdit->text();
     dialog.setDirectory(previousName.exists() ? previousName.path() : QDir::homePath());
 
-    if (dialog.exec())
-        iconNameEdit->setText(dialog.selectedFiles().first());
+    if (dialog.exec() == QDialog::Accepted)
+        iconNameEdit->setText(dialog.selectedFiles().constFirst());
 #endif
 }
 
@@ -450,7 +450,7 @@ QString SettingsDialog::configurationPath() const
 QString SettingsDialog::optimusManagerVersion()
 {
     // Parse Optimus Manager version
-    QFile optimusManagerBin("/usr/bin/optimus-manager-daemon");
+    QFile optimusManagerBin(QStringLiteral("/usr/bin/optimus-manager-daemon"));
     if (!optimusManagerBin.open(QIODevice::ReadOnly)) {
         QMessageBox message;
         message.setIcon(QMessageBox::Critical);

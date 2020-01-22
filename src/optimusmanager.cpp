@@ -53,7 +53,7 @@ OptimusManager::OptimusManager(QObject *parent)
     , m_currentGpu(detectGpu())
 {
     // Setup context menu
-    m_contextMenu->addAction(QIcon::fromTheme("preferences-system"), SettingsDialog::tr("Settings"), this, &OptimusManager::openSettings);
+    m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("preferences-system")), SettingsDialog::tr("Settings"), this, &OptimusManager::openSettings);
     m_contextMenu->addSeparator();
 
     const QMetaEnum gpuEnum = QMetaEnum::fromType<DaemonClient::GPU>();
@@ -62,7 +62,7 @@ OptimusManager::OptimusManager(QObject *parent)
     m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(DaemonClient::Hybrid)), this, &OptimusManager::switchToHybrid);
     m_contextMenu->addSeparator();
 
-    m_contextMenu->addAction(QIcon::fromTheme("application-exit"), tr("Exit"), SingleApplication::instance(), &SingleApplication::quit);
+    m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), tr("Exit"), SingleApplication::instance(), &SingleApplication::quit);
 
     // Setup tray
 #ifdef PLASMA
@@ -116,7 +116,7 @@ void OptimusManager::switchToHybrid()
 void OptimusManager::openSettings()
 {
     SettingsDialog dialog;
-    if (!dialog.exec())
+    if (dialog.exec() == QDialog::Rejected)
         return;
 
     if (dialog.isLanguageChanged())
@@ -125,22 +125,12 @@ void OptimusManager::openSettings()
     loadSettings();
 }
 
-void OptimusManager::showNotification(const QString &message, const QString &iconName, int interval)
+void OptimusManager::showNotification(const QString &title, const QString &message)
 {
 #ifdef PLASMA
-    m_trayIcon->showMessage(SingleApplication::applicationName(), message, iconName, interval);
+    m_trayIcon->showMessage(title, message, m_trayIcon->iconName());
 #else
-    QDBusInterface notify("org.freedesktop.Notifications", "/org/freedesktop/Notifications", "org.freedesktop.Notifications");
-    QVariantList notifyArguments;
-    notifyArguments << SingleApplication::applicationName(); // Set program name
-    notifyArguments << QVariant(QVariant::UInt);
-    notifyArguments << iconName; // Icon
-    notifyArguments << SingleApplication::applicationName(); // Title
-    notifyArguments << message; // Body
-    notifyArguments << QStringList();
-    notifyArguments << QVariantMap();
-    notifyArguments << interval; // Show interval
-    notify.callWithArgumentList(QDBus::AutoDetect, "Notify", notifyArguments);
+    m_trayIcon->showMessage(title, message);
 #endif
 }
 
@@ -159,7 +149,7 @@ void OptimusManager::loadSettings()
     if (!QIcon::hasThemeIcon(gpuIconName) && !QFileInfo::exists(gpuIconName)) {
         gpuIconName = AppSettings::defaultTrayIconName(m_currentGpu);
         appSettings.setGpuIconName(m_currentGpu, gpuIconName);
-        showNotification(tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(gpuIconName), gpuIconName);
+        showNotification(tr("Invalid icon"), tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(gpuIconName));
     }
     m_trayIcon->setIconByName(gpuIconName);
     m_trayIcon->setToolTipIconByName(m_trayIcon->iconName());
@@ -168,8 +158,8 @@ void OptimusManager::loadSettings()
     if (trayIcon.isNull()) {
         const QString defaultIconName = AppSettings::defaultTrayIconName(m_currentGpu);
         appSettings.setGpuIconName(m_currentGpu, defaultIconName);
+        showNotification(tr("Invalid icon"), tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(gpuIconName));
         trayIcon = QIcon::fromTheme(defaultIconName);
-        showNotification(tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(gpuIconName), defaultIconName);
     }
     m_trayIcon->setIcon(trayIcon);
 #endif
@@ -231,7 +221,7 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
     if (optimusSettings.switchingMethod() == OptimusSettings::Bbswitch && !isModuleAvailable(QStringLiteral("bbswitch"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Warning);
-        message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg("bbswitch"));
+        message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg(QStringLiteral("bbswitch")));
         message.setInformativeText(tr("Power switching will not work.\n"
                                       "You can set '%1' for GPU switching in settings or install bbswitch for"
                                       "the default kernel with '%2' or for all kernels with '%3'.")
@@ -243,7 +233,7 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
     if (switchingGpu == DaemonClient::Nvidia && !isModuleAvailable(QStringLiteral("nvidia"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
-        message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg("nvidia"));
+        message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg(QStringLiteral("nvidia")));
         message.setInformativeText(tr("It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?"));
         message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         if (message.exec() == QMessageBox::No)
@@ -251,7 +241,7 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
     }
 
     // Check if GDM is patched
-    if (currentDisplayManager() == "/usr/bin/gdm" && !isGdmPatched()) {
+    if (currentDisplayManager() == QLatin1String("/usr/bin/gdm") && !isGdmPatched()) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
         message.setText(tr("Looks like you're using a non-patched version of the Gnome Display Manager (GDM)."));
@@ -279,8 +269,9 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
 
     // Check if Wayland sessions are running
     for (const Session &session : sessions) {
-        const QDBusInterface sessionInterface("org.freedesktop.login1", session.sessionObjectPath.path(), "org.freedesktop.login1.Session", QDBusConnection::systemBus());
-        if (sessionInterface.property("Type").toString() == "wayland") {
+        const QDBusInterface sessionInterface(QStringLiteral("org.freedesktop.login1"), session.sessionObjectPath.path(),
+                                              QStringLiteral("org.freedesktop.login1.Session"), QDBusConnection::systemBus());
+        if (sessionInterface.property("Type").toString() == QLatin1String("wayland")) {
             QMessageBox message;
             message.setIcon(QMessageBox::Question);
             message.setText(tr("Wayland session found."));
@@ -301,21 +292,21 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
     if (isServiceActive(QStringLiteral("bumblebeed.service"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
-        message.setText(tr("The Bumblebee service (%1) is running.").arg("bumblebeed.service"));
+        message.setText(tr("The Bumblebee service (%1) is running.").arg(QStringLiteral("bumblebeed.service")));
         message.setInformativeText(tr("This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable"
                                       " this service with '%1' and reboot your computer.\n"
                                       "Ignore this warning and proceed with GPU switching now?")
-                                   .arg("sudo systemctl disable bumblebeed.service"));
+                                   .arg(QStringLiteral("sudo systemctl disable bumblebeed.service")));
         message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         if (message.exec() == QMessageBox::No)
             return;
     }
 
     // Check if the default xorg config is exists
-    if (QFileInfo::exists("/etc/X11/xorg.conf")) {
+    if (QFileInfo::exists(QStringLiteral("/etc/X11/xorg.conf"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
-        message.setText(tr("Found a Xorg config file at '%1'.").arg("/etc/X11/xorg.conf"));
+        message.setText(tr("Found a Xorg config file at '%1'.").arg(QStringLiteral("/etc/X11/xorg.conf")));
         message.setInformativeText(tr("If you did not create it yourself, it was likely generated by your distribution or by an Nvidia utility.\n"
                                       "This file may contain hard-coded GPU configuration that could interfere with Optimus Manager,"
                                       " so it is recommended that you delete it before proceeding.\n"
@@ -326,10 +317,10 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
     }
 
     // Check if the Manjaro MHWD config is exists
-    if (QFileInfo::exists("/etc/X11/xorg.conf.d/90-mhwd.conf")) {
+    if (QFileInfo::exists(QStringLiteral("/etc/X11/xorg.conf.d/90-mhwd.conf"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
-        message.setText(tr("Found a Xorg config file at '%1'.").arg("/etc/X11/xorg.conf.d/90-mhwd.conf"));
+        message.setText(tr("Found a Xorg config file at '%1'.").arg(QStringLiteral("/etc/X11/xorg.conf.d/90-mhwd.conf")));
         message.setInformativeText(tr("This file was auto-generated by the Manjaro driver utility (MHWD). This will likely interfere with GPU switching,"
                                       " so Optimus Manager will delete this file automatically if you proceded with GPU switching.\n"
                                       "Proceed?"));
@@ -341,10 +332,10 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
     // Check if the Xorg driver 'intel' is installed
     if (switchingGpu == DaemonClient::Intel
             && optimusSettings.intelDriver() == OptimusSettings::IntelDriver
-            && !QFileInfo::exists("/usr/lib/xorg/modules/drivers/intel_drv.so")) {
+            && !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/intel_drv.so"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
-        message.setText(tr("The Xorg driver '%1' is not installed.").arg("intel"));
+        message.setText(tr("The Xorg driver '%1' is not installed.").arg(QStringLiteral("intel")));
         message.setInformativeText(tr("Optimus Manager will use '%1' driver instead. You can change driver in settings or install the"
                                       " '%2' driver from the package '%3'.\n"
                                       "Continue anyway?")
@@ -377,7 +368,7 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
     if (optimusSettings.isAutoLogoutEnabled())
         logout();
     else
-        showNotification(tr("Configuration successfully applied. Your GPU will be switched after next login."), appSettings.gpuIconName(switchingGpu));
+        showNotification(tr("Configuration successfully applied"), tr("Your GPU will be switched after next login."));
 }
 
 DaemonClient::GPU OptimusManager::detectGpu()
@@ -432,32 +423,35 @@ bool OptimusManager::isModuleAvailable(const QString &moduleName)
 
 bool OptimusManager::isServiceActive(const QString &serviceName)
 {
-    QDBusInterface systemd("org.freedesktop.systemd1", "/org/freedesktop/systemd1", "org.freedesktop.systemd1.Manager", QDBusConnection::systemBus());
+    QDBusInterface systemd(QStringLiteral("org.freedesktop.systemd1"), QStringLiteral("/org/freedesktop/systemd1"),
+                           QStringLiteral("org.freedesktop.systemd1.Manager"), QDBusConnection::systemBus());
 
-    const auto optimusManagerPath = systemd.call("GetUnit", serviceName).arguments().at(0).value<QDBusObjectPath>();
+    const auto optimusManagerPath = systemd.call(QStringLiteral("GetUnit"), serviceName).arguments().at(0).value<QDBusObjectPath>();
     if (optimusManagerPath.path().isEmpty())
         return false;
 
-    const QDBusInterface optimusManager("org.freedesktop.systemd1", optimusManagerPath.path(), "org.freedesktop.systemd1.Unit", QDBusConnection::systemBus());
-    return optimusManager.property("SubState").toString() == "running";
+    const QDBusInterface optimusManager(QStringLiteral("org.freedesktop.systemd1"), optimusManagerPath.path(),
+                                        QStringLiteral("org.freedesktop.systemd1.Unit"), QDBusConnection::systemBus());
+    return optimusManager.property("SubState").toString() == QLatin1String("running");
 }
 
 bool OptimusManager::isGdmPatched()
 {
-    return QFileInfo::exists("/etc/gdm/Prime") || QFileInfo::exists("/etc/gdm3/Prime");
+    return QFileInfo::exists(QStringLiteral("/etc/gdm/Prime")) || QFileInfo::exists(QStringLiteral("/etc/gdm3/Prime"));
 }
 
 QString OptimusManager::currentDisplayManager()
 {
-    const QSettings displayManager("/etc/systemd/system/display-manager.service", QSettings::IniFormat);
-    return displayManager.value("Service/ExecStart").toString();
+    const QSettings displayManager(QStringLiteral("/etc/systemd/system/display-manager.service"), QSettings::IniFormat);
+    return displayManager.value(QStringLiteral("Service/ExecStart")).toString();
 }
 
 QVector<Session> OptimusManager::activeSessions()
 {
     // Get list of sessions
-    QDBusInterface logind("org.freedesktop.login1", "/org/freedesktop/login1", "org.freedesktop.login1.Manager", QDBusConnection::systemBus());
-    const auto sessionList = logind.call("ListSessions").arguments().at(0).value<QDBusArgument>();
+    QDBusInterface logind(QStringLiteral("org.freedesktop.login1"), QStringLiteral("/org/freedesktop/login1"),
+                          QStringLiteral("org.freedesktop.login1.Manager"), QDBusConnection::systemBus());
+    const auto sessionList = logind.call(QStringLiteral("ListSessions")).arguments().at(0).value<QDBusArgument>();
 
     // Demarshall data
     QVector<Session> activeSessions;
@@ -479,7 +473,7 @@ int OptimusManager::sessionsCountWithoutGdm(const QVector<Session> &sessions)
 {
     int sessionCount = 0;
     for (const Session &session : sessions) {
-        if (session.userName == "gdm")
+        if (session.userName == QLatin1String("gdm"))
             continue;
 
         ++sessionCount;
@@ -490,25 +484,25 @@ int OptimusManager::sessionsCountWithoutGdm(const QVector<Session> &sessions)
 
 void OptimusManager::logout()
 {
-    QDBusInterface kde("org.kde.ksmserver", "/KSMServer", "org.kde.KSMServerInterface");
-    kde.call("logout", 0, 3, 3);
+    QDBusInterface kde(QStringLiteral("org.kde.ksmserver"), QStringLiteral("/KSMServer"), QStringLiteral("org.kde.KSMServerInterface"));
+    kde.call(QStringLiteral("logout"), 0, 3, 3);
 
-    QDBusInterface gnome("org.gnome.SessionManager", "/org/gnome/SessionManager", "org.gnome.SessionManager");
-    gnome.call("Logout", 1U);
+    QDBusInterface gnome(QStringLiteral("org.gnome.SessionManager"), QStringLiteral("/org/gnome/SessionManager"), QStringLiteral("org.gnome.SessionManager"));
+    gnome.call(QStringLiteral("Logout"), 1U);
 
-    QDBusInterface xfce("org.xfce.SessionManager", "/org/xfce/SessionManager", "org.xfce.Session.Manager");
-    xfce.call("Logout", false, true);
+    QDBusInterface xfce(QStringLiteral("org.xfce.SessionManager"), QStringLiteral("/org/xfce/SessionManager"), QStringLiteral("org.xfce.Session.Manager"));
+    xfce.call(QStringLiteral("Logout"), false, true);
 
-    QDBusInterface deepin("com.deepin.SessionManager", "/com/deepin/SessionManager", "com.deepin.SessionManager");
-    deepin.call("RequestLogout");
+    QDBusInterface deepin(QStringLiteral("com.deepin.SessionManager"), QStringLiteral("/com/deepin/SessionManager"), QStringLiteral("com.deepin.SessionManager"));
+    deepin.call(QStringLiteral("RequestLogout"));
 
-    QProcess::execute("i3-msg", {"exit"});
+    QProcess::execute(QStringLiteral("i3-msg"), {QStringLiteral("exit")});
 
-    QProcess::execute("sway-msg", {"exit"});
+    QProcess::execute(QStringLiteral("sway-msg"), {QStringLiteral("exit")});
 
-    QProcess::execute("openbox", {"--exit"});
+    QProcess::execute(QStringLiteral("openbox"), {QStringLiteral("--exit")});
 
-    QProcess::execute("awesome-client", {"\"awesome.quit()\""});
+    QProcess::execute(QStringLiteral("awesome-client"), {QStringLiteral("\"awesome.quit()\"")});
 
-    QProcess::execute("bspc", {"quit"});
+    QProcess::execute(QStringLiteral("bspc"), {QStringLiteral("quit")});
 }

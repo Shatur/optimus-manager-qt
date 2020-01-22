@@ -104,7 +104,7 @@ QString DaemonClient::errorString()
 
 DaemonClient::GPU DaemonClient::startupMode()
 {
-    QFile file("/var/lib/optimus-manager/startup_mode");
+    QFile file(QStringLiteral("/var/lib/optimus-manager/startup_mode"));
     if (!file.open(QIODevice::ReadOnly)) {
         QMessageBox message;
         message.setIcon(QMessageBox::Warning);
@@ -125,7 +125,7 @@ DaemonClient::GPU DaemonClient::defaultStartupMode()
     return Intel;
 }
 
-void DaemonClient::sendCommand(const QString &type, const std::initializer_list<QPair<QString, QJsonValue>> &args)
+void DaemonClient::sendCommand(const QString &type, std::initializer_list<QPair<QString, QJsonValue>> args)
 {
     const QJsonDocument command{{{QStringLiteral("type"), type}, {QStringLiteral("args"), {args}}}};
     const QByteArray json = command.toJson();

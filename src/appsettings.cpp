@@ -40,7 +40,7 @@ void AppSettings::setupLocalization() const
 
 QLocale::Language AppSettings::language() const
 {
-    return value("Language", defaultLanguage()).value<QLocale::Language>();
+    return value(QStringLiteral("Language"), defaultLanguage()).value<QLocale::Language>();
 }
 
 void AppSettings::setLanguage(QLocale::Language lang)
@@ -48,7 +48,7 @@ void AppSettings::setLanguage(QLocale::Language lang)
     if (lang == language())
         return;
 
-    setValue("Language", lang);
+    setValue(QStringLiteral("Language"), lang);
     loadLanguage(lang);
 }
 
@@ -57,7 +57,7 @@ QLocale::Language AppSettings::defaultLanguage()
     return QLocale::AnyLanguage;
 }
 
-bool AppSettings::isAutostartEnabled() const
+bool AppSettings::isAutostartEnabled()
 {
     return QFileInfo::exists(QStringLiteral("%1/autostart/%2").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation)));
 }
@@ -88,12 +88,12 @@ bool AppSettings::defaultAutostartEnabled()
 
 bool AppSettings::isConfirmSwitching() const
 {
-    return value("ConfirmSwitching", defaultConfirmSwitching()).toBool();
+    return value(QStringLiteral("ConfirmSwitching"), defaultConfirmSwitching()).toBool();
 }
 
 void AppSettings::setConfirmSwitching(bool confirm)
 {
-    setValue("ConfirmSwitching", confirm);
+    setValue(QStringLiteral("ConfirmSwitching"), confirm);
 }
 
 bool AppSettings::defaultConfirmSwitching()
@@ -105,11 +105,11 @@ QString AppSettings::gpuIconName(DaemonClient::GPU gpu) const
 {
     switch (gpu) {
     case DaemonClient::Intel:
-        return value("IntelIcon", defaultTrayIconName(DaemonClient::Intel)).toString();
+        return value(QStringLiteral("IntelIcon"), defaultTrayIconName(DaemonClient::Intel)).toString();
     case DaemonClient::Nvidia:
-        return value("NvidiaIcon", defaultTrayIconName(DaemonClient::Nvidia)).toString();
+        return value(QStringLiteral("NvidiaIcon"), defaultTrayIconName(DaemonClient::Nvidia)).toString();
     case DaemonClient::Hybrid:
-        return value("HybridIcon", defaultTrayIconName(DaemonClient::Hybrid)).toString();
+        return value(QStringLiteral("HybridIcon"), defaultTrayIconName(DaemonClient::Hybrid)).toString();
     }
 
     qFatal("Unknown GPU");
@@ -119,13 +119,13 @@ void AppSettings::setGpuIconName(DaemonClient::GPU gpu, const QString &name)
 {
     switch (gpu) {
     case DaemonClient::Intel:
-        setValue("IntelIcon", name);
+        setValue(QStringLiteral("IntelIcon"), name);
         break;
     case DaemonClient::Nvidia:
-        setValue("NvidiaIcon", name);
+        setValue(QStringLiteral("NvidiaIcon"), name);
         break;
     case DaemonClient::Hybrid:
-        setValue("HybridIcon", name);
+        setValue(QStringLiteral("HybridIcon"), name);
     }
 }
 
@@ -150,5 +150,5 @@ void AppSettings::loadLanguage(QLocale::Language lang)
     else
         QLocale::setDefault(QLocale(lang));
 
-    s_appTranslator.load(QLocale(), "optimus-manager", "_", ":/i18n");
+    s_appTranslator.load(QLocale(), QStringLiteral("optimus-manager"), QStringLiteral("_"), QStringLiteral(":/i18n"));
 }

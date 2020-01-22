@@ -51,7 +51,7 @@ private slots:
     void openSettings();
 
 private:
-    void showNotification(const QString &message, const QString &iconName, int interval = 10000);
+    void showNotification(const QString &title, const QString &message);
     void loadSettings();
     void retranslateUi();
     void switchGpu(DaemonClient::GPU switchingGpu);

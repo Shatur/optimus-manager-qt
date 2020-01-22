@@ -42,8 +42,8 @@ public:
     void setLanguage(QLocale::Language lang);
     static QLocale::Language defaultLanguage();
 
-    bool isAutostartEnabled() const;
-    void setAutostartEnabled(bool enabled);
+    static bool isAutostartEnabled();
+    static void setAutostartEnabled(bool enabled);
     static bool defaultAutostartEnabled();
 
     bool isConfirmSwitching() const;

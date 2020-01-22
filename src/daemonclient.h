@@ -54,7 +54,7 @@ public:
     static GPU defaultStartupMode();
 
 private:
-    void sendCommand(const QString &type, const std::initializer_list<QPair<QString, QJsonValue>> &args);
+    void sendCommand(const QString &type, std::initializer_list<QPair<QString, QJsonValue>> args);
     void setError(bool error);
 
     static const QMap<GPU, QString> s_gpuMap;
