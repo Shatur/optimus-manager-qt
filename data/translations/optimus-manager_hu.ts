@@ -329,11 +329,6 @@ Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Engedélyezi-e az NVreg_UsePageAttributeTable opciót az Nvidia illesztőprogramban&lt;span style=&quot; font-style:italic;&quot;&gt;Ajánlott&lt;/span&gt;, mert másképp rossz processzorteljesítmény léphet fel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="837"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;CoolBits engedélyezése az Xorg konfigurációban, amely engedélyezi a órajelezést&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../../src/settingsdialog.ui" line="840"/>
         <source>Overclocking options</source>
         <translation>Túlhajtási beállítások</translation>
@@ -586,6 +581,11 @@ Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
         <location filename="../../src/settingsdialog.ui" line="800"/>
         <source>Triple buffer</source>
         <translation>Tripla puffer</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="837"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="850"/>

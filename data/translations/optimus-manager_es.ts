@@ -327,11 +327,6 @@ Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Activar, o no, la opción NVreg_UsePageAttributeTable en el driver Nvidia.&lt;span style=&quot; font-style:italic;&quot;&gt;Recomendado&lt;/span&gt;, de lo contrario puede causar bajo rendimiento de CPU.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="837"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../src/settingsdialog.ui" line="840"/>
         <source>Overclocking options</source>
         <translation>Opciones de overclocking</translation>
@@ -584,6 +579,11 @@ Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
         <location filename="../../src/settingsdialog.ui" line="800"/>
         <source>Triple buffer</source>
         <translation>Triple buffer</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="837"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="850"/>

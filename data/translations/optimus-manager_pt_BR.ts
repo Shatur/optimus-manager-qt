@@ -326,11 +326,6 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Se deve ou não habilitar a opção NVreg_UsePageAttributeTable no driver da Nvidia&lt;span style=&quot; font-style:italic;&quot;&gt;Recomendado&lt;/span&gt;, pode causar um desempenho ruim da CPU, caso contrário&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="837"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o CoolBits na configuração do Xorg e desbloqueia as opções de clocking&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../../src/settingsdialog.ui" line="840"/>
         <source>Overclocking options</source>
         <translation>Opções de overclock</translation>
@@ -583,6 +578,11 @@ Ignore this warning and proceed with GPU switching now?</source>
         <location filename="../../src/settingsdialog.ui" line="800"/>
         <source>Triple buffer</source>
         <translation>Buffer triplo</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="837"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="850"/>

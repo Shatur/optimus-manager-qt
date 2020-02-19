@@ -329,11 +329,6 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить или нет параметр NVreg_UsePageAttributeTable в драйвере Nvidia&lt;span style=&quot; font-style:italic;&quot;&gt;Рекомендуется&lt;/span&gt;, в противном случае может привести к снижению производительности процессора&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="837"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить CoolBits в конфигурации Xorg, которая разблокирует параметры разгона&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../../src/settingsdialog.ui" line="840"/>
         <source>Overclocking options</source>
         <translation>Опции разгона</translation>
@@ -586,6 +581,11 @@ Ignore this warning and proceed with GPU switching now?</source>
         <location filename="../../src/settingsdialog.ui" line="800"/>
         <source>Triple buffer</source>
         <translation>Тройная буферизация</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="837"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить CoolBits в конфигурации Xorg, которая разблокирует параметры разгона в панели управления Nvidia&lt;/p&gt;&lt;p&gt;Примечание: не работает в режиме Hybrid&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="850"/>

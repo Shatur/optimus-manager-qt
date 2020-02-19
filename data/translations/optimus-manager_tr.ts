@@ -328,11 +328,6 @@ Bu uyarıyı dikkate almayın ve şimdi GPU geçişi ile devam edin.</translatio
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Nvidia sürücüsündeki NVreg_UsePageAttributeTable seçeneğinin etkinleştirilip etkinleştirilmeyeceği&lt;span style=&quot; font-style:italic;&quot;&gt;Tavsiye &lt;/span&gt;, aksi takdirde düşük CPU performansına neden olabilir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="837"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../src/settingsdialog.ui" line="840"/>
         <source>Overclocking options</source>
         <translation>Hızaşırtma seçenekleri</translation>
@@ -585,6 +580,11 @@ Bu uyarıyı dikkate almayın ve şimdi GPU geçişi ile devam edin.</translatio
         <location filename="../../src/settingsdialog.ui" line="800"/>
         <source>Triple buffer</source>
         <translation>Üçlü arabellek</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="837"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="850"/>
