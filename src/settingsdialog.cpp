@@ -319,6 +319,7 @@ void SettingsDialog::restoreDefaults()
     ui->nvidiaModesetCheckBox->setChecked(OptimusSettings::defaultNvidiaModesetEnabled());
     ui->nvidiaPatCheckBox->setChecked(OptimusSettings::defaultNvidiaPatEnabled());
     ui->nvidiaIgnoreAbiCheckBox->setChecked(OptimusSettings::defaultNvidiaIgnoreAbi());
+    ui->nvidiaAllowExternalGpusCheckBox->setChecked(OptimusSettings::defaultNvidiaAllowExternalGpus());
 
     const OptimusSettings::NvidiaOptions nvidiaOptions = OptimusSettings::defaultNvidiaOptions();
     ui->nvidiaOverclockingCheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::Overclocking));
@@ -377,6 +378,7 @@ void SettingsDialog::loadOptimusSettings(const QString &path)
     ui->nvidiaModesetCheckBox->setChecked(optimusSettings.isNvidiaModesetEnabled());
     ui->nvidiaPatCheckBox->setChecked(optimusSettings.isNvidiaPatEnabled());
     ui->nvidiaIgnoreAbiCheckBox->setChecked(optimusSettings.isNvidiaIgnoreAbi());
+    ui->nvidiaAllowExternalGpusCheckBox->setChecked(optimusSettings.isNvidiaAllowExternalGpus());
 
     const OptimusSettings::NvidiaOptions nvidiaOptions = optimusSettings.nvidiaOptions();
     ui->nvidiaOverclockingCheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::Overclocking));
@@ -405,6 +407,7 @@ void SettingsDialog::saveOptimusSettings(const QString &path) const
     optimusSettings.setNvidiaModesetEnabled(ui->nvidiaModesetCheckBox->isChecked());
     optimusSettings.setNvidiaPatEnabled(ui->nvidiaPatCheckBox->isChecked());
     optimusSettings.setNvidiaIgnoreAbi(ui->nvidiaIgnoreAbiCheckBox->isChecked());
+    optimusSettings.setNvidiaAllowExternalGpus(ui->nvidiaAllowExternalGpusCheckBox->isChecked());
 
     OptimusSettings::NvidiaOptions nvidiaOptions;
     nvidiaOptions.setFlag(OptimusSettings::Overclocking, ui->nvidiaOverclockingCheckBox->isChecked());

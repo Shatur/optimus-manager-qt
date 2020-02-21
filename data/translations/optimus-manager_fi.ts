@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fi">
 <context>
     <name>AppSettings</name>
     <message>
@@ -131,7 +133,7 @@ Jatka joka tapauksessa?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="339"/>
-        <source>Optimus Manager will use '%1' driver instead. You can change driver in settings or install the '%2' driver from the package '%3'.
+        <source>Optimus Manager will use &apos;%1&apos; driver instead. You can change driver in settings or install the &apos;%2&apos; driver from the package &apos;%3&apos;.
 Continue anyway?</source>
         <translation>Optimus Manager käyttää sen sijaan &apos;%1&apos; -ohjainta. Voit muuttaa ohjaimen asetuksissa tai asentaa &apos;%2&apos; -ohjaimen paketista &apos;%3&apos;.
 Jatka joka tapauksessa?</translation>
@@ -176,7 +178,7 @@ Jatketaanko?</translation>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="214"/>
         <source>Please enable and start it with:
-'%1'
+&apos;%1&apos;
 &apos;%2&apos;</source>
         <translation>Ota käyttöön ja käynnistä se seuraavasti:
 &apos;%1&apos;
@@ -207,7 +209,7 @@ Voit asettaa &apos;%1&apos; GPU-kytkimille asetuksissa tai asentaa bbswitch-olet
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="248"/>
-        <source>GDM need to be patched for Prime switching. Follow &lt;a href='https://github.com/Askannz/optimus-manager'&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
+        <source>GDM need to be patched for Prime switching. Follow &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
 Continue anyway?</source>
         <translation>GDM on korjattava, jotta se voidaan vaihtaa. Asenna korjattu versio noudattamalla &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;näitä &lt;/a&gt;ohjeita. Ilman korjattua GDM-versiota GPU-kytkentä todennäköisesti epäonnistuu.
 Jatka joka tapauksessa?</translation>
@@ -219,7 +221,7 @@ Jatka joka tapauksessa?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="296"/>
-        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with '%1' and reboot your computer.
+        <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with &apos;%1&apos; and reboot your computer.
 Ignore this warning and proceed with GPU switching now?</source>
         <translation>Tämä voi häiritä Optimus Manageria. Ennen kuin yrität GPU kytkentää, on suositeltavaa, että poistat tämän palvelun käytöstä painikkeella &apos;%1&apos; ja käynnistät tietokoneen uudelleen.
 Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
@@ -317,17 +319,17 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sallitaanko nouveau tilojen käyttöönotto vai ei&lt;/p&gt;&lt;p&gt;Ei vaikutusta Intel GPU -ohjaimen tilaan&lt;/p&gt;&lt;p&gt;Tämä vaihtoehto ei ole yhteensopiva bbswitchin kanssa, ja se jätetään huomiotta, jos se on käytössä&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="787"/>
+        <location filename="../../src/settingsdialog.ui" line="777"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manager&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tämä asetetaan Xsetup-sktiptin avulla kirjautumishallintaan&lt;br/&gt;Se suorittaa komennon&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Jätä oletusarvoksi 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="777"/>
+        <location filename="../../src/settingsdialog.ui" line="794"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Otetaanko NVreg_UsePageAttributeTable vaihtoehto käyttöön Nvidia-ohjaimessa vai ei&lt;span style=&quot; font-style:italic;&quot;&gt;Suositus&lt;/span&gt;, voi muuten heikentää CPU suorittimen suorituskykyä</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="840"/>
+        <location filename="../../src/settingsdialog.ui" line="807"/>
         <source>Overclocking options</source>
         <translation>Ylikellotuksen asetukset</translation>
     </message>
@@ -561,50 +563,60 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kiihdytysmenetelmä (vastaa AccelMethodia Xorg-kokoonpanossa)&lt;/p&gt;&lt;p&gt;Koskee vain Intel-ohjainta &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="820"/>
+        <location filename="../../src/settingsdialog.ui" line="847"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization (which prevents tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Käytä moodien säätöä&lt;/p&gt;&lt;p&gt;Tarvitaan PRIME-synkronointiin (joka estää repeytymisen)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="847"/>
+        <location filename="../../src/settingsdialog.ui" line="837"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you&apos;re running an updated version of xorg-server (let&apos;s say to get PRIME Render offload enabled), the Nvidia driver may not load because of an ABI version mismatch&lt;/p&gt;&lt;p&gt;Enabling this option will allow loading the Nvidia driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Jos käytössäsi on xorg -serverin päivitetty versio (oletetaan, että PRIME renderin purku on käytössä), NVIDIA-ohjainta ei välttämättä ladata, koska ABI-versiot ei vastaa toisiaan.&lt;/p&gt;&lt;p&gt;Tämän asetuksen käyttöön ottaminen sallii NVIDIA-ohjaimen lataamisen&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="797"/>
+        <location filename="../../src/settingsdialog.ui" line="814"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kolminkertainen puskurointi käyttöön&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="800"/>
+        <location filename="../../src/settingsdialog.ui" line="817"/>
         <source>Triple buffer</source>
         <translation>Kolminkertainen puskurointi</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="837"/>
+        <location filename="../../src/settingsdialog.ui" line="804"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ota CoolBits käyttöön Xorg-kokoonpanossa, joka avaa kellotuksen asetukset Nvidian ohjauspaneelissa&lt;/p&gt;&lt;p&gt;Huomautus: ei toimi hybriditilassa&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="850"/>
+        <location filename="../../src/settingsdialog.ui" line="840"/>
         <source>Ignore ABI</source>
         <translation>Ohita ABI</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="907"/>
-        <location filename="../../src/settingsdialog.ui" line="1038"/>
+        <location filename="../../src/settingsdialog.ui" line="857"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use Optimus Manager with external Nvidia GPUs (experimental)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="860"/>
+        <source>Allow external GPUs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="917"/>
+        <location filename="../../src/settingsdialog.ui" line="1048"/>
         <source>Version:</source>
         <translation>Versio:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="921"/>
-        <location filename="../../src/settingsdialog.ui" line="1015"/>
+        <location filename="../../src/settingsdialog.ui" line="931"/>
+        <location filename="../../src/settingsdialog.ui" line="1025"/>
         <source>Author:</source>
         <translation>Tekijä:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="928"/>
-        <location filename="../../src/settingsdialog.ui" line="1052"/>
+        <location filename="../../src/settingsdialog.ui" line="938"/>
+        <location filename="../../src/settingsdialog.ui" line="1062"/>
         <source>License:</source>
         <translation>Lisenssi:</translation>
     </message>
@@ -646,27 +658,27 @@ Ohita tämä varoitus ja jatka GPU:n vaihtamista nyt?</translation>
         <translation>Tuo Optimus Manager asetukset</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="425"/>
+        <location filename="../../src/settingsdialog.cpp" line="428"/>
         <source>Select icon</source>
         <translation>Valitse kuvake</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="426"/>
+        <location filename="../../src/settingsdialog.cpp" line="429"/>
         <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
         <translation>Kuvat (*.png *.jpg *.bmp);;Kaikki tiedostot(*)</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="457"/>
+        <location filename="../../src/settingsdialog.cpp" line="460"/>
         <source>Unable to find Optimus Manager daemon.</source>
         <translation>Optimus Manager -taustaprosessia ei löydy.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="458"/>
+        <location filename="../../src/settingsdialog.cpp" line="461"/>
         <source>Please check the integrity of the package that provides Optimus Manager.</source>
         <translation>Tarkista Optimus Manageria tarjoavan paketin eheys.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="460"/>
+        <location filename="../../src/settingsdialog.cpp" line="463"/>
         <source>Not found!</source>
         <translation>Ei löydetty!</translation>
     </message>

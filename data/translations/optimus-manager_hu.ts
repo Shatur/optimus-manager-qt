@@ -319,17 +319,17 @@ Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Engedélyezi-e a modesetting-et a nouveau illesztőprogramnak&lt;/p&gt;&lt;p&gt;Nem befolyásolja az Intel illesztőprogram modesetting beállítását&lt;/p&gt;&lt;p&gt;Ez az opció inkompatibilis a Bbswitch-el és figyelmen kívül lesz hagyva ha engedélyezve marad&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="787"/>
+        <location filename="../../src/settingsdialog.ui" line="777"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manager&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Az Xsetup szkript amit a beléptető menedszernek átad&lt;br/&gt;Futtatja a parancsot&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Hagyja 0 -án az alapértelmezéshez&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="777"/>
+        <location filename="../../src/settingsdialog.ui" line="794"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Engedélyezi-e az NVreg_UsePageAttributeTable opciót az Nvidia illesztőprogramban&lt;span style=&quot; font-style:italic;&quot;&gt;Ajánlott&lt;/span&gt;, mert másképp rossz processzorteljesítmény léphet fel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="840"/>
+        <location filename="../../src/settingsdialog.ui" line="807"/>
         <source>Overclocking options</source>
         <translation>Túlhajtási beállítások</translation>
     </message>
@@ -563,50 +563,60 @@ Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Gyorsítási módszer (megfelel az AccelMethod-nak az Xorg-konfigurációban)&lt;/p&gt;&lt;p&gt;Csak az Intel illesztőprogramra vonatkozik&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="820"/>
+        <location filename="../../src/settingsdialog.ui" line="847"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization (which prevents tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Modesetting engedélyezése&lt;/p&gt;&lt;p&gt;Szükséges a PRIME szinkronizáláshoz (amely megakadályozza a képernyőszakadást)</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="847"/>
+        <location filename="../../src/settingsdialog.ui" line="857"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use Optimus Manager with external Nvidia GPUs (experimental)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="837"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you&apos;re running an updated version of xorg-server (let&apos;s say to get PRIME Render offload enabled), the Nvidia driver may not load because of an ABI version mismatch&lt;/p&gt;&lt;p&gt;Enabling this option will allow loading the Nvidia driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="797"/>
+        <location filename="../../src/settingsdialog.ui" line="814"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tripla pufferezés engedélyezése&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="800"/>
+        <location filename="../../src/settingsdialog.ui" line="817"/>
         <source>Triple buffer</source>
         <translation>Tripla puffer</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="837"/>
+        <location filename="../../src/settingsdialog.ui" line="804"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="850"/>
+        <location filename="../../src/settingsdialog.ui" line="840"/>
         <source>Ignore ABI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="907"/>
-        <location filename="../../src/settingsdialog.ui" line="1038"/>
+        <location filename="../../src/settingsdialog.ui" line="860"/>
+        <source>Allow external GPUs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="917"/>
+        <location filename="../../src/settingsdialog.ui" line="1048"/>
         <source>Version:</source>
         <translation>Verzió:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="921"/>
-        <location filename="../../src/settingsdialog.ui" line="1015"/>
+        <location filename="../../src/settingsdialog.ui" line="931"/>
+        <location filename="../../src/settingsdialog.ui" line="1025"/>
         <source>Author:</source>
         <translation>Szerző:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="928"/>
-        <location filename="../../src/settingsdialog.ui" line="1052"/>
+        <location filename="../../src/settingsdialog.ui" line="938"/>
+        <location filename="../../src/settingsdialog.ui" line="1062"/>
         <source>License:</source>
         <translation>Licensz:</translation>
     </message>
@@ -648,27 +658,27 @@ Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
         <translation>Optimus Manager beállítások importálása</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="425"/>
+        <location filename="../../src/settingsdialog.cpp" line="428"/>
         <source>Select icon</source>
         <translation>Válasszon ikont</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="426"/>
+        <location filename="../../src/settingsdialog.cpp" line="429"/>
         <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
         <translation>Képek (*.png *.jpg *.bmp);;Összes fájl(*)</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="457"/>
+        <location filename="../../src/settingsdialog.cpp" line="460"/>
         <source>Unable to find Optimus Manager daemon.</source>
         <translation>Optimus Manager démon nem található.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="458"/>
+        <location filename="../../src/settingsdialog.cpp" line="461"/>
         <source>Please check the integrity of the package that provides Optimus Manager.</source>
         <translation>Kérem ellenőrizze a csomag sértetlenségét amellyel beszerezte az Optimus Manager-t.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="460"/>
+        <location filename="../../src/settingsdialog.cpp" line="463"/>
         <source>Not found!</source>
         <translation>Nem található!</translation>
     </message>

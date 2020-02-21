@@ -319,17 +319,17 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включение или отключение modesettings для драйвера nouveau&lt;/p&gt;&lt;p&gt;Не влияет на modesetting для драйвера Intel GPU&lt;/p&gt;&lt;p&gt;Эта опция несовместима с Bbswitch и будет игнорироваться, если он включен&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="787"/>
+        <location filename="../../src/settingsdialog.ui" line="777"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manager&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Это будет установлено с помощью скрипта Xsetup, который передается вашему менеджеру входа&lt;br/&gt;Он запускает команду&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Оставьте 0 для значения по умолчанию&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="777"/>
+        <location filename="../../src/settingsdialog.ui" line="794"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить или нет параметр NVreg_UsePageAttributeTable в драйвере Nvidia&lt;span style=&quot; font-style:italic;&quot;&gt;Рекомендуется&lt;/span&gt;, в противном случае может привести к снижению производительности процессора&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="840"/>
+        <location filename="../../src/settingsdialog.ui" line="807"/>
         <source>Overclocking options</source>
         <translation>Опции разгона</translation>
     </message>
@@ -563,50 +563,60 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Метод акселерации (соответствует AccelMethod в конфигурации Xorg)&lt;/p&gt;&lt;p&gt;Применяется только к драйверу Intel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="820"/>
+        <location filename="../../src/settingsdialog.ui" line="847"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization (which prevents tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить modesetting&lt;/p&gt;&lt;p&gt;Требуется для PRIME Synchronization (которая предотвращает тиринг)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="847"/>
+        <location filename="../../src/settingsdialog.ui" line="857"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use Optimus Manager with external Nvidia GPUs (experimental)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Использовать Optimus Manager с внешними GPU Nvidia (экспериментально)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="837"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you&apos;re running an updated version of xorg-server (let&apos;s say to get PRIME Render offload enabled), the Nvidia driver may not load because of an ABI version mismatch&lt;/p&gt;&lt;p&gt;Enabling this option will allow loading the Nvidia driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Если вы используете обновленную версию сервера xorg (скажем, чтобы включить PRIME Render offloading), драйвер Nvidia может не загружаться из-за несоответствия версии ABI&lt;/p&gt;&lt;p&gt;Включение этой опции позволит загрузить драйвер Nvidia&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="797"/>
+        <location filename="../../src/settingsdialog.ui" line="814"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить тройную буферизацию&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="800"/>
+        <location filename="../../src/settingsdialog.ui" line="817"/>
         <source>Triple buffer</source>
         <translation>Тройная буферизация</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="837"/>
+        <location filename="../../src/settingsdialog.ui" line="804"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Включить CoolBits в конфигурации Xorg, которая разблокирует параметры разгона в панели управления Nvidia&lt;/p&gt;&lt;p&gt;Примечание: не работает в режиме Hybrid&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="850"/>
+        <location filename="../../src/settingsdialog.ui" line="840"/>
         <source>Ignore ABI</source>
         <translation>Игнорировать ABI</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="907"/>
-        <location filename="../../src/settingsdialog.ui" line="1038"/>
+        <location filename="../../src/settingsdialog.ui" line="860"/>
+        <source>Allow external GPUs</source>
+        <translation>Разрешить внешние GPU</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="917"/>
+        <location filename="../../src/settingsdialog.ui" line="1048"/>
         <source>Version:</source>
         <translation>Версия:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="921"/>
-        <location filename="../../src/settingsdialog.ui" line="1015"/>
+        <location filename="../../src/settingsdialog.ui" line="931"/>
+        <location filename="../../src/settingsdialog.ui" line="1025"/>
         <source>Author:</source>
         <translation>Автор:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="928"/>
-        <location filename="../../src/settingsdialog.ui" line="1052"/>
+        <location filename="../../src/settingsdialog.ui" line="938"/>
+        <location filename="../../src/settingsdialog.ui" line="1062"/>
         <source>License:</source>
         <translation>Лицензия:</translation>
     </message>
@@ -648,27 +658,27 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation>Импортировать настройки Optimus Manager</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="425"/>
+        <location filename="../../src/settingsdialog.cpp" line="428"/>
         <source>Select icon</source>
         <translation>Выбрать иконку</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="426"/>
+        <location filename="../../src/settingsdialog.cpp" line="429"/>
         <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
         <translation>Изображения (*.png *.jpg *.bmp);;Все файлы(*)</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="457"/>
+        <location filename="../../src/settingsdialog.cpp" line="460"/>
         <source>Unable to find Optimus Manager daemon.</source>
         <translation>Не удается найти демон Optimus Manager.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="458"/>
+        <location filename="../../src/settingsdialog.cpp" line="461"/>
         <source>Please check the integrity of the package that provides Optimus Manager.</source>
         <translation>Пожалуйста, проверьте целостность пакета, который предоставляет Optimus Manager.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="460"/>
+        <location filename="../../src/settingsdialog.cpp" line="463"/>
         <source>Not found!</source>
         <translation>Не найден!</translation>
     </message>
