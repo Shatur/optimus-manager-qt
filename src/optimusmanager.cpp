@@ -206,17 +206,6 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
         message.exec();
     }
 
-    // Check if daemon is active
-    if (!isServiceActive(QStringLiteral("optimus-manager.service"))) {
-        QMessageBox message;
-        message.setIcon(QMessageBox::Critical);
-        message.setText(tr("The Optimus Manager service is not running."));
-        message.setInformativeText(tr("Please enable and start it with:\n'%1'\n'%2'")
-                                   .arg("sudo systemctl enable optimus-manager", "sudo systemctl start optimus-manager"));
-        message.exec();
-        return;
-    }
-
     // Check if bbswitch module is available
     if (optimusSettings.switchingMethod() == OptimusSettings::Bbswitch && !isModuleAvailable(QStringLiteral("bbswitch"))) {
         QMessageBox message;
@@ -235,19 +224,6 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
         message.setIcon(QMessageBox::Question);
         message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg(QStringLiteral("nvidia")));
         message.setInformativeText(tr("It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?"));
-        message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-        if (message.exec() == QMessageBox::No)
-            return;
-    }
-
-    // Check if GDM is patched
-    if (currentDisplayManager() == QLatin1String("/usr/bin/gdm") && !isGdmPatched()) {
-        QMessageBox message;
-        message.setIcon(QMessageBox::Question);
-        message.setText(tr("Looks like you're using a non-patched version of the Gnome Display Manager (GDM)."));
-        message.setInformativeText(tr("GDM need to be patched for Prime switching. Follow <a href='https://github.com/Askannz/optimus-manager'>this</a>"
-                                      " instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.\n"
-                                      "Continue anyway?"));
         message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         if (message.exec() == QMessageBox::No)
             return;
@@ -438,12 +414,6 @@ bool OptimusManager::isServiceActive(const QString &serviceName)
 bool OptimusManager::isGdmPatched()
 {
     return QFileInfo::exists(QStringLiteral("/etc/gdm/Prime")) || QFileInfo::exists(QStringLiteral("/etc/gdm3/Prime"));
-}
-
-QString OptimusManager::currentDisplayManager()
-{
-    const QSettings displayManager(QStringLiteral("/etc/systemd/system/display-manager.service"), QSettings::IniFormat);
-    return displayManager.value(QStringLiteral("Service/ExecStart")).toString();
 }
 
 QVector<Session> OptimusManager::activeSessions()
