@@ -720,6 +720,11 @@
                <string notr="true">XNA</string>
               </property>
              </item>
+             <item>
+              <property name="text">
+               <string notr="true">UXA</string>
+              </property>
+             </item>
             </widget>
            </item>
            <item row="0" column="2">

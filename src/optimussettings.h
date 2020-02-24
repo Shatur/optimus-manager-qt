@@ -52,7 +52,8 @@ public:
     enum AccelMethod {
         DefaultMethod,
         SNA,
-        XNA
+        XNA,
+        UXA
     };
     enum TearFree {
         DefaultTearFree,
