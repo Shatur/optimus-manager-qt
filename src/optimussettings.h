@@ -133,6 +133,10 @@ public:
     void setNvidiaIgnoreAbi(bool ignore);
     static bool defaultNvidiaIgnoreAbi();
 
+    bool isNvidiaAllowExternalGpus() const;
+    void setNvidiaAllowExternalGpus(bool allow);
+    static bool defaultNvidiaAllowExternalGpus();
+
     NvidiaOptions nvidiaOptions() const;
     void setNvidiaOptions(NvidiaOptions options);
     static NvidiaOptions defaultNvidiaOptions();

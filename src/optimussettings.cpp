@@ -279,6 +279,22 @@ bool OptimusSettings::defaultNvidiaIgnoreAbi()
     return false;
 }
 
+bool OptimusSettings::isNvidiaAllowExternalGpus() const
+{
+    const QString allowExternalGpuString = value(QStringLiteral("nvidia/allow_external_gpus")).toString();
+    return s_boolMap.key(allowExternalGpuString, defaultNvidiaAllowExternalGpus());
+}
+
+void OptimusSettings::setNvidiaAllowExternalGpus(bool allow)
+{
+    setValue(QStringLiteral("nvidia/allow_external_gpus"), s_boolMap[allow]);
+}
+
+bool OptimusSettings::defaultNvidiaAllowExternalGpus()
+{
+    return false;
+}
+
 OptimusSettings::NvidiaOptions OptimusSettings::nvidiaOptions() const
 {
     const QStringList optionStrings = value(QStringLiteral("nvidia/options"), nvidiaOptionsToStrings(defaultNvidiaOptions())).toStringList();
