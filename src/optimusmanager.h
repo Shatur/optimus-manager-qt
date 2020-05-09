@@ -63,7 +63,7 @@ private:
     static QVector<Session> activeSessions();
     static int sessionsCountWithoutGdm(const QVector<Session> &sessions);
     static void logout();
-    static void killProcess(const QByteArray &name);
+    static bool killProcess(const QByteArray &name);
 
     QMenu *m_contextMenu;
 #ifdef PLASMA

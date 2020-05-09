@@ -372,6 +372,7 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
         message.setIcon(QMessageBox::Critical);
         message.setText(DaemonClient::tr("Unable to send GPU name to switch to Optimus Manager daemon: %1").arg(client.errorString()));
         message.exec();
+        return;
     }
 
     if (optimusSettings.isAutoLogoutEnabled())
@@ -494,31 +495,40 @@ int OptimusManager::sessionsCountWithoutGdm(const QVector<Session> &sessions)
 void OptimusManager::logout()
 {
     QDBusInterface kde(QStringLiteral("org.kde.ksmserver"), QStringLiteral("/KSMServer"), QStringLiteral("org.kde.KSMServerInterface"));
-    kde.call(QStringLiteral("logout"), 0, 3, 3);
+    if (kde.call(QStringLiteral("logout"), 0, 3, 3).type() == QDBusMessage::ReplyMessage)
+        return;
 
     QDBusInterface gnome(QStringLiteral("org.gnome.SessionManager"), QStringLiteral("/org/gnome/SessionManager"), QStringLiteral("org.gnome.SessionManager"));
-    gnome.call(QStringLiteral("Logout"), 1U);
+    if (gnome.call(QStringLiteral("Logout"), 1U).type() == QDBusMessage::ReplyMessage)
+        return;
 
     QDBusInterface xfce(QStringLiteral("org.xfce.SessionManager"), QStringLiteral("/org/xfce/SessionManager"), QStringLiteral("org.xfce.Session.Manager"));
-    xfce.call(QStringLiteral("Logout"), false, true);
+    if (xfce.call(QStringLiteral("Logout"), false, true).type() == QDBusMessage::ReplyMessage)
+        return;
 
     QDBusInterface deepin(QStringLiteral("com.deepin.SessionManager"), QStringLiteral("/com/deepin/SessionManager"), QStringLiteral("com.deepin.SessionManager"));
-    deepin.call(QStringLiteral("RequestLogout"));
+    if (deepin.call(QStringLiteral("RequestLogout")).type() == QDBusMessage::ReplyMessage)
+        return;
 
-    QProcess::execute(QStringLiteral("i3-msg"), {QStringLiteral("exit")});
+    if (QProcess::execute(QStringLiteral("i3-msg"), {QStringLiteral("exit")}) == 0)
+        return;
 
-    QProcess::execute(QStringLiteral("sway-msg"), {QStringLiteral("exit")});
+    if (QProcess::execute(QStringLiteral("sway-msg"), {QStringLiteral("exit")}) == 0)
+        return;
 
-    QProcess::execute(QStringLiteral("openbox"), {QStringLiteral("--exit")});
+    if (QProcess::execute(QStringLiteral("openbox"), {QStringLiteral("--exit")}) == 0)
+        return;
 
-    QProcess::execute(QStringLiteral("awesome-client"), {QStringLiteral("\"awesome.quit()\"")});
+    if (QProcess::execute(QStringLiteral("awesome-client"), {QStringLiteral("\"awesome.quit()\"")}) == 0)
+        return;
 
-    QProcess::execute(QStringLiteral("bspc"), {QStringLiteral("quit")});
+    if (QProcess::execute(QStringLiteral("bspc"), {QStringLiteral("quit")}) == 0)
+        return;
 
     killProcess("/usr/bin/lxsession");
 }
 
-void OptimusManager::killProcess(const QByteArray &name)
+bool OptimusManager::killProcess(const QByteArray &name)
 {
     for (QDirIterator it(QStringLiteral("/proc"), QDir::NoDotAndDotDot | QDir::Dirs); it.hasNext();) {
         const QDir process = it.next();
@@ -533,7 +543,9 @@ void OptimusManager::killProcess(const QByteArray &name)
         const QByteArray processPath = processName.readLine();
         if (!processPath.isEmpty() && processPath.chopped(1) == name) {
             kill(pid, SIGTERM);
-            return;
+            return true;
         }
     }
+
+    return false;
 }
