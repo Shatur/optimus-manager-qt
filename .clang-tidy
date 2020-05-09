@@ -1,0 +1,4 @@
+Checks: '-clang-analyzer-*,bugprone-*,misc-*,-misc-non-private-member-variables-in-classes,performance-*,-performance-no-automatic-move,modernize-use-*,-modernize-use-nodiscard,-modernize-use-trailing-return-type'
+HeaderFilterRegex: '.*'
+
+# vim: filetype=yaml

@@ -520,7 +520,7 @@ void OptimusManager::logout()
 
 void OptimusManager::killProcess(const QByteArray &name)
 {
-    for (QDirIterator it("/proc", QDir::NoDotAndDotDot | QDir::Dirs); it.hasNext();) {
+    for (QDirIterator it(QStringLiteral("/proc"), QDir::NoDotAndDotDot | QDir::Dirs); it.hasNext();) {
         const QDir process = it.next();
 
         bool isNumber;
