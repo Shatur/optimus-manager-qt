@@ -33,7 +33,7 @@ class AppSettings : QSettings
     Q_DISABLE_COPY(AppSettings)
 
 public:
-    AppSettings(QObject *parent = nullptr);
+    explicit AppSettings(QObject *parent = nullptr);
 
     // General settings
     void setupLocalization() const;

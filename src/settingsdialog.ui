@@ -515,9 +515,6 @@
            </item>
            <item row="0" column="0">
             <widget class="QLabel" name="switchingMethodLabel">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Module used for power switching&lt;/p&gt;&lt;p&gt;If you select &amp;quot;None&amp;quot;, no power switching will be done at all (the Nvidia GPU will stay powered at all times)&lt;/p&gt;&lt;p&gt;If you use bbswitch, you will not be able to use video outputs attached to your Nvidia GPU in Intel mode&lt;/p&gt;&lt;p&gt;To use the bbswitch mode, the bbswitch module must be installed for your current kernel&lt;/p&gt;&lt;p&gt;You can install it for the default kernel with &amp;quot;pacman -S bbswitch&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
              <property name="text">
               <string>Switching method:</string>
              </property>
@@ -532,17 +529,101 @@
            <string>Startup</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_6">
+           <item row="2" column="1">
+            <widget class="QComboBox" name="batteryStartupModeComboBox">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to select when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on battery&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <item>
+              <property name="text">
+               <string notr="true">Intel</string>
+              </property>
+              <property name="icon">
+               <iconset theme="prime-intel">
+                <normaloff>.</normaloff>.</iconset>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">Nvidia</string>
+              </property>
+              <property name="icon">
+               <iconset theme="prime-nvidia">
+                <normaloff>.</normaloff>.</iconset>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">Hybrid</string>
+              </property>
+              <property name="icon">
+               <iconset theme="prime-hybrid">
+                <normaloff>.</normaloff>.</iconset>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="batteryStartupModeLabel">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>Battery startup mode:</string>
+             </property>
+            </widget>
+           </item>
            <item row="0" column="0">
             <widget class="QLabel" name="startupModeLabel">
              <property name="text">
-              <string>Startup Mode:</string>
+              <string>Startup mode:</string>
              </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QComboBox" name="externalPowerStartupModeComboBox">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to select when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on external power&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <item>
+              <property name="text">
+               <string notr="true">Intel</string>
+              </property>
+              <property name="icon">
+               <iconset theme="prime-intel">
+                <normaloff>.</normaloff>.</iconset>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">Nvidia</string>
+              </property>
+              <property name="icon">
+               <iconset theme="prime-nvidia">
+                <normaloff>.</normaloff>.</iconset>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">Hybrid</string>
+              </property>
+              <property name="icon">
+               <iconset theme="prime-hybrid">
+                <normaloff>.</normaloff>.</iconset>
+              </property>
+             </item>
             </widget>
            </item>
            <item row="0" column="1">
             <widget class="QComboBox" name="startupModeComboBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU that will be used during normal system startup&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to use at computer startup&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; is a special mode that auto-detects if the computer is running on battery and selects a proper GPU mode&lt;/p&gt;&lt;p&gt;See the other options below for details&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <item>
               <property name="text">
@@ -576,103 +657,20 @@
                <string>Auto</string>
               </property>
               <property name="icon">
-               <iconset theme="preferences-system-power-management"/>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="batteryStartupModeLabel">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>Battery mode:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1" rowspan="2">
-            <widget class="QComboBox" name="batteryStartupModeComboBox">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU that will be used during normal system startup&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-             <item>
-              <property name="text">
-               <string notr="true">Intel</string>
-              </property>
-              <property name="icon">
-               <iconset theme="prime-intel">
-                <normaloff>.</normaloff>.</iconset>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">Nvidia</string>
-              </property>
-              <property name="icon">
-               <iconset theme="prime-nvidia">
-                <normaloff>.</normaloff>.</iconset>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">Hybrid</string>
-              </property>
-              <property name="icon">
-               <iconset theme="prime-hybrid">
+               <iconset theme="preferences-system-power-management">
                 <normaloff>.</normaloff>.</iconset>
               </property>
              </item>
             </widget>
            </item>
-           <item row="2" column="0" rowspan="2">
+           <item row="5" column="0">
             <widget class="QLabel" name="externalPowerStartupModeLabel">
              <property name="enabled">
               <bool>false</bool>
              </property>
              <property name="text">
-              <string>External power mode:</string>
+              <string>External power startup mode:</string>
              </property>
-            </widget>
-           </item>
-           <item row="3" column="1">
-            <widget class="QComboBox" name="externalPowerStartupModeComboBox">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU that will be used during normal system startup&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-             <item>
-              <property name="text">
-               <string notr="true">Intel</string>
-              </property>
-              <property name="icon">
-               <iconset theme="prime-intel">
-                <normaloff>.</normaloff>.</iconset>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">Nvidia</string>
-              </property>
-              <property name="icon">
-               <iconset theme="prime-nvidia">
-                <normaloff>.</normaloff>.</iconset>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">Hybrid</string>
-              </property>
-              <property name="icon">
-               <iconset theme="prime-hybrid">
-                <normaloff>.</normaloff>.</iconset>
-              </property>
-             </item>
             </widget>
            </item>
           </layout>
