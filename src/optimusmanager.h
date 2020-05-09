@@ -24,6 +24,7 @@
 #include "optimussettings.h"
 
 class Session;
+class AppSettings;
 class QMenu;
 #ifdef PLASMA
 class KStatusNotifierItem;
@@ -37,7 +38,7 @@ class OptimusManager : public QObject
     Q_DISABLE_COPY(OptimusManager)
 
 public:
-    OptimusManager(QObject *parent = nullptr);
+    explicit OptimusManager(QObject *parent = nullptr);
     ~OptimusManager() override;
 
     static QIcon trayGpuIcon(const QString &iconName);
@@ -50,7 +51,7 @@ private slots:
 
 private:
     void showNotification(const QString &title, const QString &message);
-    void loadSettings();
+    void loadSettings(AppSettings &settings);
     void retranslateUi();
     void switchGpu(OptimusSettings::GPU switchingGpu);
 

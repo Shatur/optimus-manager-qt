@@ -31,10 +31,6 @@ int main(int argc, char *argv[])
     SingleApplication::setDesktopFileName(QStringLiteral("io.optimus_manager.OptimusManagerQt.desktop"));
     SingleApplication::setQuitOnLastWindowClosed(false);
 
-    // Set localization
-    const AppSettings appSettings;
-    appSettings.setupLocalization();
-
     // Tray menu
     OptimusManager manager;
 

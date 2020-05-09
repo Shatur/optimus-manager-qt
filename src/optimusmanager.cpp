@@ -57,6 +57,10 @@ OptimusManager::OptimusManager(QObject *parent)
 #endif
     , m_currentGpu(detectGpu())
 {
+    // Set localization
+    AppSettings appSettings;
+    appSettings.setupLocalization();
+
     // Setup context menu
     m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("preferences-system")), SettingsDialog::tr("Settings"), this, &OptimusManager::openSettings);
     m_contextMenu->addSeparator();
@@ -78,7 +82,7 @@ OptimusManager::OptimusManager(QObject *parent)
 #endif
     m_trayIcon->setContextMenu(m_contextMenu);
 
-    loadSettings();
+    loadSettings(appSettings);
 
 #ifndef PLASMA
     m_trayIcon->show();
@@ -127,7 +131,8 @@ void OptimusManager::openSettings()
     if (dialog.isLanguageChanged())
         retranslateUi();
 
-    loadSettings();
+    AppSettings settings;
+    loadSettings(settings);
 }
 
 void OptimusManager::showNotification(const QString &title, const QString &message)
@@ -139,10 +144,8 @@ void OptimusManager::showNotification(const QString &title, const QString &messa
 #endif
 }
 
-void OptimusManager::loadSettings()
+void OptimusManager::loadSettings(AppSettings &appSettings)
 {
-    AppSettings appSettings;
-
     // Context menu icons
     m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(appSettings.gpuIconName(OptimusSettings::Intel)));
     m_contextMenu->actions().at(3)->setIcon(trayGpuIcon(appSettings.gpuIconName(OptimusSettings::Nvidia)));
