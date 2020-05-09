@@ -19,9 +19,10 @@
  */
 
 #include "settingsdialog.h"
-#include "daemonclient.h"
 #include "ui_settingsdialog.h"
+
 #include "appsettings.h"
+#include "daemonclient.h"
 #include "optimusmanager.h"
 #include "optimussettings.h"
 #include "singleapplication.h"

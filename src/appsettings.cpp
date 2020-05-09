@@ -19,10 +19,11 @@
  */
 
 #include "appsettings.h"
+
 #include "singleapplication.h"
 
-#include <QStandardPaths>
 #include <QFileInfo>
+#include <QStandardPaths>
 #include <QTranslator>
 
 QTranslator AppSettings::s_appTranslator;
@@ -76,7 +77,7 @@ void AppSettings::setAutostartEnabled(bool enabled)
         }
     } else {
         // Remove autorun file
-        if(autorunFile.exists())
+        if (autorunFile.exists())
             autorunFile.remove();
     }
 }

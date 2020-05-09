@@ -51,8 +51,8 @@ OptimusSettings::OptimusSettings(QObject *parent)
 {
 }
 
-OptimusSettings::OptimusSettings(const QString &filename, QObject *parent) :
-    QSettings(filename, QSettings::IniFormat, parent)
+OptimusSettings::OptimusSettings(const QString &filename, QObject *parent)
+    : QSettings(filename, QSettings::IniFormat, parent)
 {
 }
 

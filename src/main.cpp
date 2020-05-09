@@ -18,8 +18,8 @@
  *
  */
 
-#include "optimusmanager.h"
 #include "appsettings.h"
+#include "optimusmanager.h"
 #include "singleapplication.h"
 
 int main(int argc, char *argv[])

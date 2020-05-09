@@ -19,23 +19,24 @@
  */
 
 #include "optimusmanager.h"
-#include "daemonclient.h"
+
 #include "appsettings.h"
+#include "daemonclient.h"
+#include "optimussettings.h"
+#include "session.h"
 #include "settingsdialog.h"
 #include "singleapplication.h"
-#include "optimussettings.h"
 #include "x11deleters.h"
-#include "session.h"
 
-#include <QX11Info>
-#include <QProcess>
-#include <QFileInfo>
-#include <QMenu>
-#include <QDirIterator>
-#include <QMessageBox>
-#include <QMetaEnum>
 #include <QDBusArgument>
 #include <QDBusInterface>
+#include <QDirIterator>
+#include <QFileInfo>
+#include <QMenu>
+#include <QMessageBox>
+#include <QMetaEnum>
+#include <QProcess>
+#include <QX11Info>
 #ifdef PLASMA
 #include <KStatusNotifierItem>
 #else
@@ -44,8 +45,8 @@
 
 #include <X11/extensions/Xrandr.h>
 
-#include <sys/types.h>
 #include <signal.h>
+#include <sys/types.h>
 
 OptimusManager::OptimusManager(QObject *parent)
     : QObject(parent)

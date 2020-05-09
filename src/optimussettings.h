@@ -21,8 +21,8 @@
 #ifndef OPTIMUSSETTINGS_H
 #define OPTIMUSSETTINGS_H
 
-#include <QSettings>
 #include <QFlags>
+#include <QSettings>
 
 class OptimusSettings : public QSettings
 {

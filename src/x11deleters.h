@@ -43,5 +43,4 @@ struct ProviderInfoDeleter
     static void cleanup(XRRProviderInfo *providerInfo);
 };
 
-
 #endif // X11DELETERS_H
