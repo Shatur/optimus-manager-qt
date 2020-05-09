@@ -38,7 +38,8 @@ public:
         NoneMethod,
         Nouveau,
         Bbswitch,
-        AcpiCall
+        AcpiCall,
+        Custom,
     };
     enum PciReset {
         NoReset,
@@ -59,6 +60,13 @@ public:
         EnableTearFree,
         DisableTearFree
     };
+    enum GPU {
+        Intel,
+        Nvidia,
+        Hybrid,
+        Auto
+    };
+    Q_ENUM(GPU)
     enum DRI {
         DRI2 = 2,
         DRI3 = 3,
@@ -93,6 +101,18 @@ public:
     bool isAutoLogoutEnabled() const;
     void setAutoLogoutEnabled(bool enable);
     static bool defaultAutoLogoutEnabled();
+
+    GPU startupMode() const;
+    void setStartupMode(GPU gpu);
+    static GPU defaultStartupMode();
+
+    GPU batteryStartupMode() const;
+    void setBatteryStartupMode(GPU gpu);
+    static GPU defaultBatteryStartupMode();
+
+    GPU externalPowerStartupMode() const;
+    void setExternalPowerStartupMode(GPU gpu);
+    static GPU defaultExternalPowerStartupMode();
 
     // Intel
     Driver intelDriver() const;
@@ -144,12 +164,15 @@ public:
     static QPair<QString, ConfigType> detectConfigPath();
     static ConfigType defaultConfigType();
 
+    static QString gpuString(GPU gpu);
+
 private:
     static QStringList nvidiaOptionsToStrings(NvidiaOptions options);
     static NvidiaOptions stringToNvidiaOptions(const QStringList &optionStrings);
 
     // Convert enum values into Optimus Manager strings (no, yes, none etc).
     static const QMap<bool, QString> s_boolMap;
+    static const QMap<GPU, QString> s_gpuMap;
     static const QMap<SwitchingMethod, QString> s_switchingMethodMap;
     static const QMap<PciReset, QString> s_pciResetMap;
     static const QMap<Driver, QString> s_driverMap;

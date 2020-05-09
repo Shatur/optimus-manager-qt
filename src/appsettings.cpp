@@ -101,46 +101,49 @@ bool AppSettings::defaultConfirmSwitching()
     return true;
 }
 
-QString AppSettings::gpuIconName(DaemonClient::GPU gpu) const
+QString AppSettings::gpuIconName(OptimusSettings::GPU gpu) const
 {
     switch (gpu) {
-    case DaemonClient::Intel:
-        return value(QStringLiteral("IntelIcon"), defaultTrayIconName(DaemonClient::Intel)).toString();
-    case DaemonClient::Nvidia:
-        return value(QStringLiteral("NvidiaIcon"), defaultTrayIconName(DaemonClient::Nvidia)).toString();
-    case DaemonClient::Hybrid:
-        return value(QStringLiteral("HybridIcon"), defaultTrayIconName(DaemonClient::Hybrid)).toString();
+    case OptimusSettings::Intel:
+        return value(QStringLiteral("IntelIcon"), defaultTrayIconName(OptimusSettings::Intel)).toString();
+    case OptimusSettings::Nvidia:
+        return value(QStringLiteral("NvidiaIcon"), defaultTrayIconName(OptimusSettings::Nvidia)).toString();
+    case OptimusSettings::Hybrid:
+        return value(QStringLiteral("HybridIcon"), defaultTrayIconName(OptimusSettings::Hybrid)).toString();
+    default:
+        qFatal("Unknown GPU");
     }
-
-    qFatal("Unknown GPU");
 }
 
-void AppSettings::setGpuIconName(DaemonClient::GPU gpu, const QString &name)
+void AppSettings::setGpuIconName(OptimusSettings::GPU gpu, const QString &name)
 {
     switch (gpu) {
-    case DaemonClient::Intel:
+    case OptimusSettings::Intel:
         setValue(QStringLiteral("IntelIcon"), name);
         break;
-    case DaemonClient::Nvidia:
+    case OptimusSettings::Nvidia:
         setValue(QStringLiteral("NvidiaIcon"), name);
         break;
-    case DaemonClient::Hybrid:
+    case OptimusSettings::Hybrid:
         setValue(QStringLiteral("HybridIcon"), name);
+        break;
+    default:
+        qFatal("Unknown GPU");
     }
 }
 
-QString AppSettings::defaultTrayIconName(DaemonClient::GPU trayStatus)
+QString AppSettings::defaultTrayIconName(OptimusSettings::GPU trayStatus)
 {
     switch (trayStatus) {
-    case DaemonClient::Intel:
+    case OptimusSettings::Intel:
         return QStringLiteral("prime-intel");
-    case DaemonClient::Nvidia:
+    case OptimusSettings::Nvidia:
         return QStringLiteral("prime-nvidia");
-    case DaemonClient::Hybrid:
+    case OptimusSettings::Hybrid:
         return QStringLiteral("prime-hybrid");
+    default:
+        qFatal("Unknown GPU");
     }
-
-    return QString();
 }
 
 void AppSettings::loadLanguage(QLocale::Language lang)

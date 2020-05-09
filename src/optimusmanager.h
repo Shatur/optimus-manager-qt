@@ -21,9 +21,7 @@
 #ifndef OPTIMUSMANAGER_H
 #define OPTIMUSMANAGER_H
 
-#include "daemonclient.h"
-
-#include <QObject>
+#include "optimussettings.h"
 
 class Session;
 class QMenu;
@@ -54,9 +52,9 @@ private:
     void showNotification(const QString &title, const QString &message);
     void loadSettings();
     void retranslateUi();
-    void switchGpu(DaemonClient::GPU switchingGpu);
+    void switchGpu(OptimusSettings::GPU switchingGpu);
 
-    static DaemonClient::GPU detectGpu();
+    static OptimusSettings::GPU detectGpu();
     static bool isModuleAvailable(const QString &moduleName);
     static bool isServiceActive(const QString &serviceName);
     static bool isGdmPatched();
@@ -64,6 +62,7 @@ private:
     static QVector<Session> activeSessions();
     static int sessionsCountWithoutGdm(const QVector<Session> &sessions);
     static void logout();
+    static void killProcess(const QByteArray &name);
 
     QMenu *m_contextMenu;
 #ifdef PLASMA
@@ -71,7 +70,7 @@ private:
 #else
     QSystemTrayIcon *m_trayIcon;
 #endif
-    DaemonClient::GPU m_currentGpu;
+    OptimusSettings::GPU m_currentGpu;
 };
 
 #endif // OPTIMUSMANAGER_H

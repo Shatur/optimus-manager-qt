@@ -21,7 +21,7 @@
 #ifndef DAEMONCLIENT_H
 #define DAEMONCLIENT_H
 
-#include <QObject>
+#include "optimussettings.h"
 
 class DaemonClient : public QObject
 {
@@ -29,35 +29,22 @@ class DaemonClient : public QObject
     Q_DISABLE_COPY(DaemonClient)
 
 public:
-    enum GPU {
-        Intel,
-        Nvidia,
-        Hybrid
-    };
-    Q_ENUM(GPU)
-
     explicit DaemonClient(QObject *parent = nullptr);
     ~DaemonClient() override;
 
     void connect();
     void disconnect();
 
-    void setGpu(GPU gpu);
-    void setStartupMode(GPU gpu);
+    void setGpu(OptimusSettings::GPU gpu);
     void setConfig(const QString &content);
     void setTempConfig(const QString &path);
 
     bool error();
     QString errorString();
 
-    static GPU startupMode();
-    static GPU defaultStartupMode();
-
 private:
     void sendCommand(const QString &type, std::initializer_list<QPair<QString, QJsonValue>> args);
     void setError(bool error);
-
-    static const QMap<GPU, QString> s_gpuMap;
 
     QString m_errorString;
     bool m_error = false;
