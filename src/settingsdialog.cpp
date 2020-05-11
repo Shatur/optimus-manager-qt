@@ -464,7 +464,7 @@ QString SettingsDialog::configurationPath() const
 QString SettingsDialog::optimusManagerVersion()
 {
     // Parse Optimus Manager version
-    QFile optimusManagerBin(QStringLiteral("/usr/bin/optimus-manager-daemon"));
+    QFile optimusManagerBin(QStringLiteral("/usr/bin/optimus-manager"));
     if (!optimusManagerBin.open(QIODevice::ReadOnly)) {
         QMessageBox message;
         message.setIcon(QMessageBox::Critical);
