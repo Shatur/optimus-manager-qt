@@ -4,7 +4,7 @@
 <context>
     <name>AppSettings</name>
     <message>
-        <location filename="../../src/appsettings.cpp" line="75"/>
+        <location filename="../../src/appsettings.cpp" line="76"/>
         <source>Unable to create autorun file from &apos;%1&apos;</source>
         <translation>Nem sikerült létrehozni az autorun fájl ebből &apos;%1&apos;</translation>
     </message>
@@ -12,18 +12,18 @@
 <context>
     <name>DaemonClient</name>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="362"/>
-        <location filename="../../src/settingsdialog.cpp" line="100"/>
+        <location filename="../../src/optimusmanager.cpp" line="363"/>
+        <location filename="../../src/settingsdialog.cpp" line="101"/>
         <source>Unable to connect to Optimus Manager daemon: %1</source>
         <translation>Sikertelen csatlakozás az Optimus Manager démonhoz: %1</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="372"/>
+        <location filename="../../src/optimusmanager.cpp" line="373"/>
         <source>Unable to send GPU name to switch to Optimus Manager daemon: %1</source>
         <translation>Nem sikerült továbbítani a GPU nevét, hogy az Optimus Manager démonra váltson: %1</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="128"/>
+        <location filename="../../src/settingsdialog.cpp" line="129"/>
         <source>Unable to send configuration file to Optimus Manager daemon: %1</source>
         <translation>Nem sikerült továbbítani a konfigurációs fájlt az Optimus Manager démonnak: %1</translation>
     </message>
@@ -31,115 +31,115 @@
 <context>
     <name>OptimusManager</name>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="182"/>
+        <location filename="../../src/optimusmanager.cpp" line="183"/>
         <source>Switch to Intel</source>
         <translation>Váltás Intelre</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="183"/>
+        <location filename="../../src/optimusmanager.cpp" line="184"/>
         <source>Switch to Nvidia</source>
         <translation>Váltás Nvidiára</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="74"/>
-        <location filename="../../src/optimusmanager.cpp" line="184"/>
+        <location filename="../../src/optimusmanager.cpp" line="75"/>
+        <location filename="../../src/optimusmanager.cpp" line="185"/>
         <source>Exit</source>
         <translation>Kilépés</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="69"/>
         <location filename="../../src/optimusmanager.cpp" line="70"/>
         <location filename="../../src/optimusmanager.cpp" line="71"/>
+        <location filename="../../src/optimusmanager.cpp" line="72"/>
         <source>Switch to %1</source>
         <translation>Váltás erre %1</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="160"/>
-        <location filename="../../src/optimusmanager.cpp" line="169"/>
+        <location filename="../../src/optimusmanager.cpp" line="161"/>
+        <location filename="../../src/optimusmanager.cpp" line="170"/>
         <source>The specified icon &apos;%1&apos; for the current GPU is invalid. The default icon will be used.</source>
         <translation>A megadott ikon &apos;%1&apos; a jelenlegi eszközre érvénytelen. Az alapértelmezett lesz használva.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="160"/>
-        <location filename="../../src/optimusmanager.cpp" line="169"/>
+        <location filename="../../src/optimusmanager.cpp" line="161"/>
+        <location filename="../../src/optimusmanager.cpp" line="170"/>
         <source>Invalid icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="197"/>
+        <location filename="../../src/optimusmanager.cpp" line="198"/>
         <source>You are about to switch GPU.</source>
         <translation>Videoeszköz váltása folyamatban.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="199"/>
+        <location filename="../../src/optimusmanager.cpp" line="200"/>
         <source>You will be automatically logged out to apply the changes.</source>
         <translation>Automatikusan ki lesz jelentkeztetve hogy a változások érvénybe lépjenek.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="210"/>
+        <location filename="../../src/optimusmanager.cpp" line="211"/>
         <source>No power management option is currently enabled</source>
         <translation>Jelenleg nincs energiagazdálkodási opció engedélyezve</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="211"/>
+        <location filename="../../src/optimusmanager.cpp" line="212"/>
         <source>Switching between GPUs will work but you will likely experience poor battery life.
 If you have already enabled the new Runtime D3 power management inside the Nvidia driver (for Turing+ GPU with Coffee Lake+ CPU), you can safely ignore this warning.</source>
         <translation>A videoeszközök közötti váltás működni fog, viszont valószínű a csökkent üzemidő akkumulátoron.
 Ha már engedélyezte az új Runtime D3 energiagazdálkodást az Nvidia illesztőprogramban (a Turing-nál újabb GPU-k és Coffee Lake-nál újabb CPU-k esetében), akkor ezt a figyelmeztetés hagyja figyelmen kívül.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="221"/>
+        <location filename="../../src/optimusmanager.cpp" line="222"/>
         <source>The Optimus Manager service is not running.</source>
         <translation>Az Optimus Manager szolgáltatás nem fut.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="270"/>
+        <location filename="../../src/optimusmanager.cpp" line="271"/>
         <source>There are %1 other desktop sessions open. The GPU switch will not become effective until you have manually logged out from ALL desktop sessions.
 Continue?</source>
         <translation>További %1 asztali munkamenet van nyitva. A videoeszköz váltás nem lesz effektív, amíg manuálisan nem jelentkezett ki az ÖSSZES asztali munkamenetből
 Folytatja?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="285"/>
+        <location filename="../../src/optimusmanager.cpp" line="286"/>
         <source>Wayland session found.</source>
         <translation>Wayland munkamenet jelen.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="286"/>
+        <location filename="../../src/optimusmanager.cpp" line="287"/>
         <source>Session %1, started by %2, is a Wayland session. Wayland is not supported by Optimus Manager, so GPU switching may fail.
 Continue anyway?</source>
         <translation>%1. munkamenet, amit %2 indított egy Wayland munkamenet. Az Optimus Manager nem támogatja a Wayland-et, ezért a videoeszköz váltása lehet hogy nem fog sikerülni.
 Így is folytatja?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="303"/>
+        <location filename="../../src/optimusmanager.cpp" line="304"/>
         <source>The Bumblebee service (%1) is running.</source>
         <translation>Bumblebee szolgáltatás (%1) nem fut.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="346"/>
+        <location filename="../../src/optimusmanager.cpp" line="347"/>
         <source>The Xorg driver &apos;%1&apos; is not installed.</source>
         <translation>Az Xorg illesztőprogram &apos;%1&apos; nincs telepítve.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="347"/>
+        <location filename="../../src/optimusmanager.cpp" line="348"/>
         <source>Optimus Manager will use &apos;%1&apos; driver instead. You can change driver in settings or install the &apos;%2&apos; driver from the package &apos;%3&apos;.
 Continue anyway?</source>
         <translation>Az Optimus Manager az &apos;%1&apos; illesztőprogramot fogja használni. Az illesztőprogramot megváltoztathatja a beállításokban vagy telepítse a &apos;%2&apos; illesztőprogramot a &apos;%3&apos; csomagból.
 Így is folytatja?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="379"/>
+        <location filename="../../src/optimusmanager.cpp" line="381"/>
         <source>Configuration successfully applied</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="379"/>
+        <location filename="../../src/optimusmanager.cpp" line="381"/>
         <source>Your GPU will be switched after next login.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="318"/>
+        <location filename="../../src/optimusmanager.cpp" line="319"/>
         <source>If you did not create it yourself, it was likely generated by your distribution or by an Nvidia utility.
 This file may contain hard-coded GPU configuration that could interfere with Optimus Manager, so it is recommended that you delete it before proceeding.
 Ignore this warning and proceed with GPU switching?</source>
@@ -148,25 +148,25 @@ Ez a fájl beégetett videoeszköz konfigurációt tartalmazhat, ami zavarhatja 
 Figyelmen kívül hagyja ezt a figyelmeztetést és folytatja a videoeszköz váltást?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="332"/>
+        <location filename="../../src/optimusmanager.cpp" line="333"/>
         <source>This file was auto-generated by the Manjaro driver utility (MHWD). This will likely interfere with GPU switching, so Optimus Manager will delete this file automatically if you proceded with GPU switching.
 Proceed?</source>
         <translation>Ez a fájl automatikusan lett generálva a Manjaro illesztőprogram segédprogram (MHWD) által. Ez valószínűleg zavarni fogja a videoeszköz váltást, ezért az Optimus Manager törölni fogja ezt a fájlt, ha folytatja.
 Folytatja?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="201"/>
+        <location filename="../../src/optimusmanager.cpp" line="202"/>
         <source>After applying the settings, you will need to manually re-login to change the video card.</source>
         <translation>A beállítások alkalmazása után manuálisan újra be kell jelentkeznie a videoeszköz váltáshoz</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="81"/>
-        <location filename="../../src/optimusmanager.cpp" line="179"/>
+        <location filename="../../src/optimusmanager.cpp" line="82"/>
+        <location filename="../../src/optimusmanager.cpp" line="180"/>
         <source>Current videocard: %1</source>
         <translation>Jelenlegi videoeszköz: %1</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="222"/>
+        <location filename="../../src/optimusmanager.cpp" line="223"/>
         <source>Please enable and start it with:
 &apos;%1&apos;
 &apos;%2&apos;</source>
@@ -175,50 +175,50 @@ Folytatja?</translation>
 &apos;%2&apos;</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="232"/>
-        <location filename="../../src/optimusmanager.cpp" line="244"/>
+        <location filename="../../src/optimusmanager.cpp" line="233"/>
+        <location filename="../../src/optimusmanager.cpp" line="245"/>
         <source>The %1 module does not seem to be available for the current kernel.</source>
         <translation>A %1 modul nem elérhető a jelenlegi rendszermaghoz.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="233"/>
+        <location filename="../../src/optimusmanager.cpp" line="234"/>
         <source>Power switching will not work.
 You can set &apos;%1&apos; for GPU switching in settings or install bbswitch forthe default kernel with &apos;%2&apos; or for all kernels with &apos;%3&apos;.</source>
         <translation>Az energia váltás nem fog működni.
 Beállíthatja a(z) &apos;%1&apos; -t a videoeszköz váltáshoz a beállításokban, vagy telepítse a bbswitch-et az alapértelmezett rendszermaghoz a &apos;%2&apos; -vel vagy az összes maghoz a &apos;%3&apos; -val.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="245"/>
+        <location filename="../../src/optimusmanager.cpp" line="246"/>
         <source>It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?</source>
         <translation>Valószínű hogy az Nvidia illesztőprogram nem lett helyesen telepítve. A GPU váltás valószínűleg sikertelen lesz, folytatja?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="255"/>
+        <location filename="../../src/optimusmanager.cpp" line="256"/>
         <source>Looks like you&apos;re using a non-patched version of the Gnome Display Manager (GDM).</source>
         <translation>Úgy tűnik hogy foltozatlan Gnome kijelző kezelőt (GDM) használ.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="256"/>
+        <location filename="../../src/optimusmanager.cpp" line="257"/>
         <source>GDM need to be patched for Prime switching. Follow &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
 Continue anyway?</source>
         <translation>GDM foltozva kell hogy legyen a Prime váltáshoz. További segítésget &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;itt&lt;/a&gt; talál. Foltozatlan GDM verzióval a videoeszköz váltása valószínűleg nem lesz sikeres.
 Így is folytatja?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="269"/>
+        <location filename="../../src/optimusmanager.cpp" line="270"/>
         <source>Multiple running sessions detected.</source>
         <translation>Több futó munkamenet észlelve.</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="304"/>
+        <location filename="../../src/optimusmanager.cpp" line="305"/>
         <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with &apos;%1&apos; and reboot your computer.
 Ignore this warning and proceed with GPU switching now?</source>
         <translation>Ez zavarhatja az Optimus Manager-t. Mielőtt videoeszközt váltana, ajánlott hogy letilltja a &apos;%1&apos; szolgáltatást és újraindítja a számítógépet.
 Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="317"/>
-        <location filename="../../src/optimusmanager.cpp" line="331"/>
+        <location filename="../../src/optimusmanager.cpp" line="318"/>
+        <location filename="../../src/optimusmanager.cpp" line="332"/>
         <source>Found a Xorg config file at &apos;%1&apos;.</source>
         <translation>Xorg konfigurációs fájl megtalálva itt &apos;%1&apos;</translation>
     </message>
@@ -227,8 +227,8 @@ Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
     <name>SettingsDialog</name>
     <message>
         <location filename="../../src/settingsdialog.ui" line="14"/>
-        <location filename="../../src/optimusmanager.cpp" line="65"/>
-        <location filename="../../src/optimusmanager.cpp" line="181"/>
+        <location filename="../../src/optimusmanager.cpp" line="66"/>
+        <location filename="../../src/optimusmanager.cpp" line="182"/>
         <source>Settings</source>
         <translation>Beállítások</translation>
     </message>
@@ -254,7 +254,7 @@ Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
         <translation>Nyelv:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="46"/>
+        <location filename="../../src/settingsdialog.cpp" line="47"/>
         <source>&lt;System language&gt;</source>
         <translation>&lt;System language&gt;</translation>
     </message>
@@ -631,64 +631,64 @@ Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
         <translation>Licensz:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="81"/>
+        <location filename="../../src/settingsdialog.cpp" line="82"/>
         <source>Optimus Manager temporary configuration file path cannot be empty</source>
         <translation>Az Optimus Manager ideiglenes konfigurációs fájl útvonala nem lehet üres</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="88"/>
+        <location filename="../../src/settingsdialog.cpp" line="89"/>
         <source>Optimus Manager temporary configuration file path cannot be a permanent configuration file path</source>
         <translation>Az Optimus Manager ideiglenes konfigurációs fájl útvonala nem lehet állandó konfigurációs fájl útvonal</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="110"/>
+        <location filename="../../src/settingsdialog.cpp" line="111"/>
         <source>Unable to read data from generated configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="249"/>
+        <location filename="../../src/settingsdialog.cpp" line="250"/>
         <source>Select temporary configuration file</source>
         <translation>Átmeneti beállítás fájl kiváltasztása</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="250"/>
-        <location filename="../../src/settingsdialog.cpp" line="262"/>
-        <location filename="../../src/settingsdialog.cpp" line="275"/>
+        <location filename="../../src/settingsdialog.cpp" line="251"/>
+        <location filename="../../src/settingsdialog.cpp" line="263"/>
+        <location filename="../../src/settingsdialog.cpp" line="276"/>
         <source>Config files (*.conf);;All files(*)</source>
         <translation>Beállítás fájlok (*.conf);;Összes fájl(*)</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="261"/>
+        <location filename="../../src/settingsdialog.cpp" line="262"/>
         <source>Export Optimus Manager settings</source>
         <translation>Optimus Manager beállítások exportálása</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="274"/>
+        <location filename="../../src/settingsdialog.cpp" line="275"/>
         <source>Import Optimus Manager settings</source>
         <translation>Optimus Manager beállítások importálása</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="438"/>
+        <location filename="../../src/settingsdialog.cpp" line="439"/>
         <source>Select icon</source>
         <translation>Válasszon ikont</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="439"/>
+        <location filename="../../src/settingsdialog.cpp" line="440"/>
         <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
         <translation>Képek (*.png *.jpg *.bmp);;Összes fájl(*)</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="470"/>
+        <location filename="../../src/settingsdialog.cpp" line="471"/>
         <source>Unable to find Optimus Manager daemon.</source>
         <translation>Optimus Manager démon nem található.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="471"/>
+        <location filename="../../src/settingsdialog.cpp" line="472"/>
         <source>Please check the integrity of the package that provides Optimus Manager.</source>
         <translation>Kérem ellenőrizze a csomag sértetlenségét amellyel beszerezte az Optimus Manager-t.</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="473"/>
+        <location filename="../../src/settingsdialog.cpp" line="474"/>
         <source>Not found!</source>
         <translation>Nem található!</translation>
     </message>
