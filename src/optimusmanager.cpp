@@ -180,9 +180,13 @@ void OptimusManager::retranslateUi()
     m_trayIcon->setToolTipSubTitle(tr("Current videocard: %1").arg(QMetaEnum::fromType<OptimusSettings::GPU>().valueToKey(m_currentGpu)));
 #endif
     m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
-    m_contextMenu->actions().at(2)->setText(tr("Switch to Intel"));
-    m_contextMenu->actions().at(3)->setText(tr("Switch to Nvidia"));
-    m_contextMenu->actions().at(5)->setText(tr("Exit"));
+
+    const QMetaEnum gpuEnum = QMetaEnum::fromType<OptimusSettings::GPU>();
+    m_contextMenu->actions().at(2)->setText(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Intel)));
+    m_contextMenu->actions().at(3)->setText(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Nvidia)));
+    m_contextMenu->actions().at(4)->setText(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Hybrid)));
+
+    m_contextMenu->actions().at(6)->setText(tr("Exit"));
 }
 
 void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
