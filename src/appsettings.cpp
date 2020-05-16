@@ -150,10 +150,5 @@ QString AppSettings::defaultTrayIconName(OptimusSettings::GPU trayStatus)
 
 void AppSettings::loadLanguage(QLocale::Language lang)
 {
-    if (lang == QLocale::AnyLanguage)
-        QLocale::setDefault(QLocale::system());
-    else
-        QLocale::setDefault(QLocale(lang));
-
-    s_appTranslator.load(QLocale(), QStringLiteral(PROJECT_NAME), QStringLiteral("_"));
+    s_appTranslator.load(QLocale(lang), QStringLiteral(PROJECT_NAME), QStringLiteral("_"), QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("translations"), QStandardPaths::LocateDirectory));
 }

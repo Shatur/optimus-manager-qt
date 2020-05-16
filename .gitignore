@@ -7,3 +7,6 @@
 # Clangd
 .clangd
 compile_commands.json
+
+# Vim
+vim.json
