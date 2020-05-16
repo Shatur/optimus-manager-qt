@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.7.0)
 
-project(optimus-manager-qt VERSION 1.5.0 LANGUAGES CXX)
+project(optimus-manager-qt VERSION 1.5.1 LANGUAGES CXX)
 
 include(GNUInstallDirs)
 
