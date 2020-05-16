@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="es">
+<TS version="2.1" language="de" sourcelanguage="en">
 <context>
     <name>AppSettings</name>
     <message>
-        <location filename="../../src/appsettings.cpp" line="76"/>
+        <location filename="../../src/appsettings.cpp" line="77"/>
         <source>Unable to create autorun file from &apos;%1&apos;</source>
-        <translation>No se puede crear el fichero &apos;autorun&apos; a partir de &apos;%1&apos;</translation>
+        <translation>Konnte keine autorun-Datei erstellen aus %1</translation>
     </message>
 </context>
 <context>
@@ -20,7 +20,7 @@
     <message>
         <location filename="../../src/optimusmanager.cpp" line="373"/>
         <source>Unable to send GPU name to switch to Optimus Manager daemon: %1</source>
-        <translation type="unfinished">No se pudo enviar el nombre de la GPU al demonio de Optimus Manager: %1</translation>
+        <translation type="unfinished">Konnte GPU-Namen für den Wechsel nicht an Optimus-Manager-daemon senden: %1</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="129"/>
@@ -33,18 +33,18 @@
     <message>
         <location filename="../../src/optimusmanager.cpp" line="183"/>
         <source>Switch to Intel</source>
-        <translation>Cambiar a Intel</translation>
+        <translation>Wechsel auf Intel</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="184"/>
         <source>Switch to Nvidia</source>
-        <translation>Cambiar a Nvidia</translation>
+        <translation>Wechsel auf Nvidia</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="75"/>
         <location filename="../../src/optimusmanager.cpp" line="185"/>
         <source>Exit</source>
-        <translation>Salir</translation>
+        <translation>Schließen</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="70"/>
@@ -57,7 +57,7 @@
         <location filename="../../src/optimusmanager.cpp" line="161"/>
         <location filename="../../src/optimusmanager.cpp" line="170"/>
         <source>The specified icon &apos;%1&apos; for the current GPU is invalid. The default icon will be used.</source>
-        <translation>El icono especificado &apos;%1&apos; para la GPU no es aceptado. Un icono por defecto se usará en su lugar.</translation>
+        <translation>Der angegebene Icon &apos;%1&apos; für die aktuelle GPU ist ungültig. Der Standard-Icon wird nun verwendet.</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="161"/>
@@ -68,12 +68,12 @@
     <message>
         <location filename="../../src/optimusmanager.cpp" line="198"/>
         <source>You are about to switch GPU.</source>
-        <translation>Estas a punto de cambiar de GPU.</translation>
+        <translation>GPU wird nun gewechselt.</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="200"/>
         <source>You will be automatically logged out to apply the changes.</source>
-        <translation>Se te deslogueará automaticamente para aplicar los cambios.</translation>
+        <translation>Sie werden automatisch ausgeloggt um die Änderungen zu aktivieren.</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="211"/>
@@ -89,42 +89,43 @@ If you have already enabled the new Runtime D3 power management inside the Nvidi
     <message>
         <location filename="../../src/optimusmanager.cpp" line="222"/>
         <source>The Optimus Manager service is not running.</source>
-        <translation>El servicio Optimus Manager no se encuentra en ejecución.</translation>
+        <translation>Der Optimus-Manager-Service ist nicht aktiv.</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="271"/>
         <source>There are %1 other desktop sessions open. The GPU switch will not become effective until you have manually logged out from ALL desktop sessions.
 Continue?</source>
-        <translation>Hay otras %1 sesiones de escritorio abiertas. El cambio de GPU no se hará efectivo hasta que te desloguees manualmente de TODAS tus sesiones de escritorio.</translation>
+        <translation>Es sind %1 andere Desktopsitzungen offen. Der GPU-Wechsel wird erst durchgeführt, wenn alle Desktopsitzungen abgemeldet werden.
+Fortfahren?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="286"/>
         <source>Wayland session found.</source>
-        <translation>Sesion Wayland encontrada.</translation>
+        <translation>Wayland-Sitzung gefunden.</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="287"/>
         <source>Session %1, started by %2, is a Wayland session. Wayland is not supported by Optimus Manager, so GPU switching may fail.
 Continue anyway?</source>
-        <translation>La sesión %1, iniciada por %2, es una sesión Wayland. Wayland no está soportado por Optimus Manager, asique el cambio de GPU podría fallar.
-Continuar de todas formas?</translation>
+        <translation>Sitzung %1, gestartet von %2, ist eine Wayland-Sitzung. Wayland wird von Optimus Manager nicht unterstützt, GPU-Wechsel kann also fehlschlagen.
+Trotzdem fortfahren?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="304"/>
         <source>The Bumblebee service (%1) is running.</source>
-        <translation>El servicio Bumblebee (%1) se encuentra en ejecución.</translation>
+        <translation>Der Bumblebee-Service (%1) ist aktiv.</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="347"/>
         <source>The Xorg driver &apos;%1&apos; is not installed.</source>
-        <translation>El driver Xorg &apos;%1&apos; no se encuentra instalado.</translation>
+        <translation>Der Xorg-Treiber &apos;%1&apos; ist nicht installiert.</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="348"/>
         <source>Optimus Manager will use &apos;%1&apos; driver instead. You can change driver in settings or install the &apos;%2&apos; driver from the package &apos;%3&apos;.
 Continue anyway?</source>
-        <translation>Optimus Manager usará el driver &apos;%1&apos; en su lugar. Puedes cambiar de driver en la configuración, o instalar el driver &apos;%2&apos; con el paquete &apos;%3&apos;.
-Continuar de todos modos?</translation>
+        <translation>Optimus Manager wird den &apos;%1&apos;-Treiber stattdessen verwenden. Der Treiber kann in den Einstellungen geändert werden oder der &apos;%2&apos;-Treiber aus dem Paket &apos;%3&apos; installiert werden.
+Trotzdem fortfahren?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="381"/>
@@ -141,34 +142,34 @@ Continuar de todos modos?</translation>
         <source>If you did not create it yourself, it was likely generated by your distribution or by an Nvidia utility.
 This file may contain hard-coded GPU configuration that could interfere with Optimus Manager, so it is recommended that you delete it before proceeding.
 Ignore this warning and proceed with GPU switching?</source>
-        <translation>Si no lo has creado tu, seguramente fué generado por tu distribución o por una utilidad de Nvidia.
-Este fichero podría contener una configuración que interfiera con Optimus Manager, y se recomienda que lo borres manualmente antes de proceder.
-Ignorar esta advertencia y proceder con el cambio de GPU?</translation>
+        <translation>Wenn Sie es nicht selbst erstellt haben, wurde es wahrscheinlich von ihrer Distribution oder einem Nvidia-Utility automatisch generiert.
+Die Datei könnte fest eingebaute GPU-Konfigurationen enthalten, die mit Optimus-Manager in Konflikt stehen könnten. Darum wird empfohlen sie vor dem Fortfahren zu löschen.
+Warnung ignorieren und mit GPU-Wechsel fortfahren?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="333"/>
         <source>This file was auto-generated by the Manjaro driver utility (MHWD). This will likely interfere with GPU switching, so Optimus Manager will delete this file automatically if you proceded with GPU switching.
 Proceed?</source>
-        <translation>Este fichero fué autogenerado por Manjaro driver utility (MHWD). Esto podría interferir con el cambio de GPU, así que Optimis Manager borrará este fichero automáticamente si procedes con el cambio de GPU.
-Proceder?</translation>
+        <translation>Diese Datei wurde vom Manjaro driver utility (MHWD) automatisch generiert. Sie wird wahrscheinlich einen Konflikt mit dem GPU-Wechsel auslösen, Optimus Manager wird die Datei also löschen, falls sie mit dem GPU-Wechsel fortfahren.
+Fortfahren?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="202"/>
         <source>After applying the settings, you will need to manually re-login to change the video card.</source>
-        <translation>Tras aplicar la configuración, tendrás que re-loguear manualmente para cambiar de tarjeta de video.</translation>
+        <translation>Nach dem Ändern der Einstellungen muss manuell ein neuer Login durchgeführt werden um die GPU zu wechseln.</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="82"/>
         <location filename="../../src/optimusmanager.cpp" line="180"/>
         <source>Current videocard: %1</source>
-        <translation>GPU Actual: %1</translation>
+        <translation>Aktuelle GPU: %1</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="223"/>
         <source>Please enable and start it with:
 &apos;%1&apos;
 &apos;%2&apos;</source>
-        <translation>Por favor actívalo e inicialo con:
+        <translation>Bitte aktivieren und starten mit:
 &apos;%1&apos;
 &apos;%2&apos;</translation>
     </message>
@@ -176,49 +177,49 @@ Proceder?</translation>
         <location filename="../../src/optimusmanager.cpp" line="233"/>
         <location filename="../../src/optimusmanager.cpp" line="245"/>
         <source>The %1 module does not seem to be available for the current kernel.</source>
-        <translation>El módulo %1 no parece estar disponible para tu kernel actual.</translation>
+        <translation>Das Modul %1 scheint für den aktuellen Kernel nicht verfügbar zu sein.</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="234"/>
         <source>Power switching will not work.
 You can set &apos;%1&apos; for GPU switching in settings or install bbswitch forthe default kernel with &apos;%2&apos; or for all kernels with &apos;%3&apos;.</source>
-        <translation>El cambio de potencia no funcionará.
-Puedes definir &apos;%1&apos; para el cambio de GPU en la configuración o instalar bbswitch para tu kernel por defecto con &apos;%2&apos; o para todos los kernels con &apos;%3&apos;.</translation>
+        <translation>Power switching wird nicht funktionieren.
+Sie können &apos;%1&apos; für GPU switching in den Einstellungen setzen oder bbswitch für den Default-Kernel mit &apos;%2&apos; oder für alle Kernel mit &apos;%3&apos; installieren.</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="246"/>
         <source>It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?</source>
-        <translation>Es probable que el driver de Nvidia no se encuentre correctamente instalado. El cambio de GPU podría fallar, continuar de todas formas?</translation>
+        <translation>Der Nvidia-Treiber ist wahrscheinlich nicht installiert. Der GPU-Wechsel wird wahrscheinlich fehlschlagen, trotzdem fortfahren?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="256"/>
         <source>Looks like you&apos;re using a non-patched version of the Gnome Display Manager (GDM).</source>
-        <translation>Parece que estas usando una version no parcheada de Gnome Display Manager (GDM).</translation>
+        <translation>Es wirkt als wäre eine nicht gepatchte Version des Gnome Display Managers (GDM) installiert.</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="257"/>
         <source>GDM need to be patched for Prime switching. Follow &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
 Continue anyway?</source>
-        <translation>GDM necesita ser parcheado para el cambio Prime. Sigue &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;estas&lt;/a&gt; instrucciones para instalar la versión parcheada. Sin una versión parcheada de GDM, el cambio de GPU probablemente falle.
-Continuar de todas formas?</translation>
+        <translation>GDM muss für Prime-switching gepatcht sein. Folgen Sie &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;diesen&lt;/a&gt; Anweisungen um eine gepatchte Version zu installieren. Ohne gepatchte GDM-Version wird ein GPU-Wechsel wahrscheinlich fehlschlagen.
+Trotzdem fortfahren?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="270"/>
         <source>Multiple running sessions detected.</source>
-        <translation>Se han detectado múltiples sesiones simultaneas.</translation>
+        <translation>Mehrere laufende Sitzungen gefunden.</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="305"/>
         <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with &apos;%1&apos; and reboot your computer.
 Ignore this warning and proceed with GPU switching now?</source>
-        <translation>Esto puede interferir con Optimus Manager. Antes de intentar un cambio de GPU, es recomendable que deshabilites el servicio con &apos;%1&apos; y reinícies tu equipo.
-Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
+        <translation>Steht eventuell mit Optimus-Manager in Konflikt. Es wird empfohlen vor dem GPU-Wechsel diesen Service mit &apos;%1&apos; zu deaktiviern und den PC neu zu starten.
+Warnung ignorieren und mit GPU-Wechsel fortfahren?</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="318"/>
         <location filename="../../src/optimusmanager.cpp" line="332"/>
         <source>Found a Xorg config file at &apos;%1&apos;.</source>
-        <translation>Encontrado fichero de configuración de Xorg en &apos;%1&apos;.</translation>
+        <translation>Xorg-Konfigurationsdatei gefunden: &apos;%1&apos;.</translation>
     </message>
 </context>
 <context>
@@ -228,58 +229,58 @@ Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
         <location filename="../../src/optimusmanager.cpp" line="66"/>
         <location filename="../../src/optimusmanager.cpp" line="182"/>
         <source>Settings</source>
-        <translation>Configuración</translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="59"/>
         <location filename="../../src/settingsdialog.ui" line="118"/>
         <source>General</source>
-        <translation>General</translation>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="104"/>
         <source>About</source>
-        <translation>Acerca de</translation>
+        <translation>Über</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="137"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Application language&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Lenguaje de la aplicación.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Anwendungs-Sprache&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="140"/>
         <source>Language:</source>
-        <translation>Lenguaje:</translation>
+        <translation>Sprache:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="47"/>
         <source>&lt;System language&gt;</source>
-        <translation>&lt;Idioma del sistema&gt;</translation>
+        <translation>&lt;Systemstandard&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="163"/>
         <source>Launch at startup</source>
-        <translation>Lanzar al inicio</translation>
+        <translation>Starten beim Systemstart</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="170"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show confirmation dialog when switching GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mostrar mensaje de confirmación al cambiar de GPU.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Zeige Bestätigungsdialog vor dem GPU-Wechsel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="173"/>
         <source>Confirm switching</source>
-        <translation>Confirmar cambio de GPU</translation>
+        <translation>Bestätigen vor GPU-Wechsel</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="224"/>
         <source>Nvidia icon:</source>
-        <translation>Icono de Nvidia:</translation>
+        <translation>Nvidia Icon:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="210"/>
         <source>Intel icon:</source>
-        <translation>Icono de Intel:</translation>
+        <translation>Intel Icon:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="506"/>
@@ -287,9 +288,19 @@ Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../src/settingsdialog.ui" line="477"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching methods, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../src/settingsdialog.ui" line="440"/>
         <source>Automatic logout</source>
-        <translation>Logout automático</translation>
+        <translation>Automatisch ausloggen</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="467"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove the Nvidia card from the PCI bus&lt;/p&gt;&lt;p&gt;May prevent crashes caused by power switching&lt;/p&gt;&lt;p&gt;Ignored if switching method is Nouveau or Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="830"/>
@@ -299,49 +310,49 @@ Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
     <message>
         <location filename="../../src/settingsdialog.ui" line="866"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manager&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Será definido utilizando el script Xsetup pasado a tu gestor de inicio de sesión.&lt;br/&gt;Ejecutará el comando&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Deja 0 para usar el valor por defecto.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Wird mit dem Xsetup-script gesetzt, das dem Login-Manager übergeben wird&lt;br/&gt;Führt den folgenden Befehl aus:&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;0 für Default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="883"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Activar, o no, la opción NVreg_UsePageAttributeTable en el driver Nvidia.&lt;span style=&quot; font-style:italic;&quot;&gt;Recomendado&lt;/span&gt;, de lo contrario puede causar bajo rendimiento de CPU.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Entscheidet über das setzen der Option NVreg_UsePageAttributeTable im Nvidia-Treiber &lt;span style=&quot; font-style:italic;&quot;&gt;Empfohlen&lt;/span&gt;, kann ansonsten zu schlechter Performance führen&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="896"/>
         <source>Overclocking options</source>
-        <translation>Opciones de overclocking</translation>
+        <translation>Übertaktungsoptionen</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="160"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart will be used&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart será utilizado.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart wird verwendet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="183"/>
         <source>Tray icons</source>
-        <translation>Icono de bandeja</translation>
+        <translation>Taskleistensymbole</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="189"/>
         <location filename="../../src/settingsdialog.ui" line="196"/>
         <source>Choose icon</source>
-        <translation>Elegir icono</translation>
+        <translation>Wähle ein Symbol</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="491"/>
         <source>None</source>
-        <translation>Ninguno</translation>
+        <translation>Keines</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="124"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Interface language&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Idioma de la interfaz&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Interface-Sprache&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="203"/>
         <location filename="../../src/settingsdialog.ui" line="217"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ruta al icóno o nombre del icóno del tema&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pfad zum Icon oder Icon-Name aus dem Theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="582"/>
@@ -356,29 +367,38 @@ Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
     <message>
         <location filename="../../src/settingsdialog.ui" line="705"/>
         <source>Driver:</source>
-        <translation>Driver:</translation>
+        <translation>Treiber:</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="929"/>
+        <source>Ignore ABI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="949"/>
+        <source>Allow external GPUs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="1020"/>
+        <location filename="../../src/settingsdialog.ui" line="1114"/>
+        <source>Author:</source>
+        <translation>Autor:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="746"/>
         <source>Acceleration method:</source>
-        <translation>Método de aceleración:</translation>
+        <translation>Beschleunigungs-Methode:</translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="767"/>
-        <location filename="../../src/settingsdialog.ui" line="799"/>
-        <source>Default</source>
-        <translation>Predeterminado</translation>
+        <location filename="../../src/settingsdialog.ui" line="231"/>
+        <source>Hybrid icon:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="772"/>
-        <source>Yes</source>
-        <translation>Si</translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="419"/>
-        <location filename="../../src/settingsdialog.ui" line="777"/>
-        <source>No</source>
-        <translation>No</translation>
+        <location filename="../../src/settingsdialog.ui" line="519"/>
+        <source>Switching method:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="447"/>
@@ -388,46 +408,6 @@ Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
     <message>
         <location filename="../../src/settingsdialog.ui" line="415"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset the Nvidia card at the PCI level before reloading the nvidia module&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;No&lt;/span&gt;: does not perform any reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Function level&lt;/span&gt;: perform a light &amp;quot;function-level&amp;quot; reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Hot reset&lt;/span&gt;: perform a &amp;quot;hot reset&amp;quot; of the PCI bridge (this method messes with the hardware directly and will perform a PCI remove even if it disabled, please read the online documentation of Optimus Manager before using it)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="424"/>
-        <source>Function level</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="429"/>
-        <source>Hot reset</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="470"/>
-        <source>PCI remove</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="712"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Versión DRI&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="480"/>
-        <source>PCI power control</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="231"/>
-        <source>Hybrid icon:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="477"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching methods, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="519"/>
-        <source>Switching method:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -511,13 +491,23 @@ Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../src/settingsdialog.ui" line="424"/>
+        <source>Function level</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="429"/>
+        <source>Hot reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../src/settingsdialog.ui" line="437"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM and bspwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="467"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove the Nvidia card from the PCI bus&lt;/p&gt;&lt;p&gt;May prevent crashes caused by power switching&lt;/p&gt;&lt;p&gt;Ignored if switching method is Nouveau or Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location filename="../../src/settingsdialog.ui" line="470"/>
+        <source>PCI remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -566,6 +556,33 @@ Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../src/settingsdialog.ui" line="767"/>
+        <location filename="../../src/settingsdialog.ui" line="799"/>
+        <source>Default</source>
+        <translation>Standard</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="772"/>
+        <source>Yes</source>
+        <translation>Ja</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="419"/>
+        <location filename="../../src/settingsdialog.ui" line="777"/>
+        <source>No</source>
+        <translation>Nein</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="712"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI Version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="480"/>
+        <source>PCI power control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../src/settingsdialog.ui" line="795"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Acceleration method (corresponds to AccelMethod in the Xorg configuration)&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
@@ -576,8 +593,18 @@ Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="946"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use Optimus Manager with external Nvidia GPUs (experimental)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location filename="../../src/settingsdialog.ui" line="903"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dreifachpufferung aktivieren&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="906"/>
+        <source>Triple buffer</source>
+        <translation>Dreifachpufferung</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="893"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -586,47 +613,21 @@ Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="903"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Activar triple buffer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="906"/>
-        <source>Triple buffer</source>
-        <translation>Triple buffer</translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="893"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="929"/>
-        <source>Ignore ABI</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="949"/>
-        <source>Allow external GPUs</source>
+        <location filename="../../src/settingsdialog.ui" line="946"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use Optimus Manager with external Nvidia GPUs (experimental)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="1006"/>
         <location filename="../../src/settingsdialog.ui" line="1137"/>
         <source>Version:</source>
-        <translation>Versión:</translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="1020"/>
-        <location filename="../../src/settingsdialog.ui" line="1114"/>
-        <source>Author:</source>
-        <translation>Autor:</translation>
+        <translation>Version:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="1027"/>
         <location filename="../../src/settingsdialog.ui" line="1151"/>
         <source>License:</source>
-        <translation>Licencia:</translation>
+        <translation>Lizenz:</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="82"/>
@@ -668,27 +669,27 @@ Quieres ignorar esta advertencia y proceder con el cambio de GPU?</translation>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="439"/>
         <source>Select icon</source>
-        <translation>Seleccionar icono</translation>
+        <translation>Wähle ein Symbol</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="440"/>
         <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
-        <translation>Imágenes (*.png *.jpg *.bmp);;Todos los formatos(*)</translation>
+        <translation>Bilder (*.png *.jpg *.bmp);;Alle Dateien(*)</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="471"/>
         <source>Unable to find Optimus Manager daemon.</source>
-        <translation>No se pudo encontrar el demonio de Optimus Manager.</translation>
+        <translation>Konnte optimus-manager daemon nicht finden.</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="472"/>
         <source>Please check the integrity of the package that provides Optimus Manager.</source>
-        <translation>Por favor, compruebe la integridad del paquete que proporciona Optimus Manager.</translation>
+        <translation>Bitte die Integrität des Pakets, das optimus-manager zur Verfügung stellt, prüfen.</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="474"/>
         <source>Not found!</source>
-        <translation>No encontrado!</translation>
+        <translation>Nicht gefunden!</translation>
     </message>
 </context>
 </TS>

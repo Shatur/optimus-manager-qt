@@ -73,20 +73,22 @@ You can install [optimus-manager-qt](https://aur.archlinux.org/packages/optimus-
 You can build **Optimus Manager Qt** by using the following commands:
 
 ```bash
-qmake
-make
-make clean
+mkdir build
+cd build
+cmake -D CMAKE_BUILD_TYPE=Release ..
+cmake --build .
 ```
 
 If you want to build with extended Plasma support you need to define `PLASMA` (the same as `_plasma=true` in the PKGBUILD):
 
 ```bash
-qmake "DEFINES += PLASMA"
-make
-make clean
+mkdir build
+cd build
+cmake -D CMAKE_BUILD_TYPE=Release -D PLASMA ..
+cmake --build .
 ```
 
-You will then get a binary named `optimus-manager`.
+You will then get a binary named `optimus-manager-qt`.
 
 ## Localization
 

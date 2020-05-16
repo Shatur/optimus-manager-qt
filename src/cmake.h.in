@@ -1,0 +1,9 @@
+#ifndef CMAKE_H
+#define CMAKE_H
+
+#define VERSION_MAJOR @optimus-manager-qt_VERSION_MAJOR@
+#define VERSION_MINOR @optimus-manager-qt_VERSION_MINOR@
+#define VERSION_PATCH @optimus-manager-qt_VERSION_PATCH@
+#define PROJECT_NAME "@PROJECT_NAME@"
+
+#endif // CMAKE_H

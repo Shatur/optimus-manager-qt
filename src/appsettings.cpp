@@ -20,6 +20,7 @@
 
 #include "appsettings.h"
 
+#include "cmake.h"
 #include "singleapplication.h"
 
 #include <QFileInfo>
@@ -154,5 +155,5 @@ void AppSettings::loadLanguage(QLocale::Language lang)
     else
         QLocale::setDefault(QLocale(lang));
 
-    s_appTranslator.load(QLocale(), QStringLiteral("optimus-manager"), QStringLiteral("_"), QStringLiteral(":/i18n"));
+    s_appTranslator.load(QLocale(), QStringLiteral(PROJECT_NAME), QStringLiteral("_"));
 }

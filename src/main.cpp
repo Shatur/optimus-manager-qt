@@ -21,13 +21,14 @@
 #include "appsettings.h"
 #include "optimusmanager.h"
 #include "singleapplication.h"
+#include "cmake.h"
 
 int main(int argc, char *argv[])
 {
     SingleApplication app(argc, argv);
     SingleApplication::setApplicationName(QStringLiteral("Optimus Manager"));
     SingleApplication::setOrganizationName(QStringLiteral("optimus-manager"));
-    SingleApplication::setApplicationVersion(QStringLiteral("1.4.6"));
+    SingleApplication::setApplicationVersion(QStringLiteral("%1.%2.%3").arg(VERSION_MAJOR).arg(VERSION_MINOR).arg(VERSION_PATCH));
     SingleApplication::setDesktopFileName(QStringLiteral("io.optimus_manager.OptimusManagerQt.desktop"));
     SingleApplication::setQuitOnLastWindowClosed(false);
 
