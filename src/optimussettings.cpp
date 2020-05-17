@@ -39,7 +39,8 @@ const QMap<OptimusSettings::Driver, QString> OptimusSettings::s_driverMap = {{Mo
                                                                              {IntelDriver, QStringLiteral("intel")}};
 const QMap<OptimusSettings::AccelMethod, QString> OptimusSettings::s_accelMethodMap = {{DefaultMethod, {}},
                                                                                        {SNA, QStringLiteral("sna")},
-                                                                                       {XNA, QStringLiteral("xna")}};
+                                                                                       {XNA, QStringLiteral("xna")},
+                                                                                       {UXA, QStringLiteral("uxa")}};
 const QMap<OptimusSettings::TearFree, QString> OptimusSettings::s_tearFreeMap = {{DefaultTearFree, {}},
                                                                                  {EnableTearFree, s_boolMap[true]},
                                                                                  {DisableTearFree, s_boolMap[false]}};
