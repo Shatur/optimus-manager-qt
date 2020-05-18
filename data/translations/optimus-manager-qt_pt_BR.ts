@@ -124,12 +124,12 @@ Continuar mesmo assim?</translation>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="385"/>
       <source>Configuration successfully applied</source>
-      <translation type="unfinished">Configuration successfully applied</translation>
+      <translation>Configuração aplicada com sucesso</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="385"/>
       <source>Your GPU will be switched after next login.</source>
-      <translation type="unfinished">Your GPU will be switched after next login.</translation>
+      <translation>Sua GPU será trocada após o próximo login.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="323"/>
@@ -276,7 +276,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
       <location filename="../../src/settingsdialog.ui" line="506"/>
       <source>ACPI call</source>
-      <translation type="unfinished">ACPI call</translation>
+      <translation>ACPI call</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="440"/>
@@ -338,7 +338,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
       <location filename="../../src/settingsdialog.ui" line="582"/>
       <source>Startup mode:</source>
-      <translation type="unfinished">Startup mode:</translation>
+      <translation>Modo de inicialização:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="672"/>
@@ -520,7 +520,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
       <location filename="../../src/settingsdialog.ui" line="511"/>
       <source>Custom</source>
-      <translation type="unfinished">Custom</translation>
+      <translation>Personalizado</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="538"/>
@@ -530,7 +530,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
       <location filename="../../src/settingsdialog.ui" line="575"/>
       <source>Battery startup mode:</source>
-      <translation type="unfinished">Battery startup mode:</translation>
+      <translation>Modo de inicialização na bateria:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="592"/>
@@ -545,7 +545,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
       <location filename="../../src/settingsdialog.ui" line="657"/>
       <source>Auto</source>
-      <translation type="unfinished">Auto</translation>
+      <translation>Automático</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="729"/>
@@ -600,7 +600,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
       <location filename="../../src/settingsdialog.ui" line="949"/>
       <source>Allow external GPUs</source>
-      <translation type="unfinished">Allow external GPUs</translation>
+      <translation>Permitir GPUs externas</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="1006"/>
