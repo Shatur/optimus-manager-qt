@@ -505,7 +505,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
       <location filename="../../src/settingsdialog.ui" line="437"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM and bspwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM and bspwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Efetue automaticamente o logout da sessão atual da área de trabalho ao trocar de GPUs&lt;/p&gt;&lt;p&gt;Atualmente, este recurso é suportado pelo Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM e bspwm&lt;/p&gt;&lt;p&gt;Se esta opção estiver desabilitada ou você usar um ambiente de área de trabalho diferente, a troca da GPU somente será efetivada no próximo login da sessão gráfica&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="467"/>
@@ -525,7 +525,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
       <location filename="../../src/settingsdialog.ui" line="538"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to select when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on battery&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to select when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on battery&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Selecionar este modo da GPU quando o &lt;span style=&quot; font-style:italic;&quot;&gt;Modo de inicialização&lt;/span&gt; for &lt;span style=&quot; font-style:italic;&quot;&gt;Automático&lt;/span&gt; e o computador estiver na bateria&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="575"/>
@@ -535,7 +535,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
       <location filename="../../src/settingsdialog.ui" line="592"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to select when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on external power&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to select when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on external power&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Selecionar este modo da GPU quando o &lt;span style=&quot; font-style:italic;&quot;&gt;Modo de inicialização&lt;/span&gt; for &lt;span style=&quot; font-style:italic;&quot;&gt;Automático&lt;/span&gt; e o computador estiver no carregador&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="626"/>
@@ -570,7 +570,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
       <location filename="../../src/settingsdialog.ui" line="946"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use Optimus Manager with external Nvidia GPUs (experimental)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use Optimus Manager with external Nvidia GPUs (experimental)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use o Optimus Manager com GPUs externas da Nvidia (experimental)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="926"/>
@@ -590,7 +590,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
       <location filename="../../src/settingsdialog.ui" line="893"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o CoolBits na configuração do Xorg, que desbloqueia as opções de clock no painel de controle da Nvidia&lt;/p&gt;&lt;p&gt;Nota: não funciona no modo Hybrid&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="929"/>
