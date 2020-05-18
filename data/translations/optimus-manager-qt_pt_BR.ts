@@ -565,7 +565,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
       <location filename="../../src/settingsdialog.ui" line="936"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization (which prevents tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o modesetting&lt;/p&gt;&lt;p&gt;Requerido para o Sincronização PRIME (que previne tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o modesetting&lt;/p&gt;&lt;p&gt;Requerido para a Sincronização PRIME (que previne tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="946"/>
