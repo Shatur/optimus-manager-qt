@@ -343,12 +343,12 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
       <location filename="../../src/settingsdialog.ui" line="672"/>
       <source>External power startup mode:</source>
-      <translation type="unfinished">External power startup mode:</translation>
+      <translation>Modo de inicialização no carregador:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="705"/>
       <source>Driver:</source>
-      <translation type="unfinished">Driver:</translation>
+      <translation>Driver:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="746"/>
