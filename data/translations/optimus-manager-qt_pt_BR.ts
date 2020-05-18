@@ -56,7 +56,7 @@
       <location filename="../../src/optimusmanager.cpp" line="161"/>
       <location filename="../../src/optimusmanager.cpp" line="170"/>
       <source>Invalid icon</source>
-      <translation type="unfinished">Invalid icon</translation>
+      <translation>Ícone inválido</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="202"/>
