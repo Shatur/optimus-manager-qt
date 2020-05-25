@@ -45,7 +45,7 @@ add_executable(${PROJECT_NAME}
     src/x11deleters.cpp
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE SingleApplication Qt5::DBus Qt5::X11Extras X11::Xrandr)
+target_link_libraries(${PROJECT_NAME} PRIVATE SingleApplication::SingleApplication Qt5::DBus Qt5::X11Extras X11::Xrandr)
 
 option(PLASMA "Use additional KDE API feautures")
 if(PLASMA)
