@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/flags/">
+    <qresource prefix="/icons/flags/">
         <file>ru.svg</file>
         <file>en.svg</file>
         <file>cn.svg</file>
