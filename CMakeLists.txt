@@ -59,8 +59,8 @@ if(PLASMA)
 endif()
 
 install(TARGETS ${PROJECT_NAME})
-install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/Optimus Manager/Optimus Manager Qt/translations/")
-install(FILES data/io.optimus_manager.OptimusManagerQt.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications/)
+install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/Optimus\ Manager/Optimus\ Manager\ Qt/translations)
+install(FILES data/io.optimus_manager.OptimusManagerQt.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
 
 ecm_install_icons(ICONS
     data/icons/freedesktop/128-apps-intel.svg
