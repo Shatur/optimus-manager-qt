@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.7.0)
 
 project(optimus-manager-qt VERSION 1.5.1 LANGUAGES CXX DESCRIPTION "An interface for Optimus Manager that allows to switch GPUs on Optimus laptops.")
 
+set(APPLICATION_NAME "Optimus Manager Qt")
+set(ORGANIZATION_NAME "Optimus Manager")
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -59,7 +62,7 @@ if(PLASMA)
 endif()
 
 install(TARGETS ${PROJECT_NAME})
-install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/Optimus\ Manager/Optimus\ Manager\ Qt/translations)
+install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${ORGANIZATION_NAME}/${APPLICATION_NAME}/translations)
 install(FILES data/io.optimus_manager.OptimusManagerQt.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
 
 ecm_install_icons(ICONS

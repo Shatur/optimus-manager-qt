@@ -26,8 +26,8 @@
 int main(int argc, char *argv[])
 {
     SingleApplication app(argc, argv);
-    SingleApplication::setApplicationName(QStringLiteral("Optimus Manager Qt"));
-    SingleApplication::setOrganizationName(QStringLiteral("Optimus Manager"));
+    SingleApplication::setApplicationName(QStringLiteral(APPLICATION_NAME));
+    SingleApplication::setOrganizationName(QStringLiteral(ORGANIZATION_NAME));
     SingleApplication::setApplicationVersion(QStringLiteral("%1.%2.%3").arg(VERSION_MAJOR).arg(VERSION_MINOR).arg(VERSION_PATCH));
     SingleApplication::setDesktopFileName(QStringLiteral("io.optimus_manager.OptimusManagerQt.desktop"));
     SingleApplication::setQuitOnLastWindowClosed(false);
