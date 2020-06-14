@@ -57,7 +57,7 @@ OptimusManager::OptimusManager(QObject *parent)
     m_contextMenu->addSeparator();
 
     const QMetaEnum gpuEnum = QMetaEnum::fromType<DaemonClient::GPU>();
-    m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(DaemonClient::Intel)), this, &OptimusManager::switchToIntel);
+    m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(DaemonClient::Integrated)), this, &OptimusManager::switchToIntegrated);
     m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(DaemonClient::Nvidia)), this, &OptimusManager::switchToNvidia);
     m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(DaemonClient::Hybrid)), this, &OptimusManager::switchToHybrid);
     m_contextMenu->addSeparator();
@@ -98,9 +98,9 @@ QIcon OptimusManager::trayGpuIcon(const QString &iconName)
     return QIcon();
 }
 
-void OptimusManager::switchToIntel()
+void OptimusManager::switchToIntegrated()
 {
-    switchGpu(DaemonClient::Intel);
+    switchGpu(DaemonClient::Integrated);
 }
 
 void OptimusManager::switchToNvidia()
@@ -139,7 +139,7 @@ void OptimusManager::loadSettings()
     AppSettings appSettings;
 
     // Context menu icons
-    m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(appSettings.gpuIconName(DaemonClient::Intel)));
+    m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(appSettings.gpuIconName(DaemonClient::Integrated)));
     m_contextMenu->actions().at(3)->setIcon(trayGpuIcon(appSettings.gpuIconName(DaemonClient::Nvidia)));
     m_contextMenu->actions().at(4)->setIcon(trayGpuIcon(appSettings.gpuIconName(DaemonClient::Hybrid)));
 
@@ -171,7 +171,7 @@ void OptimusManager::retranslateUi()
     m_trayIcon->setToolTipSubTitle(tr("Current videocard: %1").arg(QMetaEnum::fromType<DaemonClient::GPU>().valueToKey(m_currentGpu)));
 #endif
     m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
-    m_contextMenu->actions().at(2)->setText(tr("Switch to Intel"));
+    m_contextMenu->actions().at(2)->setText(tr("Switch to Integrated"));
     m_contextMenu->actions().at(3)->setText(tr("Switch to Nvidia"));
     m_contextMenu->actions().at(5)->setText(tr("Exit"));
 }
@@ -206,6 +206,17 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
         message.exec();
     }
 
+    // Check if daemon is active
+    if (!isServiceActive(QStringLiteral("optimus-manager.service") || !isServiceActive(QStringLiteral("optimus-manager")))) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Critical);
+        message.setText(tr("The Optimus Manager service is not running."));
+        message.setInformativeText(tr("Please enable and start it with:\n'%1'\n'%2'")
+                                   .arg("sudo systemctl enable optimus-manager", "sudo systemctl start optimus-manager"));
+        message.exec();
+        return;
+    }
+
     // Check if bbswitch module is available
     if (optimusSettings.switchingMethod() == OptimusSettings::Bbswitch && !isModuleAvailable(QStringLiteral("bbswitch"))) {
         QMessageBox message;
@@ -224,6 +235,19 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
         message.setIcon(QMessageBox::Question);
         message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg(QStringLiteral("nvidia")));
         message.setInformativeText(tr("It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?"));
+        message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+        if (message.exec() == QMessageBox::No)
+            return;
+    }
+
+    // Check if GDM is patched
+    if (currentDisplayManager() == QLatin1String("/usr/bin/gdm") && !isGdmPatched()) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Question);
+        message.setText(tr("Looks like you're using a non-patched version of the Gnome Display Manager (GDM)."));
+        message.setInformativeText(tr("GDM need to be patched for Prime switching. Follow <a href='https://github.com/Askannz/optimus-manager'>this</a>"
+                                      " instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.\n"
+                                      "Continue anyway?"));
         message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         if (message.exec() == QMessageBox::No)
             return;
@@ -305,17 +329,18 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
             return;
     }
 
-    // Check if the Xorg driver 'intel' is installed
-    if (switchingGpu == DaemonClient::Intel
-            && optimusSettings.intelDriver() == OptimusSettings::IntelDriver
-            && !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/intel_drv.so"))) {
+    // Check if the Xorg driver is installed
+    if (switchingGpu == DaemonClient::Integrated
+            && optimusSettings.integratedDriver() == OptimusSettings::IntegratedDriver
+            && !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/intel_drv.so"))
+            || !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/amdgpu_drv.so"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
-        message.setText(tr("The Xorg driver '%1' is not installed.").arg(QStringLiteral("intel")));
+        message.setText(tr("The Xorg driver is not installed."));
         message.setInformativeText(tr("Optimus Manager will use '%1' driver instead. You can change driver in settings or install the"
                                       " '%2' driver from the package '%3'.\n"
                                       "Continue anyway?")
-                                   .arg("modesetting", "intel", "xf86-video-intel"));
+                                   .arg("modesetting", "Intel/AMD", "xf86-video-intel/xf86-video-amdgpu"));
         message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         if (message.exec() == QMessageBox::No)
             return;
@@ -366,14 +391,14 @@ DaemonClient::GPU OptimusManager::detectGpu()
     if (qstrcmp(providerInfo->name, "NVIDIA-0") == 0)
         return DaemonClient::Nvidia;
 
-    if (qstrcmp(providerInfo->name, "modesetting") == 0 || qstrcmp(providerInfo->name, "Intel") == 0) {
+    if (qstrcmp(providerInfo->name, "modesetting") == 0 || qstrcmp(providerInfo->name, "Integrated") == 0) {
         for (int i = 1; i < providerResources->nproviders; ++i) {
             providerInfo.reset(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[i]));
             if (qstrcmp(providerInfo->name, "NVIDIA-G0") == 0)
                 return DaemonClient::Hybrid;
         }
 
-        return DaemonClient::Intel;
+        return DaemonClient::Integrated;
     }
 
     qFatal("Unable to detect GPU");
@@ -414,6 +439,12 @@ bool OptimusManager::isServiceActive(const QString &serviceName)
 bool OptimusManager::isGdmPatched()
 {
     return QFileInfo::exists(QStringLiteral("/etc/gdm/Prime")) || QFileInfo::exists(QStringLiteral("/etc/gdm3/Prime"));
+}
+
+QString OptimusManager::currentDisplayManager()
+{
+    const QSettings displayManager(QStringLiteral("/etc/systemd/system/display-manager.service"), QSettings::IniFormat);
+    return displayManager.value(QStringLiteral("Service/ExecStart")).toString();
 }
 
 QVector<Session> OptimusManager::activeSessions()

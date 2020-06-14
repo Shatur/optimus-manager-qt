@@ -83,10 +83,10 @@
       </item>
       <item>
        <property name="text">
-        <string notr="true">Intel</string>
+        <string notr="true">Integrated</string>
        </property>
        <property name="icon">
-        <iconset theme="intel">
+        <iconset theme="integrated">
          <normaloff>.</normaloff>.</iconset>
        </property>
       </item>
@@ -191,7 +191,7 @@
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QToolButton" name="intelIconButton">
+            <widget class="QToolButton" name="integratedIconButton">
              <property name="toolTip">
               <string>Choose icon</string>
              </property>
@@ -205,14 +205,14 @@
             </widget>
            </item>
            <item row="0" column="0">
-            <widget class="QLabel" name="intelIconLabel">
+            <widget class="QLabel" name="integratedIconLabel">
              <property name="text">
               <string>Intel icon:</string>
              </property>
             </widget>
            </item>
            <item row="0" column="2">
-            <widget class="QLineEdit" name="intelIconEdit">
+            <widget class="QLineEdit" name="integratedIconEdit">
              <property name="toolTip">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
@@ -271,10 +271,10 @@
              </property>
              <item>
               <property name="text">
-               <string notr="true">Intel</string>
+               <string notr="true">Integrated</string>
               </property>
               <property name="icon">
-               <iconset theme="prime-intel">
+               <iconset theme="prime-integrated">
                 <normaloff>.</normaloff>.</iconset>
               </property>
              </item>
@@ -603,22 +603,22 @@
        </layout>
       </widget>
       <widget class="QWidget" name="intelPage">
-       <layout class="QVBoxLayout" name="intelPageLayout">
+       <layout class="QVBoxLayout" name="integratedPageLayout">
         <item>
-         <widget class="QGroupBox" name="intelGroupBox">
+         <widget class="QGroupBox" name="integratedGroupBox">
           <property name="title">
            <string notr="true">Intel</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_4">
            <item row="0" column="0">
-            <widget class="QLabel" name="intelDriverLabel">
+            <widget class="QLabel" name="integratedDriverLabel">
              <property name="text">
               <string>Driver:</string>
              </property>
             </widget>
            </item>
            <item row="3" column="1">
-            <widget class="QComboBox" name="intelDriComboBox">
+            <widget class="QComboBox" name="integratedDriComboBox">
              <property name="toolTip">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
@@ -635,7 +635,7 @@
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QComboBox" name="intelDriverComboBox">
+            <widget class="QComboBox" name="integratedDriverComboBox">
              <property name="toolTip">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Intel GPU&lt;br/&gt;&lt;br/&gt;To use the Intel driver, you need to install the package &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
@@ -646,7 +646,7 @@
              </item>
              <item>
               <property name="text">
-               <string notr="true">Intel</string>
+               <string notr="true">Integrated</string>
               </property>
              </item>
             </widget>
@@ -659,19 +659,19 @@
             </widget>
            </item>
            <item row="2" column="0">
-            <widget class="QLabel" name="intelTearFreeLabel">
+            <widget class="QLabel" name="integratedTearFreeLabel">
              <property name="text">
               <string notr="true">Tearfree:</string>
              </property>
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QComboBox" name="intelTearFreeComboBox">
+            <widget class="QComboBox" name="integratedTearFreeComboBox">
              <property name="enabled">
               <bool>false</bool>
              </property>
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+		     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;/p&gt;&lt;p&gt;Only applies to the Intel/AMD driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <item>
               <property name="text">
@@ -691,7 +691,7 @@
             </widget>
            </item>
            <item row="3" column="0">
-            <widget class="QLabel" name="intelDriLabel">
+            <widget class="QLabel" name="integratedDriLabel">
              <property name="text">
               <string notr="true">DRI:</string>
              </property>
@@ -728,7 +728,7 @@
             </widget>
            </item>
            <item row="0" column="2">
-            <spacer name="intelBoxSpacer">
+            <spacer name="integratedBoxSpacer">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -741,9 +741,9 @@
             </spacer>
            </item>
            <item row="4" column="0" colspan="3">
-            <widget class="QCheckBox" name="intelModesetCheckBox">
+            <widget class="QCheckBox" name="integratedModesetCheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with Bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Integrated GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with Bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string notr="true">Modeset</string>
@@ -754,7 +754,7 @@
          </widget>
         </item>
         <item>
-         <spacer name="intelSpacer">
+         <spacer name="integratedSpacer">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
@@ -1153,7 +1153,7 @@
    <sender>intelIconButton</sender>
    <signal>clicked()</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>browseIntelIcon()</slot>
+   <slot>browseIntegratedIcon()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>313</x>
@@ -1182,10 +1182,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>intelIconEdit</sender>
+   <sender>integratedIconEdit</sender>
    <signal>textChanged(QString)</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>previewIntelIcon(QString)</slot>
+   <slot>previewIntegratedIcon(QString)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>557</x>
@@ -1230,10 +1230,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>intelDriverComboBox</sender>
+   <sender>integratedDriverComboBox</sender>
    <signal>currentIndexChanged(int)</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>disableIntelDriverIgnored(int)</slot>
+   <slot>disableIntegratedDriverIgnored(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>411</x>
@@ -1376,10 +1376,10 @@
  </connections>
  <slots>
   <slot>browseNvidiaIcon()</slot>
-  <slot>browseIntelIcon()</slot>
+  <slot>browseIntegratedIcon()</slot>
   <slot>previewNvidiaIcon(QString)</slot>
-  <slot>previewIntelIcon(QString)</slot>
-  <slot>disableIntelDriverIgnored(int)</slot>
+  <slot>previewIntegratedIcon(QString)</slot>
+  <slot>disableIntegratedDriverIgnored(int)</slot>
   <slot>disableSwitchingMethodIgnored(int)</slot>
   <slot>disablePciResetIgnored(int)</slot>
   <slot>changeStartupMode()</slot>

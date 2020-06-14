@@ -104,8 +104,8 @@ bool AppSettings::defaultConfirmSwitching()
 QString AppSettings::gpuIconName(DaemonClient::GPU gpu) const
 {
     switch (gpu) {
-    case DaemonClient::Intel:
-        return value(QStringLiteral("IntelIcon"), defaultTrayIconName(DaemonClient::Intel)).toString();
+    case DaemonClient::Integrated:
+        return value(QStringLiteral("IntegratedIcon"), defaultTrayIconName(DaemonClient::Intel)).toString();
     case DaemonClient::Nvidia:
         return value(QStringLiteral("NvidiaIcon"), defaultTrayIconName(DaemonClient::Nvidia)).toString();
     case DaemonClient::Hybrid:
@@ -118,8 +118,8 @@ QString AppSettings::gpuIconName(DaemonClient::GPU gpu) const
 void AppSettings::setGpuIconName(DaemonClient::GPU gpu, const QString &name)
 {
     switch (gpu) {
-    case DaemonClient::Intel:
-        setValue(QStringLiteral("IntelIcon"), name);
+    case DaemonClient::Integrated:
+        setValue(QStringLiteral("IntegratedIcon"), name);
         break;
     case DaemonClient::Nvidia:
         setValue(QStringLiteral("NvidiaIcon"), name);
@@ -132,8 +132,8 @@ void AppSettings::setGpuIconName(DaemonClient::GPU gpu, const QString &name)
 QString AppSettings::defaultTrayIconName(DaemonClient::GPU trayStatus)
 {
     switch (trayStatus) {
-    case DaemonClient::Intel:
-        return QStringLiteral("prime-intel");
+    case DaemonClient::Integrated:
+        return QStringLiteral("prime-integrated");
     case DaemonClient::Nvidia:
         return QStringLiteral("prime-nvidia");
     case DaemonClient::Hybrid:

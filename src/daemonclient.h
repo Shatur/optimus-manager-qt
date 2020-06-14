@@ -30,7 +30,7 @@ class DaemonClient : public QObject
 
 public:
     enum GPU {
-        Intel,
+        Integrated,
         Nvidia,
         Hybrid
     };

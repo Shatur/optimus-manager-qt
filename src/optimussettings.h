@@ -47,7 +47,7 @@ public:
     };
     enum Driver {
         Modesetting,
-        IntelDriver
+        IntegratedDriver
     };
     enum AccelMethod {
         DefaultMethod,
@@ -95,26 +95,26 @@ public:
     void setAutoLogoutEnabled(bool enable);
     static bool defaultAutoLogoutEnabled();
 
-    // Intel
-    Driver intelDriver() const;
-    void setIntelDriver(Driver driver);
-    static Driver defaultIntelDriver();
+    // Integrated
+    Driver integratedDriver() const;
+    void setIntegratedDriver(Driver driver);
+    static Driver defaultIntegratedDriver();
 
     AccelMethod intelAccelMethod() const;
     void setIntelAccelMethod(AccelMethod method);
     static AccelMethod defaultIntelAccelMethod();
 
-    TearFree intelTearFree() const;
-    void setIntelTearFree(TearFree tearFree);
-    static TearFree defaultIntelTearFree();
+    TearFree integratedTearFree() const;
+    void setIntegratedTearFree(TearFree tearFree);
+    static TearFree defaultIntegratedTearFree();
 
-    DRI intelDri() const;
-    void setIntelDri(DRI dri);
-    static DRI defaultIntelDri();
+    DRI integratedDri() const;
+    void setIntegratedDri(DRI dri);
+    static DRI defaultIntegratedDri();
 
-    bool isIntelModesetEnabled() const;
-    void setIntelModesetEnabled(bool enabled);
-    static bool defaultIntelModesetEnabled();
+    bool isIntegratedModesetEnabled() const;
+    void setIntegratedModesetEnabled(bool enabled);
+    static bool defaultIntegratedModesetEnabled();
 
     // Nvidia
     bool isNvidiaModesetEnabled() const;

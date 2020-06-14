@@ -30,7 +30,7 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 
-const QMap<DaemonClient::GPU, QString> DaemonClient::s_gpuMap = {{Intel, QStringLiteral("intel")},
+const QMap<DaemonClient::GPU, QString> DaemonClient::s_gpuMap = {{Intel, QStringLiteral("integrated")},
                                                                  {Nvidia, QStringLiteral("nvidia")},
                                                                  {Hybrid, QStringLiteral("hybrid")}};
 
@@ -122,7 +122,7 @@ DaemonClient::GPU DaemonClient::startupMode()
 
 DaemonClient::GPU DaemonClient::defaultStartupMode()
 {
-    return Intel;
+    return Integrated;
 }
 
 void DaemonClient::sendCommand(const QString &type, std::initializer_list<QPair<QString, QJsonValue>> args)

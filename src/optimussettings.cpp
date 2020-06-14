@@ -33,7 +33,7 @@ const QMap<OptimusSettings::PciReset, QString> OptimusSettings::s_pciResetMap = 
                                                                                  {FunctionLevelReset, QStringLiteral("function_level")},
                                                                                  {HotReset, QStringLiteral("hot_reset")}};
 const QMap<OptimusSettings::Driver, QString> OptimusSettings::s_driverMap = {{Modesetting, QStringLiteral("modesetting")},
-                                                                             {IntelDriver, QStringLiteral("intel")}};
+                                                                             {IntelDriver, QStringLiteral("integrated")}};
 const QMap<OptimusSettings::AccelMethod, QString> OptimusSettings::s_accelMethodMap = {{DefaultMethod, {}},
                                                                                        {SNA, QStringLiteral("sna")},
                                                                                        {XNA, QStringLiteral("xna")},
@@ -134,23 +134,23 @@ bool OptimusSettings::defaultAutoLogoutEnabled()
     return true;
 }
 
-OptimusSettings::Driver OptimusSettings::intelDriver() const
+OptimusSettings::Driver OptimusSettings::integratedDriver() const
 {
-    const QString driverString = value(QStringLiteral("intel/driver")).toString();
-    return s_driverMap.key(driverString, defaultIntelDriver());
+    const QString driverString = value(QStringLiteral("integrated/driver")).toString();
+    return s_driverMap.key(driverString, defaultIntegratedDriver());
 }
 
-void OptimusSettings::setIntelDriver(OptimusSettings::Driver driver)
+void OptimusSettings::setIntegratedDriver(OptimusSettings::Driver driver)
 {
-    setValue(QStringLiteral("intel/driver"), s_driverMap[driver]);
+    setValue(QStringLiteral("integrated/driver"), s_driverMap[driver]);
 }
 
-OptimusSettings::Driver OptimusSettings::defaultIntelDriver()
+OptimusSettings::Driver OptimusSettings::defaultIntegratedDriver()
 {
     return Modesetting;
 }
 
-OptimusSettings::AccelMethod OptimusSettings::intelAccelMethod() const
+OptimusSettings::AccelMethod OptimusSettings::integratedAccelMethod() const
 {
     const QString accelMethodString = value(QStringLiteral("intel/accel")).toString();
     return s_accelMethodMap.key(accelMethodString, defaultIntelAccelMethod());
@@ -166,49 +166,49 @@ OptimusSettings::AccelMethod OptimusSettings::defaultIntelAccelMethod()
     return DefaultMethod;
 }
 
-OptimusSettings::TearFree OptimusSettings::intelTearFree() const
+OptimusSettings::TearFree OptimusSettings::integratedTearFree() const
 {
-    const QString tearFreeString = value(QStringLiteral("intel/tearfree")).toString();
-    return s_tearFreeMap.key(tearFreeString, defaultIntelTearFree());
+    const QString tearFreeString = value(QStringLiteral("integrated/tearfree")).toString();
+    return s_tearFreeMap.key(tearFreeString, defaultIntegratedTearFree());
 }
 
-void OptimusSettings::setIntelTearFree(OptimusSettings::TearFree tearFree)
+void OptimusSettings::setIntegratedTearFree(OptimusSettings::TearFree tearFree)
 {
-    setValue(QStringLiteral("intel/tearfree"), s_tearFreeMap[tearFree]);
+    setValue(QStringLiteral("integrated/tearfree"), s_tearFreeMap[tearFree]);
 }
 
-OptimusSettings::TearFree OptimusSettings::defaultIntelTearFree()
+OptimusSettings::TearFree OptimusSettings::defaultIntegratedTearFree()
 {
     return DefaultTearFree;
 }
 
-OptimusSettings::DRI OptimusSettings::intelDri() const
+OptimusSettings::DRI OptimusSettings::integratedDri() const
 {
-    return value(QStringLiteral("intel/DRI"), defaultIntelDri()).value<DRI>();
+    return value(QStringLiteral("integrated/DRI"), defaultIntegratedDri()).value<DRI>();
 }
 
-void OptimusSettings::setIntelDri(OptimusSettings::DRI dri)
+void OptimusSettings::setIntegratedDri(OptimusSettings::DRI dri)
 {
-    setValue(QStringLiteral("intel/DRI"), dri);
+    setValue(QStringLiteral("integrated/DRI"), dri);
 }
 
-OptimusSettings::DRI OptimusSettings::defaultIntelDri()
+OptimusSettings::DRI OptimusSettings::defaultIntegratedDri()
 {
     return DRI3;
 }
 
-bool OptimusSettings::isIntelModesetEnabled() const
+bool OptimusSettings::isIntegratedModesetEnabled() const
 {
-    const QString modesetString = value(QStringLiteral("intel/modeset")).toString();
-    return s_boolMap.key(modesetString, defaultIntelModesetEnabled());
+    const QString modesetString = value(QStringLiteral("integrated/modeset")).toString();
+    return s_boolMap.key(modesetString, defaultIntegratedModesetEnabled());
 }
 
-void OptimusSettings::setIntelModesetEnabled(bool enabled)
+void OptimusSettings::setIntegratedModesetEnabled(bool enabled)
 {
-    setValue(QStringLiteral("intel/modeset"), s_boolMap[enabled]);
+    setValue(QStringLiteral("integrated/modeset"), s_boolMap[enabled]);
 }
 
-bool OptimusSettings::defaultIntelModesetEnabled()
+bool OptimusSettings::defaultIntegratedModesetEnabled()
 {
     return true;
 }
