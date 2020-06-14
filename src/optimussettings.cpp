@@ -19,12 +19,15 @@
  */
 
 #include "optimussettings.h"
-#include "daemonclient.h"
 
 #include <QFile>
 
 const QMap<bool, QString> OptimusSettings::s_boolMap = {{false, QStringLiteral("no")},
                                                         {true, QStringLiteral("yes")}};
+const QMap<OptimusSettings::GPU, QString> OptimusSettings::s_gpuMap = {{Integrated, QStringLiteral("integrated")},
+                                                                       {Nvidia, QStringLiteral("nvidia")},
+                                                                       {Hybrid, QStringLiteral("hybrid")},
+                                                                       {Auto, QStringLiteral("auto")}};
 const QMap<OptimusSettings::SwitchingMethod, QString> OptimusSettings::s_switchingMethodMap = {{NoneMethod, QStringLiteral("none")},
                                                                                                {Nouveau, QStringLiteral("nouveau")},
                                                                                                {Bbswitch, QStringLiteral("bbswitch")},
@@ -33,7 +36,7 @@ const QMap<OptimusSettings::PciReset, QString> OptimusSettings::s_pciResetMap = 
                                                                                  {FunctionLevelReset, QStringLiteral("function_level")},
                                                                                  {HotReset, QStringLiteral("hot_reset")}};
 const QMap<OptimusSettings::Driver, QString> OptimusSettings::s_driverMap = {{Modesetting, QStringLiteral("modesetting")},
-                                                                             {IntelDriver, QStringLiteral("integrated")}};
+                                                                             {IntegratedDriver, QStringLiteral("integrated")}};
 const QMap<OptimusSettings::AccelMethod, QString> OptimusSettings::s_accelMethodMap = {{DefaultMethod, {}},
                                                                                        {SNA, QStringLiteral("sna")},
                                                                                        {XNA, QStringLiteral("xna")},
@@ -49,8 +52,8 @@ OptimusSettings::OptimusSettings(QObject *parent)
 {
 }
 
-OptimusSettings::OptimusSettings(const QString &filename, QObject *parent) :
-    QSettings(filename, QSettings::IniFormat, parent)
+OptimusSettings::OptimusSettings(const QString &filename, QObject *parent)
+    : QSettings(filename, QSettings::IniFormat, parent)
 {
 }
 
@@ -134,6 +137,54 @@ bool OptimusSettings::defaultAutoLogoutEnabled()
     return true;
 }
 
+OptimusSettings::GPU OptimusSettings::startupMode() const
+{
+    const QString gpuString = value(QStringLiteral("optimus/startup_mode")).toString();
+    return s_gpuMap.key(gpuString, defaultStartupMode());
+}
+
+void OptimusSettings::setStartupMode(OptimusSettings::GPU gpu)
+{
+    setValue(QStringLiteral("optimus/startup_mode"), s_gpuMap[gpu]);
+}
+
+OptimusSettings::GPU OptimusSettings::defaultStartupMode()
+{
+    return Integrated;
+}
+
+OptimusSettings::GPU OptimusSettings::batteryStartupMode() const
+{
+    const QString gpuString = value(QStringLiteral("optimus/startup_auto_battery_mode")).toString();
+    return s_gpuMap.key(gpuString, defaultBatteryStartupMode());
+}
+
+void OptimusSettings::setBatteryStartupMode(OptimusSettings::GPU gpu)
+{
+    setValue(QStringLiteral("optimus/startup_auto_battery_mode"), s_gpuMap[gpu]);
+}
+
+OptimusSettings::GPU OptimusSettings::defaultBatteryStartupMode()
+{
+    return Integrated;
+}
+
+OptimusSettings::GPU OptimusSettings::externalPowerStartupMode() const
+{
+    const QString gpuString = value(QStringLiteral("optimus/startup_auto_extpower_mode")).toString();
+    return s_gpuMap.key(gpuString, defaultExternalPowerStartupMode());
+}
+
+void OptimusSettings::setExternalPowerStartupMode(OptimusSettings::GPU gpu)
+{
+    setValue(QStringLiteral("optimus/startup_auto_extpower_mode"), s_gpuMap[gpu]);
+}
+
+OptimusSettings::GPU OptimusSettings::defaultExternalPowerStartupMode()
+{
+    return Nvidia;
+}
+
 OptimusSettings::Driver OptimusSettings::integratedDriver() const
 {
     const QString driverString = value(QStringLiteral("integrated/driver")).toString();
@@ -150,7 +201,7 @@ OptimusSettings::Driver OptimusSettings::defaultIntegratedDriver()
     return Modesetting;
 }
 
-OptimusSettings::AccelMethod OptimusSettings::integratedAccelMethod() const
+OptimusSettings::AccelMethod OptimusSettings::intelAccelMethod() const
 {
     const QString accelMethodString = value(QStringLiteral("intel/accel")).toString();
     return s_accelMethodMap.key(accelMethodString, defaultIntelAccelMethod());
@@ -328,6 +379,11 @@ QPair<QString, OptimusSettings::ConfigType> OptimusSettings::detectConfigPath()
 OptimusSettings::ConfigType OptimusSettings::defaultConfigType()
 {
     return Permanent;
+}
+
+QString OptimusSettings::gpuString(OptimusSettings::GPU gpu)
+{
+    return s_gpuMap[gpu];
 }
 
 QStringList OptimusSettings::nvidiaOptionsToStrings(NvidiaOptions options)

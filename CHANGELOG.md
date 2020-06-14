@@ -4,9 +4,27 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased](https://github.com/Shatur95/optimus-manager-qt/tree/HEAD)
 
-[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.4.5...HEAD)
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.4.7...HEAD)
 
 _No unreleased changes yet_
+
+## [1.4.7](https://github.com/Shatur95/optimus-manager-qt/tree/1.4.7) (2020-05-16)
+
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.4.6...1.4.7)
+
+**Changed**
+
+-   Switch to CMake.
+-   Store localization in separate files.
+-   Fix tray context menu retranslation.
+
+## [1.4.6](https://github.com/Shatur95/optimus-manager-qt/tree/1.4.6) (2020-05-11)
+
+[Full Changelog](https://github.com/Shatur95/optimus-manager-qt/compare/1.4.5...1.4.6)
+
+**Changed**
+
+-   Update to Optimus Manager 1.3.0.
 
 ## [1.4.5](https://github.com/Shatur95/optimus-manager-qt/tree/1.4.5) (2019-12-29)
 

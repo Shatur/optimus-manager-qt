@@ -18,37 +18,14 @@
  *
  */
 
-#ifndef DAEMONCLIENT_H
-#define DAEMONCLIENT_H
+#ifndef CMAKE_H
+#define CMAKE_H
 
-#include "optimussettings.h"
+#define VERSION_MAJOR @optimus-manager-qt_VERSION_MAJOR@
+#define VERSION_MINOR @optimus-manager-qt_VERSION_MINOR@
+#define VERSION_PATCH @optimus-manager-qt_VERSION_PATCH@
+#define PROJECT_NAME "@PROJECT_NAME@"
+#define APPLICATION_NAME "@APPLICATION_NAME@"
+#define ORGANIZATION_NAME "@ORGANIZATION_NAME@"
 
-class DaemonClient : public QObject
-{
-    Q_OBJECT
-    Q_DISABLE_COPY(DaemonClient)
-
-public:
-    explicit DaemonClient(QObject *parent = nullptr);
-    ~DaemonClient() override;
-
-    void connect();
-    void disconnect();
-
-    void setGpu(OptimusSettings::GPU gpu);
-    void setConfig(const QString &content);
-    void setTempConfig(const QString &path);
-
-    bool error();
-    QString errorString();
-
-private:
-    void sendCommand(const QString &type, std::initializer_list<QPair<QString, QJsonValue>> args);
-    void setError(bool error);
-
-    QString m_errorString;
-    bool m_error = false;
-    int m_sockfd = -1;
-};
-
-#endif // DAEMONCLIENT_H
+#endif // CMAKE_H

@@ -18,12 +18,12 @@
 ## Screenshots
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Shatur95/optimus-manager-qt/master/dist/screenshots/tray.png" alt="Tray screenshot"/>
-  <img src="https://raw.githubusercontent.com/Shatur95/optimus-manager-qt/master/dist/screenshots/tray-menu.png" alt="Tray menu screenshot"/>
+  <img src="https://raw.githubusercontent.com/Shatur95/optimus-manager-qt/master/screenshots/tray.png" alt="Tray screenshot"/>
+  <img src="https://raw.githubusercontent.com/Shatur95/optimus-manager-qt/master/screenshots/tray-menu.png" alt="Tray menu screenshot"/>
 </p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Shatur95/optimus-manager-qt/master/dist/screenshots/settings-general.png" width="392px" height="300px" alt="General settings screenshot"/>
-  <img src="https://raw.githubusercontent.com/Shatur95/optimus-manager-qt/master/dist/screenshots/settings-optimus.png" width="392px" height="300px" alt="Optimus settings screenshot"/>
+  <img src="https://raw.githubusercontent.com/Shatur95/optimus-manager-qt/master/screenshots/settings-general.png" width="392px" height="300px" alt="General settings screenshot"/>
+  <img src="https://raw.githubusercontent.com/Shatur95/optimus-manager-qt/master/screenshots/settings-optimus.png" width="392px" height="300px" alt="Optimus settings screenshot"/>
 </p>
 
 ## Features
@@ -40,7 +40,7 @@
 
 This project uses [SingleApplication](https://github.com/itay-grudev/SingleApplication).
 
-Therefore, if you want to clone this project, you need to use the `--recursive` option: 
+Therefore, if you want to clone this project, you need to use the `--recursive` option:
 
 ```bash
 git clone --recursive git@github.com:Shatur95/optimus-manager-qt.git
@@ -73,21 +73,23 @@ You can install [optimus-manager-qt](https://aur.archlinux.org/packages/optimus-
 You can build **Optimus Manager Qt** by using the following commands:
 
 ```bash
-qmake
-make
-make clean
+mkdir build
+cd build
+cmake -D CMAKE_BUILD_TYPE=Release ..
+cmake --build .
 ```
 
 If you want to build with extended Plasma support you need to define `PLASMA` (the same as `_plasma=true` in the PKGBUILD):
 
 ```bash
-qmake "DEFINES += PLASMA"
-make
-make clean
+mkdir build
+cd build
+cmake -D CMAKE_BUILD_TYPE=Release -D PLASMA ..
+cmake --build .
 ```
 
-You will then get a binary named `optimus-manager`.
+You will then get a binary named `optimus-manager-qt`.
 
 ## Localization
 
-To help with localization you can use [Transifex](https://www.transifex.com/optimus-manager-qt/optimus-manager-qt) or translate files in `data/translations` with [Qt Linguist](https://doc.qt.io/Qt-5/linguist-translators.html) directly. To add a new language, make a request on the Transifex page or copy `data/translations/optimus-manager.ts` to `data/translations/optimus-manager_<ISO 639-1 language code>.ts`, translate it and send a pull request.
+To help with localization you can use [Crowdin](https://crowdin.com/project/optimus-manager-qt) or translate files in `data/translations` with [Qt Linguist](https://doc.qt.io/Qt-5/linguist-translators.html) directly. To add a new language, make a request on the Crowdin project page or copy `data/translations/optimus-manager.ts` to `data/translations/optimus-manager_<ISO 639-1 language code>_<ISO 3166-1 alpha-2 language code>.ts`, translate it and send a pull request.

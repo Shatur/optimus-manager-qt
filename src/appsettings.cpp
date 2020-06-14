@@ -19,10 +19,12 @@
  */
 
 #include "appsettings.h"
+
+#include "cmake.h"
 #include "singleapplication.h"
 
-#include <QStandardPaths>
 #include <QFileInfo>
+#include <QStandardPaths>
 #include <QTranslator>
 
 QTranslator AppSettings::s_appTranslator;
@@ -76,7 +78,7 @@ void AppSettings::setAutostartEnabled(bool enabled)
         }
     } else {
         // Remove autorun file
-        if(autorunFile.exists())
+        if (autorunFile.exists())
             autorunFile.remove();
     }
 }
@@ -101,46 +103,49 @@ bool AppSettings::defaultConfirmSwitching()
     return true;
 }
 
-QString AppSettings::gpuIconName(DaemonClient::GPU gpu) const
+QString AppSettings::gpuIconName(OptimusSettings::GPU gpu) const
 {
     switch (gpu) {
-    case DaemonClient::Integrated:
-        return value(QStringLiteral("IntegratedIcon"), defaultTrayIconName(DaemonClient::Intel)).toString();
-    case DaemonClient::Nvidia:
-        return value(QStringLiteral("NvidiaIcon"), defaultTrayIconName(DaemonClient::Nvidia)).toString();
-    case DaemonClient::Hybrid:
-        return value(QStringLiteral("HybridIcon"), defaultTrayIconName(DaemonClient::Hybrid)).toString();
+    case OptimusSettings::Integrated:
+        return value(QStringLiteral("IntegratedIcon"), defaultTrayIconName(OptimusSettings::Integrated)).toString();
+    case OptimusSettings::Nvidia:
+        return value(QStringLiteral("NvidiaIcon"), defaultTrayIconName(OptimusSettings::Nvidia)).toString();
+    case OptimusSettings::Hybrid:
+        return value(QStringLiteral("HybridIcon"), defaultTrayIconName(OptimusSettings::Hybrid)).toString();
+    default:
+        qFatal("Unknown GPU");
     }
-
-    qFatal("Unknown GPU");
 }
 
-void AppSettings::setGpuIconName(DaemonClient::GPU gpu, const QString &name)
+void AppSettings::setGpuIconName(OptimusSettings::GPU gpu, const QString &name)
 {
     switch (gpu) {
-    case DaemonClient::Integrated:
+    case OptimusSettings::Integrated:
         setValue(QStringLiteral("IntegratedIcon"), name);
         break;
-    case DaemonClient::Nvidia:
+    case OptimusSettings::Nvidia:
         setValue(QStringLiteral("NvidiaIcon"), name);
         break;
-    case DaemonClient::Hybrid:
+    case OptimusSettings::Hybrid:
         setValue(QStringLiteral("HybridIcon"), name);
+        break;
+    default:
+        qFatal("Unknown GPU");
     }
 }
 
-QString AppSettings::defaultTrayIconName(DaemonClient::GPU trayStatus)
+QString AppSettings::defaultTrayIconName(OptimusSettings::GPU trayStatus)
 {
     switch (trayStatus) {
-    case DaemonClient::Integrated:
+    case OptimusSettings::Integrated:
         return QStringLiteral("prime-integrated");
-    case DaemonClient::Nvidia:
+    case OptimusSettings::Nvidia:
         return QStringLiteral("prime-nvidia");
-    case DaemonClient::Hybrid:
+    case OptimusSettings::Hybrid:
         return QStringLiteral("prime-hybrid");
+    default:
+        qFatal("Unknown GPU");
     }
-
-    return QString();
 }
 
 void AppSettings::loadLanguage(QLocale::Language lang)
@@ -150,5 +155,5 @@ void AppSettings::loadLanguage(QLocale::Language lang)
     else
         QLocale::setDefault(QLocale(lang));
 
-    s_appTranslator.load(QLocale(), QStringLiteral("optimus-manager"), QStringLiteral("_"), QStringLiteral(":/i18n"));
+    s_appTranslator.load(QLocale(), QStringLiteral(PROJECT_NAME), QStringLiteral("_"), QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("translations"), QStandardPaths::LocateDirectory));
 }

@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/icons/flags/">
+        <file>ru.svg</file>
+        <file>en.svg</file>
+        <file>cn.svg</file>
+        <file>es.svg</file>
+        <file>fi.svg</file>
+        <file>br.svg</file>
+        <file>de.svg</file>
+        <file>tr.svg</file>
+        <file>hu.svg</file>
+    </qresource>
+</RCC>

@@ -22,17 +22,11 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QFile>
-#include <QMap>
 #include <QMessageBox>
 
-#include <unistd.h>
 #include <sys/socket.h>
 #include <sys/un.h>
-
-const QMap<DaemonClient::GPU, QString> DaemonClient::s_gpuMap = {{Intel, QStringLiteral("integrated")},
-                                                                 {Nvidia, QStringLiteral("nvidia")},
-                                                                 {Hybrid, QStringLiteral("hybrid")}};
+#include <unistd.h>
 
 DaemonClient::DaemonClient(QObject *parent)
     : QObject(parent)
@@ -72,14 +66,9 @@ void DaemonClient::disconnect()
     }
 }
 
-void DaemonClient::setGpu(GPU gpu)
+void DaemonClient::setGpu(OptimusSettings::GPU gpu)
 {
-    sendCommand(QStringLiteral("switch"), {{QStringLiteral("mode"), s_gpuMap[gpu]}});
-}
-
-void DaemonClient::setStartupMode(GPU gpu)
-{
-    sendCommand(QStringLiteral("startup"), {{QStringLiteral("mode"), s_gpuMap[gpu]}});
+    sendCommand(QStringLiteral("switch"), {{QStringLiteral("mode"), OptimusSettings::gpuString(gpu)}});
 }
 
 void DaemonClient::setConfig(const QString &content)
@@ -100,29 +89,6 @@ bool DaemonClient::error()
 QString DaemonClient::errorString()
 {
     return m_errorString;
-}
-
-DaemonClient::GPU DaemonClient::startupMode()
-{
-    QFile file(QStringLiteral("/var/lib/optimus-manager/startup_mode"));
-    if (!file.open(QIODevice::ReadOnly)) {
-        QMessageBox message;
-        message.setIcon(QMessageBox::Warning);
-        message.setText(tr("Unable to open startup mode file"));
-        message.exec();
-        return defaultStartupMode();
-    }
-
-    QByteArray modeString = file.readAll();
-    if (modeString.back() == '\n')
-        modeString.chop(1);
-
-    return s_gpuMap.key(modeString, defaultStartupMode());
-}
-
-DaemonClient::GPU DaemonClient::defaultStartupMode()
-{
-    return Integrated;
 }
 
 void DaemonClient::sendCommand(const QString &type, std::initializer_list<QPair<QString, QJsonValue>> args)

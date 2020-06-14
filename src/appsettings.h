@@ -21,9 +21,8 @@
 #ifndef APPSETTINGS_H
 #define APPSETTINGS_H
 
-#include "daemonclient.h"
+#include "optimussettings.h"
 
-#include <QSettings>
 #include <QLocale>
 
 class QTranslator;
@@ -34,7 +33,7 @@ class AppSettings : QSettings
     Q_DISABLE_COPY(AppSettings)
 
 public:
-    AppSettings(QObject *parent = nullptr);
+    explicit AppSettings(QObject *parent = nullptr);
 
     // General settings
     void setupLocalization() const;
@@ -50,9 +49,9 @@ public:
     void setConfirmSwitching(bool confirm);
     static bool defaultConfirmSwitching();
 
-    QString gpuIconName(DaemonClient::GPU gpu) const;
-    void setGpuIconName(DaemonClient::GPU gpu, const QString &name);
-    static QString defaultTrayIconName(DaemonClient::GPU trayStatus);
+    QString gpuIconName(OptimusSettings::GPU gpu) const;
+    void setGpuIconName(OptimusSettings::GPU gpu, const QString &name);
+    static QString defaultTrayIconName(OptimusSettings::GPU trayStatus);
 
 private:
     static void loadLanguage(QLocale::Language lang);

@@ -51,6 +51,7 @@ private slots:
     void previewNvidiaIcon(const QString &fileName);
     void previewHybridIcon(const QString &fileName);
 
+    void disableAutoStartupModes(int startupMode);
     void disableSwitchingMethodIgnored(int switchingMethod);
     void disablePciResetIgnored(int pciResetType);
     void disableIntegratedDriverIgnored(int integratedDriver);

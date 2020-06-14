@@ -19,21 +19,24 @@
  */
 
 #include "optimusmanager.h"
+
 #include "appsettings.h"
+#include "daemonclient.h"
+#include "optimussettings.h"
+#include "session.h"
 #include "settingsdialog.h"
 #include "singleapplication.h"
-#include "optimussettings.h"
 #include "x11deleters.h"
-#include "session.h"
 
-#include <QX11Info>
-#include <QProcess>
+#include <QDBusArgument>
+#include <QDBusInterface>
+#include <QDirIterator>
 #include <QFileInfo>
 #include <QMenu>
 #include <QMessageBox>
 #include <QMetaEnum>
-#include <QDBusArgument>
-#include <QDBusInterface>
+#include <QProcess>
+#include <QX11Info>
 #ifdef PLASMA
 #include <KStatusNotifierItem>
 #else
@@ -41,6 +44,9 @@
 #endif
 
 #include <X11/extensions/Xrandr.h>
+
+#include <signal.h>
+#include <sys/types.h>
 
 OptimusManager::OptimusManager(QObject *parent)
     : QObject(parent)
@@ -52,14 +58,18 @@ OptimusManager::OptimusManager(QObject *parent)
 #endif
     , m_currentGpu(detectGpu())
 {
+    // Set localization
+    AppSettings appSettings;
+    appSettings.setupLocalization();
+
     // Setup context menu
     m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("preferences-system")), SettingsDialog::tr("Settings"), this, &OptimusManager::openSettings);
     m_contextMenu->addSeparator();
 
-    const QMetaEnum gpuEnum = QMetaEnum::fromType<DaemonClient::GPU>();
-    m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(DaemonClient::Integrated)), this, &OptimusManager::switchToIntegrated);
-    m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(DaemonClient::Nvidia)), this, &OptimusManager::switchToNvidia);
-    m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(DaemonClient::Hybrid)), this, &OptimusManager::switchToHybrid);
+    const QMetaEnum gpuEnum = QMetaEnum::fromType<OptimusSettings::GPU>();
+    m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Integrated)), this, &OptimusManager::switchToIntegrated);
+    m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Nvidia)), this, &OptimusManager::switchToNvidia);
+    m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Hybrid)), this, &OptimusManager::switchToHybrid);
     m_contextMenu->addSeparator();
 
     m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), tr("Exit"), SingleApplication::instance(), &SingleApplication::quit);
@@ -69,11 +79,11 @@ OptimusManager::OptimusManager(QObject *parent)
     m_trayIcon->setStandardActionsEnabled(false);
     m_trayIcon->setToolTipTitle(SingleApplication::applicationName());
     m_trayIcon->setCategory(KStatusNotifierItem::SystemServices);
-    m_trayIcon->setToolTipSubTitle(tr("Current videocard: %1").arg(QMetaEnum::fromType<DaemonClient::GPU>().valueToKey(m_currentGpu)));
+    m_trayIcon->setToolTipSubTitle(tr("Current videocard: %1").arg(QMetaEnum::fromType<OptimusSettings::GPU>().valueToKey(m_currentGpu)));
 #endif
     m_trayIcon->setContextMenu(m_contextMenu);
 
-    loadSettings();
+    loadSettings(appSettings);
 
 #ifndef PLASMA
     m_trayIcon->show();
@@ -100,17 +110,17 @@ QIcon OptimusManager::trayGpuIcon(const QString &iconName)
 
 void OptimusManager::switchToIntegrated()
 {
-    switchGpu(DaemonClient::Integrated);
+    switchGpu(OptimusSettings::Integrated);
 }
 
 void OptimusManager::switchToNvidia()
 {
-    switchGpu(DaemonClient::Nvidia);
+    switchGpu(OptimusSettings::Nvidia);
 }
 
 void OptimusManager::switchToHybrid()
 {
-    switchGpu(DaemonClient::Hybrid);
+    switchGpu(OptimusSettings::Hybrid);
 }
 
 void OptimusManager::openSettings()
@@ -122,7 +132,8 @@ void OptimusManager::openSettings()
     if (dialog.isLanguageChanged())
         retranslateUi();
 
-    loadSettings();
+    AppSettings settings;
+    loadSettings(settings);
 }
 
 void OptimusManager::showNotification(const QString &title, const QString &message)
@@ -134,14 +145,12 @@ void OptimusManager::showNotification(const QString &title, const QString &messa
 #endif
 }
 
-void OptimusManager::loadSettings()
+void OptimusManager::loadSettings(AppSettings &appSettings)
 {
-    AppSettings appSettings;
-
     // Context menu icons
-    m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(appSettings.gpuIconName(DaemonClient::Integrated)));
-    m_contextMenu->actions().at(3)->setIcon(trayGpuIcon(appSettings.gpuIconName(DaemonClient::Nvidia)));
-    m_contextMenu->actions().at(4)->setIcon(trayGpuIcon(appSettings.gpuIconName(DaemonClient::Hybrid)));
+    m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(appSettings.gpuIconName(OptimusSettings::Integrated)));
+    m_contextMenu->actions().at(3)->setIcon(trayGpuIcon(appSettings.gpuIconName(OptimusSettings::Nvidia)));
+    m_contextMenu->actions().at(4)->setIcon(trayGpuIcon(appSettings.gpuIconName(OptimusSettings::Hybrid)));
 
     // Tray icon
     QString gpuIconName = appSettings.gpuIconName(m_currentGpu);
@@ -168,15 +177,19 @@ void OptimusManager::loadSettings()
 void OptimusManager::retranslateUi()
 {
 #ifdef PLASMA
-    m_trayIcon->setToolTipSubTitle(tr("Current videocard: %1").arg(QMetaEnum::fromType<DaemonClient::GPU>().valueToKey(m_currentGpu)));
+    m_trayIcon->setToolTipSubTitle(tr("Current videocard: %1").arg(QMetaEnum::fromType<OptimusSettings::GPU>().valueToKey(m_currentGpu)));
 #endif
     m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
-    m_contextMenu->actions().at(2)->setText(tr("Switch to Integrated"));
-    m_contextMenu->actions().at(3)->setText(tr("Switch to Nvidia"));
-    m_contextMenu->actions().at(5)->setText(tr("Exit"));
+
+    const QMetaEnum gpuEnum = QMetaEnum::fromType<OptimusSettings::GPU>();
+    m_contextMenu->actions().at(2)->setText(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Integrated)));
+    m_contextMenu->actions().at(3)->setText(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Nvidia)));
+    m_contextMenu->actions().at(4)->setText(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Hybrid)));
+
+    m_contextMenu->actions().at(6)->setText(tr("Exit"));
 }
 
-void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
+void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
 {
     const AppSettings appSettings;
     const OptimusSettings optimusSettings;
@@ -207,7 +220,7 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
     }
 
     // Check if daemon is active
-    if (!isServiceActive(QStringLiteral("optimus-manager.service") || !isServiceActive(QStringLiteral("optimus-manager")))) {
+    if (!isServiceActive(QStringLiteral("optimus-manager.service"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Critical);
         message.setText(tr("The Optimus Manager service is not running."));
@@ -230,7 +243,7 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
     }
 
     // Check if nvidia module is available
-    if (switchingGpu == DaemonClient::Nvidia && !isModuleAvailable(QStringLiteral("nvidia"))) {
+    if (switchingGpu == OptimusSettings::Nvidia && !isModuleAvailable(QStringLiteral("nvidia"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
         message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg(QStringLiteral("nvidia")));
@@ -330,7 +343,7 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
     }
 
     // Check if the Xorg driver is installed
-    if (switchingGpu == DaemonClient::Integrated
+    if (switchingGpu == OptimusSettings::Integrated
             && optimusSettings.integratedDriver() == OptimusSettings::IntegratedDriver
             && !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/intel_drv.so"))
             || !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/amdgpu_drv.so"))) {
@@ -364,6 +377,7 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
         message.setIcon(QMessageBox::Critical);
         message.setText(DaemonClient::tr("Unable to send GPU name to switch to Optimus Manager daemon: %1").arg(client.errorString()));
         message.exec();
+        return;
     }
 
     if (optimusSettings.isAutoLogoutEnabled())
@@ -372,7 +386,7 @@ void OptimusManager::switchGpu(DaemonClient::GPU switchingGpu)
         showNotification(tr("Configuration successfully applied"), tr("Your GPU will be switched after next login."));
 }
 
-DaemonClient::GPU OptimusManager::detectGpu()
+OptimusSettings::GPU OptimusManager::detectGpu()
 {
     if (!QX11Info::isPlatformX11())
         qFatal("Cannot start in non-X11 session");
@@ -389,16 +403,17 @@ DaemonClient::GPU OptimusManager::detectGpu()
 
     QScopedPointer<XRRProviderInfo, ProviderInfoDeleter> providerInfo(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[0]));
     if (qstrcmp(providerInfo->name, "NVIDIA-0") == 0)
-        return DaemonClient::Nvidia;
+        return OptimusSettings::Nvidia;
 
-    if (qstrcmp(providerInfo->name, "modesetting") == 0 || qstrcmp(providerInfo->name, "Integrated") == 0) {
+    // TODO: Find a way to generalize AMD GPU names.
+    if (qstrcmp(providerInfo->name, "modesetting") == 0 || qstrcmp(providerInfo->name, "Intel") == 0 || qstrcmp(providerInfo->name, "Unknown AMD Radeon GPU @ pci:0000:06:00.0") == 0) {
         for (int i = 1; i < providerResources->nproviders; ++i) {
             providerInfo.reset(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[i]));
             if (qstrcmp(providerInfo->name, "NVIDIA-G0") == 0)
-                return DaemonClient::Hybrid;
+                return OptimusSettings::Hybrid;
         }
 
-        return DaemonClient::Integrated;
+        return OptimusSettings::Integrated;
     }
 
     qFatal("Unable to detect GPU");
@@ -486,24 +501,57 @@ int OptimusManager::sessionsCountWithoutGdm(const QVector<Session> &sessions)
 void OptimusManager::logout()
 {
     QDBusInterface kde(QStringLiteral("org.kde.ksmserver"), QStringLiteral("/KSMServer"), QStringLiteral("org.kde.KSMServerInterface"));
-    kde.call(QStringLiteral("logout"), 0, 3, 3);
+    if (kde.call(QStringLiteral("logout"), 0, 3, 3).type() == QDBusMessage::ReplyMessage)
+        return;
 
     QDBusInterface gnome(QStringLiteral("org.gnome.SessionManager"), QStringLiteral("/org/gnome/SessionManager"), QStringLiteral("org.gnome.SessionManager"));
-    gnome.call(QStringLiteral("Logout"), 1U);
+    if (gnome.call(QStringLiteral("Logout"), 1U).type() == QDBusMessage::ReplyMessage)
+        return;
 
     QDBusInterface xfce(QStringLiteral("org.xfce.SessionManager"), QStringLiteral("/org/xfce/SessionManager"), QStringLiteral("org.xfce.Session.Manager"));
-    xfce.call(QStringLiteral("Logout"), false, true);
+    if (xfce.call(QStringLiteral("Logout"), false, true).type() == QDBusMessage::ReplyMessage)
+        return;
 
     QDBusInterface deepin(QStringLiteral("com.deepin.SessionManager"), QStringLiteral("/com/deepin/SessionManager"), QStringLiteral("com.deepin.SessionManager"));
-    deepin.call(QStringLiteral("RequestLogout"));
+    if (deepin.call(QStringLiteral("RequestLogout")).type() == QDBusMessage::ReplyMessage)
+        return;
 
-    QProcess::execute(QStringLiteral("i3-msg"), {QStringLiteral("exit")});
+    if (QProcess::execute(QStringLiteral("i3-msg"), {QStringLiteral("exit")}) == 0)
+        return;
 
-    QProcess::execute(QStringLiteral("sway-msg"), {QStringLiteral("exit")});
+    if (QProcess::execute(QStringLiteral("sway-msg"), {QStringLiteral("exit")}) == 0)
+        return;
 
-    QProcess::execute(QStringLiteral("openbox"), {QStringLiteral("--exit")});
+    if (QProcess::execute(QStringLiteral("openbox"), {QStringLiteral("--exit")}) == 0)
+        return;
 
-    QProcess::execute(QStringLiteral("awesome-client"), {QStringLiteral("\"awesome.quit()\"")});
+    if (QProcess::execute(QStringLiteral("awesome-client"), {QStringLiteral("\"awesome.quit()\"")}) == 0)
+        return;
 
-    QProcess::execute(QStringLiteral("bspc"), {QStringLiteral("quit")});
+    if (QProcess::execute(QStringLiteral("bspc"), {QStringLiteral("quit")}) == 0)
+        return;
+
+    killProcess("/usr/bin/lxsession");
+}
+
+bool OptimusManager::killProcess(const QByteArray &name)
+{
+    for (QDirIterator it(QStringLiteral("/proc"), QDir::NoDotAndDotDot | QDir::Dirs); it.hasNext();) {
+        const QDir process = it.next();
+
+        bool isNumber;
+        pid_t pid = process.dirName().toUInt(&isNumber);
+        if (!isNumber)
+            continue;
+
+        QFile processName(process.path() + QDir::separator() + "cmdline");
+        processName.open(QIODevice::ReadOnly);
+        const QByteArray processPath = processName.readLine();
+        if (!processPath.isEmpty() && processPath.chopped(1) == name) {
+            kill(pid, SIGTERM);
+            return true;
+        }
+    }
+
+    return false;
 }
