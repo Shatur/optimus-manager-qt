@@ -207,7 +207,7 @@
            <item row="0" column="0">
             <widget class="QLabel" name="integratedIconLabel">
              <property name="text">
-              <string>Intel icon:</string>
+              <string>Integrated icon:</string>
              </property>
             </widget>
            </item>
@@ -474,7 +474,7 @@
            <item row="3" column="0" colspan="3">
             <widget class="QCheckBox" name="pciPowerControlCheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching methods, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Integrated GPU mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching methods, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string>PCI power control</string>
@@ -539,7 +539,7 @@
              </property>
              <item>
               <property name="text">
-               <string notr="true">Intel</string>
+               <string notr="true">Integrated</string>
               </property>
               <property name="icon">
                <iconset theme="prime-intel">
@@ -593,10 +593,10 @@
              </property>
              <item>
               <property name="text">
-               <string notr="true">Intel</string>
+               <string notr="true">Integrated</string>
               </property>
               <property name="icon">
-               <iconset theme="prime-intel">
+               <iconset theme="prime-integrated">
                 <normaloff>.</normaloff>.</iconset>
               </property>
              </item>
@@ -627,7 +627,7 @@
              </property>
              <item>
               <property name="text">
-               <string notr="true">Intel</string>
+               <string notr="true">Integrated</string>
               </property>
               <property name="icon">
                <iconset theme="prime-intel">
@@ -696,7 +696,7 @@
         <item>
          <widget class="QGroupBox" name="integratedGroupBox">
           <property name="title">
-           <string notr="true">Intel</string>
+           <string notr="true">Integrated</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_4">
            <item row="0" column="0">
@@ -726,7 +726,7 @@
            <item row="0" column="1">
             <widget class="QComboBox" name="integratedDriverComboBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Intel GPU&lt;br/&gt;&lt;br/&gt;To use the Intel driver, you need to install the package &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+		     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Integrated GPU&lt;br/&gt;&lt;br/&gt;To use the Integrated GPU driver, you need to install the package &amp;quot;xf86-video-intel/xf86-video-amdgpu&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <item>
               <property name="text">
