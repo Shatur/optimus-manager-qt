@@ -25,7 +25,6 @@
 #include "daemonclient.h"
 #include "optimusmanager.h"
 #include "optimussettings.h"
-#include "singleapplication.h"
 
 #include <QFileDialog>
 #include <QMessageBox>
@@ -40,7 +39,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     ui->setupUi(this);
     connect(ui->dialogButtonBox->button(QDialogButtonBox::RestoreDefaults), &QPushButton::clicked, this, &SettingsDialog::restoreDefaults);
     ui->logoLabel->setPixmap(QIcon::fromTheme(QStringLiteral("optimus-manager")).pixmap(512, 512));
-    ui->versionGuiLabel->setText(SingleApplication::applicationVersion());
+    ui->versionGuiLabel->setText(QCoreApplication::applicationVersion());
     ui->versionLabel->setText(optimusManagerVersion());
 
     // Set languages data

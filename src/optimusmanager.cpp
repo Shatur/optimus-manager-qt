@@ -25,9 +25,9 @@
 #include "optimussettings.h"
 #include "session.h"
 #include "settingsdialog.h"
-#include "singleapplication.h"
 #include "x11deleters.h"
 
+#include <QCoreApplication>
 #include <QDBusArgument>
 #include <QDBusInterface>
 #include <QDirIterator>
@@ -72,12 +72,12 @@ OptimusManager::OptimusManager(QObject *parent)
     m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Hybrid)), this, &OptimusManager::switchToHybrid);
     m_contextMenu->addSeparator();
 
-    m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), tr("Exit"), SingleApplication::instance(), &SingleApplication::quit);
+    m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), tr("Exit"), QCoreApplication::instance(), &QCoreApplication::quit);
 
     // Setup tray
 #ifdef PLASMA
     m_trayIcon->setStandardActionsEnabled(false);
-    m_trayIcon->setToolTipTitle(SingleApplication::applicationName());
+    m_trayIcon->setToolTipTitle(QCoreApplication::applicationName());
     m_trayIcon->setCategory(KStatusNotifierItem::SystemServices);
     m_trayIcon->setToolTipSubTitle(tr("Current videocard: %1").arg(QMetaEnum::fromType<OptimusSettings::GPU>().valueToKey(m_currentGpu)));
 #endif
