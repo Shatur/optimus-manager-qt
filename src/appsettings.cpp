@@ -61,12 +61,12 @@ QLocale::Language AppSettings::defaultLanguage()
 
 bool AppSettings::isAutostartEnabled()
 {
-    return QFileInfo::exists(QStringLiteral("%1/autostart/%2").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation)));
+    return QFileInfo::exists(QStringLiteral("%1/autostart/%2").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation), SingleApplication::desktopFileName()));
 }
 
 void AppSettings::setAutostartEnabled(bool enabled)
 {
-    QFile autorunFile(QStringLiteral("%1/autostart/%2").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation)));
+    QFile autorunFile(QStringLiteral("%1/autostart/%2").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation), SingleApplication::desktopFileName()));
 
     if (enabled) {
         // Create autorun file
