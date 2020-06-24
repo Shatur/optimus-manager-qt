@@ -28,6 +28,7 @@
 
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QTextStream>
 #ifdef PLASMA
 #include <KIconDialog>
 #endif
