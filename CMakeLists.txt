@@ -19,14 +19,15 @@ option(PLASMA "Use additional KDE API feautures")
 set(QAPPLICATION_CLASS QApplication)
 add_subdirectory(src/third-party/singleapplication)
 
+find_package(ECM REQUIRED NO_MODULE)
+list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+
 find_package(Qt5 COMPONENTS Widgets DBus X11Extras LinguistTools REQUIRED)
 find_package(X11 COMPONENTS Xrandr REQUIRED)
 if(PLASMA)
     find_package(KF5 COMPONENTS Notifications IconThemes REQUIRED)
 endif()
 
-find_package(ECM REQUIRED NO_MODULE)
-list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(ECMInstallIcons)
 include(GNUInstallDirs)
