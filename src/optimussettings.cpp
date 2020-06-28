@@ -394,6 +394,10 @@ QStringList OptimusSettings::nvidiaOptionsToStrings(NvidiaOptions options)
             optionStrings.append(it.value());
     }
 
+    // Set to an empty string, to avoid @Invalid() in configuration file
+    if (optionStrings.empty())
+        optionStrings.append(QString());
+
     return optionStrings;
 }
 
