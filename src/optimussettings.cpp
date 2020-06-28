@@ -304,7 +304,7 @@ int OptimusSettings::nvidiaDpi() const
 void OptimusSettings::setNvidiaDpi(int dpi)
 {
     if (dpi == 0)
-        remove(QStringLiteral("nvidia/DPI"));
+        setValue(QStringLiteral("nvidia/DPI"), QString());
     else
         setValue(QStringLiteral("nvidia/DPI"), dpi);
 }
