@@ -4,6 +4,7 @@ project(optimus-manager-qt VERSION 1.5.2 LANGUAGES CXX DESCRIPTION "An interface
 
 set(APPLICATION_NAME "Optimus Manager Qt")
 set(ORGANIZATION_NAME "Optimus Manager")
+set(DESKTOP_FILE io.optimus_manager.OptimusManagerQt.desktop)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -66,7 +67,7 @@ endif()
 
 install(TARGETS ${PROJECT_NAME})
 install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${ORGANIZATION_NAME}/${APPLICATION_NAME}/translations)
-install(FILES data/io.optimus_manager.OptimusManagerQt.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
+install(FILES data/${DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
 
 ecm_install_icons(ICONS
     data/icons/freedesktop/128-apps-intel.svg

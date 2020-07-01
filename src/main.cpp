@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName(QStringLiteral(APPLICATION_NAME));
     QCoreApplication::setOrganizationName(QStringLiteral(ORGANIZATION_NAME));
     QCoreApplication::setApplicationVersion(QStringLiteral("%1.%2.%3").arg(VERSION_MAJOR).arg(VERSION_MINOR).arg(VERSION_PATCH));
-    QGuiApplication::setDesktopFileName(QStringLiteral("io.optimus_manager.OptimusManagerQt.desktop"));
+    QGuiApplication::setDesktopFileName(QStringLiteral(DESKTOP_FILE));
     QGuiApplication::setQuitOnLastWindowClosed(false);
 
     // Tray menu
