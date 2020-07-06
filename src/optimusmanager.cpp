@@ -79,7 +79,7 @@ OptimusManager::OptimusManager(QObject *parent)
     m_trayIcon->setStandardActionsEnabled(false);
     m_trayIcon->setToolTipTitle(QCoreApplication::applicationName());
     m_trayIcon->setCategory(KStatusNotifierItem::SystemServices);
-    m_trayIcon->setToolTipSubTitle(tr("Current videocard: %1").arg(QMetaEnum::fromType<OptimusSettings::GPU>().valueToKey(m_currentGpu)));
+    m_trayIcon->setToolTipSubTitle(tr("Current video card: %1").arg(QMetaEnum::fromType<OptimusSettings::GPU>().valueToKey(m_currentGpu)));
 #endif
     m_trayIcon->setContextMenu(m_contextMenu);
 
@@ -177,7 +177,7 @@ void OptimusManager::loadSettings(AppSettings &appSettings)
 void OptimusManager::retranslateUi()
 {
 #ifdef PLASMA
-    m_trayIcon->setToolTipSubTitle(tr("Current videocard: %1").arg(QMetaEnum::fromType<OptimusSettings::GPU>().valueToKey(m_currentGpu)));
+    m_trayIcon->setToolTipSubTitle(tr("Current video card: %1").arg(QMetaEnum::fromType<OptimusSettings::GPU>().valueToKey(m_currentGpu)));
 #endif
     m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
 
@@ -237,7 +237,7 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
         message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg(QStringLiteral("bbswitch")));
         message.setInformativeText(tr("Power switching will not work.\n"
                                       "You can set '%1' for GPU switching in settings or install bbswitch for"
-                                      "the default kernel with '%2' or for all kernels with '%3'.")
+                                      " the default kernel with '%2' or for all kernels with '%3'.")
                                    .arg("nouveau", "sudo pacman -S bbswitch", "sudo pacman -S bbswitch-dkms"));
         message.exec();
     }
