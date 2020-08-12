@@ -4,7 +4,7 @@
   <context>
     <name>AppSettings</name>
     <message>
-      <location filename="../../src/appsettings.cpp" line="77"/>
+      <location filename="../../src/appsettings.cpp" line="78"/>
       <source>Unable to create autorun file from &apos;%1&apos;</source>
       <translation>Não foi possível criar o arquivo autorun a partir de &apos;%1&apos;</translation>
     </message>
@@ -47,6 +47,12 @@
       <translation>Trocar para %1</translation>
     </message>
     <message>
+      <location filename="../../src/optimusmanager.cpp" line="82"/>
+      <location filename="../../src/optimusmanager.cpp" line="180"/>
+      <source>Current video card: %1</source>
+      <translation>Placa de vídeo atual: %1</translation>
+    </message>
+    <message>
       <location filename="../../src/optimusmanager.cpp" line="161"/>
       <location filename="../../src/optimusmanager.cpp" line="170"/>
       <source>The specified icon &apos;%1&apos; for the current GPU is invalid. The default icon will be used.</source>
@@ -84,6 +90,13 @@ Se você já tiver habilitado o novo gerenciamento de energia Runtime D3 dentro 
       <location filename="../../src/optimusmanager.cpp" line="226"/>
       <source>The Optimus Manager service is not running.</source>
       <translation>O serviço do Optimus Manager não está em execução.</translation>
+    </message>
+    <message>
+      <location filename="../../src/optimusmanager.cpp" line="238"/>
+      <source>Power switching will not work.
+You can set &apos;%1&apos; for GPU switching in settings or install bbswitch for the default kernel with &apos;%2&apos; or for all kernels with &apos;%3&apos;.</source>
+      <translation>A troca por desligamento de energia não funcionará.
+Você pode definir &apos;%1&apos; para a troca de GPU nas configurações ou instalar o bbswitch para o seu kernel padrão com &apos;%2&apos; ou para todos os kernels com &apos;%3&apos;.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="275"/>
@@ -153,12 +166,6 @@ Prosseguir?</translation>
       <translation>Depois de aplicar as configurações, você precisará fazer login novamente manualmente para alterar a placa de vídeo.</translation>
     </message>
     <message>
-      <location filename="../../src/optimusmanager.cpp" line="82"/>
-      <location filename="../../src/optimusmanager.cpp" line="180"/>
-      <source>Current videocard: %1</source>
-      <translation>Placa de vídeo atual: %1</translation>
-    </message>
-    <message>
       <location filename="../../src/optimusmanager.cpp" line="227"/>
       <source>Please enable and start it with:
 &apos;%1&apos;
@@ -172,12 +179,6 @@ Prosseguir?</translation>
       <location filename="../../src/optimusmanager.cpp" line="249"/>
       <source>The %1 module does not seem to be available for the current kernel.</source>
       <translation>O módulo %1 parece não estar disponível para o kernel atual.</translation>
-    </message>
-    <message>
-      <location filename="../../src/optimusmanager.cpp" line="238"/>
-      <source>Power switching will not work.
-You can set &apos;%1&apos; for GPU switching in settings or install bbswitch forthe default kernel with &apos;%2&apos; or for all kernels with &apos;%3&apos;.</source>
-      <translation>A troca por desligamento de energia não funcionará. Você pode definir &apos;%1&apos; para troca de GPU nas configurações ou instalar o bbswitch para o kernel padrão com &apos;%2&apos; ou para todos os kernels com &apos;%3&apos;.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="250"/>
@@ -284,22 +285,22 @@ Ignore this warning and proceed with GPU switching now?</source>
       <translation>Desconectar automaticamente</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="830"/>
+      <location filename="../../src/settingsdialog.ui" line="835"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with Bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
       <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Se deve ou não habilitar o modesetting para o driver nouveau&lt;/p&gt;&lt;p&gt;Não afeta o modesetting para o driver da GPU Intel&lt;/p&gt;&lt;p&gt;Esta opção é incompatível com o Bbswitch e será ignorada se estiver ativada&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="866"/>
+      <location filename="../../src/settingsdialog.ui" line="871"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manager&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
       <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Isso será definido usando o script Xsetup passado para o seu gerenciador de login&lt;br/&gt;Irá executar o comando&lt;/p&gt;&lt;p&gt;xrandr --dpi &lt;/p&gt;dpi value&lt;p&gt;&lt;br/&gt;Deixe 0 para o padrão&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="883"/>
+      <location filename="../../src/settingsdialog.ui" line="888"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
       <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Se deve ou não habilitar a opção NVreg_UsePageAttributeTable no driver da Nvidia &lt;span style=&quot; font-style:italic;&quot;&gt;Recomendado&lt;/span&gt;, pode causar um desempenho ruim da CPU, caso contrário&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="896"/>
+      <location filename="../../src/settingsdialog.ui" line="901"/>
       <source>Overclocking options</source>
       <translation>Opções de overclock</translation>
     </message>
@@ -336,9 +337,19 @@ Ignore this warning and proceed with GPU switching now?</source>
       <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Caminho do ícone ou o nome do ícone do tema&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
+      <location filename="../../src/settingsdialog.ui" line="538"/>
+      <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to be selected when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on battery&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Selecionar este modo da GPU quando o &lt;span style=&quot; font-style:italic;&quot;&gt;Modo de inicialização&lt;/span&gt; for &lt;span style=&quot; font-style:italic;&quot;&gt;Automático&lt;/span&gt; e o computador estiver na bateria&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
       <location filename="../../src/settingsdialog.ui" line="582"/>
       <source>Startup mode:</source>
       <translation>Modo de inicialização:</translation>
+    </message>
+    <message>
+      <location filename="../../src/settingsdialog.ui" line="592"/>
+      <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to be selected when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on external power&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Selecionar este modo da GPU quando o &lt;span style=&quot; font-style:italic;&quot;&gt;Modo de inicialização&lt;/span&gt; for &lt;span style=&quot; font-style:italic;&quot;&gt;Automático&lt;/span&gt; e o computador estiver no carregador&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="672"/>
@@ -523,19 +534,9 @@ Ignore this warning and proceed with GPU switching now?</source>
       <translation>Personalizado</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="538"/>
-      <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to select when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on battery&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Selecionar este modo da GPU quando o &lt;span style=&quot; font-style:italic;&quot;&gt;Modo de inicialização&lt;/span&gt; for &lt;span style=&quot; font-style:italic;&quot;&gt;Automático&lt;/span&gt; e o computador estiver na bateria&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
       <location filename="../../src/settingsdialog.ui" line="575"/>
       <source>Battery startup mode:</source>
       <translation>Modo de inicialização na bateria:</translation>
-    </message>
-    <message>
-      <location filename="../../src/settingsdialog.ui" line="592"/>
-      <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to select when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on external power&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Selecionar este modo da GPU quando o &lt;span style=&quot; font-style:italic;&quot;&gt;Modo de inicialização&lt;/span&gt; for &lt;span style=&quot; font-style:italic;&quot;&gt;Automático&lt;/span&gt; e o computador estiver no carregador&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="626"/>
@@ -563,60 +564,60 @@ Ignore this warning and proceed with GPU switching now?</source>
       <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Método de aceleração (corresponde ao AccelMethod na configuração do Xorg)&lt;/p&gt;&lt;p&gt;Esta opção é compatível apenas com o driver Intel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="936"/>
+      <location filename="../../src/settingsdialog.ui" line="941"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization (which prevents tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
       <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o modesetting&lt;/p&gt;&lt;p&gt;Requerido para a Sincronização PRIME (que previne tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="946"/>
+      <location filename="../../src/settingsdialog.ui" line="951"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use Optimus Manager with external Nvidia GPUs (experimental)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
       <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use o Optimus Manager com GPUs externas da Nvidia (experimental)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="926"/>
+      <location filename="../../src/settingsdialog.ui" line="931"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you&apos;re running an updated version of xorg-server (let&apos;s say to get PRIME Render offload enabled), the Nvidia driver may not load because of an ABI version mismatch&lt;/p&gt;&lt;p&gt;Enabling this option will allow loading the Nvidia driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
       <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Se você estiver executando uma versão atualizada do xorg-server (para ter o PRIME Render Offload habilitado) o driver da Nvidia pode não carregar devido a uma incompatibilidade de versão ABI&lt;/p&gt;&lt;p&gt;Habilitando esta opção será permitido carregar o driver Nvidia&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="903"/>
+      <location filename="../../src/settingsdialog.ui" line="908"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
       <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o buffer triplo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="906"/>
+      <location filename="../../src/settingsdialog.ui" line="911"/>
       <source>Triple buffer</source>
       <translation>Buffer triplo</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="893"/>
+      <location filename="../../src/settingsdialog.ui" line="898"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
       <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o CoolBits na configuração do Xorg, que desbloqueia as opções de clock no painel de controle da Nvidia&lt;/p&gt;&lt;p&gt;Nota: não funciona no modo Hybrid&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="929"/>
+      <location filename="../../src/settingsdialog.ui" line="934"/>
       <source>Ignore ABI</source>
       <translation>Ignorar ABI</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="949"/>
+      <location filename="../../src/settingsdialog.ui" line="954"/>
       <source>Allow external GPUs</source>
       <translation>Permitir GPUs externas</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="1006"/>
-      <location filename="../../src/settingsdialog.ui" line="1137"/>
+      <location filename="../../src/settingsdialog.ui" line="1011"/>
+      <location filename="../../src/settingsdialog.ui" line="1142"/>
       <source>Version:</source>
       <translation>Versão:</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="1020"/>
-      <location filename="../../src/settingsdialog.ui" line="1114"/>
+      <location filename="../../src/settingsdialog.ui" line="1025"/>
+      <location filename="../../src/settingsdialog.ui" line="1119"/>
       <source>Author:</source>
       <translation>Autor:</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="1027"/>
-      <location filename="../../src/settingsdialog.ui" line="1151"/>
+      <location filename="../../src/settingsdialog.ui" line="1032"/>
+      <location filename="../../src/settingsdialog.ui" line="1156"/>
       <source>License:</source>
       <translation>Licença:</translation>
     </message>
