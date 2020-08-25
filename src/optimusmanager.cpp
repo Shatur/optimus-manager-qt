@@ -220,14 +220,14 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
     }
 
     // Check if daemon is active
-    if (!isServiceActive(QStringLiteral("optimus-manager.service"))) {
+    if (!isServiceActive(QStringLiteral("optimus-manager.service")) && !QFileInfo::exists(QStringLiteral("/var/service/optimus-manager/run"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Critical);
         message.setText(tr("The Optimus Manager service is not running."));
         message.setInformativeText(tr("Please enable and start it with:\n'%1'\n'%2'")
                                    .arg("sudo systemctl enable optimus-manager", "sudo systemctl start optimus-manager"));
         message.exec();
-        return;
+	return;
     }
 
     // Check if bbswitch module is available
@@ -328,7 +328,6 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
         if (message.exec() == QMessageBox::No)
             return;
     }
-
     // Check if the Manjaro MHWD config is exists
     if (QFileInfo::exists(QStringLiteral("/etc/X11/xorg.conf.d/90-mhwd.conf"))) {
         QMessageBox message;
@@ -445,7 +444,6 @@ bool OptimusManager::isServiceActive(const QString &serviceName)
     const auto optimusManagerPath = systemd.call(QStringLiteral("GetUnit"), serviceName).arguments().at(0).value<QDBusObjectPath>();
     if (optimusManagerPath.path().isEmpty())
         return false;
-
     const QDBusInterface optimusManager(QStringLiteral("org.freedesktop.systemd1"), optimusManagerPath.path(),
                                         QStringLiteral("org.freedesktop.systemd1.Unit"), QDBusConnection::systemBus());
     return optimusManager.property("SubState").toString() == QLatin1String("running");
@@ -533,6 +531,7 @@ void OptimusManager::logout()
 
     killProcess("/usr/bin/lxsession");
     killProcess("/usr/bin/dwm");
+    killProcess("/usr/local/bin/dwm");
 }
 
 bool OptimusManager::killProcess(const QByteArray &name)
