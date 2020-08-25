@@ -530,6 +530,7 @@ void OptimusManager::logout()
         return;
 
     killProcess("/usr/bin/lxsession");
+    killProcess("/usr/bin/dwm");
 }
 
 bool OptimusManager::killProcess(const QByteArray &name)
