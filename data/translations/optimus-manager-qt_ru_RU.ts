@@ -99,6 +99,11 @@ You can set &apos;%1&apos; for GPU switching in settings or install bbswitch for
 Вы можете выбрать &apos;%1&apos; для переключения GPU в настройках или установить bbswitch для ядра по умолчанию с &apos;%2&apos; или для всех ядер с &apos;%3&apos;.</translation>
     </message>
     <message>
+      <location filename="../../src/optimusmanager.cpp" line="260"/>
+      <source>Looks like you&apos;re using a non-patched version of the GNOME Display Manager (GDM).</source>
+      <translation>Похоже, вы используете непропатченную версию GNOME Display Manager (GDM).</translation>
+    </message>
+    <message>
       <location filename="../../src/optimusmanager.cpp" line="275"/>
       <source>There are %1 other desktop sessions open. The GPU switch will not become effective until you have manually logged out from ALL desktop sessions.
 Continue?</source>
@@ -184,11 +189,6 @@ Proceed?</source>
       <location filename="../../src/optimusmanager.cpp" line="250"/>
       <source>It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?</source>
       <translation>Вероятно, драйвер Nvidia был установлен неправильно. Переключение GPU, скорее всего, не удастся, все равно продолжить?</translation>
-    </message>
-    <message>
-      <location filename="../../src/optimusmanager.cpp" line="260"/>
-      <source>Looks like you&apos;re using a non-patched version of the Gnome Display Manager (GDM).</source>
-      <translation>Похоже, вы используете непропатченную версию Gnome Display Manager (GDM).</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="261"/>
@@ -337,6 +337,11 @@ Ignore this warning and proceed with GPU switching now?</source>
       <location filename="../../src/settingsdialog.ui" line="217"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
       <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Путь к значку или название значка из темы&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+      <location filename="../../src/settingsdialog.ui" line="437"/>
+      <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for GNOME, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM, bspwm and dwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Автоматически выходить из текущего сеанса рабочего стола при переключении GPU&lt;/p&gt;&lt;p&gt;Эта функция в настоящее время поддерживается для GNOME, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM, bspwm и dwm&lt;/p&gt;&lt;p&gt;Если этот параметр отключен или вы используете другую среду рабочего стола, переключение графического процессора вступает в силу только при следующем входе в графическую сессию&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="538"/>
@@ -514,11 +519,6 @@ Ignore this warning and proceed with GPU switching now?</source>
       <location filename="../../src/settingsdialog.ui" line="367"/>
       <source>Export</source>
       <translation>Экспорт</translation>
-    </message>
-    <message>
-      <location filename="../../src/settingsdialog.ui" line="437"/>
-      <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM, bspwm and dwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Автоматически выходить из текущего сеанса рабочего стола при переключении GPU&lt;/p&gt;&lt;p&gt;Эта функция в настоящее время поддерживается для Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM, bspwm и dwm&lt;/p&gt;&lt;p&gt;Если этот параметр отключен или вы используете другую среду рабочего стола, переключение графического процессора вступает в силу только при следующем входе в графическую сессию&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="467"/>
