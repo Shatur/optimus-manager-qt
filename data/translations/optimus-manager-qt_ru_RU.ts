@@ -13,7 +13,7 @@
     <name>DaemonClient</name>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="367"/>
-      <location filename="../../src/settingsdialog.cpp" line="101"/>
+      <location filename="../../src/settingsdialog.cpp" line="102"/>
       <source>Unable to connect to Optimus Manager daemon: %1</source>
       <translation>Не удается подключиться к демону Optimus Manager: %1</translation>
     </message>
@@ -23,7 +23,7 @@
       <translation>Не удается отправить имя GPU для переключения демону Optimus Manager: %1</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="129"/>
+      <location filename="../../src/settingsdialog.cpp" line="130"/>
       <source>Unable to send configuration file to Optimus Manager daemon: %1</source>
       <translation>Не удается отправить файл конфигурации демону Optimus Manager: %1</translation>
     </message>
@@ -517,8 +517,8 @@ Ignore this warning and proceed with GPU switching now?</source>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="437"/>
-      <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM and bspwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Автоматически выходить из текущего сеанса рабочего стола при переключении GPU&lt;/p&gt;&lt;p&gt;Эта функция в настоящее время поддерживается для Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM и bspwm&lt;/p&gt;&lt;p&gt;Если этот параметр отключен или вы используете другую среду рабочего стола, переключение графического процессора вступает в силу только при следующем входе в графическую сессию&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM, bspwm and dwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Автоматически выходить из текущего сеанса рабочего стола при переключении GPU&lt;/p&gt;&lt;p&gt;Эта функция в настоящее время поддерживается для Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM, bspwm и dwm&lt;/p&gt;&lt;p&gt;Если этот параметр отключен или вы используете другую среду рабочего стола, переключение графического процессора вступает в силу только при следующем входе в графическую сессию&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="467"/>
@@ -624,64 +624,64 @@ Ignore this warning and proceed with GPU switching now?</source>
       <translation>Лицензия:</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="82"/>
+      <location filename="../../src/settingsdialog.cpp" line="83"/>
       <source>Optimus Manager temporary configuration file path cannot be empty</source>
       <translation>Путь к временному файлу конфигурации Optimus Manager не может быть пустым</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="89"/>
+      <location filename="../../src/settingsdialog.cpp" line="90"/>
       <source>Optimus Manager temporary configuration file path cannot be a permanent configuration file path</source>
       <translation>Путь к временному файлу конфигурации Optimus Manager не может являтся путем к постоянному файлу конфигурации</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="111"/>
+      <location filename="../../src/settingsdialog.cpp" line="112"/>
       <source>Unable to read data from generated configuration</source>
       <translation>Невозможно прочитать данные из сгенерированной конфигурации</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="250"/>
+      <location filename="../../src/settingsdialog.cpp" line="251"/>
       <source>Select temporary configuration file</source>
       <translation>Выберите временный файл конфигурации</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="251"/>
-      <location filename="../../src/settingsdialog.cpp" line="263"/>
-      <location filename="../../src/settingsdialog.cpp" line="276"/>
+      <location filename="../../src/settingsdialog.cpp" line="252"/>
+      <location filename="../../src/settingsdialog.cpp" line="264"/>
+      <location filename="../../src/settingsdialog.cpp" line="277"/>
       <source>Config files (*.conf);;All files(*)</source>
       <translation>Файлы конфигурации (*.conf);;Все файлы(*)</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="262"/>
+      <location filename="../../src/settingsdialog.cpp" line="263"/>
       <source>Export Optimus Manager settings</source>
       <translation>Экспортировать настройки Optimus Manager</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="275"/>
+      <location filename="../../src/settingsdialog.cpp" line="276"/>
       <source>Import Optimus Manager settings</source>
       <translation>Импортировать настройки Optimus Manager</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="439"/>
+      <location filename="../../src/settingsdialog.cpp" line="440"/>
       <source>Select icon</source>
       <translation>Выбрать иконку</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="440"/>
+      <location filename="../../src/settingsdialog.cpp" line="441"/>
       <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
       <translation>Изображения (*.png *.jpg *.bmp);;Все файлы(*)</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="471"/>
+      <location filename="../../src/settingsdialog.cpp" line="472"/>
       <source>Unable to find Optimus Manager daemon.</source>
       <translation>Не удается найти демон Optimus Manager.</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="472"/>
+      <location filename="../../src/settingsdialog.cpp" line="473"/>
       <source>Please check the integrity of the package that provides Optimus Manager.</source>
       <translation>Пожалуйста, проверьте целостность пакета, который предоставляет Optimus Manager.</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="474"/>
+      <location filename="../../src/settingsdialog.cpp" line="475"/>
       <source>Not found!</source>
       <translation>Не найден!</translation>
     </message>
