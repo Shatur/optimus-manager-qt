@@ -26,14 +26,14 @@
 int main(int argc, char *argv[])
 {
     SingleApplication app(argc, argv);
-    SingleApplication::setApplicationName(QStringLiteral(APPLICATION_NAME));
-    SingleApplication::setOrganizationName(QStringLiteral(ORGANIZATION_NAME));
-    SingleApplication::setApplicationVersion(QStringLiteral("%1.%2.%3").arg(VERSION_MAJOR).arg(VERSION_MINOR).arg(VERSION_PATCH));
-    SingleApplication::setDesktopFileName(QStringLiteral("io.optimus_manager.OptimusManagerQt.desktop"));
-    SingleApplication::setQuitOnLastWindowClosed(false);
+    QCoreApplication::setApplicationName(QStringLiteral(APPLICATION_NAME));
+    QCoreApplication::setOrganizationName(QStringLiteral(ORGANIZATION_NAME));
+    QCoreApplication::setApplicationVersion(QStringLiteral("%1.%2.%3").arg(VERSION_MAJOR).arg(VERSION_MINOR).arg(VERSION_PATCH));
+    QGuiApplication::setDesktopFileName(QStringLiteral(DESKTOP_FILE));
+    QGuiApplication::setQuitOnLastWindowClosed(false);
 
     // Tray menu
     OptimusManager manager;
 
-    return SingleApplication::exec();
+    return QCoreApplication::exec();
 }

@@ -21,9 +21,10 @@
 #include "appsettings.h"
 
 #include "cmake.h"
-#include "singleapplication.h"
 
+#include <QDebug>
 #include <QFileInfo>
+#include <QGuiApplication>
 #include <QStandardPaths>
 #include <QTranslator>
 
@@ -37,7 +38,7 @@ AppSettings::AppSettings(QObject *parent)
 void AppSettings::setupLocalization() const
 {
     loadLanguage(language());
-    SingleApplication::installTranslator(&s_appTranslator);
+    QCoreApplication::installTranslator(&s_appTranslator);
 }
 
 QLocale::Language AppSettings::language() const
@@ -61,17 +62,17 @@ QLocale::Language AppSettings::defaultLanguage()
 
 bool AppSettings::isAutostartEnabled()
 {
-    return QFileInfo::exists(QStringLiteral("%1/autostart/%2").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation)));
+    return QFileInfo::exists(QStringLiteral("%1/autostart/%2").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation), QGuiApplication::desktopFileName()));
 }
 
 void AppSettings::setAutostartEnabled(bool enabled)
 {
-    QFile autorunFile(QStringLiteral("%1/autostart/%2").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation)));
+    QFile autorunFile(QStringLiteral("%1/autostart/%2").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation), QGuiApplication::desktopFileName()));
 
     if (enabled) {
         // Create autorun file
         if (!autorunFile.exists()) {
-            const QString desktopFileName = QStringLiteral("/usr/share/applications/%1").arg(SingleApplication::desktopFileName());
+            const QString desktopFileName = QStringLiteral("/usr/share/applications/%1").arg(QGuiApplication::desktopFileName());
 
             if (!QFile::copy(desktopFileName, autorunFile.fileName()))
                 qCritical() << tr("Unable to create autorun file from '%1'").arg(desktopFileName);

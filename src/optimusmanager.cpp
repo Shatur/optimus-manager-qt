@@ -25,9 +25,9 @@
 #include "optimussettings.h"
 #include "session.h"
 #include "settingsdialog.h"
-#include "singleapplication.h"
 #include "x11deleters.h"
 
+#include <QCoreApplication>
 #include <QDBusArgument>
 #include <QDBusInterface>
 #include <QDirIterator>
@@ -72,14 +72,14 @@ OptimusManager::OptimusManager(QObject *parent)
     m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Hybrid)), this, &OptimusManager::switchToHybrid);
     m_contextMenu->addSeparator();
 
-    m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), tr("Exit"), SingleApplication::instance(), &SingleApplication::quit);
+    m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), tr("Exit"), QCoreApplication::instance(), &QCoreApplication::quit);
 
     // Setup tray
 #ifdef PLASMA
     m_trayIcon->setStandardActionsEnabled(false);
-    m_trayIcon->setToolTipTitle(SingleApplication::applicationName());
+    m_trayIcon->setToolTipTitle(QCoreApplication::applicationName());
     m_trayIcon->setCategory(KStatusNotifierItem::SystemServices);
-    m_trayIcon->setToolTipSubTitle(tr("Current videocard: %1").arg(QMetaEnum::fromType<OptimusSettings::GPU>().valueToKey(m_currentGpu)));
+    m_trayIcon->setToolTipSubTitle(tr("Current video card: %1").arg(QMetaEnum::fromType<OptimusSettings::GPU>().valueToKey(m_currentGpu)));
 #endif
     m_trayIcon->setContextMenu(m_contextMenu);
 
@@ -177,7 +177,7 @@ void OptimusManager::loadSettings(AppSettings &appSettings)
 void OptimusManager::retranslateUi()
 {
 #ifdef PLASMA
-    m_trayIcon->setToolTipSubTitle(tr("Current videocard: %1").arg(QMetaEnum::fromType<OptimusSettings::GPU>().valueToKey(m_currentGpu)));
+    m_trayIcon->setToolTipSubTitle(tr("Current video card: %1").arg(QMetaEnum::fromType<OptimusSettings::GPU>().valueToKey(m_currentGpu)));
 #endif
     m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
 
@@ -237,7 +237,7 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
         message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg(QStringLiteral("bbswitch")));
         message.setInformativeText(tr("Power switching will not work.\n"
                                       "You can set '%1' for GPU switching in settings or install bbswitch for"
-                                      "the default kernel with '%2' or for all kernels with '%3'.")
+                                      " the default kernel with '%2' or for all kernels with '%3'.")
                                    .arg("nouveau", "sudo pacman -S bbswitch", "sudo pacman -S bbswitch-dkms"));
         message.exec();
     }
@@ -257,7 +257,7 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
     if (currentDisplayManager() == QLatin1String("/usr/bin/gdm") && !isGdmPatched()) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
-        message.setText(tr("Looks like you're using a non-patched version of the Gnome Display Manager (GDM)."));
+        message.setText(tr("Looks like you're using a non-patched version of the GNOME Display Manager (GDM)."));
         message.setInformativeText(tr("GDM need to be patched for Prime switching. Follow <a href='https://github.com/Askannz/optimus-manager'>this</a>"
                                       " instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.\n"
                                       "Continue anyway?"));
@@ -532,6 +532,7 @@ void OptimusManager::logout()
         return;
 
     killProcess("/usr/bin/lxsession");
+    killProcess("/usr/bin/dwm");
 }
 
 bool OptimusManager::killProcess(const QByteArray &name)

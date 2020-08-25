@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 3.7.0)
 
-project(optimus-manager-qt VERSION 1.5.1 LANGUAGES CXX DESCRIPTION "An interface for Optimus Manager that allows to switch GPUs on Optimus laptops.")
+project(optimus-manager-qt VERSION 1.5.2 LANGUAGES CXX DESCRIPTION "An interface for Optimus Manager that allows to switch GPUs on Optimus laptops.")
 
 set(APPLICATION_NAME "Optimus Manager Qt")
 set(ORGANIZATION_NAME "Optimus Manager")
+set(DESKTOP_FILE io.optimus_manager.OptimusManagerQt.desktop)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,14 +20,15 @@ option(PLASMA "Use additional KDE API feautures")
 set(QAPPLICATION_CLASS QApplication)
 add_subdirectory(src/third-party/singleapplication)
 
+find_package(ECM REQUIRED NO_MODULE)
+list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+
 find_package(Qt5 COMPONENTS Widgets DBus X11Extras LinguistTools REQUIRED)
 find_package(X11 COMPONENTS Xrandr REQUIRED)
 if(PLASMA)
     find_package(KF5 COMPONENTS Notifications IconThemes REQUIRED)
 endif()
 
-find_package(ECM REQUIRED NO_MODULE)
-list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(ECMInstallIcons)
 include(GNUInstallDirs)
@@ -37,6 +39,7 @@ qt5_add_translation(QM_FILES
     data/translations/${PROJECT_NAME}_fi_FI.ts
     data/translations/${PROJECT_NAME}_hu_HU.ts
     data/translations/${PROJECT_NAME}_pt_BR.ts
+    data/translations/${PROJECT_NAME}_ro_RO.ts
     data/translations/${PROJECT_NAME}_ru_RU.ts
     data/translations/${PROJECT_NAME}_tr_TR.ts
     data/translations/${PROJECT_NAME}_zh_CN.ts
@@ -65,7 +68,7 @@ endif()
 
 install(TARGETS ${PROJECT_NAME})
 install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${ORGANIZATION_NAME}/${APPLICATION_NAME}/translations)
-install(FILES data/io.optimus_manager.OptimusManagerQt.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
+install(FILES data/${DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
 
 ecm_install_icons(ICONS
     data/icons/freedesktop/128-apps-integrated.svg

@@ -56,12 +56,12 @@
       <location filename="../../src/optimusmanager.cpp" line="161"/>
       <location filename="../../src/optimusmanager.cpp" line="170"/>
       <source>Invalid icon</source>
-      <translation type="unfinished">Invalid icon</translation>
+      <translation>Helytelen ikon</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="202"/>
       <source>You are about to switch GPU.</source>
-      <translation>Videoeszköz váltása folyamatban.</translation>
+      <translation>Videóeszköz váltása folyamatban.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="204"/>
@@ -78,7 +78,7 @@
       <source>Switching between GPUs will work but you will likely experience poor battery life.
 If you have already enabled the new Runtime D3 power management inside the Nvidia driver (for Turing+ GPU with Coffee Lake+ CPU), you can safely ignore this warning.</source>
       <translation>A videoeszközök közötti váltás működni fog, viszont valószínű a csökkent üzemidő akkumulátoron.
-Ha már engedélyezte az új Runtime D3 energiagazdálkodást az Nvidia illesztőprogramban (a Turing-nál újabb GPU-k és Coffee Lake-nál újabb CPU-k esetében), akkor ezt a figyelmeztetés hagyja figyelmen kívül.</translation>
+Ha már engedélyezte az új Runtime D3 energiagazdálkodást az Nvidia illesztőprogramban (a Turing-nál újabb GPU-k és Coffee Lake-nél újabb CPU-k esetében), akkor ezt a figyelmeztetést hagyja figyelmen kívül.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="226"/>
@@ -89,7 +89,7 @@ Ha már engedélyezte az új Runtime D3 energiagazdálkodást az Nvidia illeszt�
       <location filename="../../src/optimusmanager.cpp" line="275"/>
       <source>There are %1 other desktop sessions open. The GPU switch will not become effective until you have manually logged out from ALL desktop sessions.
 Continue?</source>
-      <translation>További %1 asztali munkamenet van nyitva. A videoeszköz váltás nem lesz effektív, amíg manuálisan nem jelentkezett ki az ÖSSZES asztali munkamenetből
+      <translation>További %1 asztali munkamenet van nyitva. A videóeszköz váltás nem lesz effektív, amíg manuálisan nem jelentkezett ki az ÖSSZES asztali munkamenetből
 Folytatja?</translation>
     </message>
     <message>
@@ -101,7 +101,7 @@ Folytatja?</translation>
       <location filename="../../src/optimusmanager.cpp" line="291"/>
       <source>Session %1, started by %2, is a Wayland session. Wayland is not supported by Optimus Manager, so GPU switching may fail.
 Continue anyway?</source>
-      <translation>%1. munkamenet, amit %2 indított egy Wayland munkamenet. Az Optimus Manager nem támogatja a Wayland-et, ezért a videoeszköz váltása lehet hogy nem fog sikerülni.
+      <translation>%1. munkamenet, amit %2 indított egy Wayland munkamenet. Az Optimus Manager nem támogatja a Wayland-et, ezért a videóeszköz váltása lehet hogy nem fog sikerülni.
 Így is folytatja?</translation>
     </message>
     <message>
@@ -124,12 +124,12 @@ Continue anyway?</source>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="385"/>
       <source>Configuration successfully applied</source>
-      <translation type="unfinished">Configuration successfully applied</translation>
+      <translation>Konfiguráció sikeresen alkalmazva</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="385"/>
       <source>Your GPU will be switched after next login.</source>
-      <translation type="unfinished">Your GPU will be switched after next login.</translation>
+      <translation>A videókártya váltva lesz a következő bejelentkezéskor.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="323"/>
@@ -137,26 +137,26 @@ Continue anyway?</source>
 This file may contain hard-coded GPU configuration that could interfere with Optimus Manager, so it is recommended that you delete it before proceeding.
 Ignore this warning and proceed with GPU switching?</source>
       <translation>Ha nem ön hozta létre, akkor valószínűleg a disztribúciója, vagy egy Nvidia segédprogram.
-Ez a fájl beégetett videoeszköz konfigurációt tartalmazhat, ami zavarhatja az Optimus Manager működését, ezért ajánlott hogy törölje a fájlt a folytatás előtt.
-Figyelmen kívül hagyja ezt a figyelmeztetést és folytatja a videoeszköz váltást?</translation>
+Ez a fájl beégetett videóeszköz konfigurációt tartalmazhat, ami zavarhatja az Optimus Manager működését, ezért ajánlott hogy törölje a fájlt a folytatás előtt.
+Figyelmen kívül hagyja ezt a figyelmeztetést és folytatja a videóeszköz váltást?</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="337"/>
       <source>This file was auto-generated by the Manjaro driver utility (MHWD). This will likely interfere with GPU switching, so Optimus Manager will delete this file automatically if you proceded with GPU switching.
 Proceed?</source>
-      <translation>Ez a fájl automatikusan lett generálva a Manjaro illesztőprogram segédprogram (MHWD) által. Ez valószínűleg zavarni fogja a videoeszköz váltást, ezért az Optimus Manager törölni fogja ezt a fájlt, ha folytatja.
+      <translation>Ez a fájl automatikusan lett generálva a Manjaro illesztőprogram segédprogram (MHWD) által. Ez valószínűleg zavarni fogja a videóeszköz váltást, ezért az Optimus Manager törölni fogja ezt a fájlt, ha folytatja.
 Folytatja?</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="206"/>
       <source>After applying the settings, you will need to manually re-login to change the video card.</source>
-      <translation>A beállítások alkalmazása után manuálisan újra be kell jelentkeznie a videoeszköz váltáshoz</translation>
+      <translation>A beállítások alkalmazása után manuálisan újra be kell jelentkeznie a videóeszköz váltáshoz.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="82"/>
       <location filename="../../src/optimusmanager.cpp" line="180"/>
       <source>Current videocard: %1</source>
-      <translation>Jelenlegi videoeszköz: %1</translation>
+      <translation>Jelenlegi videóeszköz: %1</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="227"/>
@@ -341,12 +341,12 @@ Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
     <message>
       <location filename="../../src/settingsdialog.ui" line="582"/>
       <source>Startup mode:</source>
-      <translation type="unfinished">Startup mode:</translation>
+      <translation>Indulási mód:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="672"/>
       <source>External power startup mode:</source>
-      <translation type="unfinished">External power startup mode:</translation>
+      <translation>Indulási mód külső tápellátás esetén:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="705"/>
@@ -473,7 +473,7 @@ Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
     <message>
       <location filename="../../src/settingsdialog.ui" line="286"/>
       <source>Path to configuration file</source>
-      <translation>Beállítás fájl útvonala</translation>
+      <translation>Konfig fájl útvonala</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="319"/>
@@ -483,7 +483,7 @@ Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
     <message>
       <location filename="../../src/settingsdialog.ui" line="322"/>
       <source>Browse</source>
-      <translation>Böngészés</translation>
+      <translation>Tallózás</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="348"/>
@@ -508,7 +508,7 @@ Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
     <message>
       <location filename="../../src/settingsdialog.ui" line="437"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM and bspwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM and bspwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM and bspwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="467"/>
@@ -518,37 +518,37 @@ Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
     <message>
       <location filename="../../src/settingsdialog.ui" line="487"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Method to power switch the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;None&lt;/span&gt;: do not use an external module for power management (for some laptop models it&apos;s preferable to use this option in combination with PCI power control)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: load the nouveau module on the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;: power off the card using the bbswitch module (requires the &amp;quot;bbswitch&amp;quot;dependency)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI call&lt;/span&gt;: try various ACPI method calls to power the card on and off (requires the &amp;quot;acpi_call&amp;quot; dependency)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Custom&lt;/span&gt;: use custom scripts at &lt;span style=&quot; font-style:italic;&quot;&gt;/etc/optimus-manager/nvidia-enable.sh&lt;/span&gt; and &lt;span style=&quot; font-style:italic;&quot;&gt;/etc/optimus-manager/nvidia-disable.sh&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Method to power switch the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;None&lt;/span&gt;: do not use an external module for power management (for some laptop models it&apos;s preferable to use this option in combination with PCI power control)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: load the nouveau module on the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;: power off the card using the bbswitch module (requires the &amp;quot;bbswitch&amp;quot;dependency)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI call&lt;/span&gt;: try various ACPI method calls to power the card on and off (requires the &amp;quot;acpi_call&amp;quot; dependency)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Custom&lt;/span&gt;: use custom scripts at &lt;span style=&quot; font-style:italic;&quot;&gt;/etc/optimus-manager/nvidia-enable.sh&lt;/span&gt; and &lt;span style=&quot; font-style:italic;&quot;&gt;/etc/optimus-manager/nvidia-disable.sh&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Method to power switch the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;None&lt;/span&gt;: do not use an external module for power management (for some laptop models it&apos;s preferable to use this option in combination with PCI power control)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: load the nouveau module on the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;: power off the card using the bbswitch module (requires the &amp;quot;bbswitch&amp;quot;dependency)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI call&lt;/span&gt;: try various ACPI method calls to power the card on and off (requires the &amp;quot;acpi_call&amp;quot; dependency)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Custom&lt;/span&gt;: use custom scripts at &lt;span style=&quot; font-style:italic;&quot;&gt;/etc/optimus-manager/nvidia-enable.sh&lt;/span&gt; and &lt;span style=&quot; font-style:italic;&quot;&gt;/etc/optimus-manager/nvidia-disable.sh&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="511"/>
       <source>Custom</source>
-      <translation type="unfinished">Custom</translation>
+      <translation>Egyedi</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="538"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to select when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on battery&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to select when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on battery&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to select when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on battery&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="575"/>
       <source>Battery startup mode:</source>
-      <translation type="unfinished">Battery startup mode:</translation>
+      <translation>Indulási mód akkumulátoros tápellátásról:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="592"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to select when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on external power&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to select when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on external power&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to select when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on external power&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="626"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to use at computer startup&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; is a special mode that auto-detects if the computer is running on battery and selects a proper GPU mode&lt;/p&gt;&lt;p&gt;See the other options below for details&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to use at computer startup&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; is a special mode that auto-detects if the computer is running on battery and selects a proper GPU mode&lt;/p&gt;&lt;p&gt;See the other options below for details&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to use at computer startup&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; is a special mode that auto-detects if the computer is running on battery and selects a proper GPU mode&lt;/p&gt;&lt;p&gt;See the other options below for details&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="657"/>
       <source>Auto</source>
-      <translation type="unfinished">Auto</translation>
+      <translation>Auto</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="729"/>
@@ -573,12 +573,12 @@ Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
     <message>
       <location filename="../../src/settingsdialog.ui" line="946"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use Optimus Manager with external Nvidia GPUs (experimental)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use Optimus Manager with external Nvidia GPUs (experimental)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use Optimus Manager with external Nvidia GPUs (experimental)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="926"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you&apos;re running an updated version of xorg-server (let&apos;s say to get PRIME Render offload enabled), the Nvidia driver may not load because of an ABI version mismatch&lt;/p&gt;&lt;p&gt;Enabling this option will allow loading the Nvidia driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you&apos;re running an updated version of xorg-server (let&apos;s say to get PRIME Render offload enabled), the Nvidia driver may not load because of an ABI version mismatch&lt;/p&gt;&lt;p&gt;Enabling this option will allow loading the Nvidia driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you&apos;re running an updated version of xorg-server (let&apos;s say to get PRIME Render offload enabled), the Nvidia driver may not load because of an ABI version mismatch&lt;/p&gt;&lt;p&gt;Enabling this option will allow loading the Nvidia driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="903"/>
@@ -593,17 +593,17 @@ Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
     <message>
       <location filename="../../src/settingsdialog.ui" line="893"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="929"/>
       <source>Ignore ABI</source>
-      <translation type="unfinished">Ignore ABI</translation>
+      <translation>ABI mellőzése</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="949"/>
       <source>Allow external GPUs</source>
-      <translation type="unfinished">Allow external GPUs</translation>
+      <translation>Külső videókártyák engedélyezése</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="1006"/>
@@ -636,7 +636,7 @@ Figyelmen kívűl hagyja és folytatja a videoeszköz váltást?</translation>
     <message>
       <location filename="../../src/settingsdialog.cpp" line="111"/>
       <source>Unable to read data from generated configuration</source>
-      <translation type="unfinished">Unable to read data from generated configuration</translation>
+      <translation>Nem sikerült olvasni a létrehozott konfigurációt</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.cpp" line="250"/>

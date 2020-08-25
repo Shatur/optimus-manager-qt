@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="pt-BR" sourcelanguage="en">
+<TS version="2.1" language="ro" sourcelanguage="en">
   <context>
     <name>AppSettings</name>
     <message>
       <location filename="../../src/appsettings.cpp" line="78"/>
       <source>Unable to create autorun file from &apos;%1&apos;</source>
-      <translation>Não foi possível criar o arquivo autorun a partir de &apos;%1&apos;</translation>
+      <translation>Nu se poate crea fișierul autorun din &apos;%1&apos;</translation>
     </message>
   </context>
   <context>
@@ -15,17 +15,17 @@
       <location filename="../../src/optimusmanager.cpp" line="367"/>
       <location filename="../../src/settingsdialog.cpp" line="101"/>
       <source>Unable to connect to Optimus Manager daemon: %1</source>
-      <translation>Não foi possível conectar ao daemon do Optimus Manager: %1</translation>
+      <translation>Nu se poate conecta la Optimus Manager daemon: %1</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="377"/>
       <source>Unable to send GPU name to switch to Optimus Manager daemon: %1</source>
-      <translation>Não possível enviar o nome da GPU para a troca do daemon do Optimus Manager: %1</translation>
+      <translation>Nu se poate trimite numele GPU-ului pentru a comuta la Optimus Manager daemon: %1</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.cpp" line="129"/>
       <source>Unable to send configuration file to Optimus Manager daemon: %1</source>
-      <translation>Não foi possível enviar o arquivo de configuração para o daemon do Optimus Manager: %1</translation>
+      <translation>Nu se poate trimite fișierul de configurare la Optimus Manager daemon: %1</translation>
     </message>
   </context>
   <context>
@@ -34,7 +34,7 @@
       <location filename="../../src/optimusmanager.cpp" line="75"/>
       <location filename="../../src/optimusmanager.cpp" line="189"/>
       <source>Exit</source>
-      <translation>Sair</translation>
+      <translation>Ieșire</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="70"/>
@@ -44,133 +44,133 @@
       <location filename="../../src/optimusmanager.cpp" line="186"/>
       <location filename="../../src/optimusmanager.cpp" line="187"/>
       <source>Switch to %1</source>
-      <translation>Trocar para %1</translation>
+      <translation>Comuta la %1</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="82"/>
       <location filename="../../src/optimusmanager.cpp" line="180"/>
       <source>Current video card: %1</source>
-      <translation>Placa de vídeo atual: %1</translation>
+      <translation>Placa video curentă: %1</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="161"/>
       <location filename="../../src/optimusmanager.cpp" line="170"/>
       <source>The specified icon &apos;%1&apos; for the current GPU is invalid. The default icon will be used.</source>
-      <translation>O ícone especificado &apos;%1&apos; da GPU atual é inválido. O ícone padrão será usado.</translation>
+      <translation>Pictograma specificată &apos;%1&apos; pentru GPU-ul curent este invalidă. Pictograma implicită va fi utilizată.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="161"/>
       <location filename="../../src/optimusmanager.cpp" line="170"/>
       <source>Invalid icon</source>
-      <translation>Ícone inválido</translation>
+      <translation>Pictogramă nevalidă</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="202"/>
       <source>You are about to switch GPU.</source>
-      <translation>Você está prestes a trocar de GPU.</translation>
+      <translation>Ești pe cale să schimbi GPU-ul.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="204"/>
       <source>You will be automatically logged out to apply the changes.</source>
-      <translation>Você será automaticamente desconectado para aplicar as alterações.</translation>
+      <translation>Vei fi deconectat automat pentru a aplica modificările.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="215"/>
       <source>No power management option is currently enabled</source>
-      <translation>Atualmente, nenhum gerenciador de energia está habilitado</translation>
+      <translation>În prezent, nu este activată nicio opțiune de gestionare a energiei</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="216"/>
       <source>Switching between GPUs will work but you will likely experience poor battery life.
 If you have already enabled the new Runtime D3 power management inside the Nvidia driver (for Turing+ GPU with Coffee Lake+ CPU), you can safely ignore this warning.</source>
-      <translation>A troca entre GPUs funcionará, mas você poderá ter um experiência ruim com a vida útil da bateria.
-Se você já tiver habilitado o novo gerenciamento de energia Runtime D3 dentro do driver da Nvidia (para GPU Turing ou superior com CPU Coffee Lake ou superior), você pode ignorar este aviso.</translation>
+      <translation>Comutarea între GPU-uri va funcţiona, dar este posibil să te confrunţi cu o durată de viaţă slabă a bateriei.
+Dacă ai activat deja noul management al energiei Runtime D3 din driverul Nvidia(pentru Turing+ GPU cu Coffee Lake+ CPU), poți ignora în siguranță acest avertisment.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="226"/>
       <source>The Optimus Manager service is not running.</source>
-      <translation>O serviço do Optimus Manager não está em execução.</translation>
+      <translation>Serviciul Optimus Manager nu rulează.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="238"/>
       <source>Power switching will not work.
 You can set &apos;%1&apos; for GPU switching in settings or install bbswitch for the default kernel with &apos;%2&apos; or for all kernels with &apos;%3&apos;.</source>
-      <translation>A troca por desligamento de energia não funcionará.
-Você pode definir &apos;%1&apos; para a troca de GPU nas configurações ou instalar o bbswitch para o seu kernel padrão com &apos;%2&apos; ou para todos os kernels com &apos;%3&apos;.</translation>
+      <translation>Comutarea de energie nu va funcționa.
+Poţi seta &apos;%1&apos; pentru comutarea GPU în setări sau instala bbswitch pentru kernel-ul implicit cu &apos;%2&apos; sau pentru toate nucleele cu &apos;%3&apos;.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="275"/>
       <source>There are %1 other desktop sessions open. The GPU switch will not become effective until you have manually logged out from ALL desktop sessions.
 Continue?</source>
-      <translation>Existem %1 outras sessões da área de trabalho abertas. A GPU não será trocada até que você tenha se desconectado manualmente de TODAS as sessões da área de trabalho.
-Continuar?</translation>
+      <translation>Există %1 alte sesiuni de desktop deschise. Comutatorul GPU nu va avea efect până când nu te-ai deconectat manual de la TOATE sesiunile desktop.
+Continui?</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="290"/>
       <source>Wayland session found.</source>
-      <translation>Sessão Wayland encontrada.</translation>
+      <translation>S-a găsit sesiunea Wayland.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="291"/>
       <source>Session %1, started by %2, is a Wayland session. Wayland is not supported by Optimus Manager, so GPU switching may fail.
 Continue anyway?</source>
-      <translation>A sessão %1, iniciada por %2, é uma sessão do Wayland. O Wayland não é suportado pelo Optimus Manager, logo, a troca de GPU pode falhar.
-Continuar mesmo assim?</translation>
+      <translation>Sesiunea %1, începută de %2, este o sesiune Wayland. Wayland nu este suportat de Optimus Manager, astfel încât comutarea GPU poate eșua.
+Continui oricum?</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="308"/>
       <source>The Bumblebee service (%1) is running.</source>
-      <translation>O serviço do Bumblebee (%1) está em execução.</translation>
+      <translation>Serviciul Bumblebee (%1) rulează.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="351"/>
       <source>The Xorg driver &apos;%1&apos; is not installed.</source>
-      <translation>O driver Xorg &apos;%1&apos; não está instalado.</translation>
+      <translation>Xorg driver &apos;%1&apos; nu este instalat.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="352"/>
       <source>Optimus Manager will use &apos;%1&apos; driver instead. You can change driver in settings or install the &apos;%2&apos; driver from the package &apos;%3&apos;.
 Continue anyway?</source>
-      <translation>O Optimus Manager irá usar o driver &apos;%1&apos;. Você pode alterar o driver nas configurações ou instalar o driver &apos;%2&apos; do pacote &apos;%3&apos;.
-Continuar mesmo assim?</translation>
+      <translation>Optimus Manager va folosi in schimb driverul &apos;%1&apos;. Poți schimba driverul în setări sau poți instala driverul &apos;%2&apos; din pachetul &apos;%3&apos;.
+Continui oricum?</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="385"/>
       <source>Configuration successfully applied</source>
-      <translation>Configuração aplicada com sucesso</translation>
+      <translation>Configurare aplicată cu succes</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="385"/>
       <source>Your GPU will be switched after next login.</source>
-      <translation>Sua GPU será trocada após o próximo login.</translation>
+      <translation>GPU-ul tău va fi schimbat după următoarea autentificare.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="323"/>
       <source>If you did not create it yourself, it was likely generated by your distribution or by an Nvidia utility.
 This file may contain hard-coded GPU configuration that could interfere with Optimus Manager, so it is recommended that you delete it before proceeding.
 Ignore this warning and proceed with GPU switching?</source>
-      <translation>Se não foi criado por você, provavelmente foi gerado pela sua distribuição ou por algum utilitário da Nvidia.
-Este arquivo pode conter configurações da GPU que podem interferir com o Optimus Manager, portanto é recomendável que você o exclua antes de continuar.
-Ignorar este aviso e continuar com a troca da GPU?</translation>
+      <translation>Dacă nu ai creat singur, probabil a fost generat de distribuţie sau de o utilitate Nvidia.
+Acest fișier poate conține configurație GPU greu codificată, care ar putea interfera cu Optimus Manager, deci este recomandat să îl ștergi înainte de a continua.
+Ignori acest avertisment și continui cu comutarea GPU-ului?</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="337"/>
       <source>This file was auto-generated by the Manjaro driver utility (MHWD). This will likely interfere with GPU switching, so Optimus Manager will delete this file automatically if you proceded with GPU switching.
 Proceed?</source>
-      <translation>Este arquivo foi gerado automaticamente pelo utilitário de driver do Manjaro (MHWD). Isto provavelmente irá interferir com a troca da GPU, portanto o Optimus Manager irá excluir este arquivo se você continuar com a troca da GPU.
-Prosseguir?</translation>
+      <translation>Acest fișier a fost generat automat de driverul utilitar Manjaro (MHWD). Acest lucru va interfera probabil cu comutarea GPU-ului, astfel încât Optimus Manager va șterge automat acest fișier dacă vei continua cu comutarea GPU.
+Continui?</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="206"/>
       <source>After applying the settings, you will need to manually re-login to change the video card.</source>
-      <translation>Depois de aplicar as configurações, você precisará fazer login novamente manualmente para alterar a placa de vídeo.</translation>
+      <translation>După aplicarea setărilor, va trebui să te reconectezi manual pentru a schimba placa video.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="227"/>
       <source>Please enable and start it with:
 &apos;%1&apos;
 &apos;%2&apos;</source>
-      <translation>Por favor, habilite e inicie com:
+      <translation>Te rugăm să o activezi şi să o pornești cu:
 &apos;%1&apos;
 &apos;%2&apos;</translation>
     </message>
@@ -178,40 +178,42 @@ Prosseguir?</translation>
       <location filename="../../src/optimusmanager.cpp" line="237"/>
       <location filename="../../src/optimusmanager.cpp" line="249"/>
       <source>The %1 module does not seem to be available for the current kernel.</source>
-      <translation>O módulo %1 parece não estar disponível para o kernel atual.</translation>
+      <translation>Modulul %1 nu pare a fi disponibil pentru kernelul curent.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="250"/>
       <source>It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?</source>
-      <translation>É provável que o driver da Nvidia não tenha sido instalado corretamente. a troca da GPU provavelmente falhará, continuar mesmo assim?</translation>
+      <translation>Este probabil ca driverul Nvidia să nu fie instalat corect. Probabil că comutarea GPU va eșua, continui oricum?</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="260"/>
       <source>Looks like you&apos;re using a non-patched version of the Gnome Display Manager (GDM).</source>
-      <translation>Ao que parece, você está usando uma versão non-patched do Gnome Display Manager (GDM).</translation>
+      <translation>Se pare că folosești o versiune nemodificată a Gnome Display Manager (GDM).</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="261"/>
       <source>GDM need to be patched for Prime switching. Follow &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
 Continue anyway?</source>
-      <translation>O GDM precisa de um patch para uma troca Prime. Siga &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;estas&lt;/a&gt; instruções para instalar uma versão corrigida. Sem uma versão GDM corrigida, a troca da GPU provavelmente falhará. Continuar mesmo assim?</translation>
+      <translation>GDM trebuie să fie modificat pentru comutarea Prime. Urmați &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;instrucțiunile&lt;/a&gt; pentru a instala o versiune modificată. Fără o versiune modificată a GDM, probabil comutarea GPU va eșua.
+Continui oricum?</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="274"/>
       <source>Multiple running sessions detected.</source>
-      <translation>Foram detectadas múltiplas sessões em execução.</translation>
+      <translation>Au fost detectate mai multe sesiuni care rulează.</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="309"/>
       <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with &apos;%1&apos; and reboot your computer.
 Ignore this warning and proceed with GPU switching now?</source>
-      <translation>Isso pode interferir no Optimus Manager. Antes de tentar uma troca de GPU, é recomendável desabilitar este serviço com &apos;%1&apos; e reiniciar seu computador. Ignorar esse aviso e continuar com a troca de GPU agora?</translation>
+      <translation>Acest lucru poate interfera cu Optimus Manager. Înainte de a încerca un comunator GPU, este recomandat să dezactivezi acest serviciu cu &apos;%1&apos; și să reporniți calculatorul.
+Ignori această avertizare și continui cu comutarea GPU acum?</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="322"/>
       <location filename="../../src/optimusmanager.cpp" line="336"/>
       <source>Found a Xorg config file at &apos;%1&apos;.</source>
-      <translation>Foi encontrado um arquivo de configuração do Xorg em &apos;%1&apos;.</translation>
+      <translation>S-a găsit un fișier de configurare Xorg la &apos;%1&apos;.</translation>
     </message>
   </context>
   <context>
@@ -221,140 +223,140 @@ Ignore this warning and proceed with GPU switching now?</source>
       <location filename="../../src/optimusmanager.cpp" line="66"/>
       <location filename="../../src/optimusmanager.cpp" line="182"/>
       <source>Settings</source>
-      <translation>Configurações</translation>
+      <translation>Setări</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="59"/>
       <location filename="../../src/settingsdialog.ui" line="118"/>
       <source>General</source>
-      <translation>Geral</translation>
+      <translation>General</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="104"/>
       <source>About</source>
-      <translation>Sobre</translation>
+      <translation>Despre</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="137"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Application language&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Idioma da aplicação&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Limba aplicației&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="140"/>
       <source>Language:</source>
-      <translation>Idioma:</translation>
+      <translation>Limba:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.cpp" line="47"/>
       <source>&lt;System language&gt;</source>
-      <translation>&lt;Idioma do sistema&gt;</translation>
+      <translation>&lt;System language&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="163"/>
       <source>Launch at startup</source>
-      <translation>Iniciar com o sistema</translation>
+      <translation>Rulează la pornire</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="170"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show confirmation dialog when switching GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Exibir caixa de diálogo de confirmação ao trocar de GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Afișează dialogul de confirmare când comuți GPU-ul&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="173"/>
       <source>Confirm switching</source>
-      <translation>Confirmar troca</translation>
+      <translation>Confirmă comutarea</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="224"/>
       <source>Nvidia icon:</source>
-      <translation>Ícone da Nvidia:</translation>
+      <translation>Pictograma Nvidia:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="210"/>
       <source>Intel icon:</source>
-      <translation>Ícone da Intel:</translation>
+      <translation>Pictograma Intel:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="506"/>
       <source>ACPI call</source>
-      <translation>ACPI call</translation>
+      <translation>Apel ACPI</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="440"/>
       <source>Automatic logout</source>
-      <translation>Desconectar automaticamente</translation>
+      <translation>Deconectare automată</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="835"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with Bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Se deve ou não habilitar o modesetting para o driver nouveau&lt;/p&gt;&lt;p&gt;Não afeta o modesetting para o driver da GPU Intel&lt;/p&gt;&lt;p&gt;Esta opção é incompatível com o Bbswitch e será ignorada se estiver ativada&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Activarea sau nu a modesetting pentru nouveau driver&lt;/p&gt;&lt;p&gt;Nu afectează modesetting pentru Intel GPU driver&lt;/p&gt;&lt;p&gt;Această opțiune este incompatibilă cu Bbswitch și va fi ignorată dacă este activată&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="871"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will be set using the Xsetup script passed to your login manager&lt;br/&gt;It will run the command&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt;dpi value&amp;gt;&lt;/p&gt;&lt;p&gt;Leave 0 for the default&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Isso será definido usando o script Xsetup passado para o seu gerenciador de login&lt;br/&gt;Irá executar o comando&lt;/p&gt;&lt;p&gt;xrandr --dpi &lt;/p&gt;dpi value&lt;p&gt;&lt;br/&gt;Deixe 0 para o padrão&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Aceasta va fi setată folosind scriptul Xsetup pasat managerului de autentificare&lt;br/&gt;Va rula comanda&lt;/p&gt;&lt;p&gt;xrandr --dpi &amp;lt; valoarea dpi&amp;gt;&lt;/p&gt;&lt;p&gt;Lasă 0 pentru valoarea implicită&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="888"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable the NVreg_UsePageAttributeTable option in the Nvidia driver &lt;span style=&quot; font-style:italic;&quot;&gt;Recommended&lt;/span&gt;, can cause poor CPU performance otherwise&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Se deve ou não habilitar a opção NVreg_UsePageAttributeTable no driver da Nvidia &lt;span style=&quot; font-style:italic;&quot;&gt;Recomendado&lt;/span&gt;, pode causar um desempenho ruim da CPU, caso contrário&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Activarea sau nu a opțiunii NVreg_UsePageAttributeTable în driverul Nvidia &lt;span style=&quot; font-style:italic;&quot;&gt;Recomandat&lt;/span&gt;, altfel poate provoca performanțe slabe ale CPU-ului&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="901"/>
       <source>Overclocking options</source>
-      <translation>Opções de overclock</translation>
+      <translation>Opțiuni de overclocking</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="160"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart will be used&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart será usado&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart va fi folosit&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="183"/>
       <source>Tray icons</source>
-      <translation>Ícones da bandeja</translation>
+      <translation>Pictogramele Tray</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="189"/>
       <location filename="../../src/settingsdialog.ui" line="196"/>
       <source>Choose icon</source>
-      <translation>Escolha um ícone</translation>
+      <translation>Selectează pictograma</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="491"/>
       <source>None</source>
-      <translation>Nenhum</translation>
+      <translation>Fără</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="124"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Interface language&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Idioma da interface&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Limba interfeței&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="203"/>
       <location filename="../../src/settingsdialog.ui" line="217"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Caminho do ícone ou o nome do ícone do tema&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Calea către pictogramă sau numele pictogramei din temă&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="538"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to be selected when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on battery&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Selecionar este modo da GPU quando o &lt;span style=&quot; font-style:italic;&quot;&gt;Modo de inicialização&lt;/span&gt; for &lt;span style=&quot; font-style:italic;&quot;&gt;Automático&lt;/span&gt; e o computador estiver na bateria&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Modul GPU care va fi selectat atunci când &lt;span style=&quot; font-style:italic;&quot;&gt;Modul de pornire&lt;/span&gt; este &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; și calculatorul rulează pe baterie&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="582"/>
       <source>Startup mode:</source>
-      <translation>Modo de inicialização:</translation>
+      <translation>Modul de pornire:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="592"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to be selected when &lt;span style=&quot; font-style:italic;&quot;&gt;Startup mode&lt;/span&gt; is &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; and the computer is running on external power&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Selecionar este modo da GPU quando o &lt;span style=&quot; font-style:italic;&quot;&gt;Modo de inicialização&lt;/span&gt; for &lt;span style=&quot; font-style:italic;&quot;&gt;Automático&lt;/span&gt; e o computador estiver no carregador&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Modul GPU care va fi selectat atunci când &lt;span style=&quot; font-style:italic;&quot;&gt;Modul de pornire&lt;/span&gt; este &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; și calculatorul rulează pe energie externă&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="672"/>
       <source>External power startup mode:</source>
-      <translation>Modo de inicialização no carregador:</translation>
+      <translation>Modul de pornire cu energie externă:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="705"/>
@@ -364,250 +366,250 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
       <location filename="../../src/settingsdialog.ui" line="746"/>
       <source>Acceleration method:</source>
-      <translation>Método de aceleração:</translation>
+      <translation>Metoda de accelerare:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="767"/>
       <location filename="../../src/settingsdialog.ui" line="799"/>
       <source>Default</source>
-      <translation>Padrão</translation>
+      <translation>Implicit</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="772"/>
       <source>Yes</source>
-      <translation>Sim</translation>
+      <translation>Da</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="419"/>
       <location filename="../../src/settingsdialog.ui" line="777"/>
       <source>No</source>
-      <translation>Não</translation>
+      <translation>Nu</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="447"/>
       <source>PCI reset:</source>
-      <translation>Reinício da PCI:</translation>
+      <translation>PCI reset:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="415"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset the Nvidia card at the PCI level before reloading the nvidia module&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;No&lt;/span&gt;: does not perform any reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Function level&lt;/span&gt;: perform a light &amp;quot;function-level&amp;quot; reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Hot reset&lt;/span&gt;: perform a &amp;quot;hot reset&amp;quot; of the PCI bridge (this method messes with the hardware directly and will perform a PCI remove even if it disabled, please read the online documentation of Optimus Manager before using it)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reinicia a placa Nvidia, ao nível PCI, antes de recarregar o módulo da Nvidia&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Não&lt;/span&gt;: não faz nenhum tipo de reinício&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nível funcional&lt;/span&gt;: faz um leve reinício de &amp;quot;function-level&amp;quot;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Reinício agressivo&lt;/span&gt;: faz um &amp;quot;hot reset&amp;quot; da PCI brigde (este método desordena diretamente com o hardware e executa uma remoção da PCI, mesmo se desativada, leia a documentação on-line do Optimus Manager antes de usar)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Resetează placa Nvidia la nivelul PCI înainte de a reîncărca modulul nvidia&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nu&lt;/span&gt;: nu efectuează nicio resetare&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nivelul funcției&lt;/span&gt;: execută o lumină &amp;quot;la nivel de funcție&amp;quot; reset&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Resetare rapidă&lt;/span&gt;: efectuează o &amp;quot;resetare rapidă&amp;quot; a podului PCI (această metodă se încurcă direct cu hardware-ul și va efectua o eliminare PCI chiar dacă este dezactivată, citiți documentația online a Optimus Manager înainte de a o utiliza)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="424"/>
       <source>Function level</source>
-      <translation>Nível funcional</translation>
+      <translation>Nivelul funcţie</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="429"/>
       <source>Hot reset</source>
-      <translation>Reinício agressivo</translation>
+      <translation>Resetare rapidă</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="470"/>
       <source>PCI remove</source>
-      <translation>Remoção da PCI</translation>
+      <translation>Eliminare PCI</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="712"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Versão do DRI&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Versiunea DRI&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="480"/>
       <source>PCI power control</source>
-      <translation>Controle de energia da PCI</translation>
+      <translation>Controlul energiei PCI</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="231"/>
       <source>Hybrid icon:</source>
-      <translation>Ícone Híbrido:</translation>
+      <translation>Pictograma Hybrid:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="477"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching methods, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o gerenciamento de energia da PCI no modo Intel&lt;/p&gt;&lt;p&gt;Esta opção é incompatível com os métodos de troca de ACPI call e Bbswitch, portanto será ignorada nestes casos&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Activează managementul energiei PCI în modul Intel&lt;/p&gt;&lt;p&gt;Această opțiune este incompatibilă cu metodele de schimbare a apelurilor ACPI și a Bbswitch astfel încât va fi ignorat în aceste cazuri&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="519"/>
       <source>Switching method:</source>
-      <translation>Método da troca:</translation>
+      <translation>Metoda de comutare:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="68"/>
       <source>Configuration files</source>
-      <translation>Arquivos de Configuração</translation>
+      <translation>Fișiere de configurare</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="529"/>
       <source>Startup</source>
-      <translation>Inicialização</translation>
+      <translation>Pornire</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="264"/>
       <source>Optimus Manager config</source>
-      <translation>Configuração do Optimus Manager</translation>
+      <translation>Optimus Manager config</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="333"/>
       <source>Type:</source>
-      <translation>Tipo:</translation>
+      <translation>Tip:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="273"/>
       <source>Path:</source>
-      <translation>Caminho:</translation>
+      <translation>Cale:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="299"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Type of the configuration&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Permanent&lt;/span&gt;: configuration file that will be used every time it starts&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Temporary&lt;/span&gt;: configuration file that will be used only once at the next boot&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tipo da configuração&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Permanente&lt;/span&gt;: o arquivo de configuração será utilizado toda vez que iniciar&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Temporário&lt;/span&gt;: o arquivo de configuração será utilizado apenas uma vez, no próximo boot&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tip de configurare&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Permanent&lt;/span&gt;: fișier de configurare care va fi folosit de fiecare dată când pornește&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Temporar&lt;/span&gt;: fișier de configurare care va fi folosit doar o singură dată la următoarea pornire&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="303"/>
       <source>Permanent</source>
-      <translation>Permanente</translation>
+      <translation>Permanent</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="308"/>
       <source>Temporary</source>
-      <translation>Temporário</translation>
+      <translation>Temporar</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="283"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to configuration file that will be loaded&lt;/p&gt;&lt;p&gt;If such a file does not exist, then it will be created automatically&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Caminho do arquivo de configuração que será carregado&lt;/p&gt;&lt;p&gt;Se o arquivo não existir, será criado um automaticamente&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Calea către fișierul de configurare care va fi încărcat&lt;/p&gt;&lt;p&gt;Dacă un astfel de fișier nu există, atunci va fi creat automat&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="286"/>
       <source>Path to configuration file</source>
-      <translation>Caminho do arquivo de configuração</translation>
+      <translation>Calea către fișierul de configurare</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="319"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Browse configuration file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Procurar arquivo de configuração&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Căutați fișierul de configurare&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="322"/>
       <source>Browse</source>
-      <translation>Navegar</translation>
+      <translation>Caută</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="348"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Import Optimus Manager settings from file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Importar as configurações do Optimus Manager a partir de um arquivo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Importă setările Optimus Manager din fișier&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="351"/>
       <source>Import</source>
-      <translation>Importar</translation>
+      <translation>Importă</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="364"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Export current settings to file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Exportar as configurações atuais para um arquivo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Exportă setările curente într-un fișier&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="367"/>
       <source>Export</source>
-      <translation>Exportar</translation>
+      <translation>Exportă</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="437"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM and bspwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Efetue automaticamente o logout da sessão atual da área de trabalho ao trocar de GPUs&lt;/p&gt;&lt;p&gt;Atualmente, este recurso é suportado pelo Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM e bspwm&lt;/p&gt;&lt;p&gt;Se esta opção estiver desabilitada ou você usar um ambiente de área de trabalho diferente, a troca da GPU somente será efetivada no próximo login da sessão gráfica&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Deconecarea automată a sesiuni curente de desktop la comutarea GPU-urilor&lt;/p&gt;&lt;p&gt;Această caracteristică este în prezent acceptată pentru Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM și bspwm&lt;/p&gt;&lt;p&gt;Dacă această opțiune este dezactivată sau folosiți un alt mediu de desktop, schimbarea GPU va avea efect doar la următoarea sesiune grafică de autentificare&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="467"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove the Nvidia card from the PCI bus&lt;/p&gt;&lt;p&gt;May prevent crashes caused by power switching&lt;/p&gt;&lt;p&gt;Ignored if switching method is Nouveau or Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove a placa Nvidia do PCI bus&lt;/p&gt;&lt;p&gt;Pode prevenir crashes causados pela troca de energia&lt;/p&gt;&lt;p&gt;Esta opção é ignorada caso o método de troca seja Nouveau ou Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Elimina placa Nvidia din PCI bus&lt;/p&gt;&lt;p&gt;Poate preveni accidentele cauzate de schimbarea energiei&lt;/p&gt;&lt;p&gt;Ignorată dacă metoda de comutare este Nouveau sau Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="487"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Method to power switch the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;None&lt;/span&gt;: do not use an external module for power management (for some laptop models it&apos;s preferable to use this option in combination with PCI power control)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: load the nouveau module on the Nvidia card&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;: power off the card using the bbswitch module (requires the &amp;quot;bbswitch&amp;quot;dependency)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI call&lt;/span&gt;: try various ACPI method calls to power the card on and off (requires the &amp;quot;acpi_call&amp;quot; dependency)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Custom&lt;/span&gt;: use custom scripts at &lt;span style=&quot; font-style:italic;&quot;&gt;/etc/optimus-manager/nvidia-enable.sh&lt;/span&gt; and &lt;span style=&quot; font-style:italic;&quot;&gt;/etc/optimus-manager/nvidia-disable.sh&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Método para ligar a placa Nvidia&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nenhum&lt;/span&gt;: não use um módulo externo para gerenciamento de energia (para alguns modelos de laptop, é preferível usar essa opção em combinação com o controle de energia PCI)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: carregue o módulo nouveau na placa Nvidia&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;: desligue a placa usando o módulo bbswitch (requer a dependência &amp;quot;bbswitch&amp;quot;)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI call&lt;/span&gt;: tenta várias chamadas do método ACPI para ligar e desligar a placa (requer a dependência &amp;quot;acpi_call&amp;quot;)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Personalizado&lt;/span&gt;: utiliza scripts personalizados em &lt;span style=&quot; font-style:italic;&quot;&gt;/etc/optimus-manager/nvidia-enable.sh&lt;/span&gt; e &lt;span style=&quot; font-style:italic;&quot;&gt;/etc/optimus-manager/nvidia-disable.sh&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Metoda de comutare electrică pe placa Nvidia&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Niciunul&lt;/span&gt;: nu utilizați un modul extern pentru managementul energiei (pentru unele modele de laptopuri e preferabil să utilizați această opțiune în combinație cu PCI power control)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Nouveau&lt;/span&gt;: încărcați modulul nouveau pe placa Nvidia&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Bbswitch&lt;/span&gt;: opriți cardul folosind modulul bbswitch (necesită dependența bbswitch)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ACPI call&lt;/span&gt;: încercați diverse apeluri ACPI pentru a porni și opri placa video (necesită dependența acpi_call)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Personalizat&lt;/span&gt;: utilizați scripturi personalizate la &lt;span style=&quot; font-style:italic;&quot;&gt;/etc/optimus-manager/nvidia-enable.sh&lt;/span&gt; și &lt;span style=&quot; font-style:italic;&quot;&gt;/etc/optimus-manager/nvidia-disable.sh&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="511"/>
       <source>Custom</source>
-      <translation>Personalizado</translation>
+      <translation>Personalizat</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="575"/>
       <source>Battery startup mode:</source>
-      <translation>Modo de inicialização na bateria:</translation>
+      <translation>Modul de pornire pe baterie:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="626"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPU mode to use at computer startup&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; is a special mode that auto-detects if the computer is running on battery and selects a proper GPU mode&lt;/p&gt;&lt;p&gt;See the other options below for details&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Modo da GPU a ser utilizada na inicialização do computador&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Automático&lt;/span&gt; é um modo especial que detecta automaticamente se o computador está na bateria e seleciona o modo de GPU apropriado&lt;/p&gt;&lt;p&gt;Veja as outras opções abaixo para mais detalhes&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Modul GPU utilizat la pornirea calculatorului&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; este un mod special care detectează automat dacă calculatorul rulează pe baterie și selectează un mod GPU corect&lt;/p&gt;&lt;p&gt;Vezi celelalte opțiuni de mai jos pentru detalii&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="657"/>
       <source>Auto</source>
-      <translation>Automático</translation>
+      <translation>Auto</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="729"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Intel GPU&lt;br/&gt;&lt;br/&gt;To use the Intel driver, you need to install the package &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver para o uso da Intel GPU&lt;br/&gt;&lt;br/&gt;Para usar o driver Intel, você precisa instalar o pacote &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driverulutilizat pentru Intel GPU&lt;br/&gt;&lt;br/&gt;Pentru a utiliza driverul Intel, trebuie să instalați pachetul &amp;quot; xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="763"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita a opção TearFree na configuração do Xorg&lt;/p&gt;&lt;p&gt;Esta opção é compatível apenas com o driver Intel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Activați opțiunea TearFree în configurația Xorg&lt;/p&gt;&lt;p&gt;Se aplică numai driverului Intel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="795"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Acceleration method (corresponds to AccelMethod in the Xorg configuration)&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Método de aceleração (corresponde ao AccelMethod na configuração do Xorg)&lt;/p&gt;&lt;p&gt;Esta opção é compatível apenas com o driver Intel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Metoda de accelerare (corespunde AccelMethod în configurația Xorg)&lt;/p&gt;&lt;p&gt;Se aplică numai driverului Intel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="941"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable modesetting&lt;/p&gt;&lt;p&gt;Required for PRIME Synchronization (which prevents tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o modesetting&lt;/p&gt;&lt;p&gt;Requerido para a Sincronização PRIME (que previne tearing)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Activează modesetting&lt;/p&gt;&lt;p&gt;Necesar pentru sincronizarea PRIME (care previne tearing-ul)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="951"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use Optimus Manager with external Nvidia GPUs (experimental)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use o Optimus Manager com GPUs externas da Nvidia (experimental)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Utilizează Optimus Manager cu Nvidia GPUs extern (experimental)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="931"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you&apos;re running an updated version of xorg-server (let&apos;s say to get PRIME Render offload enabled), the Nvidia driver may not load because of an ABI version mismatch&lt;/p&gt;&lt;p&gt;Enabling this option will allow loading the Nvidia driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Se você estiver executando uma versão atualizada do xorg-server (para ter o PRIME Render Offload habilitado) o driver da Nvidia pode não carregar devido a uma incompatibilidade de versão ABI&lt;/p&gt;&lt;p&gt;Habilitando esta opção será permitido carregar o driver Nvidia&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dacă rulezi o versiune actualizată a xorg-server (să zicem că PRIME Render offload este activat), este posibil ca driverul Nvidia să nu se încarce din cauza nepotrivirii versiunii ABI.&lt;/p&gt;&lt;p&gt;Activarea acestei opțiuni va permite încărcarea driverului Nvidia&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="908"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable triple buffering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o buffer triplo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Activează bufferingul triplu&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="911"/>
       <source>Triple buffer</source>
-      <translation>Buffer triplo</translation>
+      <translation>Buffer triplu</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="898"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable CoolBits in the Xorg configuration, which unlocks clocking options in the Nvidia control panel&lt;/p&gt;&lt;p&gt;Note: does not work in Hybrid mode&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Habilita o CoolBits na configuração do Xorg, que desbloqueia as opções de clock no painel de controle da Nvidia&lt;/p&gt;&lt;p&gt;Nota: não funciona no modo Hybrid&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Activează CoolBits în configurația Xorg, care deblochează opțiunile de ceas în panoul de control Nvidia&lt;/p&gt;&lt;p&gt;Notă: nu funcționează în modul Hybrid&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="934"/>
       <source>Ignore ABI</source>
-      <translation>Ignorar ABI</translation>
+      <translation>Ignoră ABI</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="954"/>
       <source>Allow external GPUs</source>
-      <translation>Permitir GPUs externas</translation>
+      <translation>Permite GPU-uri externe</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="1011"/>
       <location filename="../../src/settingsdialog.ui" line="1142"/>
       <source>Version:</source>
-      <translation>Versão:</translation>
+      <translation>Versiunea:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="1025"/>
@@ -619,69 +621,69 @@ Ignore this warning and proceed with GPU switching now?</source>
       <location filename="../../src/settingsdialog.ui" line="1032"/>
       <location filename="../../src/settingsdialog.ui" line="1156"/>
       <source>License:</source>
-      <translation>Licença:</translation>
+      <translation>Licență:</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.cpp" line="82"/>
       <source>Optimus Manager temporary configuration file path cannot be empty</source>
-      <translation>O caminho da configuração temporária do Optimus Manager não pode estar vazio</translation>
+      <translation>Calea fişierului de configurare temporară Optimus Manager nu poate fi goală</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.cpp" line="89"/>
       <source>Optimus Manager temporary configuration file path cannot be a permanent configuration file path</source>
-      <translation>O caminho da configuração temporária do Optimus Manager não pode ser o mesmo caminho da configuração permanente</translation>
+      <translation>Calea fişierului de configurare temporară Optimus Manager nu poate fi cale fişierului de configurare permanentă</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.cpp" line="111"/>
       <source>Unable to read data from generated configuration</source>
-      <translation>Não foi possível ler os dados da configuração gerada</translation>
+      <translation>Nu se poate citi datele din configurația generată</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.cpp" line="250"/>
       <source>Select temporary configuration file</source>
-      <translation>Selecione o arquivo de configuração temporário</translation>
+      <translation>Selectează fişierul de configurare temporară</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.cpp" line="251"/>
       <location filename="../../src/settingsdialog.cpp" line="263"/>
       <location filename="../../src/settingsdialog.cpp" line="276"/>
       <source>Config files (*.conf);;All files(*)</source>
-      <translation>Arquivos de configuração (*.conf);;Todos os arquivos(*)</translation>
+      <translation>Fişiere Config (*.conf);;Toate fişierele (*)</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.cpp" line="262"/>
       <source>Export Optimus Manager settings</source>
-      <translation>Exportar as configurações do Optimus Manager</translation>
+      <translation>Exportă setările Optimus Manager</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.cpp" line="275"/>
       <source>Import Optimus Manager settings</source>
-      <translation>Importar as configurações do Optimus Manager</translation>
+      <translation>Importă setările Optimus Manager</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.cpp" line="439"/>
       <source>Select icon</source>
-      <translation>Selecionar um ícone</translation>
+      <translation>Alege pictograma</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.cpp" line="440"/>
       <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
-      <translation>Imagens (*.png *.jpg *.bmp);;Todos os arquivos(*)</translation>
+      <translation>Imagini (*.png *.jpg *.bmp);;Toate fișiere(*)</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.cpp" line="471"/>
       <source>Unable to find Optimus Manager daemon.</source>
-      <translation>Não foi possível encontrar o daemon do Optimus Manager.</translation>
+      <translation>Nu s-a putut găsi Optimus Manager daemon.</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.cpp" line="472"/>
       <source>Please check the integrity of the package that provides Optimus Manager.</source>
-      <translation>Por favor, verifique a integridade do pacote que fornece o Optimus Manager.</translation>
+      <translation>Te rugăm să verifici integritatea pachetului care oferă Optimus Manager.</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.cpp" line="474"/>
       <source>Not found!</source>
-      <translation>Não encontrado!</translation>
+      <translation>Nu a fost gasit!</translation>
     </message>
   </context>
 </TS>
