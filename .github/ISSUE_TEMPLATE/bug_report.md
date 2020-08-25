@@ -26,7 +26,7 @@ If applicable, add screenshots to help explain your problem.
 **Environment**
 
 -   OS: (e.g. Arch Linux, Manjaro)
--   Desktop environment: (e.g. KDE, Gnome)
+-   Desktop environment: (e.g. KDE, GNOME)
 -   Optimus Manager version: (e.g. 1.0.0)
 -   Optimus Manager Qt version: (e.g. 1.0.0)
 

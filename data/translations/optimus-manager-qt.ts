@@ -97,6 +97,11 @@ You can set &apos;%1&apos; for GPU switching in settings or install bbswitch for
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../src/optimusmanager.cpp" line="260"/>
+        <source>Looks like you&apos;re using a non-patched version of the GNOME Display Manager (GDM).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../src/optimusmanager.cpp" line="275"/>
         <source>There are %1 other desktop sessions open. The GPU switch will not become effective until you have manually logged out from ALL desktop sessions.
 Continue?</source>
@@ -173,11 +178,6 @@ Proceed?</source>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="250"/>
         <source>It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/optimusmanager.cpp" line="260"/>
-        <source>Looks like you&apos;re using a non-patched version of the Gnome Display Manager (GDM).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -324,6 +324,11 @@ Ignore this warning and proceed with GPU switching now?</source>
         <location filename="../../src/settingsdialog.ui" line="203"/>
         <location filename="../../src/settingsdialog.ui" line="217"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingsdialog.ui" line="437"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for GNOME, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM, bspwm and dwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -501,11 +506,6 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
         <location filename="../../src/settingsdialog.ui" line="367"/>
         <source>Export</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/settingsdialog.ui" line="437"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM, bspwm and dwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

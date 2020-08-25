@@ -257,7 +257,7 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
     if (currentDisplayManager() == QLatin1String("/usr/bin/gdm") && !isGdmPatched()) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
-        message.setText(tr("Looks like you're using a non-patched version of the Gnome Display Manager (GDM)."));
+        message.setText(tr("Looks like you're using a non-patched version of the GNOME Display Manager (GDM)."));
         message.setInformativeText(tr("GDM need to be patched for Prime switching. Follow <a href='https://github.com/Askannz/optimus-manager'>this</a>"
                                       " instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.\n"
                                       "Continue anyway?"));
