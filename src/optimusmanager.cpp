@@ -405,7 +405,7 @@ OptimusSettings::GPU OptimusManager::detectGpu()
         return OptimusSettings::Nvidia;
 
     // TODO: Find a way to generalize AMD GPU names.
-    if (qstrcmp(providerInfo->name, "modesetting") == 0 || qstrcmp(providerInfo->name, "Intel") == 0 || qstrcmp(providerInfo->name, "Unknown AMD Radeon GPU @ pci:0000:06:00.0") == 0) {
+    if (qstrcmp(providerInfo->name, "modesetting") == 0 || qstrcmp(providerInfo->name, "Intel") == 0 || qstrcmp(providerInfo->name, "Unknown AMD Radeon GPU") >= 0) {
         for (int i = 1; i < providerResources->nproviders; ++i) {
             providerInfo.reset(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[i]));
             if (qstrcmp(providerInfo->name, "NVIDIA-G0") == 0)
