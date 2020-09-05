@@ -6,17 +6,17 @@
     <message>
       <location filename="../../src/appsettings.cpp" line="80"/>
       <source>Unable to create %1</source>
-      <translation>Не удается создать %1</translation>
+      <translation>Не удалось создать %1</translation>
     </message>
     <message>
       <location filename="../../src/appsettings.cpp" line="87"/>
       <source>Unable to copy %1 to %2</source>
-      <translation>Не удается скопировать %1 в %2</translation>
+      <translation>Не удалось скопировать %1 в %2</translation>
     </message>
     <message>
       <location filename="../../src/appsettings.cpp" line="91"/>
       <source>Unable to remove %1 from %2</source>
-      <translation>Не удается удалить %1 из %2</translation>
+      <translation>Не удалось удалить %1 из %2</translation>
     </message>
   </context>
   <context>
