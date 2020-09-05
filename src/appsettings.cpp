@@ -23,6 +23,7 @@
 #include "cmake.h"
 
 #include <QDebug>
+#include <QDir>
 #include <QFileInfo>
 #include <QGuiApplication>
 #include <QStandardPaths>
@@ -67,20 +68,27 @@ bool AppSettings::isAutostartEnabled()
 
 void AppSettings::setAutostartEnabled(bool enabled)
 {
-    QFile autorunFile(QStringLiteral("%1/autostart/%2").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation), QGuiApplication::desktopFileName()));
+    QDir autostartDir(QStringLiteral("%1/autostart").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation)));
 
     if (enabled) {
         // Create autorun file
-        if (!autorunFile.exists()) {
-            const QString desktopFileName = QStringLiteral("/usr/share/applications/%1").arg(QGuiApplication::desktopFileName());
+        if (autostartDir.exists(QGuiApplication::desktopFileName()))
+            return;
 
-            if (!QFile::copy(desktopFileName, autorunFile.fileName()))
-                qCritical() << tr("Unable to create autorun file from '%1'").arg(desktopFileName);
+        if (!autostartDir.exists()) {
+            if (!autostartDir.mkpath(QStringLiteral("."))) {
+                qCritical() << tr("Unable to create %1").arg(autostartDir.path());
+                return;
+            }
         }
-    } else {
+
+        const QString desktopFileName = QStringLiteral("/usr/share/applications/%1").arg(QGuiApplication::desktopFileName());
+        if (!QFile::copy(desktopFileName, autostartDir.filePath(QGuiApplication::desktopFileName())))
+            qCritical() << tr("Unable to copy %1 to %2").arg(desktopFileName, autostartDir.path());
+    } else if (autostartDir.exists(QGuiApplication::desktopFileName())) {
         // Remove autorun file
-        if (autorunFile.exists())
-            autorunFile.remove();
+        if (!autostartDir.remove(QGuiApplication::desktopFileName()))
+            qCritical() << tr("Unable to remove %1 from %2").arg(QGuiApplication::desktopFileName(), autostartDir.path());
     }
 }
 
