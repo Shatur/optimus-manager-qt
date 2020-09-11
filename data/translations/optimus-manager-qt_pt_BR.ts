@@ -4,16 +4,26 @@
   <context>
     <name>AppSettings</name>
     <message>
-      <location filename="../../src/appsettings.cpp" line="78"/>
-      <source>Unable to create autorun file from &apos;%1&apos;</source>
-      <translation>Não foi possível criar o arquivo autorun a partir de &apos;%1&apos;</translation>
+      <location filename="../../src/appsettings.cpp" line="80"/>
+      <source>Unable to create %1</source>
+      <translation>Não foi possível criar %1</translation>
+    </message>
+    <message>
+      <location filename="../../src/appsettings.cpp" line="87"/>
+      <source>Unable to copy %1 to %2</source>
+      <translation>Não foi possível copiar %1 para %2</translation>
+    </message>
+    <message>
+      <location filename="../../src/appsettings.cpp" line="91"/>
+      <source>Unable to remove %1 from %2</source>
+      <translation>Não foi possível remover %1 de %2</translation>
     </message>
   </context>
   <context>
     <name>DaemonClient</name>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="367"/>
-      <location filename="../../src/settingsdialog.cpp" line="101"/>
+      <location filename="../../src/settingsdialog.cpp" line="102"/>
       <source>Unable to connect to Optimus Manager daemon: %1</source>
       <translation>Não foi possível conectar ao daemon do Optimus Manager: %1</translation>
     </message>
@@ -23,7 +33,7 @@
       <translation>Não possível enviar o nome da GPU para a troca do daemon do Optimus Manager: %1</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="129"/>
+      <location filename="../../src/settingsdialog.cpp" line="130"/>
       <source>Unable to send configuration file to Optimus Manager daemon: %1</source>
       <translation>Não foi possível enviar o arquivo de configuração para o daemon do Optimus Manager: %1</translation>
     </message>
@@ -97,6 +107,11 @@ Se você já tiver habilitado o novo gerenciamento de energia Runtime D3 dentro 
 You can set &apos;%1&apos; for GPU switching in settings or install bbswitch for the default kernel with &apos;%2&apos; or for all kernels with &apos;%3&apos;.</source>
       <translation>A troca por desligamento de energia não funcionará.
 Você pode definir &apos;%1&apos; para a troca de GPU nas configurações ou instalar o bbswitch para o seu kernel padrão com &apos;%2&apos; ou para todos os kernels com &apos;%3&apos;.</translation>
+    </message>
+    <message>
+      <location filename="../../src/optimusmanager.cpp" line="260"/>
+      <source>Looks like you&apos;re using a non-patched version of the GNOME Display Manager (GDM).</source>
+      <translation>Parece que você&apos;está usando uma versão non-patched (não corrigida) do GNOME Manager (GDM).</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="275"/>
@@ -184,11 +199,6 @@ Prosseguir?</translation>
       <location filename="../../src/optimusmanager.cpp" line="250"/>
       <source>It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?</source>
       <translation>É provável que o driver da Nvidia não tenha sido instalado corretamente. a troca da GPU provavelmente falhará, continuar mesmo assim?</translation>
-    </message>
-    <message>
-      <location filename="../../src/optimusmanager.cpp" line="260"/>
-      <source>Looks like you&apos;re using a non-patched version of the Gnome Display Manager (GDM).</source>
-      <translation>Ao que parece, você está usando uma versão non-patched do Gnome Display Manager (GDM).</translation>
     </message>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="261"/>
@@ -335,6 +345,11 @@ Ignore this warning and proceed with GPU switching now?</source>
       <location filename="../../src/settingsdialog.ui" line="217"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
       <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Caminho do ícone ou o nome do ícone do tema&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+      <location filename="../../src/settingsdialog.ui" line="437"/>
+      <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for GNOME, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM, bspwm and dwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Desconecte-se automaticamente da atual sessão da área de trabalho ao trocar de GPUs&lt;/p&gt;&lt;p&gt;Atualmente este recurso é compatível com GNOME, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM, bspwm e dwm&lt;/p&gt;&lt;p&gt;Se esta opção estiver desabilitada ou você usar um ambiente de trabalho diferente, a troca de GPU só ocorrerá no próximo login de sessão gráfica&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../../src/settingsdialog.ui" line="538"/>
@@ -514,11 +529,6 @@ Ignore this warning and proceed with GPU switching now?</source>
       <translation>Exportar</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="437"/>
-      <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically log out the current desktop session when switching GPUs&lt;/p&gt;&lt;p&gt;This feature is currently supported for Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM and bspwm&lt;/p&gt;&lt;p&gt;If this options is disabled or you use a different desktop environment, GPU switching only becomes effective at the next graphical session login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Efetue automaticamente o logout da sessão atual da área de trabalho ao trocar de GPUs&lt;/p&gt;&lt;p&gt;Atualmente, este recurso é suportado pelo Gnome, KDE Plasma, LXDE, Deepin, Xfce, i3, Sway, Openbox, AwesomeWM e bspwm&lt;/p&gt;&lt;p&gt;Se esta opção estiver desabilitada ou você usar um ambiente de área de trabalho diferente, a troca da GPU somente será efetivada no próximo login da sessão gráfica&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
       <location filename="../../src/settingsdialog.ui" line="467"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove the Nvidia card from the PCI bus&lt;/p&gt;&lt;p&gt;May prevent crashes caused by power switching&lt;/p&gt;&lt;p&gt;Ignored if switching method is Nouveau or Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
       <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove a placa Nvidia do PCI bus&lt;/p&gt;&lt;p&gt;Pode prevenir crashes causados pela troca de energia&lt;/p&gt;&lt;p&gt;Esta opção é ignorada caso o método de troca seja Nouveau ou Bbswitch&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -622,64 +632,64 @@ Ignore this warning and proceed with GPU switching now?</source>
       <translation>Licença:</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="82"/>
+      <location filename="../../src/settingsdialog.cpp" line="83"/>
       <source>Optimus Manager temporary configuration file path cannot be empty</source>
       <translation>O caminho da configuração temporária do Optimus Manager não pode estar vazio</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="89"/>
+      <location filename="../../src/settingsdialog.cpp" line="90"/>
       <source>Optimus Manager temporary configuration file path cannot be a permanent configuration file path</source>
       <translation>O caminho da configuração temporária do Optimus Manager não pode ser o mesmo caminho da configuração permanente</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="111"/>
+      <location filename="../../src/settingsdialog.cpp" line="112"/>
       <source>Unable to read data from generated configuration</source>
       <translation>Não foi possível ler os dados da configuração gerada</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="250"/>
+      <location filename="../../src/settingsdialog.cpp" line="251"/>
       <source>Select temporary configuration file</source>
       <translation>Selecione o arquivo de configuração temporário</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="251"/>
-      <location filename="../../src/settingsdialog.cpp" line="263"/>
-      <location filename="../../src/settingsdialog.cpp" line="276"/>
+      <location filename="../../src/settingsdialog.cpp" line="252"/>
+      <location filename="../../src/settingsdialog.cpp" line="264"/>
+      <location filename="../../src/settingsdialog.cpp" line="277"/>
       <source>Config files (*.conf);;All files(*)</source>
       <translation>Arquivos de configuração (*.conf);;Todos os arquivos(*)</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="262"/>
+      <location filename="../../src/settingsdialog.cpp" line="263"/>
       <source>Export Optimus Manager settings</source>
       <translation>Exportar as configurações do Optimus Manager</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="275"/>
+      <location filename="../../src/settingsdialog.cpp" line="276"/>
       <source>Import Optimus Manager settings</source>
       <translation>Importar as configurações do Optimus Manager</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="439"/>
+      <location filename="../../src/settingsdialog.cpp" line="440"/>
       <source>Select icon</source>
       <translation>Selecionar um ícone</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="440"/>
+      <location filename="../../src/settingsdialog.cpp" line="441"/>
       <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
       <translation>Imagens (*.png *.jpg *.bmp);;Todos os arquivos(*)</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="471"/>
+      <location filename="../../src/settingsdialog.cpp" line="472"/>
       <source>Unable to find Optimus Manager daemon.</source>
       <translation>Não foi possível encontrar o daemon do Optimus Manager.</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="472"/>
+      <location filename="../../src/settingsdialog.cpp" line="473"/>
       <source>Please check the integrity of the package that provides Optimus Manager.</source>
       <translation>Por favor, verifique a integridade do pacote que fornece o Optimus Manager.</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="474"/>
+      <location filename="../../src/settingsdialog.cpp" line="475"/>
       <source>Not found!</source>
       <translation>Não encontrado!</translation>
     </message>
