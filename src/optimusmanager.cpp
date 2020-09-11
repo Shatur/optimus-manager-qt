@@ -523,7 +523,7 @@ void OptimusManager::logout()
     if (QProcess::execute(QStringLiteral("openbox"), {QStringLiteral("--exit")}) == 0)
         return;
 
-    if (QProcess::execute(QStringLiteral("awesome-client"), {QStringLiteral("\"awesome.quit()\"")}) == 0)
+    if (QProcess::execute(QStringLiteral("awesome-client"), {QStringLiteral("awesome.quit()")}) == 0)
         return;
 
     if (QProcess::execute(QStringLiteral("bspc"), {QStringLiteral("quit")}) == 0)
