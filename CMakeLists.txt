@@ -17,9 +17,6 @@ set(CMAKE_AUTOUIC ON)
 
 option(PLASMA "Use additional KDE API feautures")
 
-set(QAPPLICATION_CLASS QApplication)
-add_subdirectory(src/third-party/singleapplication)
-
 find_package(ECM REQUIRED NO_MODULE)
 list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
@@ -29,7 +26,7 @@ if(PLASMA)
     find_package(KF5 COMPONENTS Notifications IconThemes REQUIRED)
 endif()
 
-
+include(cmake/ExternalProjects.cmake)
 include(ECMInstallIcons)
 include(GNUInstallDirs)
 
