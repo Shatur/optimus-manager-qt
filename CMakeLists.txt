@@ -26,7 +26,7 @@ if(WITH_PLASMA)
     find_package(KF5 COMPONENTS Notifications IconThemes REQUIRED)
 endif()
 
-include(cmake/ExternalProjects.cmake)
+include(cmake/ExternalLibraries.cmake)
 include(ECMInstallIcons)
 include(GNUInstallDirs)
 
