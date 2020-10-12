@@ -79,12 +79,12 @@ cmake -D CMAKE_BUILD_TYPE=Release ..
 cmake --build .
 ```
 
-If you want to build with extended Plasma support you need to define `PLASMA` (the same as `_plasma=true` in the PKGBUILD):
+If you want to build with extended Plasma support you need to define `WITH_PLASMA` (the same as `_plasma=true` in the PKGBUILD):
 
 ```bash
 mkdir build
 cd build
-cmake -D CMAKE_BUILD_TYPE=Release -D PLASMA ..
+cmake -D CMAKE_BUILD_TYPE=Release -D WITH_PLASMA ..
 cmake --build .
 ```
 

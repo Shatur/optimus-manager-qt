@@ -37,7 +37,7 @@
 #include <QMetaEnum>
 #include <QProcess>
 #include <QX11Info>
-#ifdef PLASMA
+#ifdef WITH_PLASMA
 #include <KStatusNotifierItem>
 #else
 #include <QSystemTrayIcon>
@@ -51,7 +51,7 @@
 OptimusManager::OptimusManager(QObject *parent)
     : QObject(parent)
     , m_contextMenu(new QMenu)
-#ifdef PLASMA
+#ifdef WITH_PLASMA
     , m_trayIcon(new KStatusNotifierItem(this))
 #else
     , m_trayIcon(new QSystemTrayIcon(this))
@@ -75,7 +75,7 @@ OptimusManager::OptimusManager(QObject *parent)
     m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), tr("Exit"), QCoreApplication::instance(), &QCoreApplication::quit);
 
     // Setup tray
-#ifdef PLASMA
+#ifdef WITH_PLASMA
     m_trayIcon->setStandardActionsEnabled(false);
     m_trayIcon->setToolTipTitle(QCoreApplication::applicationName());
     m_trayIcon->setCategory(KStatusNotifierItem::SystemServices);
@@ -85,14 +85,14 @@ OptimusManager::OptimusManager(QObject *parent)
 
     loadSettings(appSettings);
 
-#ifndef PLASMA
+#ifndef WITH_PLASMA
     m_trayIcon->show();
 #endif
 }
 
 OptimusManager::~OptimusManager()
 {
-#ifndef PLASMA
+#ifndef WITH_PLASMA
     delete m_contextMenu; // QSystemTrayIcon does not take ownership of QMenu
 #endif
 }
@@ -138,7 +138,7 @@ void OptimusManager::openSettings()
 
 void OptimusManager::showNotification(const QString &title, const QString &message)
 {
-#ifdef PLASMA
+#ifdef WITH_PLASMA
     m_trayIcon->showMessage(title, message, m_trayIcon->iconName());
 #else
     m_trayIcon->showMessage(title, message);
@@ -154,7 +154,7 @@ void OptimusManager::loadSettings(AppSettings &appSettings)
 
     // Tray icon
     QString gpuIconName = appSettings.gpuIconName(m_currentGpu);
-#ifdef PLASMA
+#ifdef WITH_PLASMA
     if (!QIcon::hasThemeIcon(gpuIconName) && !QFileInfo::exists(gpuIconName)) {
         gpuIconName = AppSettings::defaultTrayIconName(m_currentGpu);
         appSettings.setGpuIconName(m_currentGpu, gpuIconName);
@@ -176,7 +176,7 @@ void OptimusManager::loadSettings(AppSettings &appSettings)
 
 void OptimusManager::retranslateUi()
 {
-#ifdef PLASMA
+#ifdef WITH_PLASMA
     m_trayIcon->setToolTipSubTitle(tr("Current video card: %1").arg(QMetaEnum::fromType<OptimusSettings::GPU>().valueToKey(m_currentGpu)));
 #endif
     m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));

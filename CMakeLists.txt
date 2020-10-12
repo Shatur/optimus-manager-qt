@@ -15,14 +15,14 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-option(PLASMA "Use additional KDE API feautures")
+option(WITH_PLASMA "Use additional KDE API feautures")
 
 find_package(ECM REQUIRED NO_MODULE)
 list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 find_package(Qt5 5.10 COMPONENTS Widgets DBus X11Extras LinguistTools REQUIRED)
 find_package(X11 COMPONENTS Xrandr REQUIRED)
-if(PLASMA)
+if(WITH_PLASMA)
     find_package(KF5 COMPONENTS Notifications IconThemes REQUIRED)
 endif()
 
@@ -58,9 +58,9 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE SingleApplication::SingleApplication Qt5::DBus Qt5::X11Extras X11::Xrandr)
-if(PLASMA)
+if(WITH_PLASMA)
     target_link_libraries(${PROJECT_NAME} PRIVATE KF5::Notifications KF5::IconThemes)
-    target_compile_definitions(${PROJECT_NAME} PRIVATE PLASMA)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE WITH_PLASMA)
 endif()
 
 install(TARGETS ${PROJECT_NAME})
