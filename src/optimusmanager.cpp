@@ -220,7 +220,7 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
     }
 
     // Check if daemon is active
-    if (!isServiceActive(QStringLiteral("optimus-manager.service"))) {
+    if (!isServiceActive(QStringLiteral("optimus-manager.service")) && !QFileInfo::exists(QStringLiteral("/var/service/optimus-manager/run"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Critical);
         message.setText(tr("The Optimus Manager service is not running."));
@@ -342,17 +342,18 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
             return;
     }
 
-    // Check if the Xorg driver 'intel' is installed
+    // Check if the Xorg driver is installed
     if (switchingGpu == OptimusSettings::Intel
             && optimusSettings.intelDriver() == OptimusSettings::IntelDriver
-            && !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/intel_drv.so"))) {
+            && !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/intel_drv.so"))
+            || !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/amdgpu_drv.so"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
-        message.setText(tr("The Xorg driver '%1' is not installed.").arg(QStringLiteral("intel")));
+        message.setText(tr("The Xorg driver is not installed."));
         message.setInformativeText(tr("Optimus Manager will use '%1' driver instead. You can change driver in settings or install the"
                                       " '%2' driver from the package '%3'.\n"
                                       "Continue anyway?")
-                                   .arg("modesetting", "intel", "xf86-video-intel"));
+                                   .arg("modesetting", "Intel/AMD", "xf86-video-intel/xf86-video-amdgpu"));
         message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         if (message.exec() == QMessageBox::No)
             return;
@@ -404,7 +405,8 @@ OptimusSettings::GPU OptimusManager::detectGpu()
     if (qstrcmp(providerInfo->name, "NVIDIA-0") == 0)
         return OptimusSettings::Nvidia;
 
-    if (qstrcmp(providerInfo->name, "modesetting") == 0 || qstrcmp(providerInfo->name, "Intel") == 0) {
+    // TODO: Find a way to generalize AMD GPU names.
+    if (qstrcmp(providerInfo->name, "modesetting") == 0 || qstrcmp(providerInfo->name, "Intel") == 0 || qstrcmp(providerInfo->name, "Unknown AMD Radeon GPU") >= 0) {
         for (int i = 1; i < providerResources->nproviders; ++i) {
             providerInfo.reset(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[i]));
             if (qstrcmp(providerInfo->name, "NVIDIA-G0") == 0)
@@ -531,6 +533,7 @@ void OptimusManager::logout()
 
     killProcess("/usr/bin/lxsession");
     killProcess("/usr/bin/dwm");
+    killProcess("/usr/local/bin/dwm");
 }
 
 bool OptimusManager::killProcess(const QByteArray &name)
