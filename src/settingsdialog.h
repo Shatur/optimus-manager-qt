@@ -44,17 +44,17 @@ public slots:
     void accept() override;
 
 private slots:
-    void browseIntegratedIcon();
+    void browseIntelIcon();
     void browseNvidiaIcon();
     void browseHybridIcon();
-    void previewIntegratedIcon(const QString &fileName);
+    void previewIntelIcon(const QString &fileName);
     void previewNvidiaIcon(const QString &fileName);
     void previewHybridIcon(const QString &fileName);
 
     void disableAutoStartupModes(int startupMode);
     void disableSwitchingMethodIgnored(int switchingMethod);
     void disablePciResetIgnored(int pciResetType);
-    void disableIntegratedDriverIgnored(int integratedDriver);
+    void disableIntelDriverIgnored(int intelDriver);
     void loadOptimusConfigType(int configType);
 
     void browseTempConfigPath();

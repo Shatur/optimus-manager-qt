@@ -83,10 +83,10 @@
       </item>
       <item>
        <property name="text">
-        <string notr="true">Integrated</string>
+        <string notr="true">Intel</string>
        </property>
        <property name="icon">
-        <iconset theme="integrated">
+        <iconset theme="intel">
          <normaloff>.</normaloff>.</iconset>
        </property>
       </item>
@@ -191,7 +191,7 @@
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QToolButton" name="integratedIconButton">
+            <widget class="QToolButton" name="intelIconButton">
              <property name="toolTip">
               <string>Choose icon</string>
              </property>
@@ -205,14 +205,14 @@
             </widget>
            </item>
            <item row="0" column="0">
-            <widget class="QLabel" name="integratedIconLabel">
+            <widget class="QLabel" name="intelIconLabel">
              <property name="text">
-              <string>Integrated icon:</string>
+              <string>Intel icon:</string>
              </property>
             </widget>
            </item>
            <item row="0" column="2">
-            <widget class="QLineEdit" name="integratedIconEdit">
+            <widget class="QLineEdit" name="intelIconEdit">
              <property name="toolTip">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
@@ -474,7 +474,7 @@
            <item row="3" column="0" colspan="3">
             <widget class="QCheckBox" name="pciPowerControlCheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Integrated GPU mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching methods, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching methods, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string>PCI power control</string>
@@ -539,7 +539,7 @@
              </property>
              <item>
               <property name="text">
-               <string notr="true">Integrated</string>
+               <string notr="true">Intel</string>
               </property>
               <property name="icon">
                <iconset theme="prime-intel">
@@ -593,10 +593,10 @@
              </property>
              <item>
               <property name="text">
-               <string notr="true">Integrated</string>
+               <string notr="true">Intel</string>
               </property>
               <property name="icon">
-               <iconset theme="prime-integrated">
+               <iconset theme="prime-intel">
                 <normaloff>.</normaloff>.</iconset>
               </property>
              </item>
@@ -627,7 +627,7 @@
              </property>
              <item>
               <property name="text">
-               <string notr="true">Integrated</string>
+               <string notr="true">Intel</string>
               </property>
               <property name="icon">
                <iconset theme="prime-intel">
@@ -692,22 +692,22 @@
        </layout>
       </widget>
       <widget class="QWidget" name="intelPage">
-       <layout class="QVBoxLayout" name="integratedPageLayout">
+       <layout class="QVBoxLayout" name="intelPageLayout">
         <item>
-         <widget class="QGroupBox" name="integratedGroupBox">
+         <widget class="QGroupBox" name="intelGroupBox">
           <property name="title">
-           <string notr="true">Integrated</string>
+           <string notr="true">Intel</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_4">
            <item row="0" column="0">
-            <widget class="QLabel" name="integratedDriverLabel">
+            <widget class="QLabel" name="intelDriverLabel">
              <property name="text">
               <string>Driver:</string>
              </property>
             </widget>
            </item>
            <item row="3" column="1">
-            <widget class="QComboBox" name="integratedDriComboBox">
+            <widget class="QComboBox" name="intelDriComboBox">
              <property name="toolTip">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
@@ -724,9 +724,9 @@
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QComboBox" name="integratedDriverComboBox">
+            <widget class="QComboBox" name="intelDriverComboBox">
              <property name="toolTip">
-		     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Integrated GPU&lt;br/&gt;&lt;br/&gt;To use the Integrated GPU driver, you need to install the package &amp;quot;xf86-video-intel/xf86-video-amdgpu&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the Intel GPU&lt;br/&gt;&lt;br/&gt;To use the Intel driver, you need to install the package &amp;quot;xf86-video-intel&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <item>
               <property name="text">
@@ -735,7 +735,7 @@
              </item>
              <item>
               <property name="text">
-               <string notr="true">Integrated</string>
+               <string notr="true">Intel</string>
               </property>
              </item>
             </widget>
@@ -748,19 +748,19 @@
             </widget>
            </item>
            <item row="2" column="0">
-            <widget class="QLabel" name="integratedTearFreeLabel">
+            <widget class="QLabel" name="intelTearFreeLabel">
              <property name="text">
               <string notr="true">Tearfree:</string>
              </property>
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QComboBox" name="integratedTearFreeComboBox">
+            <widget class="QComboBox" name="intelTearFreeComboBox">
              <property name="enabled">
               <bool>false</bool>
              </property>
              <property name="toolTip">
-		     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;/p&gt;&lt;p&gt;Only applies to the Intel/AMD driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable TearFree option in the Xorg configuration&lt;/p&gt;&lt;p&gt;Only applies to the Intel driver&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <item>
               <property name="text">
@@ -780,7 +780,7 @@
             </widget>
            </item>
            <item row="3" column="0">
-            <widget class="QLabel" name="integratedDriLabel">
+            <widget class="QLabel" name="intelDriLabel">
              <property name="text">
               <string notr="true">DRI:</string>
              </property>
@@ -817,7 +817,7 @@
             </widget>
            </item>
            <item row="0" column="2">
-            <spacer name="integratedBoxSpacer">
+            <spacer name="intelBoxSpacer">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -830,9 +830,9 @@
             </spacer>
            </item>
            <item row="4" column="0" colspan="3">
-            <widget class="QCheckBox" name="integratedModesetCheckBox">
+            <widget class="QCheckBox" name="intelModesetCheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Integrated GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with Bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether or not to enable modesetting for the nouveau driver&lt;/p&gt;&lt;p&gt;Does not affect modesetting for the Intel GPU driver&lt;/p&gt;&lt;p&gt;This option is incompatible with Bbswitch and will be ignored if it is enabled&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string notr="true">Modeset</string>
@@ -843,7 +843,7 @@
          </widget>
         </item>
         <item>
-         <spacer name="integratedSpacer">
+         <spacer name="intelSpacer">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
@@ -1242,7 +1242,7 @@
    <sender>intelIconButton</sender>
    <signal>clicked()</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>browseIntegratedIcon()</slot>
+   <slot>browseIntelIcon()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>313</x>
@@ -1271,10 +1271,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>integratedIconEdit</sender>
+   <sender>intelIconEdit</sender>
    <signal>textChanged(QString)</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>previewIntegratedIcon(QString)</slot>
+   <slot>previewIntelIcon(QString)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>557</x>
@@ -1319,10 +1319,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>integratedDriverComboBox</sender>
+   <sender>intelDriverComboBox</sender>
    <signal>currentIndexChanged(int)</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>disableIntegratedDriverIgnored(int)</slot>
+   <slot>disableIntelDriverIgnored(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>411</x>
@@ -1481,10 +1481,10 @@
  </connections>
  <slots>
   <slot>browseNvidiaIcon()</slot>
-  <slot>browseIntegratedIcon()</slot>
+  <slot>browseIntelIcon()</slot>
   <slot>previewNvidiaIcon(QString)</slot>
-  <slot>previewIntegratedIcon(QString)</slot>
-  <slot>disableIntegratedDriverIgnored(int)</slot>
+  <slot>previewIntelIcon(QString)</slot>
+  <slot>disableIntelDriverIgnored(int)</slot>
   <slot>disableSwitchingMethodIgnored(int)</slot>
   <slot>disablePciResetIgnored(int)</slot>
   <slot>changeStartupMode()</slot>

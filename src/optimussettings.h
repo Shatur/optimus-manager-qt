@@ -48,7 +48,7 @@ public:
     };
     enum Driver {
         Modesetting,
-        IntegratedDriver
+        IntelDriver
     };
     enum AccelMethod {
         DefaultMethod,
@@ -62,7 +62,7 @@ public:
         DisableTearFree
     };
     enum GPU {
-        Integrated,
+        Intel,
         Nvidia,
         Hybrid,
         Auto
@@ -115,26 +115,26 @@ public:
     void setExternalPowerStartupMode(GPU gpu);
     static GPU defaultExternalPowerStartupMode();
 
-    // Integrated
-    Driver integratedDriver() const;
-    void setIntegratedDriver(Driver driver);
-    static Driver defaultIntegratedDriver();
+    // Intel
+    Driver intelDriver() const;
+    void setIntelDriver(Driver driver);
+    static Driver defaultIntelDriver();
 
     AccelMethod intelAccelMethod() const;
     void setIntelAccelMethod(AccelMethod method);
     static AccelMethod defaultIntelAccelMethod();
 
-    TearFree integratedTearFree() const;
-    void setIntegratedTearFree(TearFree tearFree);
-    static TearFree defaultIntegratedTearFree();
+    TearFree intelTearFree() const;
+    void setIntelTearFree(TearFree tearFree);
+    static TearFree defaultIntelTearFree();
 
-    DRI integratedDri() const;
-    void setIntegratedDri(DRI dri);
-    static DRI defaultIntegratedDri();
+    DRI intelDri() const;
+    void setIntelDri(DRI dri);
+    static DRI defaultIntelDri();
 
-    bool isIntegratedModesetEnabled() const;
-    void setIntegratedModesetEnabled(bool enabled);
-    static bool defaultIntegratedModesetEnabled();
+    bool isIntelModesetEnabled() const;
+    void setIntelModesetEnabled(bool enabled);
+    static bool defaultIntelModesetEnabled();
 
     // Nvidia
     bool isNvidiaModesetEnabled() const;

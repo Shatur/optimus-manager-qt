@@ -137,9 +137,9 @@ void SettingsDialog::accept()
     QDialog::accept();
 }
 
-void SettingsDialog::browseIntegratedIcon()
+void SettingsDialog::browseIntelIcon()
 {
-    browseIcon(ui->integratedIconEdit);
+    browseIcon(ui->intelIconEdit);
 }
 
 void SettingsDialog::browseNvidiaIcon()
@@ -152,10 +152,10 @@ void SettingsDialog::browseHybridIcon()
     browseIcon(ui->hybridIconEdit);
 }
 
-void SettingsDialog::previewIntegratedIcon(const QString &fileName)
+void SettingsDialog::previewIntelIcon(const QString &fileName)
 {
     const QIcon icon = OptimusManager::trayGpuIcon(fileName);
-    ui->integratedIconButton->setIcon(icon);
+    ui->intelIconButton->setIcon(icon);
 }
 
 void SettingsDialog::previewNvidiaIcon(const QString &fileName)
@@ -190,23 +190,23 @@ void SettingsDialog::disableSwitchingMethodIgnored(int switchingMethod)
     switch (switchingMethod) {
     case OptimusSettings::NoneMethod:
         ui->pciPowerControlCheckBox->setEnabled(true);
-        ui->integratedModesetCheckBox->setEnabled(false);
+        ui->intelModesetCheckBox->setEnabled(false);
         if (ui->pciResetComboBox->currentIndex() != OptimusSettings::HotReset)
             ui->pciRemoveCheckBox->setEnabled(true); // Can be disabled by Hot reset option
         break;
     case OptimusSettings::Nouveau:
         ui->pciPowerControlCheckBox->setEnabled(true);
-        ui->integratedModesetCheckBox->setEnabled(true);
+        ui->intelModesetCheckBox->setEnabled(true);
         ui->pciRemoveCheckBox->setEnabled(false);
         break;
     case OptimusSettings::Bbswitch:
         ui->pciPowerControlCheckBox->setEnabled(false);
-        ui->integratedModesetCheckBox->setEnabled(false);
+        ui->intelModesetCheckBox->setEnabled(false);
         ui->pciRemoveCheckBox->setEnabled(false);
         break;
     case OptimusSettings::AcpiCall:
         ui->pciPowerControlCheckBox->setEnabled(false);
-        ui->integratedModesetCheckBox->setEnabled(false);
+        ui->intelModesetCheckBox->setEnabled(false);
         if (ui->pciResetComboBox->currentIndex() != OptimusSettings::HotReset)
             ui->pciRemoveCheckBox->setEnabled(true);
     }
@@ -220,14 +220,14 @@ void SettingsDialog::disablePciResetIgnored(int pciResetType)
         ui->pciRemoveCheckBox->setEnabled(true); // Can be disabled by switching method
 }
 
-void SettingsDialog::disableIntegratedDriverIgnored(int integratedDriver)
+void SettingsDialog::disableIntelDriverIgnored(int intelDriver)
 {
-    if (integratedDriver == OptimusSettings::IntegratedDriver) {
+    if (intelDriver == OptimusSettings::IntelDriver) {
         ui->intelAccelMethodComboBox->setEnabled(true);
-        ui->integratedTearFreeComboBox->setEnabled(true);
+        ui->intelTearFreeComboBox->setEnabled(true);
     } else {
         ui->intelAccelMethodComboBox->setEnabled(false);
-        ui->integratedTearFreeComboBox->setEnabled(false);
+        ui->intelTearFreeComboBox->setEnabled(false);
     }
 }
 
@@ -298,7 +298,7 @@ void SettingsDialog::restoreDefaults()
     ui->languageComboBox->setCurrentIndex(AppSettings::defaultLanguage());
     ui->autostartCheckBox->setChecked(AppSettings::defaultAutostartEnabled());
     ui->confirmSwitchingCheckBox->setChecked(AppSettings::defaultConfirmSwitching());
-    ui->integratedIconEdit->setText(AppSettings::defaultTrayIconName(OptimusSettings::Integrated));
+    ui->intelIconEdit->setText(AppSettings::defaultTrayIconName(OptimusSettings::Intel));
     ui->nvidiaIconEdit->setText(AppSettings::defaultTrayIconName(OptimusSettings::Nvidia));
     ui->hybridIconEdit->setText(AppSettings::defaultTrayIconName(OptimusSettings::Hybrid));
 
@@ -313,12 +313,12 @@ void SettingsDialog::restoreDefaults()
     ui->pciRemoveCheckBox->setChecked(OptimusSettings::defaultPciRemoveEnabled());
     ui->autoLogoutCheckBox->setChecked(OptimusSettings::defaultAutoLogoutEnabled());
 
-    // Integrated/Intel settings
-    ui->integratedDriverComboBox->setCurrentIndex(OptimusSettings::defaultIntegratedDriver());
+    // Intel settings
+    ui->intelDriverComboBox->setCurrentIndex(OptimusSettings::defaultIntelDriver());
     ui->intelAccelMethodComboBox->setCurrentIndex(OptimusSettings::defaultIntelAccelMethod());
-    ui->integratedTearFreeComboBox->setCurrentIndex(OptimusSettings::defaultIntegratedTearFree());
-    ui->integratedDriComboBox->setCurrentIndex(OptimusSettings::defaultIntegratedDri());
-    ui->integratedModesetCheckBox->setChecked(OptimusSettings::defaultIntegratedModesetEnabled());
+    ui->intelTearFreeComboBox->setCurrentIndex(OptimusSettings::defaultIntelTearFree());
+    ui->intelDriComboBox->setCurrentIndex(OptimusSettings::defaultIntelDri());
+    ui->intelModesetCheckBox->setChecked(OptimusSettings::defaultIntelModesetEnabled());
 
     // Nvidia settings
     ui->nvidiaDpiSpinBox->setValue(OptimusSettings::defaultNvidiaDpi());
@@ -339,7 +339,7 @@ void SettingsDialog::loadAppSettings()
     ui->languageComboBox->setCurrentIndex(ui->languageComboBox->findData(settings.language()));
     ui->autostartCheckBox->setChecked(AppSettings::isAutostartEnabled());
     ui->confirmSwitchingCheckBox->setChecked(settings.isConfirmSwitching());
-    ui->integratedIconEdit->setText(settings.gpuIconName(OptimusSettings::Integrated));
+    ui->intelIconEdit->setText(settings.gpuIconName(OptimusSettings::Intel));
     ui->nvidiaIconEdit->setText(settings.gpuIconName(OptimusSettings::Nvidia));
     ui->hybridIconEdit->setText(settings.gpuIconName(OptimusSettings::Hybrid));
 }
@@ -357,7 +357,7 @@ void SettingsDialog::saveAppSettings()
     // General settings
     AppSettings::setAutostartEnabled(ui->autostartCheckBox->isChecked());
     appSettings.setConfirmSwitching(ui->confirmSwitchingCheckBox->isChecked());
-    appSettings.setGpuIconName(OptimusSettings::Integrated, ui->integratedIconEdit->text());
+    appSettings.setGpuIconName(OptimusSettings::Intel, ui->intelIconEdit->text());
     appSettings.setGpuIconName(OptimusSettings::Nvidia, ui->nvidiaIconEdit->text());
     appSettings.setGpuIconName(OptimusSettings::Hybrid, ui->hybridIconEdit->text());
 }
@@ -375,12 +375,12 @@ void SettingsDialog::loadOptimusSettings(const QString &path)
     ui->batteryStartupModeComboBox->setCurrentIndex(optimusSettings.batteryStartupMode());
     ui->externalPowerStartupModeComboBox->setCurrentIndex(optimusSettings.externalPowerStartupMode());
 
-    // Integrated/Intel settings
-    ui->integratedDriverComboBox->setCurrentIndex(optimusSettings.integratedDriver());
+    // Intel settings
+    ui->intelDriverComboBox->setCurrentIndex(optimusSettings.intelDriver());
     ui->intelAccelMethodComboBox->setCurrentIndex(optimusSettings.intelAccelMethod());
-    ui->integratedTearFreeComboBox->setCurrentIndex(optimusSettings.integratedTearFree());
-    ui->integratedDriComboBox->setCurrentText(QString::number(optimusSettings.integratedDri()));
-    ui->integratedModesetCheckBox->setChecked(optimusSettings.isIntegratedModesetEnabled());
+    ui->intelTearFreeComboBox->setCurrentIndex(optimusSettings.intelTearFree());
+    ui->intelDriComboBox->setCurrentText(QString::number(optimusSettings.intelDri()));
+    ui->intelModesetCheckBox->setChecked(optimusSettings.isIntelModesetEnabled());
 
     // Nvidia settings
     ui->nvidiaDpiSpinBox->setValue(optimusSettings.nvidiaDpi());
@@ -407,12 +407,12 @@ void SettingsDialog::saveOptimusSettings(const QString &path) const
     optimusSettings.setBatteryStartupMode(static_cast<OptimusSettings::GPU>(ui->batteryStartupModeComboBox->currentIndex()));
     optimusSettings.setExternalPowerStartupMode(static_cast<OptimusSettings::GPU>(ui->externalPowerStartupModeComboBox->currentIndex()));
 
-    // Integrated/Intel settings
-    optimusSettings.setIntegratedDriver(static_cast<OptimusSettings::Driver>(ui->integratedDriverComboBox->currentIndex()));
+    // Intel settings
+    optimusSettings.setIntelDriver(static_cast<OptimusSettings::Driver>(ui->intelDriverComboBox->currentIndex()));
     optimusSettings.setIntelAccelMethod(static_cast<OptimusSettings::AccelMethod>(ui->intelAccelMethodComboBox->currentIndex()));
-    optimusSettings.setIntegratedTearFree(static_cast<OptimusSettings::TearFree>(ui->integratedTearFreeComboBox->currentIndex()));
-    optimusSettings.setIntegratedDri(static_cast<OptimusSettings::DRI>(ui->integratedDriComboBox->currentText().toInt()));
-    optimusSettings.setIntegratedModesetEnabled(ui->integratedModesetCheckBox->isChecked());
+    optimusSettings.setIntelTearFree(static_cast<OptimusSettings::TearFree>(ui->intelTearFreeComboBox->currentIndex()));
+    optimusSettings.setIntelDri(static_cast<OptimusSettings::DRI>(ui->intelDriComboBox->currentText().toInt()));
+    optimusSettings.setIntelModesetEnabled(ui->intelModesetCheckBox->isChecked());
 
     // Nvidia settings
     optimusSettings.setNvidiaDpi(ui->nvidiaDpiSpinBox->value());

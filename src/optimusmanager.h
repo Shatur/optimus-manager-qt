@@ -44,7 +44,7 @@ public:
     static QIcon trayGpuIcon(const QString &iconName);
 
 private slots:
-    void switchToIntegrated();
+    void switchToIntel();
     void switchToNvidia();
     void switchToHybrid();
     void openSettings();

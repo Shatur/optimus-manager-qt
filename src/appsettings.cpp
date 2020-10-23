@@ -115,8 +115,8 @@ bool AppSettings::defaultConfirmSwitching()
 QString AppSettings::gpuIconName(OptimusSettings::GPU gpu) const
 {
     switch (gpu) {
-    case OptimusSettings::Integrated:
-        return value(QStringLiteral("IntegratedIcon"), defaultTrayIconName(OptimusSettings::Integrated)).toString();
+    case OptimusSettings::Intel:
+        return value(QStringLiteral("IntelIcon"), defaultTrayIconName(OptimusSettings::Intel)).toString();
     case OptimusSettings::Nvidia:
         return value(QStringLiteral("NvidiaIcon"), defaultTrayIconName(OptimusSettings::Nvidia)).toString();
     case OptimusSettings::Hybrid:
@@ -129,8 +129,8 @@ QString AppSettings::gpuIconName(OptimusSettings::GPU gpu) const
 void AppSettings::setGpuIconName(OptimusSettings::GPU gpu, const QString &name)
 {
     switch (gpu) {
-    case OptimusSettings::Integrated:
-        setValue(QStringLiteral("IntegratedIcon"), name);
+    case OptimusSettings::Intel:
+        setValue(QStringLiteral("IntelIcon"), name);
         break;
     case OptimusSettings::Nvidia:
         setValue(QStringLiteral("NvidiaIcon"), name);
@@ -146,8 +146,8 @@ void AppSettings::setGpuIconName(OptimusSettings::GPU gpu, const QString &name)
 QString AppSettings::defaultTrayIconName(OptimusSettings::GPU trayStatus)
 {
     switch (trayStatus) {
-    case OptimusSettings::Integrated:
-        return QStringLiteral("prime-integrated");
+    case OptimusSettings::Intel:
+        return QStringLiteral("prime-intel");
     case OptimusSettings::Nvidia:
         return QStringLiteral("prime-nvidia");
     case OptimusSettings::Hybrid:

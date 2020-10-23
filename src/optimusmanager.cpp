@@ -67,7 +67,7 @@ OptimusManager::OptimusManager(QObject *parent)
     m_contextMenu->addSeparator();
 
     const QMetaEnum gpuEnum = QMetaEnum::fromType<OptimusSettings::GPU>();
-    m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Integrated)), this, &OptimusManager::switchToIntegrated);
+    m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Intel)), this, &OptimusManager::switchToIntel);
     m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Nvidia)), this, &OptimusManager::switchToNvidia);
     m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Hybrid)), this, &OptimusManager::switchToHybrid);
     m_contextMenu->addSeparator();
@@ -108,9 +108,9 @@ QIcon OptimusManager::trayGpuIcon(const QString &iconName)
     return QIcon();
 }
 
-void OptimusManager::switchToIntegrated()
+void OptimusManager::switchToIntel()
 {
-    switchGpu(OptimusSettings::Integrated);
+    switchGpu(OptimusSettings::Intel);
 }
 
 void OptimusManager::switchToNvidia()
@@ -148,7 +148,7 @@ void OptimusManager::showNotification(const QString &title, const QString &messa
 void OptimusManager::loadSettings(AppSettings &appSettings)
 {
     // Context menu icons
-    m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(appSettings.gpuIconName(OptimusSettings::Integrated)));
+    m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(appSettings.gpuIconName(OptimusSettings::Intel)));
     m_contextMenu->actions().at(3)->setIcon(trayGpuIcon(appSettings.gpuIconName(OptimusSettings::Nvidia)));
     m_contextMenu->actions().at(4)->setIcon(trayGpuIcon(appSettings.gpuIconName(OptimusSettings::Hybrid)));
 
@@ -182,7 +182,7 @@ void OptimusManager::retranslateUi()
     m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
 
     const QMetaEnum gpuEnum = QMetaEnum::fromType<OptimusSettings::GPU>();
-    m_contextMenu->actions().at(2)->setText(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Integrated)));
+    m_contextMenu->actions().at(2)->setText(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Intel)));
     m_contextMenu->actions().at(3)->setText(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Nvidia)));
     m_contextMenu->actions().at(4)->setText(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Hybrid)));
 
@@ -227,7 +227,7 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
         message.setInformativeText(tr("Please enable and start it with:\n'%1'\n'%2'")
                                    .arg("sudo systemctl enable optimus-manager", "sudo systemctl start optimus-manager"));
         message.exec();
-	return;
+        return;
     }
 
     // Check if bbswitch module is available
@@ -328,6 +328,7 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
         if (message.exec() == QMessageBox::No)
             return;
     }
+
     // Check if the Manjaro MHWD config is exists
     if (QFileInfo::exists(QStringLiteral("/etc/X11/xorg.conf.d/90-mhwd.conf"))) {
         QMessageBox message;
@@ -342,8 +343,8 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
     }
 
     // Check if the Xorg driver is installed
-    if (switchingGpu == OptimusSettings::Integrated
-            && optimusSettings.integratedDriver() == OptimusSettings::IntegratedDriver
+    if (switchingGpu == OptimusSettings::Intel
+            && optimusSettings.intelDriver() == OptimusSettings::IntelDriver
             && !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/intel_drv.so"))
             || !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/amdgpu_drv.so"))) {
         QMessageBox message;
@@ -412,7 +413,7 @@ OptimusSettings::GPU OptimusManager::detectGpu()
                 return OptimusSettings::Hybrid;
         }
 
-        return OptimusSettings::Integrated;
+        return OptimusSettings::Intel;
     }
 
     qFatal("Unable to detect GPU");
@@ -444,6 +445,7 @@ bool OptimusManager::isServiceActive(const QString &serviceName)
     const auto optimusManagerPath = systemd.call(QStringLiteral("GetUnit"), serviceName).arguments().at(0).value<QDBusObjectPath>();
     if (optimusManagerPath.path().isEmpty())
         return false;
+
     const QDBusInterface optimusManager(QStringLiteral("org.freedesktop.systemd1"), optimusManagerPath.path(),
                                         QStringLiteral("org.freedesktop.systemd1.Unit"), QDBusConnection::systemBus());
     return optimusManager.property("SubState").toString() == QLatin1String("running");
