@@ -4,9 +4,19 @@
   <context>
     <name>AppSettings</name>
     <message>
-      <location filename="../../src/appsettings.cpp" line="78"/>
-      <source>Unable to create autorun file from &apos;%1&apos;</source>
-      <translation>Не удается создать файл автозапуска из &apos;%1&apos;</translation>
+      <location filename="../../src/appsettings.cpp" line="80"/>
+      <source>Unable to create %1</source>
+      <translation>Не удалось создать %1</translation>
+    </message>
+    <message>
+      <location filename="../../src/appsettings.cpp" line="87"/>
+      <source>Unable to copy %1 to %2</source>
+      <translation>Не удалось скопировать %1 в %2</translation>
+    </message>
+    <message>
+      <location filename="../../src/appsettings.cpp" line="91"/>
+      <source>Unable to remove %1 from %2</source>
+      <translation>Не удалось удалить %1 из %2</translation>
     </message>
   </context>
   <context>

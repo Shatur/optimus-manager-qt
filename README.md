@@ -79,12 +79,12 @@ cmake -D CMAKE_BUILD_TYPE=Release ..
 cmake --build .
 ```
 
-If you want to build with extended Plasma support you need to define `PLASMA` (the same as `_plasma=true` in the PKGBUILD):
+If you want to build with extended Plasma support you need to define `WITH_PLASMA` (the same as `_plasma=true` in the PKGBUILD):
 
 ```bash
 mkdir build
 cd build
-cmake -D CMAKE_BUILD_TYPE=Release -D PLASMA ..
+cmake -D CMAKE_BUILD_TYPE=Release -D WITH_PLASMA ..
 cmake --build .
 ```
 
@@ -92,4 +92,4 @@ You will then get a binary named `optimus-manager-qt`.
 
 ## Localization
 
-To help with localization you can use [Crowdin](https://crowdin.com/project/optimus-manager-qt) or translate files in `data/translations` with [Qt Linguist](https://doc.qt.io/Qt-5/linguist-translators.html) directly. To add a new language, make a request on the Crowdin project page or copy `data/translations/optimus-manager.ts` to `data/translations/optimus-manager_<ISO 639-1 language code>_<ISO 3166-1 alpha-2 language code>.ts`, translate it and send a pull request.
+To help with localization you can use [Crowdin](https://crowdin.com/project/optimus-manager-qt) or translate files in `data/translations` with [Qt Linguist](https://doc.qt.io/Qt-5/linguist-translators.html) directly. To add a new language, write me on the Crowdin project page or copy `data/translations/optimus-manager.ts` to `data/translations/optimus-manager_<ISO 639-1 language code>_<ISO 3166-1 alpha-2 language code>.ts`, translate it and send a pull request.

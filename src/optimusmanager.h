@@ -26,7 +26,7 @@
 class Session;
 class AppSettings;
 class QMenu;
-#ifdef PLASMA
+#ifdef WITH_PLASMA
 class KStatusNotifierItem;
 #else
 class QSystemTrayIcon;
@@ -66,7 +66,7 @@ private:
     static bool killProcess(const QByteArray &name);
 
     QMenu *m_contextMenu;
-#ifdef PLASMA
+#ifdef WITH_PLASMA
     KStatusNotifierItem *m_trayIcon;
 #else
     QSystemTrayIcon *m_trayIcon;

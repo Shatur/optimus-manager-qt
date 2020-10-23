@@ -29,7 +29,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QTextStream>
-#ifdef PLASMA
+#ifdef WITH_PLASMA
 #include <KIconDialog>
 #endif
 
@@ -429,7 +429,7 @@ void SettingsDialog::saveOptimusSettings(const QString &path) const
 
 void SettingsDialog::browseIcon(QLineEdit *iconNameEdit)
 {
-#ifdef PLASMA
+#ifdef WITH_PLASMA
     KIconDialog dialog(this);
     dialog.setup(KIconLoader::Panel, KIconLoader::StatusIcon);
 
