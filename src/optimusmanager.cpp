@@ -399,20 +399,17 @@ AppSettings::Gpu OptimusManager::detectGpu()
     if (providerResources.isNull())
         qFatal("Unable to get provider resources");
 
+    if (providerResources->nproviders > 1)
+        return AppSettings::HybridGpu;
+
     QScopedPointer<XRRProviderInfo, ProviderInfoDeleter> providerInfo(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[0]));
-    if (qstrcmp(providerInfo->name, "NVIDIA-0") == 0)
-        return AppSettings::NvidiaGpu;
-
-    // TODO: Find a way to generalize AMD GPU names.
-    if (qstrcmp(providerInfo->name, "modesetting") == 0 || qstrcmp(providerInfo->name, "Intel") == 0 || qstrcmp(providerInfo->name, "Unknown AMD Radeon GPU") >= 0) {
-        for (int i = 1; i < providerResources->nproviders; ++i) {
-            providerInfo.reset(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[i]));
-            if (qstrcmp(providerInfo->name, "NVIDIA-G0") == 0)
-                return AppSettings::HybridGpu;
-        }
-
+    const QByteArray gpuName = QByteArray::fromRawData(providerInfo->name, qstrlen(providerInfo->name));
+    if (gpuName.startsWith("modesetting") || gpuName.startsWith("Intel"))
         return AppSettings::IntelGpu;
-    }
+    if (gpuName.startsWith("Unknown AMD Radeon GPU"))
+        return AppSettings::AmdGpu;
+    if (gpuName.startsWith("NVIDIA"))
+        return AppSettings::NvidiaGpu;
 
     qFatal("Unable to detect GPU");
 }
