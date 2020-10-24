@@ -61,16 +61,16 @@ OptimusManager::OptimusManager(QObject *parent)
     appSettings.setupLocalization();
 
     // Setup context menu
-    m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("preferences-system")), SettingsDialog::tr("Settings"), this, &OptimusManager::openSettings);
+    m_openSettingsAction = m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("preferences-system")), SettingsDialog::tr("Settings"), this, &OptimusManager::openSettings);
     m_contextMenu->addSeparator();
 
     const QMetaEnum modeEnum = QMetaEnum::fromType<OptimusSettings::Mode>();
-    m_contextMenu->addAction(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Integrated)), this, &OptimusManager::switchToIntel);
-    m_contextMenu->addAction(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Nvidia)), this, &OptimusManager::switchToNvidia);
-    m_contextMenu->addAction(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Hybrid)), this, &OptimusManager::switchToHybrid);
+    m_switchToIntegratedAction = m_contextMenu->addAction(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Integrated)), this, &OptimusManager::switchToIntel);
+    m_switchToNvidiaAction = m_contextMenu->addAction(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Nvidia)), this, &OptimusManager::switchToNvidia);
+    m_switchToHybridAction = m_contextMenu->addAction(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Hybrid)), this, &OptimusManager::switchToHybrid);
     m_contextMenu->addSeparator();
 
-    m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), tr("Exit"), QCoreApplication::instance(), &QCoreApplication::quit);
+    m_exitAction = m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), tr("Exit"), QCoreApplication::instance(), &QCoreApplication::quit);
 
     // Setup tray
 #ifdef WITH_PLASMA
@@ -146,9 +146,9 @@ void OptimusManager::showNotification(const QString &title, const QString &messa
 void OptimusManager::loadSettings(AppSettings &appSettings)
 {
     // Context menu icons
-    m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(appSettings.gpuIconName(AppSettings::IntelGpu)));
-    m_contextMenu->actions().at(3)->setIcon(trayGpuIcon(appSettings.gpuIconName(AppSettings::NvidiaGpu)));
-    m_contextMenu->actions().at(4)->setIcon(trayGpuIcon(appSettings.gpuIconName(AppSettings::HybridGpu)));
+    m_switchToIntegratedAction->setIcon(trayGpuIcon(appSettings.gpuIconName(AppSettings::IntelGpu)));
+    m_switchToNvidiaAction->setIcon(trayGpuIcon(appSettings.gpuIconName(AppSettings::NvidiaGpu)));
+    m_switchToHybridAction->setIcon(trayGpuIcon(appSettings.gpuIconName(AppSettings::HybridGpu)));
 
     // Tray icon
     QString gpuIconName = appSettings.gpuIconName(m_currentGpu);
@@ -177,14 +177,14 @@ void OptimusManager::retranslateUi()
 #ifdef WITH_PLASMA
     m_trayIcon->setToolTipSubTitle(tr("Current video card: %1").arg(QMetaEnum::fromType<AppSettings::Gpu>().valueToKey(m_currentGpu)));
 #endif
-    m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
+    m_openSettingsAction->setText(SettingsDialog::tr("Settings"));
 
     const QMetaEnum modeEnum = QMetaEnum::fromType<OptimusSettings::Mode>();
-    m_contextMenu->actions().at(2)->setText(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Integrated)));
-    m_contextMenu->actions().at(3)->setText(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Nvidia)));
-    m_contextMenu->actions().at(4)->setText(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Hybrid)));
+    m_switchToIntegratedAction->setText(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Integrated)));
+    m_switchToNvidiaAction->setText(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Nvidia)));
+    m_switchToHybridAction->setText(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Hybrid)));
 
-    m_contextMenu->actions().at(6)->setText(tr("Exit"));
+    m_exitAction->setText(tr("Exit"));
 }
 
 void OptimusManager::switchMode(OptimusSettings::Mode switchingMode)

@@ -27,6 +27,7 @@
 class Session;
 class AppSettings;
 class QMenu;
+class QAction;
 #ifdef WITH_PLASMA
 class KStatusNotifierItem;
 #else
@@ -67,6 +68,11 @@ private:
     static bool killProcess(const QByteArray &name);
 
     QMenu *m_contextMenu;
+    QAction *m_openSettingsAction;
+    QAction *m_switchToIntegratedAction;
+    QAction *m_switchToNvidiaAction;
+    QAction *m_switchToHybridAction;
+    QAction *m_exitAction;
 #ifdef WITH_PLASMA
     KStatusNotifierItem *m_trayIcon;
 #else
