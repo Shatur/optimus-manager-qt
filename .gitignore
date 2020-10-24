@@ -10,3 +10,6 @@ compile_commands.json
 
 # Vim
 vim.json
+
+# VSCode
+.vscode
