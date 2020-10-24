@@ -20,9 +20,7 @@
 
 #include "optimusmanager.h"
 
-#include "appsettings.h"
 #include "daemonclient.h"
-#include "optimussettings.h"
 #include "session.h"
 #include "settingsdialog.h"
 #include "x11deleters.h"
@@ -66,10 +64,10 @@ OptimusManager::OptimusManager(QObject *parent)
     m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("preferences-system")), SettingsDialog::tr("Settings"), this, &OptimusManager::openSettings);
     m_contextMenu->addSeparator();
 
-    const QMetaEnum gpuEnum = QMetaEnum::fromType<OptimusSettings::GPU>();
-    m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Intel)), this, &OptimusManager::switchToIntel);
-    m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Nvidia)), this, &OptimusManager::switchToNvidia);
-    m_contextMenu->addAction(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Hybrid)), this, &OptimusManager::switchToHybrid);
+    const QMetaEnum modeEnum = QMetaEnum::fromType<OptimusSettings::Mode>();
+    m_contextMenu->addAction(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Integrated)), this, &OptimusManager::switchToIntel);
+    m_contextMenu->addAction(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Nvidia)), this, &OptimusManager::switchToNvidia);
+    m_contextMenu->addAction(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Hybrid)), this, &OptimusManager::switchToHybrid);
     m_contextMenu->addSeparator();
 
     m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), tr("Exit"), QCoreApplication::instance(), &QCoreApplication::quit);
@@ -79,7 +77,7 @@ OptimusManager::OptimusManager(QObject *parent)
     m_trayIcon->setStandardActionsEnabled(false);
     m_trayIcon->setToolTipTitle(QCoreApplication::applicationName());
     m_trayIcon->setCategory(KStatusNotifierItem::SystemServices);
-    m_trayIcon->setToolTipSubTitle(tr("Current video card: %1").arg(QMetaEnum::fromType<OptimusSettings::GPU>().valueToKey(m_currentGpu)));
+    m_trayIcon->setToolTipSubTitle(tr("Current video card: %1").arg(QMetaEnum::fromType<AppSettings::Gpu>().valueToKey(m_currentGpu)));
 #endif
     m_trayIcon->setContextMenu(m_contextMenu);
 
@@ -110,17 +108,17 @@ QIcon OptimusManager::trayGpuIcon(const QString &iconName)
 
 void OptimusManager::switchToIntel()
 {
-    switchGpu(OptimusSettings::Intel);
+    switchMode(OptimusSettings::Integrated);
 }
 
 void OptimusManager::switchToNvidia()
 {
-    switchGpu(OptimusSettings::Nvidia);
+    switchMode(OptimusSettings::Nvidia);
 }
 
 void OptimusManager::switchToHybrid()
 {
-    switchGpu(OptimusSettings::Hybrid);
+    switchMode(OptimusSettings::Hybrid);
 }
 
 void OptimusManager::openSettings()
@@ -148,9 +146,9 @@ void OptimusManager::showNotification(const QString &title, const QString &messa
 void OptimusManager::loadSettings(AppSettings &appSettings)
 {
     // Context menu icons
-    m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(appSettings.gpuIconName(OptimusSettings::Intel)));
-    m_contextMenu->actions().at(3)->setIcon(trayGpuIcon(appSettings.gpuIconName(OptimusSettings::Nvidia)));
-    m_contextMenu->actions().at(4)->setIcon(trayGpuIcon(appSettings.gpuIconName(OptimusSettings::Hybrid)));
+    m_contextMenu->actions().at(2)->setIcon(trayGpuIcon(appSettings.gpuIconName(AppSettings::IntelGpu)));
+    m_contextMenu->actions().at(3)->setIcon(trayGpuIcon(appSettings.gpuIconName(AppSettings::NvidiaGpu)));
+    m_contextMenu->actions().at(4)->setIcon(trayGpuIcon(appSettings.gpuIconName(AppSettings::HybridGpu)));
 
     // Tray icon
     QString gpuIconName = appSettings.gpuIconName(m_currentGpu);
@@ -177,19 +175,19 @@ void OptimusManager::loadSettings(AppSettings &appSettings)
 void OptimusManager::retranslateUi()
 {
 #ifdef WITH_PLASMA
-    m_trayIcon->setToolTipSubTitle(tr("Current video card: %1").arg(QMetaEnum::fromType<OptimusSettings::GPU>().valueToKey(m_currentGpu)));
+    m_trayIcon->setToolTipSubTitle(tr("Current video card: %1").arg(QMetaEnum::fromType<AppSettings::Gpu>().valueToKey(m_currentGpu)));
 #endif
     m_contextMenu->actions().at(0)->setText(SettingsDialog::tr("Settings"));
 
-    const QMetaEnum gpuEnum = QMetaEnum::fromType<OptimusSettings::GPU>();
-    m_contextMenu->actions().at(2)->setText(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Intel)));
-    m_contextMenu->actions().at(3)->setText(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Nvidia)));
-    m_contextMenu->actions().at(4)->setText(tr("Switch to %1").arg(gpuEnum.key(OptimusSettings::Hybrid)));
+    const QMetaEnum modeEnum = QMetaEnum::fromType<OptimusSettings::Mode>();
+    m_contextMenu->actions().at(2)->setText(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Integrated)));
+    m_contextMenu->actions().at(3)->setText(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Nvidia)));
+    m_contextMenu->actions().at(4)->setText(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Hybrid)));
 
     m_contextMenu->actions().at(6)->setText(tr("Exit"));
 }
 
-void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
+void OptimusManager::switchMode(OptimusSettings::Mode switchingMode)
 {
     const AppSettings appSettings;
     const OptimusSettings optimusSettings;
@@ -243,7 +241,7 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
     }
 
     // Check if nvidia module is available
-    if (switchingGpu == OptimusSettings::Nvidia && !isModuleAvailable(QStringLiteral("nvidia"))) {
+    if (switchingMode == OptimusSettings::Nvidia && !isModuleAvailable(QStringLiteral("nvidia"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
         message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg(QStringLiteral("nvidia")));
@@ -343,10 +341,10 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
     }
 
     // Check if the Xorg driver is installed
-    if (switchingGpu == OptimusSettings::Intel
+    if (switchingMode == OptimusSettings::Integrated
             && optimusSettings.intelDriver() == OptimusSettings::IntelDriver
             && !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/intel_drv.so"))
-            || !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/amdgpu_drv.so"))) {
+        || !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/amdgpu_drv.so"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
         message.setText(tr("The Xorg driver is not installed."));
@@ -371,7 +369,7 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
     }
 
     // Send GPU string to Optimus Manager daemon
-    client.setGpu(switchingGpu);
+    client.setGpu(switchingMode);
     if (client.error()) {
         QMessageBox message;
         message.setIcon(QMessageBox::Critical);
@@ -386,7 +384,7 @@ void OptimusManager::switchGpu(OptimusSettings::GPU switchingGpu)
         showNotification(tr("Configuration successfully applied"), tr("Your GPU will be switched after next login."));
 }
 
-OptimusSettings::GPU OptimusManager::detectGpu()
+AppSettings::Gpu OptimusManager::detectGpu()
 {
     if (!QX11Info::isPlatformX11())
         qFatal("Cannot start in non-X11 session");
@@ -403,17 +401,17 @@ OptimusSettings::GPU OptimusManager::detectGpu()
 
     QScopedPointer<XRRProviderInfo, ProviderInfoDeleter> providerInfo(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[0]));
     if (qstrcmp(providerInfo->name, "NVIDIA-0") == 0)
-        return OptimusSettings::Nvidia;
+        return AppSettings::NvidiaGpu;
 
     // TODO: Find a way to generalize AMD GPU names.
     if (qstrcmp(providerInfo->name, "modesetting") == 0 || qstrcmp(providerInfo->name, "Intel") == 0 || qstrcmp(providerInfo->name, "Unknown AMD Radeon GPU") >= 0) {
         for (int i = 1; i < providerResources->nproviders; ++i) {
             providerInfo.reset(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[i]));
             if (qstrcmp(providerInfo->name, "NVIDIA-G0") == 0)
-                return OptimusSettings::Hybrid;
+                return AppSettings::HybridGpu;
         }
 
-        return OptimusSettings::Intel;
+        return AppSettings::IntelGpu;
     }
 
     qFatal("Unable to detect GPU");

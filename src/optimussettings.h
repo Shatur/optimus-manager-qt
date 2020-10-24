@@ -61,13 +61,13 @@ public:
         EnableTearFree,
         DisableTearFree
     };
-    enum GPU {
-        Intel,
+    enum Mode {
+        Integrated,
         Nvidia,
         Hybrid,
         Auto
     };
-    Q_ENUM(GPU)
+    Q_ENUM(Mode)
     enum DRI {
         DRI2 = 2,
         DRI3 = 3,
@@ -103,17 +103,17 @@ public:
     void setAutoLogoutEnabled(bool enable);
     static bool defaultAutoLogoutEnabled();
 
-    GPU startupMode() const;
-    void setStartupMode(GPU gpu);
-    static GPU defaultStartupMode();
+    Mode startupMode() const;
+    void setStartupMode(Mode gpu);
+    static Mode defaultStartupMode();
 
-    GPU batteryStartupMode() const;
-    void setBatteryStartupMode(GPU gpu);
-    static GPU defaultBatteryStartupMode();
+    Mode batteryStartupMode() const;
+    void setBatteryStartupMode(Mode gpu);
+    static Mode defaultBatteryStartupMode();
 
-    GPU externalPowerStartupMode() const;
-    void setExternalPowerStartupMode(GPU gpu);
-    static GPU defaultExternalPowerStartupMode();
+    Mode externalPowerStartupMode() const;
+    void setExternalPowerStartupMode(Mode gpu);
+    static Mode defaultExternalPowerStartupMode();
 
     // Intel
     Driver intelDriver() const;
@@ -165,7 +165,7 @@ public:
     static QPair<QString, ConfigType> detectConfigPath();
     static ConfigType defaultConfigType();
 
-    static QString gpuString(GPU gpu);
+    static QString modeString(Mode gpu);
 
 private:
     static QStringList nvidiaOptionsToStrings(NvidiaOptions options);
@@ -173,7 +173,7 @@ private:
 
     // Convert enum values into Optimus Manager strings (no, yes, none etc).
     static const QMap<bool, QString> s_boolMap;
-    static const QMap<GPU, QString> s_gpuMap;
+    static const QMap<Mode, QString> s_modeMap;
     static const QMap<SwitchingMethod, QString> s_switchingMethodMap;
     static const QMap<PciReset, QString> s_pciResetMap;
     static const QMap<Driver, QString> s_driverMap;

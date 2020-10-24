@@ -66,9 +66,9 @@ void DaemonClient::disconnect()
     }
 }
 
-void DaemonClient::setGpu(OptimusSettings::GPU gpu)
+void DaemonClient::setGpu(OptimusSettings::Mode gpu)
 {
-    sendCommand(QStringLiteral("switch"), {{QStringLiteral("mode"), OptimusSettings::gpuString(gpu)}});
+    sendCommand(QStringLiteral("switch"), {{QStringLiteral("mode"), OptimusSettings::modeString(gpu)}});
 }
 
 void DaemonClient::setConfig(const QString &content)

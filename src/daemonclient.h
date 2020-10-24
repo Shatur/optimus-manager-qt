@@ -35,7 +35,7 @@ public:
     void connect();
     void disconnect();
 
-    void setGpu(OptimusSettings::GPU gpu);
+    void setGpu(OptimusSettings::Mode gpu);
     void setConfig(const QString &content);
     void setTempConfig(const QString &path);
 

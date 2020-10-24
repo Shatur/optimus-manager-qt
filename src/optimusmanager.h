@@ -22,6 +22,7 @@
 #define OPTIMUSMANAGER_H
 
 #include "optimussettings.h"
+#include "appsettings.h"
 
 class Session;
 class AppSettings;
@@ -53,9 +54,9 @@ private:
     void showNotification(const QString &title, const QString &message);
     void loadSettings(AppSettings &settings);
     void retranslateUi();
-    void switchGpu(OptimusSettings::GPU switchingGpu);
+    void switchMode(OptimusSettings::Mode switchingMode);
 
-    static OptimusSettings::GPU detectGpu();
+    static AppSettings::Gpu detectGpu();
     static bool isModuleAvailable(const QString &moduleName);
     static bool isServiceActive(const QString &serviceName);
     static bool isGdmPatched();
@@ -71,7 +72,7 @@ private:
 #else
     QSystemTrayIcon *m_trayIcon;
 #endif
-    OptimusSettings::GPU m_currentGpu;
+    AppSettings::Gpu m_currentGpu;
 };
 
 #endif // OPTIMUSMANAGER_H

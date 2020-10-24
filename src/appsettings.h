@@ -21,9 +21,8 @@
 #ifndef APPSETTINGS_H
 #define APPSETTINGS_H
 
-#include "optimussettings.h"
-
 #include <QLocale>
+#include <QSettings>
 
 class QTranslator;
 
@@ -33,6 +32,13 @@ class AppSettings : QSettings
     Q_DISABLE_COPY(AppSettings)
 
 public:
+    enum Gpu {
+        AmdGpu,
+        IntelGpu,
+        NvidiaGpu,
+        HybridGpu
+    };
+
     explicit AppSettings(QObject *parent = nullptr);
 
     // General settings
@@ -49,9 +55,9 @@ public:
     void setConfirmSwitching(bool confirm);
     static bool defaultConfirmSwitching();
 
-    QString gpuIconName(OptimusSettings::GPU gpu) const;
-    void setGpuIconName(OptimusSettings::GPU gpu, const QString &name);
-    static QString defaultTrayIconName(OptimusSettings::GPU trayStatus);
+    QString gpuIconName(Gpu gpu) const;
+    void setGpuIconName(Gpu gpu, const QString &name);
+    static QString defaultTrayIconName(Gpu trayStatus);
 
 private:
     static void loadLanguage(QLocale::Language lang);

@@ -112,30 +112,35 @@ bool AppSettings::defaultConfirmSwitching()
     return true;
 }
 
-QString AppSettings::gpuIconName(OptimusSettings::GPU gpu) const
+QString AppSettings::gpuIconName(Gpu gpu) const
 {
     switch (gpu) {
-    case OptimusSettings::Intel:
-        return value(QStringLiteral("IntelIcon"), defaultTrayIconName(OptimusSettings::Intel)).toString();
-    case OptimusSettings::Nvidia:
-        return value(QStringLiteral("NvidiaIcon"), defaultTrayIconName(OptimusSettings::Nvidia)).toString();
-    case OptimusSettings::Hybrid:
-        return value(QStringLiteral("HybridIcon"), defaultTrayIconName(OptimusSettings::Hybrid)).toString();
+    case AmdGpu:
+        return value(QStringLiteral("AmdIcon"), defaultTrayIconName(AmdGpu)).toString();
+    case IntelGpu:
+        return value(QStringLiteral("IntelIcon"), defaultTrayIconName(IntelGpu)).toString();
+    case NvidiaGpu:
+        return value(QStringLiteral("NvidiaIcon"), defaultTrayIconName(NvidiaGpu)).toString();
+    case HybridGpu:
+        return value(QStringLiteral("HybridIcon"), defaultTrayIconName(HybridGpu)).toString();
     default:
         qFatal("Unknown GPU");
     }
 }
 
-void AppSettings::setGpuIconName(OptimusSettings::GPU gpu, const QString &name)
+void AppSettings::setGpuIconName(Gpu gpu, const QString &name)
 {
     switch (gpu) {
-    case OptimusSettings::Intel:
+    case AmdGpu:
+        setValue(QStringLiteral("AmdIcon"), name);
+        break;
+    case IntelGpu:
         setValue(QStringLiteral("IntelIcon"), name);
         break;
-    case OptimusSettings::Nvidia:
+    case NvidiaGpu:
         setValue(QStringLiteral("NvidiaIcon"), name);
         break;
-    case OptimusSettings::Hybrid:
+    case HybridGpu:
         setValue(QStringLiteral("HybridIcon"), name);
         break;
     default:
@@ -143,14 +148,16 @@ void AppSettings::setGpuIconName(OptimusSettings::GPU gpu, const QString &name)
     }
 }
 
-QString AppSettings::defaultTrayIconName(OptimusSettings::GPU trayStatus)
+QString AppSettings::defaultTrayIconName(Gpu trayStatus)
 {
     switch (trayStatus) {
-    case OptimusSettings::Intel:
+    case AmdGpu:
+        return QStringLiteral("prime-amd");
+    case IntelGpu:
         return QStringLiteral("prime-intel");
-    case OptimusSettings::Nvidia:
+    case NvidiaGpu:
         return QStringLiteral("prime-nvidia");
-    case OptimusSettings::Hybrid:
+    case HybridGpu:
         return QStringLiteral("prime-hybrid");
     default:
         qFatal("Unknown GPU");
