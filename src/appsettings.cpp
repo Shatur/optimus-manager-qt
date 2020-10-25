@@ -115,10 +115,10 @@ bool AppSettings::defaultConfirmSwitching()
 QString AppSettings::gpuIconName(Gpu gpu) const
 {
     switch (gpu) {
-    case AmdGpu:
-        return value(QStringLiteral("AmdIcon"), defaultTrayIconName(AmdGpu)).toString();
     case IntelGpu:
         return value(QStringLiteral("IntelIcon"), defaultTrayIconName(IntelGpu)).toString();
+    case AmdGpu:
+        return value(QStringLiteral("AmdIcon"), defaultTrayIconName(AmdGpu)).toString();
     case NvidiaGpu:
         return value(QStringLiteral("NvidiaIcon"), defaultTrayIconName(NvidiaGpu)).toString();
     case HybridGpu:
@@ -131,11 +131,11 @@ QString AppSettings::gpuIconName(Gpu gpu) const
 void AppSettings::setGpuIconName(Gpu gpu, const QString &name)
 {
     switch (gpu) {
-    case AmdGpu:
-        setValue(QStringLiteral("AmdIcon"), name);
-        break;
     case IntelGpu:
         setValue(QStringLiteral("IntelIcon"), name);
+        break;
+    case AmdGpu:
+        setValue(QStringLiteral("AmdIcon"), name);
         break;
     case NvidiaGpu:
         setValue(QStringLiteral("NvidiaIcon"), name);

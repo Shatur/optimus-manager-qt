@@ -33,8 +33,8 @@ class AppSettings : QSettings
 
 public:
     enum Gpu {
-        AmdGpu,
         IntelGpu,
+        AmdGpu,
         NvidiaGpu,
         HybridGpu
     };
