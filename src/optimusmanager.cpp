@@ -201,6 +201,17 @@ void OptimusManager::switchMode(OptimusSettings::Mode switchingMode)
             return;
     }
 
+    // Check if daemon is active
+    if (const QString daemon = QStringLiteral("optimus-manager.service"); !isServiceActive(daemon) && !QFileInfo::exists(QStringLiteral("/var/service/optimus-manager/run"))) {
+        QMessageBox message;
+        message.setIcon(QMessageBox::Critical);
+        message.setText(tr("The %1 is running.").arg(daemon));
+        message.setInformativeText(tr("Please enable and start it with:\n'%1'\n'%2'")
+                                   .arg("sudo systemctl enable optimus-manager", "sudo systemctl start optimus-manager"));
+        message.exec();
+        return;
+    }
+
     // Check if power switching enabled
     if (optimusSettings.switchingMethod() == OptimusSettings::NoneMethod && !optimusSettings.isPciPowerControlEnabled()) {
         QMessageBox message;
@@ -212,38 +223,31 @@ void OptimusManager::switchMode(OptimusSettings::Mode switchingMode)
         message.exec();
     }
 
-    // Check if daemon is active
-    if (!isServiceActive(QStringLiteral("optimus-manager.service")) && !QFileInfo::exists(QStringLiteral("/var/service/optimus-manager/run"))) {
-        QMessageBox message;
-        message.setIcon(QMessageBox::Critical);
-        message.setText(tr("The Optimus Manager service is not running."));
-        message.setInformativeText(tr("Please enable and start it with:\n'%1'\n'%2'")
-                                   .arg("sudo systemctl enable optimus-manager", "sudo systemctl start optimus-manager"));
-        message.exec();
-        return;
-    }
-
     // Check if bbswitch module is available
-    if (optimusSettings.switchingMethod() == OptimusSettings::Bbswitch && !isModuleAvailable(QStringLiteral("bbswitch"))) {
-        QMessageBox message;
-        message.setIcon(QMessageBox::Warning);
-        message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg(QStringLiteral("bbswitch")));
-        message.setInformativeText(tr("Power switching will not work.\n"
-                                      "You can set '%1' for GPU switching in settings or install bbswitch for"
-                                      " the default kernel with '%2' or for all kernels with '%3'.")
-                                   .arg("nouveau", "sudo pacman -S bbswitch", "sudo pacman -S bbswitch-dkms"));
-        message.exec();
+    if (optimusSettings.switchingMethod() == OptimusSettings::Bbswitch) {
+        if (const QString bbswitch = QStringLiteral("bbswitch"); !isModuleAvailable(bbswitch)) {
+            QMessageBox message;
+            message.setIcon(QMessageBox::Warning);
+            message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg(bbswitch));
+            message.setInformativeText(tr("Power switching will not work.\n"
+                                          "You can set '%1' for GPU switching in settings or install bbswitch for"
+                                          " the default kernel with '%2' or for all kernels with '%3'.")
+                                       .arg("nouveau", "sudo pacman -S bbswitch", "sudo pacman -S bbswitch-dkms"));
+            message.exec();
+        }
     }
 
     // Check if nvidia module is available
-    if (switchingMode == OptimusSettings::Nvidia && !isModuleAvailable(QStringLiteral("nvidia"))) {
-        QMessageBox message;
-        message.setIcon(QMessageBox::Question);
-        message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg(QStringLiteral("nvidia")));
-        message.setInformativeText(tr("It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?"));
-        message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-        if (message.exec() == QMessageBox::No)
-            return;
+    if (switchingMode == OptimusSettings::Nvidia) {
+        if (const QString nvidia = QStringLiteral("nvidia"); !isModuleAvailable(nvidia)) {
+            QMessageBox message;
+            message.setIcon(QMessageBox::Question);
+            message.setText(tr("The %1 module does not seem to be available for the current kernel.").arg(nvidia));
+            message.setInformativeText(tr("It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?"));
+            message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+            if (message.exec() == QMessageBox::No)
+                return;
+        }
     }
 
     // Check if GDM is patched
@@ -295,10 +299,10 @@ void OptimusManager::switchMode(OptimusSettings::Mode switchingMode)
     }
 
     // Check if Bumblebee service is active
-    if (isServiceActive(QStringLiteral("bumblebeed.service"))) {
+    if (const QString bumblebeed = QStringLiteral("bumblebeed.service"); isServiceActive(bumblebeed)) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
-        message.setText(tr("The Bumblebee service (%1) is running.").arg(QStringLiteral("bumblebeed.service")));
+        message.setText(tr("The %1 is running.").arg(bumblebeed));
         message.setInformativeText(tr("This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable"
                                       " this service with '%1' and reboot your computer.\n"
                                       "Ignore this warning and proceed with GPU switching now?")
@@ -309,10 +313,10 @@ void OptimusManager::switchMode(OptimusSettings::Mode switchingMode)
     }
 
     // Check if the default xorg config is exists
-    if (QFileInfo::exists(QStringLiteral("/etc/X11/xorg.conf"))) {
+    if (const QString xorgConfig QStringLiteral("/etc/X11/xorg.conf"); QFileInfo::exists(xorgConfig)) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
-        message.setText(tr("Found a Xorg config file at '%1'.").arg(QStringLiteral("/etc/X11/xorg.conf")));
+        message.setText(tr("Found a Xorg config file at '%1'.").arg(xorgConfig));
         message.setInformativeText(tr("If you did not create it yourself, it was likely generated by your distribution or by an Nvidia utility.\n"
                                       "This file may contain hard-coded GPU configuration that could interfere with Optimus Manager,"
                                       " so it is recommended that you delete it before proceeding.\n"
@@ -323,10 +327,10 @@ void OptimusManager::switchMode(OptimusSettings::Mode switchingMode)
     }
 
     // Check if the Manjaro MHWD config is exists
-    if (QFileInfo::exists(QStringLiteral("/etc/X11/xorg.conf.d/90-mhwd.conf"))) {
+    if (const QString mhwdConfig = QStringLiteral("/etc/X11/xorg.conf.d/90-mhwd.conf"); QFileInfo::exists(mhwdConfig)) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
-        message.setText(tr("Found a Xorg config file at '%1'.").arg(QStringLiteral("/etc/X11/xorg.conf.d/90-mhwd.conf")));
+        message.setText(tr("Found a Xorg config file at '%1'.").arg(mhwdConfig));
         message.setInformativeText(tr("This file was auto-generated by the Manjaro driver utility (MHWD). This will likely interfere with GPU switching,"
                                       " so Optimus Manager will delete this file automatically if you proceded with GPU switching.\n"
                                       "Proceed?"));
