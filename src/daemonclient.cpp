@@ -81,7 +81,7 @@ void DaemonClient::setTempConfig(const QString &path)
     sendCommand(QStringLiteral("temp_config"), {{QStringLiteral("path"), path}});
 }
 
-bool DaemonClient::error()
+bool DaemonClient::error() const
 {
     return m_error;
 }

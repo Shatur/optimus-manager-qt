@@ -39,7 +39,7 @@ public:
     void setConfig(const QString &content);
     void setTempConfig(const QString &path);
 
-    bool error();
+    bool error() const;
     QString errorString();
 
 private:

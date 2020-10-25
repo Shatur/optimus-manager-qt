@@ -478,7 +478,7 @@ QString SettingsDialog::configurationPath() const
 {
     if (ui->optimusConfigTypeComboBox->currentIndex() == OptimusSettings::Permanent) {
         // Create a temporary file that will be used for sending to the daemon
-        const QString path = QDir::tempPath() + QStringLiteral("/optimus-manager.conf");
+        QString path = QDir::tempPath() + QStringLiteral("/optimus-manager.conf");
         QFile::copy(OptimusSettings::permanentConfigPath(), path);
         return path;
     }

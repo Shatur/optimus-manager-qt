@@ -43,7 +43,7 @@
 
 #include <X11/extensions/Xrandr.h>
 
-#include <signal.h>
+#include <csignal>
 #include <sys/types.h>
 
 OptimusManager::OptimusManager(QObject *parent)
@@ -387,7 +387,7 @@ AppSettings::Gpu OptimusManager::detectGpu()
     if (!QX11Info::isPlatformX11())
         qFatal("Cannot start in non-X11 session");
 
-    const unsigned long root = RootWindow(QX11Info::display(), QX11Info::appScreen());
+    const unsigned long root = XRootWindow(QX11Info::display(), QX11Info::appScreen());
 
     QScopedPointer<XRRScreenResources, ScreenResourcesDeleter> screenResources(XRRGetScreenResourcesCurrent(QX11Info::display(), root));
     if (screenResources.isNull())
