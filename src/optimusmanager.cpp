@@ -142,7 +142,6 @@ void OptimusManager::showNotification(const QString &title, const QString &messa
 void OptimusManager::loadSettings(AppSettings &appSettings)
 {
     // Context menu icons
-    m_switchToIntegratedAction->setIcon(trayGpuIcon(appSettings.gpuIconName(AppSettings::IntelGpu)));
     m_switchToNvidiaAction->setIcon(trayGpuIcon(appSettings.gpuIconName(AppSettings::NvidiaGpu)));
     m_switchToHybridAction->setIcon(trayGpuIcon(appSettings.gpuIconName(AppSettings::HybridGpu)));
 
