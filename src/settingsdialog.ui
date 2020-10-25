@@ -496,7 +496,7 @@
            <item row="3" column="0" colspan="3">
             <widget class="QCheckBox" name="pciPowerControlCheckBox">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in Intel mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching methods, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable PCI power management in &lt;span style=&quot; font-style:italic;&quot;&gt;Integrated&lt;/span&gt; mode&lt;/p&gt;&lt;p&gt;This option is incompatible with ACPI call and Bbswitch switching methods, so it will be ignored in those cases&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string>PCI power control</string>
@@ -886,7 +886,7 @@
           <property name="title">
            <string notr="true">AMD</string>
           </property>
-          <layout class="QGridLayout" name="gridLayout_7">
+          <layout class="QGridLayout" name="amdLayout">
            <item row="1" column="0">
             <widget class="QLabel" name="amdTearFreeLabel">
              <property name="text">
