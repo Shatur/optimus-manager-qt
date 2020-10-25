@@ -97,13 +97,9 @@ OptimusManager::~OptimusManager()
 
 QIcon OptimusManager::trayGpuIcon(const QString &iconName)
 {
-    if (QIcon::hasThemeIcon(iconName))
-        return QIcon::fromTheme(iconName);
-
     if (QFileInfo::exists(iconName))
         return QIcon(iconName);
-
-    return QIcon();
+    return QIcon::fromTheme(iconName);
 }
 
 void OptimusManager::switchToIntel()
