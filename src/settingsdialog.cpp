@@ -142,6 +142,11 @@ void SettingsDialog::browseIntelIcon()
     browseIcon(ui->intelIconEdit);
 }
 
+void SettingsDialog::browseAmdIcon() 
+{
+    browseIcon(ui->amdIconEdit);
+}
+
 void SettingsDialog::browseNvidiaIcon()
 {
     browseIcon(ui->nvidiaIconEdit);
@@ -154,20 +159,22 @@ void SettingsDialog::browseHybridIcon()
 
 void SettingsDialog::previewIntelIcon(const QString &fileName)
 {
-    const QIcon icon = OptimusManager::trayGpuIcon(fileName);
-    ui->intelIconButton->setIcon(icon);
+    ui->intelIconButton->setIcon(OptimusManager::trayGpuIcon(fileName));
+}
+
+void SettingsDialog::previewAmdIcon(const QString &fileName) 
+{
+    ui->amdIconButton->setIcon(OptimusManager::trayGpuIcon(fileName));
 }
 
 void SettingsDialog::previewNvidiaIcon(const QString &fileName)
 {
-    const QIcon icon = OptimusManager::trayGpuIcon(fileName);
-    ui->nvidiaIconButton->setIcon(icon);
+    ui->nvidiaIconButton->setIcon(OptimusManager::trayGpuIcon(fileName));
 }
 
 void SettingsDialog::previewHybridIcon(const QString &fileName)
 {
-    const QIcon icon = OptimusManager::trayGpuIcon(fileName);
-    ui->hybridIconButton->setIcon(icon);
+    ui->hybridIconButton->setIcon(OptimusManager::trayGpuIcon(fileName));
 }
 
 void SettingsDialog::disableAutoStartupModes(int startupMode)
@@ -299,6 +306,7 @@ void SettingsDialog::restoreDefaults()
     ui->autostartCheckBox->setChecked(AppSettings::defaultAutostartEnabled());
     ui->confirmSwitchingCheckBox->setChecked(AppSettings::defaultConfirmSwitching());
     ui->intelIconEdit->setText(AppSettings::defaultTrayIconName(AppSettings::IntelGpu));
+    ui->amdIconEdit->setText(AppSettings::defaultTrayIconName(AppSettings::AmdGpu));
     ui->nvidiaIconEdit->setText(AppSettings::defaultTrayIconName(AppSettings::NvidiaGpu));
     ui->hybridIconEdit->setText(AppSettings::defaultTrayIconName(AppSettings::HybridGpu));
 
@@ -345,6 +353,7 @@ void SettingsDialog::loadAppSettings()
     ui->autostartCheckBox->setChecked(AppSettings::isAutostartEnabled());
     ui->confirmSwitchingCheckBox->setChecked(settings.isConfirmSwitching());
     ui->intelIconEdit->setText(settings.gpuIconName(AppSettings::IntelGpu));
+    ui->amdIconEdit->setText(settings.gpuIconName(AppSettings::AmdGpu));
     ui->nvidiaIconEdit->setText(settings.gpuIconName(AppSettings::NvidiaGpu));
     ui->hybridIconEdit->setText(settings.gpuIconName(AppSettings::HybridGpu));
 }
@@ -363,6 +372,7 @@ void SettingsDialog::saveAppSettings()
     AppSettings::setAutostartEnabled(ui->autostartCheckBox->isChecked());
     appSettings.setConfirmSwitching(ui->confirmSwitchingCheckBox->isChecked());
     appSettings.setGpuIconName(AppSettings::IntelGpu, ui->intelIconEdit->text());
+    appSettings.setGpuIconName(AppSettings::AmdGpu, ui->amdIconEdit->text());
     appSettings.setGpuIconName(AppSettings::NvidiaGpu, ui->nvidiaIconEdit->text());
     appSettings.setGpuIconName(AppSettings::HybridGpu, ui->hybridIconEdit->text());
 }

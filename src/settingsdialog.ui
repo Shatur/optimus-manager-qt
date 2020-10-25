@@ -95,7 +95,8 @@
         <string notr="true">AMD</string>
        </property>
        <property name="icon">
-        <iconset theme="amd"/>
+        <iconset theme="amd">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </item>
       <item>
@@ -191,36 +192,8 @@
            <string>Tray icons</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
-           <item row="3" column="1">
-            <widget class="QToolButton" name="nvidiaIconButton">
-             <property name="toolTip">
-              <string>Choose icon</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QToolButton" name="intelIconButton">
-             <property name="toolTip">
-              <string>Choose icon</string>
-             </property>
-            </widget>
-           </item>
            <item row="3" column="2">
             <widget class="QLineEdit" name="nvidiaIconEdit">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="intelIconLabel">
-             <property name="text">
-              <string>Intel icon:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QLineEdit" name="intelIconEdit">
              <property name="toolTip">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
@@ -240,11 +213,52 @@
              </property>
             </widget>
            </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="intelIconLabel">
+             <property name="text">
+              <string>Intel icon:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QToolButton" name="intelIconButton">
+             <property name="toolTip">
+              <string>Choose icon</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QToolButton" name="nvidiaIconButton">
+             <property name="toolTip">
+              <string>Choose icon</string>
+             </property>
+            </widget>
+           </item>
            <item row="4" column="1">
             <widget class="QToolButton" name="hybridIconButton"/>
            </item>
            <item row="4" column="2">
             <widget class="QLineEdit" name="hybridIconEdit"/>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLineEdit" name="intelIconEdit">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="amdIconLabel">
+             <property name="text">
+              <string>AMD icon:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QToolButton" name="amdIconButton"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="amdIconEdit"/>
            </item>
           </layout>
          </widget>
@@ -1602,6 +1616,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>amdIconButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SettingsDialog</receiver>
+   <slot>browseAmdIcon()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>235</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>amdIconEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>SettingsDialog</receiver>
+   <slot>previewAmdIcon(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>559</x>
+     <y>235</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>browseNvidiaIcon()</slot>
@@ -1620,5 +1666,7 @@
   <slot>exportOptimusConfig()</slot>
   <slot>importOptimusConfig()</slot>
   <slot>disableAutoStartupModes(int)</slot>
+  <slot>browseAmdIcon()</slot>
+  <slot>previewAmdIcon(QString)</slot>
  </slots>
 </ui>

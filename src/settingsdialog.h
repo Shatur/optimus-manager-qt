@@ -45,9 +45,11 @@ public slots:
 
 private slots:
     void browseIntelIcon();
+    void browseAmdIcon();
     void browseNvidiaIcon();
     void browseHybridIcon();
     void previewIntelIcon(const QString &fileName);
+    void previewAmdIcon(const QString &fileName);
     void previewNvidiaIcon(const QString &fileName);
     void previewHybridIcon(const QString &fileName);
 
