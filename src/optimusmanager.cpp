@@ -70,7 +70,7 @@ OptimusManager::OptimusManager(QObject *parent)
     m_switchToHybridAction = m_contextMenu->addAction(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Hybrid)), this, &OptimusManager::switchToHybrid);
     m_contextMenu->addSeparator();
 
-    m_exitAction = m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), tr("Exit"), QCoreApplication::instance(), &QCoreApplication::quit);
+    m_exitAction = m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), tr("Quit"), QCoreApplication::instance(), &QCoreApplication::quit);
 
     // Setup tray
 #ifdef WITH_PLASMA
@@ -179,7 +179,7 @@ void OptimusManager::retranslateUi()
     m_switchToNvidiaAction->setText(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Nvidia)));
     m_switchToHybridAction->setText(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Hybrid)));
 
-    m_exitAction->setText(tr("Exit"));
+    m_exitAction->setText(tr("Quit"));
 }
 
 void OptimusManager::switchMode(OptimusSettings::Mode switchingMode)
