@@ -35,8 +35,10 @@ const QMap<OptimusSettings::SwitchingMethod, QString> OptimusSettings::s_switchi
 const QMap<OptimusSettings::PciReset, QString> OptimusSettings::s_pciResetMap = {{NoReset, s_boolMap[false]},
                                                                                  {FunctionLevelReset, QStringLiteral("function_level")},
                                                                                  {HotReset, QStringLiteral("hot_reset")}};
-const QMap<OptimusSettings::Driver, QString> OptimusSettings::s_driverMap = {{Modesetting, QStringLiteral("modesetting")},
-                                                                             {IntelDriver, QStringLiteral("intel")}};
+const QMap<OptimusSettings::IntelDriver, QString> OptimusSettings::s_intelDriverMap = {{IntelModesetting, QStringLiteral("modesetting")},
+                                                                                       {Intel, QStringLiteral("intel")}};
+const QMap<OptimusSettings::AmdDriver, QString> OptimusSettings::s_amdDriverMap = {{AmdModesetting, s_intelDriverMap[IntelModesetting]},
+                                                                                   {Amd, QStringLiteral("amdgpu")}};
 const QMap<OptimusSettings::AccelMethod, QString> OptimusSettings::s_accelMethodMap = {{DefaultMethod, {}},
                                                                                        {SNA, QStringLiteral("sna")},
                                                                                        {XNA, QStringLiteral("xna")},
@@ -185,20 +187,20 @@ OptimusSettings::Mode OptimusSettings::defaultExternalPowerStartupMode()
     return Nvidia;
 }
 
-OptimusSettings::Driver OptimusSettings::intelDriver() const
+OptimusSettings::IntelDriver OptimusSettings::intelDriver() const
 {
     const QString driverString = value(QStringLiteral("intel/driver")).toString();
-    return s_driverMap.key(driverString, defaultIntelDriver());
+    return s_intelDriverMap.key(driverString, defaultIntelDriver());
 }
 
-void OptimusSettings::setIntelDriver(OptimusSettings::Driver driver)
+void OptimusSettings::setIntelDriver(OptimusSettings::IntelDriver driver)
 {
-    setValue(QStringLiteral("intel/driver"), s_driverMap[driver]);
+    setValue(QStringLiteral("intel/driver"), s_intelDriverMap[driver]);
 }
 
-OptimusSettings::Driver OptimusSettings::defaultIntelDriver()
+OptimusSettings::IntelDriver OptimusSettings::defaultIntelDriver()
 {
-    return Modesetting;
+    return IntelModesetting;
 }
 
 OptimusSettings::AccelMethod OptimusSettings::intelAccelMethod() const
@@ -262,6 +264,53 @@ void OptimusSettings::setIntelModesetEnabled(bool enabled)
 bool OptimusSettings::defaultIntelModesetEnabled()
 {
     return true;
+}
+
+OptimusSettings::AmdDriver OptimusSettings::amdDriver() const
+{
+    const QString driverString = value(QStringLiteral("amd/driver")).toString();
+    return s_amdDriverMap.key(driverString, defaultAmdDriver());
+}
+
+void OptimusSettings::setAmdDriver(AmdDriver driver)
+{
+    setValue(QStringLiteral("amd/driver"), s_amdDriverMap[driver]);
+}
+
+OptimusSettings::AmdDriver OptimusSettings::defaultAmdDriver()
+{
+    return AmdModesetting;
+}
+
+bool OptimusSettings::amdTearFree() const
+{
+    const QString tearFreeString = value(QStringLiteral("amd/driver")).toString();
+    return s_tearFreeMap.key(tearFreeString, defaultIntelTearFree());
+}
+
+void OptimusSettings::setAmdTearFree(TearFree tearFree) 
+{
+    setValue(QStringLiteral("amd/tearfree"), s_tearFreeMap[tearFree]);
+}
+
+bool OptimusSettings::defaultAmdTearFree() 
+{
+    return DefaultTearFree;
+}
+
+OptimusSettings::DRI OptimusSettings::amdDri() const
+{
+    return value(QStringLiteral("intel/DRI"), defaultIntelDri()).value<DRI>();
+}
+
+void OptimusSettings::setAmdDri(DRI dri) 
+{
+    setValue(QStringLiteral("amd/DRI"), dri);
+}
+
+OptimusSettings::DRI OptimusSettings::defaultAmdDri() 
+{
+    return DRI3;
 }
 
 bool OptimusSettings::isNvidiaModesetEnabled() const

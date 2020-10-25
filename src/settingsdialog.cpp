@@ -222,7 +222,7 @@ void SettingsDialog::disablePciResetIgnored(int pciResetType)
 
 void SettingsDialog::disableIntelDriverIgnored(int intelDriver)
 {
-    if (intelDriver == OptimusSettings::IntelDriver) {
+    if (intelDriver == OptimusSettings::Intel) {
         ui->intelAccelMethodComboBox->setEnabled(true);
         ui->intelTearFreeComboBox->setEnabled(true);
     } else {
@@ -320,6 +320,11 @@ void SettingsDialog::restoreDefaults()
     ui->intelDriComboBox->setCurrentIndex(OptimusSettings::defaultIntelDri());
     ui->intelModesetCheckBox->setChecked(OptimusSettings::defaultIntelModesetEnabled());
 
+    // AMD settings
+    ui->amdDriverComboBox->setCurrentIndex(OptimusSettings::defaultAmdDriver());
+    ui->amdTearFreeComboBox->setCurrentIndex(OptimusSettings::defaultAmdTearFree());
+    ui->amdDriComboBox->setCurrentIndex(OptimusSettings::defaultAmdDri());
+
     // Nvidia settings
     ui->nvidiaDpiSpinBox->setValue(OptimusSettings::defaultNvidiaDpi());
     ui->nvidiaModesetCheckBox->setChecked(OptimusSettings::defaultNvidiaModesetEnabled());
@@ -382,6 +387,11 @@ void SettingsDialog::loadOptimusSettings(const QString &path)
     ui->intelDriComboBox->setCurrentText(QString::number(optimusSettings.intelDri()));
     ui->intelModesetCheckBox->setChecked(optimusSettings.isIntelModesetEnabled());
 
+    // AMD settings
+    ui->amdDriverComboBox->setCurrentIndex(optimusSettings.amdDriver());
+    ui->amdTearFreeComboBox->setCurrentIndex(optimusSettings.amdTearFree());
+    ui->amdDriComboBox->setCurrentText(QString::number(optimusSettings.amdDri()));
+
     // Nvidia settings
     ui->nvidiaDpiSpinBox->setValue(optimusSettings.nvidiaDpi());
     ui->nvidiaModesetCheckBox->setChecked(optimusSettings.isNvidiaModesetEnabled());
@@ -408,11 +418,16 @@ void SettingsDialog::saveOptimusSettings(const QString &path) const
     optimusSettings.setExternalPowerStartupMode(static_cast<OptimusSettings::Mode>(ui->externalPowerStartupModeComboBox->currentIndex()));
 
     // Intel settings
-    optimusSettings.setIntelDriver(static_cast<OptimusSettings::Driver>(ui->intelDriverComboBox->currentIndex()));
+    optimusSettings.setIntelDriver(static_cast<OptimusSettings::IntelDriver>(ui->intelDriverComboBox->currentIndex()));
     optimusSettings.setIntelAccelMethod(static_cast<OptimusSettings::AccelMethod>(ui->intelAccelMethodComboBox->currentIndex()));
     optimusSettings.setIntelTearFree(static_cast<OptimusSettings::TearFree>(ui->intelTearFreeComboBox->currentIndex()));
     optimusSettings.setIntelDri(static_cast<OptimusSettings::DRI>(ui->intelDriComboBox->currentText().toInt()));
     optimusSettings.setIntelModesetEnabled(ui->intelModesetCheckBox->isChecked());
+
+    // AMD settings
+    optimusSettings.setAmdDriver(static_cast<OptimusSettings::AmdDriver>(ui->amdDriverComboBox->currentIndex()));
+    optimusSettings.setAmdTearFree(static_cast<OptimusSettings::TearFree>(ui->amdTearFreeComboBox->currentIndex()));
+    optimusSettings.setAmdDri(static_cast<OptimusSettings::DRI>(ui->amdDriComboBox->currentText().toInt()));
 
     // Nvidia settings
     optimusSettings.setNvidiaDpi(ui->nvidiaDpiSpinBox->value());

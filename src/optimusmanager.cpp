@@ -341,16 +341,15 @@ void OptimusManager::switchMode(OptimusSettings::Mode switchingMode)
 
     // Check if the Xorg driver is installed
     if (switchingMode == OptimusSettings::Integrated
-            && optimusSettings.intelDriver() == OptimusSettings::IntelDriver
-            && !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/intel_drv.so"))
-        || !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/amdgpu_drv.so"))) {
+            && optimusSettings.intelDriver() == OptimusSettings::Intel && !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/intel_drv.so"))
+            && optimusSettings.amdDriver() == OptimusSettings::Amd && !QFileInfo::exists(QStringLiteral("/usr/lib/xorg/modules/drivers/amdgpu_drv.so"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Question);
         message.setText(tr("The Xorg driver is not installed."));
-        message.setInformativeText(tr("Optimus Manager will use '%1' driver instead. You can change driver in settings or install the"
-                                      " '%2' driver from the package '%3'.\n"
+        message.setInformativeText(tr("Optimus Manager will use '%1' driver instead. You can change '%2' driver to '%1' in settings or"
+                                      " install '%2' driver from the '%3' package.\n"
                                       "Continue anyway?")
-                                   .arg("modesetting", "Intel/AMD", "xf86-video-intel/xf86-video-amdgpu"));
+                                       .arg("modesetting", "Intel/AMD", "xf86-video-intel/xf86-video-amdgpu"));
         message.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         if (message.exec() == QMessageBox::No)
             return;

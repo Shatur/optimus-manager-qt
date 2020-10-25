@@ -46,9 +46,13 @@ public:
         FunctionLevelReset,
         HotReset
     };
-    enum Driver {
-        Modesetting,
-        IntelDriver
+    enum IntelDriver {
+        IntelModesetting,
+        Intel
+    };
+    enum AmdDriver {
+        AmdModesetting,
+        Amd
     };
     enum AccelMethod {
         DefaultMethod,
@@ -116,9 +120,9 @@ public:
     static Mode defaultExternalPowerStartupMode();
 
     // Intel
-    Driver intelDriver() const;
-    void setIntelDriver(Driver driver);
-    static Driver defaultIntelDriver();
+    IntelDriver intelDriver() const;
+    void setIntelDriver(IntelDriver driver);
+    static IntelDriver defaultIntelDriver();
 
     AccelMethod intelAccelMethod() const;
     void setIntelAccelMethod(AccelMethod method);
@@ -135,6 +139,19 @@ public:
     bool isIntelModesetEnabled() const;
     void setIntelModesetEnabled(bool enabled);
     static bool defaultIntelModesetEnabled();
+
+    // Amd
+    AmdDriver amdDriver() const;
+    void setAmdDriver(AmdDriver driver);
+    static AmdDriver defaultAmdDriver();
+
+    bool amdTearFree() const;
+    void setAmdTearFree(TearFree tearFree);
+    static bool defaultAmdTearFree();
+
+    DRI amdDri() const;
+    void setAmdDri(DRI dri);
+    static DRI defaultAmdDri();
 
     // Nvidia
     bool isNvidiaModesetEnabled() const;
@@ -176,7 +193,8 @@ private:
     static const QMap<Mode, QString> s_modeMap;
     static const QMap<SwitchingMethod, QString> s_switchingMethodMap;
     static const QMap<PciReset, QString> s_pciResetMap;
-    static const QMap<Driver, QString> s_driverMap;
+    static const QMap<IntelDriver, QString> s_intelDriverMap;
+    static const QMap<AmdDriver, QString> s_amdDriverMap;
     static const QMap<AccelMethod, QString> s_accelMethodMap;
     static const QMap<TearFree, QString> s_tearFreeMap;
     static const QMap<NvidiaOption, QString> s_nvidiaOptionMap;
