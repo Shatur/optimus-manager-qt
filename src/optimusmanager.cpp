@@ -65,7 +65,7 @@ OptimusManager::OptimusManager(QObject *parent)
     m_contextMenu->addSeparator();
 
     const QMetaEnum modeEnum = QMetaEnum::fromType<OptimusSettings::Mode>();
-    m_switchToIntegratedAction = m_contextMenu->addAction(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Integrated)), this, &OptimusManager::switchToIntel);
+    m_switchToIntegratedAction = m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("cpu")), tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Integrated)), this, &OptimusManager::switchToIntel);
     m_switchToNvidiaAction = m_contextMenu->addAction(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Nvidia)), this, &OptimusManager::switchToNvidia);
     m_switchToHybridAction = m_contextMenu->addAction(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Hybrid)), this, &OptimusManager::switchToHybrid);
     m_contextMenu->addSeparator();
