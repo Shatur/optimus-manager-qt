@@ -431,8 +431,8 @@ bool OptimusManager::isModuleAvailable(const QString &moduleName)
     if (!modulesFile.open(QIODevice::ReadOnly))
         return false;
 
-    for (QByteArray moduleInfo = modulesFile.readLine(); !moduleInfo.isNull(); moduleInfo = modulesFile.readLine()) {
-        moduleInfo = moduleInfo.trimmed();
+    while (!modulesFile.atEnd()) {
+        const QByteArray moduleInfo = modulesFile.readLine().trimmed();
         if (moduleInfo.startsWith('#')) // Ignore comment lines
             continue;
 
