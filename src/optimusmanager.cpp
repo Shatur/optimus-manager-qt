@@ -402,12 +402,25 @@ AppSettings::Gpu OptimusManager::detectGpu()
 
     QScopedPointer<XRRProviderInfo, ProviderInfoDeleter> providerInfo(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[0]));
     const QByteArray gpuName = QByteArray::fromRawData(providerInfo->name, qstrlen(providerInfo->name));
-    if (gpuName.startsWith("modesetting") || gpuName.startsWith("Intel"))
+    if (gpuName.startsWith("Intel"))
         return AppSettings::IntelGpu;
     if (gpuName.startsWith("Unknown AMD Radeon GPU"))
         return AppSettings::AmdGpu;
     if (gpuName.startsWith("NVIDIA"))
         return AppSettings::NvidiaGpu;
+
+    // Modesetting driver can be used by both Intel and Amd, need to determine the type of CPU
+    if (gpuName.startsWith("modesetting")) {
+        QFile cpuInfo(QStringLiteral("/proc/cpuinfo"));
+        cpuInfo.open(QIODevice::ReadOnly);
+        while (!cpuInfo.atEnd()) {
+            const QByteArray line = cpuInfo.readLine();
+            if (line.endsWith("GenuineIntel"))
+                return AppSettings::IntelGpu;
+            if (line.endsWith("AuthenticAMD"))
+                return AppSettings::AmdGpu;
+        }
+    }
 
     qFatal("Unable to detect GPU");
 }
