@@ -413,8 +413,7 @@ AppSettings::Gpu OptimusManager::detectGpu()
     if (gpuName.startsWith("modesetting")) {
         QFile cpuInfo(QStringLiteral("/proc/cpuinfo"));
         cpuInfo.open(QIODevice::ReadOnly);
-        while (!cpuInfo.atEnd()) {
-            const QByteArray line = cpuInfo.readLine();
+        for (QByteArray line = cpuInfo.readLine(); !line.isNull(); line = cpuInfo.readLine()) {
             if (line.endsWith("GenuineIntel"))
                 return AppSettings::IntelGpu;
             if (line.endsWith("AuthenticAMD"))
