@@ -31,7 +31,8 @@ const QMap<OptimusSettings::Mode, QString> OptimusSettings::s_modeMap = {{Integr
 const QMap<OptimusSettings::SwitchingMethod, QString> OptimusSettings::s_switchingMethodMap = {{NoneMethod, QStringLiteral("none")},
                                                                                                {Nouveau, QStringLiteral("nouveau")},
                                                                                                {Bbswitch, QStringLiteral("bbswitch")},
-                                                                                               {AcpiCall, QStringLiteral("acpi_call")}};
+                                                                                               {AcpiCall, QStringLiteral("acpi_call")},
+                                                                                               {Custom, QStringLiteral("custom")}};
 const QMap<OptimusSettings::PciReset, QString> OptimusSettings::s_pciResetMap = {{NoReset, s_boolMap[false]},
                                                                                  {FunctionLevelReset, QStringLiteral("function_level")},
                                                                                  {HotReset, QStringLiteral("hot_reset")}};
