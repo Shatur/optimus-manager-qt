@@ -404,7 +404,7 @@ AppSettings::Gpu OptimusManager::detectGpu()
     const QByteArray gpuName = QByteArray::fromRawData(providerInfo->name, qstrlen(providerInfo->name));
     if (gpuName.startsWith("Intel"))
         return AppSettings::IntelGpu;
-    if (gpuName.startsWith("Unknown AMD Radeon GPU") || gpuName.startsWith("AMD"))
+    if (gpuName.startsWith("AMD") || gpuName.startsWith("Unknown AMD"))
         return AppSettings::AmdGpu;
     if (gpuName.startsWith("NVIDIA"))
         return AppSettings::NvidiaGpu;
