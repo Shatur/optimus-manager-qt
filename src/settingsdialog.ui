@@ -564,7 +564,8 @@
                <string notr="true">Integrated</string>
               </property>
               <property name="icon">
-               <iconset theme="cpu"/>
+               <iconset theme="cpu">
+                <normaloff>.</normaloff>.</iconset>
               </property>
              </item>
              <item>
@@ -617,7 +618,8 @@
                <string notr="true">Integrated</string>
               </property>
               <property name="icon">
-               <iconset theme="cpu"/>
+               <iconset theme="cpu">
+                <normaloff>.</normaloff>.</iconset>
               </property>
              </item>
              <item>
@@ -650,7 +652,8 @@
                <string notr="true">Integrated</string>
               </property>
               <property name="icon">
-               <iconset theme="cpu"/>
+               <iconset theme="cpu">
+                <normaloff>.</normaloff>.</iconset>
               </property>
              </item>
              <item>
@@ -1140,17 +1143,23 @@
             <string notr="true">Optimus Manager Qt</string>
            </attribute>
            <layout class="QGridLayout" name="aboutGuiLayout" columnstretch="0,1">
-            <item row="0" column="0">
-             <widget class="QLabel" name="versionGuiTitleLabel">
+            <item row="1" column="1">
+             <widget class="QLabel" name="licenseGuiLabel">
               <property name="text">
-               <string>Version:</string>
+               <string notr="true">GPL v3 </string>
               </property>
              </widget>
             </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="mailGuiTitleLabel">
+            <item row="2" column="1">
+             <widget class="QLabel" name="autorGuiLabel">
               <property name="text">
-               <string notr="true">E-mail:</string>
+               <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Shatur95&quot;&gt;Shatur95&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="openExternalLinks">
+               <bool>true</bool>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
               </property>
              </widget>
             </item>
@@ -1169,14 +1178,24 @@
              </widget>
             </item>
             <item row="4" column="0">
-             <widget class="QLabel" name="telegramGuiTitleLabel">
+             <spacer name="aboutGuiSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="mailGuiTitleLabel">
               <property name="text">
-               <string notr="true">Telegram:</string>
+               <string notr="true">E-mail:</string>
               </property>
              </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QLabel" name="versionGuiLabel"/>
             </item>
             <item row="3" column="1">
              <widget class="QLabel" name="mailGuiLabel">
@@ -1191,51 +1210,15 @@
               </property>
              </widget>
             </item>
-            <item row="2" column="1">
-             <widget class="QLabel" name="autorGuiLabel">
+            <item row="0" column="1">
+             <widget class="QLabel" name="versionGuiLabel"/>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="versionGuiTitleLabel">
               <property name="text">
-               <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Shatur95&quot;&gt;Shatur95&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-              <property name="openExternalLinks">
-               <bool>true</bool>
-              </property>
-              <property name="textInteractionFlags">
-               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+               <string>Version:</string>
               </property>
              </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QLabel" name="licenseGuiLabel">
-              <property name="text">
-               <string notr="true">GPL v3 </string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="1">
-             <widget class="QLabel" name="telegramGuiLabel">
-              <property name="text">
-               <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://t.me/Shatur&quot;&gt;@Shatur&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-              <property name="openExternalLinks">
-               <bool>true</bool>
-              </property>
-              <property name="textInteractionFlags">
-               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="0">
-             <spacer name="aboutGuiSpacer">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
             </item>
            </layout>
           </widget>
