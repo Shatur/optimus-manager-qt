@@ -126,7 +126,7 @@
           <property name="title">
            <string>General</string>
           </property>
-          <layout class="QGridLayout" name="gridLayout">
+          <layout class="QGridLayout" name="gridLayout" columnstretch="0,0,1">
            <item row="0" column="1">
             <widget class="QComboBox" name="languageComboBox">
              <property name="toolTip">
@@ -149,19 +149,6 @@
               <string>Language:</string>
              </property>
             </widget>
-           </item>
-           <item row="0" column="2">
-            <spacer name="generalBoxSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
            </item>
            <item row="2" column="0" colspan="3">
             <widget class="QCheckBox" name="autostartCheckBox">
@@ -430,7 +417,7 @@
           <property name="title">
            <string notr="true">Optimus</string>
           </property>
-          <layout class="QGridLayout" name="gridLayout_3">
+          <layout class="QGridLayout" name="gridLayout_3" columnstretch="0,0,1">
            <item row="1" column="1">
             <widget class="QComboBox" name="pciResetComboBox">
              <property name="toolTip">
@@ -469,19 +456,6 @@
               <string>PCI reset:</string>
              </property>
             </widget>
-           </item>
-           <item row="0" column="2">
-            <spacer name="optimusBoxSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
            </item>
            <item row="4" column="0">
             <widget class="QCheckBox" name="pciRemoveCheckBox">
@@ -720,7 +694,7 @@
           <property name="title">
            <string notr="true">Intel</string>
           </property>
-          <layout class="QGridLayout" name="gridLayout_4">
+          <layout class="QGridLayout" name="gridLayout_4" columnstretch="0,0,1">
            <item row="0" column="0">
             <widget class="QLabel" name="intelDriverLabel">
              <property name="text">
@@ -838,19 +812,6 @@
              </item>
             </widget>
            </item>
-           <item row="0" column="2">
-            <spacer name="intelBoxSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
            <item row="4" column="0" colspan="3">
             <widget class="QCheckBox" name="intelModesetCheckBox">
              <property name="toolTip">
@@ -886,12 +847,39 @@
           <property name="title">
            <string notr="true">AMD</string>
           </property>
-          <layout class="QGridLayout" name="amdLayout">
-           <item row="1" column="0">
-            <widget class="QLabel" name="amdTearFreeLabel">
-             <property name="text">
-              <string notr="true">Tearfree:</string>
+          <layout class="QGridLayout" name="amdLayout" columnstretch="0,0,0">
+           <item row="0" column="1">
+            <widget class="QComboBox" name="amdDriverComboBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the AMD GPU&lt;br/&gt;&lt;br/&gt;To use the &lt;span style=&quot; font-style:italic;&quot;&gt;AMD&lt;/span&gt; driver, you need to install &amp;quot;xf86-video-amdgpu&amp;quot; package&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
+             <item>
+              <property name="text">
+               <string notr="true">Modesetting</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">AMD</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="amdDriComboBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <item>
+              <property name="text">
+               <string notr="true">2</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">3</string>
+              </property>
+             </item>
             </widget>
            </item>
            <item row="1" column="1">
@@ -916,21 +904,11 @@
              </item>
             </widget>
            </item>
-           <item row="2" column="1">
-            <widget class="QComboBox" name="amdDriComboBox">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DRI version&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <item row="1" column="0">
+            <widget class="QLabel" name="amdTearFreeLabel">
+             <property name="text">
+              <string notr="true">Tearfree:</string>
              </property>
-             <item>
-              <property name="text">
-               <string notr="true">2</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">3</string>
-              </property>
-             </item>
             </widget>
            </item>
            <item row="0" column="0">
@@ -945,23 +923,6 @@
              <property name="text">
               <string notr="true">DRI:</string>
              </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QComboBox" name="amdDriverComboBox">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Driver to use for the AMD GPU&lt;br/&gt;&lt;br/&gt;To use the &lt;span style=&quot; font-style:italic;&quot;&gt;AMD&lt;/span&gt; driver, you need to install &amp;quot;xf86-video-amdgpu&amp;quot; package&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-             <item>
-              <property name="text">
-               <string notr="true">Modesetting</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">AMD</string>
-              </property>
-             </item>
             </widget>
            </item>
            <item row="0" column="2">
@@ -1002,7 +963,7 @@
           <property name="title">
            <string notr="true">Nvidia</string>
           </property>
-          <layout class="QGridLayout" name="nvidiaLayout">
+          <layout class="QGridLayout" name="nvidiaLayout" columnstretch="0,0,1">
            <item row="0" column="1">
             <widget class="QSpinBox" name="nvidiaDpiSpinBox">
              <property name="toolTip">
@@ -1049,19 +1010,6 @@
               <string>Triple buffer</string>
              </property>
             </widget>
-           </item>
-           <item row="0" column="2">
-            <spacer name="nvidiaBoxSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
            </item>
            <item row="5" column="0" colspan="3">
             <widget class="QCheckBox" name="nvidiaIgnoreAbiCheckBox">
