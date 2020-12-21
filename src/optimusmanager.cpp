@@ -539,6 +539,7 @@ void OptimusManager::logout()
     killProcess("/usr/bin/lxsession");
     killProcess("/usr/bin/dwm");
     killProcess("/usr/local/bin/dwm");
+    killProcess("/usr/bin/qtile-cmd -o cmd -f shutdown");
 }
 
 bool OptimusManager::killProcess(const QByteArray &name)
