@@ -38,6 +38,7 @@ public:
         NvidiaGpu,
         HybridGpu
     };
+    Q_ENUM(Gpu)
 
     explicit AppSettings(QObject *parent = nullptr);
 
