@@ -61,7 +61,7 @@ public:
     static QString defaultTrayIconName(Gpu trayStatus);
 
 private:
-    static void loadLanguage(QLocale::Language lang);
+    static void applyLanguage(QLocale::Language lang);
     static QTranslator s_appTranslator;
 };
 

@@ -38,7 +38,7 @@ AppSettings::AppSettings(QObject *parent)
 
 void AppSettings::setupLocalization() const
 {
-    loadLanguage(language());
+    applyLanguage(language());
     QCoreApplication::installTranslator(&s_appTranslator);
 }
 
@@ -53,7 +53,7 @@ void AppSettings::setLanguage(QLocale::Language lang)
         return;
 
     setValue(QStringLiteral("Language"), lang);
-    loadLanguage(lang);
+    applyLanguage(lang);
 }
 
 QLocale::Language AppSettings::defaultLanguage()
@@ -164,12 +164,9 @@ QString AppSettings::defaultTrayIconName(Gpu trayStatus)
     }
 }
 
-void AppSettings::loadLanguage(QLocale::Language lang)
+void AppSettings::applyLanguage(QLocale::Language lang)
 {
-    if (lang == QLocale::AnyLanguage)
-        QLocale::setDefault(QLocale::system());
-    else
-        QLocale::setDefault(QLocale(lang));
-
-    s_appTranslator.load(QLocale(), QStringLiteral(PROJECT_NAME), QStringLiteral("_"), QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("translations"), QStandardPaths::LocateDirectory));
+    const QLocale locale = lang == QLocale::AnyLanguage ? QLocale::system() : lang;
+    QLocale::setDefault(locale);
+    s_appTranslator.load(locale, QStringLiteral(PROJECT_NAME), QStringLiteral("_"), QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("translations"), QStandardPaths::LocateDirectory));
 }
