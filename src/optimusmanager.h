@@ -25,7 +25,6 @@
 #include "appsettings.h"
 
 class Session;
-class AppSettings;
 class QMenu;
 class QAction;
 #ifdef WITH_PLASMA
@@ -46,7 +45,7 @@ public:
     static QIcon trayGpuIcon(const QString &iconName);
 
 private slots:
-    void switchToIntel();
+    void switchToIntegrated();
     void switchToNvidia();
     void switchToHybrid();
     void openSettings();
@@ -57,7 +56,7 @@ private:
     void retranslateUi();
     void switchMode(OptimusSettings::Mode switchingMode);
 
-    static AppSettings::Gpu detectGpu();
+    static OptimusSettings::Mode detectGpu();
     static bool isModuleAvailable(const QString &moduleName);
     static bool isServiceActive(const QString &serviceName);
     static bool isGdmPatched();
@@ -78,7 +77,7 @@ private:
 #else
     QSystemTrayIcon *m_trayIcon;
 #endif
-    AppSettings::Gpu m_currentGpu;
+    OptimusSettings::Mode m_currentMode;
 };
 
 #endif // OPTIMUSMANAGER_H

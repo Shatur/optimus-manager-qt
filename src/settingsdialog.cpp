@@ -137,14 +137,9 @@ void SettingsDialog::accept()
     QDialog::accept();
 }
 
-void SettingsDialog::browseIntelIcon()
+void SettingsDialog::browseIntegratedIcon()
 {
-    browseIcon(ui->intelIconEdit);
-}
-
-void SettingsDialog::browseAmdIcon() 
-{
-    browseIcon(ui->amdIconEdit);
+    browseIcon(ui->integratedIconEdit);
 }
 
 void SettingsDialog::browseNvidiaIcon()
@@ -157,14 +152,9 @@ void SettingsDialog::browseHybridIcon()
     browseIcon(ui->hybridIconEdit);
 }
 
-void SettingsDialog::previewIntelIcon(const QString &fileName)
+void SettingsDialog::previewIntegratedIcon(const QString &fileName)
 {
-    ui->intelIconButton->setIcon(OptimusManager::trayGpuIcon(fileName));
-}
-
-void SettingsDialog::previewAmdIcon(const QString &fileName) 
-{
-    ui->amdIconButton->setIcon(OptimusManager::trayGpuIcon(fileName));
+    ui->integratedIconButton->setIcon(OptimusManager::trayGpuIcon(fileName));
 }
 
 void SettingsDialog::previewNvidiaIcon(const QString &fileName)
@@ -305,10 +295,9 @@ void SettingsDialog::restoreDefaults()
     ui->languageComboBox->setCurrentIndex(AppSettings::defaultLanguage());
     ui->autostartCheckBox->setChecked(AppSettings::defaultAutostartEnabled());
     ui->confirmSwitchingCheckBox->setChecked(AppSettings::defaultConfirmSwitching());
-    ui->intelIconEdit->setText(AppSettings::defaultTrayIconName(AppSettings::IntelGpu));
-    ui->amdIconEdit->setText(AppSettings::defaultTrayIconName(AppSettings::AmdGpu));
-    ui->nvidiaIconEdit->setText(AppSettings::defaultTrayIconName(AppSettings::NvidiaGpu));
-    ui->hybridIconEdit->setText(AppSettings::defaultTrayIconName(AppSettings::HybridGpu));
+    ui->integratedIconEdit->setText(AppSettings::defaultModeIconName(OptimusSettings::Integrated));
+    ui->nvidiaIconEdit->setText(AppSettings::defaultModeIconName(OptimusSettings::Nvidia));
+    ui->hybridIconEdit->setText(AppSettings::defaultModeIconName(OptimusSettings::Hybrid));
 
     // Configuration files settings
     ui->optimusConfigTypeComboBox->setCurrentIndex(OptimusSettings::defaultConfigType());
@@ -352,10 +341,9 @@ void SettingsDialog::loadAppSettings()
     ui->languageComboBox->setCurrentIndex(ui->languageComboBox->findData(settings.language()));
     ui->autostartCheckBox->setChecked(AppSettings::isAutostartEnabled());
     ui->confirmSwitchingCheckBox->setChecked(settings.isConfirmSwitching());
-    ui->intelIconEdit->setText(settings.gpuIconName(AppSettings::IntelGpu));
-    ui->amdIconEdit->setText(settings.gpuIconName(AppSettings::AmdGpu));
-    ui->nvidiaIconEdit->setText(settings.gpuIconName(AppSettings::NvidiaGpu));
-    ui->hybridIconEdit->setText(settings.gpuIconName(AppSettings::HybridGpu));
+    ui->integratedIconEdit->setText(settings.modeIconName(OptimusSettings::Integrated));
+    ui->nvidiaIconEdit->setText(settings.modeIconName(OptimusSettings::Nvidia));
+    ui->hybridIconEdit->setText(settings.modeIconName(OptimusSettings::Hybrid));
 }
 
 void SettingsDialog::saveAppSettings()
@@ -371,10 +359,9 @@ void SettingsDialog::saveAppSettings()
     // General settings
     AppSettings::setAutostartEnabled(ui->autostartCheckBox->isChecked());
     appSettings.setConfirmSwitching(ui->confirmSwitchingCheckBox->isChecked());
-    appSettings.setGpuIconName(AppSettings::IntelGpu, ui->intelIconEdit->text());
-    appSettings.setGpuIconName(AppSettings::AmdGpu, ui->amdIconEdit->text());
-    appSettings.setGpuIconName(AppSettings::NvidiaGpu, ui->nvidiaIconEdit->text());
-    appSettings.setGpuIconName(AppSettings::HybridGpu, ui->hybridIconEdit->text());
+    appSettings.setModeIconName(OptimusSettings::Integrated, ui->integratedIconEdit->text());
+    appSettings.setModeIconName(OptimusSettings::Nvidia, ui->nvidiaIconEdit->text());
+    appSettings.setModeIconName(OptimusSettings::Hybrid, ui->hybridIconEdit->text());
 }
 
 void SettingsDialog::loadOptimusSettings(const QString &path)

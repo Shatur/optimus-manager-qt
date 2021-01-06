@@ -54,7 +54,7 @@ OptimusManager::OptimusManager(QObject *parent)
 #else
     , m_trayIcon(new QSystemTrayIcon(this))
 #endif
-    , m_currentGpu(detectGpu())
+    , m_currentMode(detectGpu())
 {
     // Set localization
     AppSettings appSettings;
@@ -65,7 +65,7 @@ OptimusManager::OptimusManager(QObject *parent)
     m_contextMenu->addSeparator();
 
     const QMetaEnum modeEnum = QMetaEnum::fromType<OptimusSettings::Mode>();
-    m_switchToIntegratedAction = m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("cpu")), tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Integrated)), this, &OptimusManager::switchToIntel);
+    m_switchToIntegratedAction = m_contextMenu->addAction(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Integrated)), this, &OptimusManager::switchToIntegrated);
     m_switchToNvidiaAction = m_contextMenu->addAction(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Nvidia)), this, &OptimusManager::switchToNvidia);
     m_switchToHybridAction = m_contextMenu->addAction(tr("Switch to %1").arg(modeEnum.key(OptimusSettings::Hybrid)), this, &OptimusManager::switchToHybrid);
     m_contextMenu->addSeparator();
@@ -77,7 +77,7 @@ OptimusManager::OptimusManager(QObject *parent)
     m_trayIcon->setStandardActionsEnabled(false);
     m_trayIcon->setToolTipTitle(QCoreApplication::applicationName());
     m_trayIcon->setCategory(KStatusNotifierItem::SystemServices);
-    m_trayIcon->setToolTipSubTitle(tr("Current video card: %1").arg(QMetaEnum::fromType<AppSettings::Gpu>().valueToKey(m_currentGpu)));
+    m_trayIcon->setToolTipSubTitle(tr("Current video card: %1").arg(QMetaEnum::fromType<OptimusSettings::Mode>().valueToKey(m_currentMode)));
 #endif
     m_trayIcon->setContextMenu(m_contextMenu);
 
@@ -102,7 +102,7 @@ QIcon OptimusManager::trayGpuIcon(const QString &iconName)
     return QIcon::fromTheme(iconName);
 }
 
-void OptimusManager::switchToIntel()
+void OptimusManager::switchToIntegrated()
 {
     switchMode(OptimusSettings::Integrated);
 }
@@ -142,25 +142,26 @@ void OptimusManager::showNotification(const QString &title, const QString &messa
 void OptimusManager::loadSettings(AppSettings &appSettings)
 {
     // Context menu icons
-    m_switchToNvidiaAction->setIcon(trayGpuIcon(appSettings.gpuIconName(AppSettings::NvidiaGpu)));
-    m_switchToHybridAction->setIcon(trayGpuIcon(appSettings.gpuIconName(AppSettings::HybridGpu)));
+    m_switchToIntegratedAction->setIcon(trayGpuIcon(appSettings.modeIconName(OptimusSettings::Integrated)));
+    m_switchToNvidiaAction->setIcon(trayGpuIcon(appSettings.modeIconName(OptimusSettings::Nvidia)));
+    m_switchToHybridAction->setIcon(trayGpuIcon(appSettings.modeIconName(OptimusSettings::Hybrid)));
 
     // Tray icon
-    QString gpuIconName = appSettings.gpuIconName(m_currentGpu);
+    QString modeIconName = appSettings.modeIconName(m_currentMode);
 #ifdef WITH_PLASMA
-    if (!QIcon::hasThemeIcon(gpuIconName) && !QFileInfo::exists(gpuIconName)) {
-        gpuIconName = AppSettings::defaultTrayIconName(m_currentGpu);
-        appSettings.setGpuIconName(m_currentGpu, gpuIconName);
-        showNotification(tr("Invalid icon"), tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(gpuIconName));
+    if (!QIcon::hasThemeIcon(modeIconName) && !QFileInfo::exists(modeIconName)) {
+        modeIconName = AppSettings::defaultModeIconName(m_currentMode);
+        appSettings.setModeIconName(m_currentMode, modeIconName);
+        showNotification(tr("Invalid icon"), tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(modeIconName));
     }
-    m_trayIcon->setIconByName(gpuIconName);
+    m_trayIcon->setIconByName(modeIconName);
     m_trayIcon->setToolTipIconByName(m_trayIcon->iconName());
 #else
-    QIcon trayIcon = trayGpuIcon(gpuIconName);
+    QIcon trayIcon = trayGpuIcon(modeIconName);
     if (trayIcon.isNull()) {
-        const QString defaultIconName = AppSettings::defaultTrayIconName(m_currentGpu);
-        appSettings.setGpuIconName(m_currentGpu, defaultIconName);
-        showNotification(tr("Invalid icon"), tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(gpuIconName));
+        const QString defaultIconName = AppSettings::defaultModeIconName(m_currentMode);
+        appSettings.setModeIconName(m_currentMode, defaultIconName);
+        showNotification(tr("Invalid icon"), tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(modeIconName));
         trayIcon = QIcon::fromTheme(defaultIconName);
     }
     m_trayIcon->setIcon(trayIcon);
@@ -170,7 +171,7 @@ void OptimusManager::loadSettings(AppSettings &appSettings)
 void OptimusManager::retranslateUi()
 {
 #ifdef WITH_PLASMA
-    m_trayIcon->setToolTipSubTitle(tr("Current video card: %1").arg(QMetaEnum::fromType<AppSettings::Gpu>().valueToKey(m_currentGpu)));
+    m_trayIcon->setToolTipSubTitle(tr("Current video card: %1").arg(QMetaEnum::fromType<OptimusSettings::Mode>().valueToKey(m_currentMode)));
 #endif
     m_openSettingsAction->setText(SettingsDialog::tr("Settings"));
 
@@ -382,7 +383,7 @@ void OptimusManager::switchMode(OptimusSettings::Mode switchingMode)
         showNotification(tr("Configuration successfully applied"), tr("Your GPU will be switched after next login."));
 }
 
-AppSettings::Gpu OptimusManager::detectGpu()
+OptimusSettings::Mode OptimusManager::detectGpu()
 {
     if (!QX11Info::isPlatformX11())
         qFatal("Cannot start in non-X11 session");
@@ -397,29 +398,23 @@ AppSettings::Gpu OptimusManager::detectGpu()
     if (providerResources.isNull())
         qFatal("Unable to get provider resources");
 
-    if (providerResources->nproviders > 1)
-        return AppSettings::HybridGpu;
-
-    QScopedPointer<XRRProviderInfo, ProviderInfoDeleter> providerInfo(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[0]));
-    const QByteArray gpuName = QByteArray::fromRawData(providerInfo->name, qstrlen(providerInfo->name));
-    if (gpuName.startsWith("Intel"))
-        return AppSettings::IntelGpu;
-    if (gpuName.startsWith("AMD") || gpuName.startsWith("Unknown AMD"))
-        return AppSettings::AmdGpu;
-    if (gpuName.startsWith("NVIDIA"))
-        return AppSettings::NvidiaGpu;
-
-    // Modesetting driver can be used by both Intel and Amd, need to determine the type of CPU
-    if (gpuName.startsWith("modesetting")) {
-        QFile cpuInfo(QStringLiteral("/proc/cpuinfo"));
-        cpuInfo.open(QIODevice::ReadOnly);
-        for (QByteArray line = cpuInfo.readLine(); !line.isNull(); line = cpuInfo.readLine()) {
-            if (line.endsWith("GenuineIntel\n"))
-                return AppSettings::IntelGpu;
-            if (line.endsWith("AuthenticAMD\n"))
-                return AppSettings::AmdGpu;
-        }
+    bool hasIntegratedProvider = false;
+    bool hasNvidiaProvider = false;
+    for (int i = 0; i < providerResources->nproviders; ++i) {
+        QScopedPointer<XRRProviderInfo, ProviderInfoDeleter> providerInfo(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[i]));
+        const QByteArray gpuName = QByteArray::fromRawData(providerInfo->name, qstrlen(providerInfo->name));
+        if (gpuName.startsWith("modesetting") || gpuName.startsWith("Intel") || gpuName.startsWith("AMD") || gpuName.startsWith("Unknown AMD"))
+            hasIntegratedProvider = true;
+        else if (gpuName.startsWith("NVIDIA"))
+            hasIntegratedProvider = true;
     }
+
+    if (hasIntegratedProvider && hasNvidiaProvider)
+        return OptimusSettings::Hybrid;
+    if (hasIntegratedProvider)
+        return OptimusSettings::Integrated;
+    if (hasNvidiaProvider)
+        return OptimusSettings::Nvidia;
 
     qFatal("Unable to detect GPU");
 }

@@ -44,12 +44,10 @@ public slots:
     void accept() override;
 
 private slots:
-    void browseIntelIcon();
-    void browseAmdIcon();
+    void browseIntegratedIcon();
     void browseNvidiaIcon();
     void browseHybridIcon();
-    void previewIntelIcon(const QString &fileName);
-    void previewAmdIcon(const QString &fileName);
+    void previewIntegratedIcon(const QString &fileName);
     void previewNvidiaIcon(const QString &fileName);
     void previewHybridIcon(const QString &fileName);
 

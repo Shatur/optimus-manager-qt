@@ -179,73 +179,60 @@
            <string>Tray icons</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
-           <item row="3" column="2">
-            <widget class="QLineEdit" name="nvidiaIconEdit">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
+           <item row="2" column="0">
             <widget class="QLabel" name="nvidiaIconLabel">
              <property name="text">
               <string>Nvidia icon:</string>
              </property>
             </widget>
            </item>
-           <item row="4" column="0">
-            <widget class="QLabel" name="hybridIconLabel">
-             <property name="text">
-              <string>Hybrid icon:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="intelIconLabel">
-             <property name="text">
-              <string>Intel icon:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QToolButton" name="intelIconButton">
-             <property name="toolTip">
-              <string>Choose icon</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="1">
+           <item row="2" column="1">
             <widget class="QToolButton" name="nvidiaIconButton">
              <property name="toolTip">
               <string>Choose icon</string>
              </property>
             </widget>
            </item>
-           <item row="4" column="1">
+           <item row="3" column="1">
             <widget class="QToolButton" name="hybridIconButton"/>
            </item>
-           <item row="4" column="2">
-            <widget class="QLineEdit" name="hybridIconEdit"/>
+           <item row="3" column="0">
+            <widget class="QLabel" name="hybridIconLabel">
+             <property name="text">
+              <string>Hybrid icon:</string>
+             </property>
+            </widget>
            </item>
            <item row="0" column="2">
-            <widget class="QLineEdit" name="intelIconEdit">
+            <widget class="QLineEdit" name="integratedIconEdit">
              <property name="toolTip">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="amdIconLabel">
-             <property name="text">
-              <string>AMD icon:</string>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="nvidiaIconEdit">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path to the icon or icon name from theme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QToolButton" name="amdIconButton"/>
+           <item row="0" column="0">
+            <widget class="QLabel" name="integratedIconLabel">
+             <property name="text">
+              <string>Integrated icon:</string>
+             </property>
+            </widget>
            </item>
-           <item row="1" column="2">
-            <widget class="QLineEdit" name="amdIconEdit"/>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="hybridIconEdit"/>
+           </item>
+           <item row="0" column="1">
+            <widget class="QToolButton" name="integratedIconButton">
+             <property name="toolTip">
+              <string>Choose icon</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -1305,10 +1292,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>intelIconButton</sender>
+   <sender>integratedIconButton</sender>
    <signal>clicked()</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>browseIntelIcon()</slot>
+   <slot>browseIntegratedIcon()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>313</x>
@@ -1337,10 +1324,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>intelIconEdit</sender>
+   <sender>integratedIconEdit</sender>
    <signal>textChanged(QString)</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>previewIntelIcon(QString)</slot>
+   <slot>previewIntegratedIcon(QString)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>557</x>
@@ -1544,44 +1531,12 @@
     </hint>
    </hints>
   </connection>
-  <connection>
-   <sender>amdIconButton</sender>
-   <signal>clicked()</signal>
-   <receiver>SettingsDialog</receiver>
-   <slot>browseAmdIcon()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>316</x>
-     <y>235</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>275</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>amdIconEdit</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>SettingsDialog</receiver>
-   <slot>previewAmdIcon(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>559</x>
-     <y>235</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>275</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
  <slots>
   <slot>browseNvidiaIcon()</slot>
-  <slot>browseIntelIcon()</slot>
+  <slot>browseIntegratedIcon()</slot>
   <slot>previewNvidiaIcon(QString)</slot>
-  <slot>previewIntelIcon(QString)</slot>
+  <slot>previewIntegratedIcon(QString)</slot>
   <slot>disableIntelDriverIgnored(int)</slot>
   <slot>disableSwitchingMethodIgnored(int)</slot>
   <slot>disablePciResetIgnored(int)</slot>
@@ -1594,7 +1549,5 @@
   <slot>exportOptimusConfig()</slot>
   <slot>importOptimusConfig()</slot>
   <slot>disableAutoStartupModes(int)</slot>
-  <slot>browseAmdIcon()</slot>
-  <slot>previewAmdIcon(QString)</slot>
  </slots>
 </ui>
