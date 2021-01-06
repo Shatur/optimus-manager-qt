@@ -99,7 +99,7 @@ QIcon OptimusManager::trayGpuIcon(const QString &iconName)
 {
     if (QFileInfo::exists(iconName))
         return QIcon(iconName);
-    return QIcon::fromTheme(iconName);
+    return QIcon::fromTheme(iconName, QIcon::fromTheme("optimus-manager"));
 }
 
 void OptimusManager::switchToIntegrated()

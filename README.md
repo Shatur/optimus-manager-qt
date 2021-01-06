@@ -58,7 +58,7 @@ git submodule update
 
 [FlagKit](https://github.com/madebybowtie/FlagKit "Beautiful flag icons for usage in apps and on the web") icons are used for languages flags.
 
-[Masalla icon theme](https://github.com/masalla-art/masalla-icon-theme "Icon theme for UNIX-like OS") are used for default GPU icons.
+Nvidia icon from the [Masalla icon theme](https://github.com/masalla-art/masalla-icon-theme "Icon theme for UNIX-like OS") is used for the application icon.
 
 ## Installation
 

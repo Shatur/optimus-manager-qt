@@ -68,57 +68,15 @@ install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${ORGANIZATIO
 install(FILES data/${DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
 
 ecm_install_icons(ICONS
-    data/icons/freedesktop/128-apps-amd.svg
-    data/icons/freedesktop/128-apps-intel.svg
-    data/icons/freedesktop/128-apps-nvidia.svg
     data/icons/freedesktop/128-apps-optimus-manager.svg
-    data/icons/freedesktop/16-apps-amd.svg
-    data/icons/freedesktop/16-apps-intel.svg
-    data/icons/freedesktop/16-apps-nvidia.svg
     data/icons/freedesktop/16-apps-optimus-manager.svg
-    data/icons/freedesktop/16-status-prime-amd.svg
-    data/icons/freedesktop/16-status-prime-hybrid.svg
-    data/icons/freedesktop/16-status-prime-intel.svg
-    data/icons/freedesktop/16-status-prime-nvidia.svg
-    data/icons/freedesktop/22-apps-amd.svg
-    data/icons/freedesktop/22-apps-intel.svg
-    data/icons/freedesktop/22-apps-nvidia.svg
     data/icons/freedesktop/22-apps-optimus-manager.svg
-    data/icons/freedesktop/22-status-prime-amd.svg
-    data/icons/freedesktop/22-status-prime-hybrid.svg
-    data/icons/freedesktop/22-status-prime-intel.svg
-    data/icons/freedesktop/22-status-prime-nvidia.svg
-    data/icons/freedesktop/24-apps-amd.svg
-    data/icons/freedesktop/24-apps-intel.svg
-    data/icons/freedesktop/24-apps-nvidia.svg
     data/icons/freedesktop/24-apps-optimus-manager.svg
-    data/icons/freedesktop/24-status-prime-amd.svg
-    data/icons/freedesktop/24-status-prime-hybrid.svg
-    data/icons/freedesktop/24-status-prime-intel.svg
-    data/icons/freedesktop/24-status-prime-nvidia.svg
-    data/icons/freedesktop/256-apps-amd.svg
-    data/icons/freedesktop/256-apps-intel.svg
-    data/icons/freedesktop/256-apps-nvidia.svg
     data/icons/freedesktop/256-apps-optimus-manager.svg
-    data/icons/freedesktop/48-apps-amd.svg
-    data/icons/freedesktop/48-apps-intel.svg
-    data/icons/freedesktop/48-apps-nvidia.svg
     data/icons/freedesktop/48-apps-optimus-manager.svg
-    data/icons/freedesktop/512-apps-amd.svg
-    data/icons/freedesktop/512-apps-intel.svg
-    data/icons/freedesktop/512-apps-nvidia.svg
     data/icons/freedesktop/512-apps-optimus-manager.svg
-    data/icons/freedesktop/64-apps-amd.svg
-    data/icons/freedesktop/64-apps-intel.svg
-    data/icons/freedesktop/64-apps-nvidia.svg
     data/icons/freedesktop/64-apps-optimus-manager.svg
-    data/icons/freedesktop/96-apps-amd.svg
-    data/icons/freedesktop/96-apps-intel.svg
-    data/icons/freedesktop/96-apps-nvidia.svg
     data/icons/freedesktop/96-apps-optimus-manager.svg
-    data/icons/freedesktop/sc-apps-amd.svg
-    data/icons/freedesktop/sc-apps-intel.svg
-    data/icons/freedesktop/sc-apps-nvidia.svg
     data/icons/freedesktop/sc-apps-optimus-manager.svg
     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/icons
 )
