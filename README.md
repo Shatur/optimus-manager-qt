@@ -1,4 +1,4 @@
-# Optimus Manager Qt
+# ![Optimus Manager Qt logo](data/icons/freedesktop/48-apps-optimus-manager.svg) Optimus Manager Qt
 
 [![GitHub (pre-)release](https://img.shields.io/github/release/Shatur95/optimus-manager-qt/all.svg)](https://github.com/Shatur95/optimus-manager-qt/releases)
 [![Codacy grade](https://img.shields.io/codacy/grade/5cd6782b094743eaa6fe35bc20650914.svg)](https://app.codacy.com/project/Shatur95/optimus-manager-qt/dashboard)
