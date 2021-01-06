@@ -406,7 +406,9 @@ OptimusSettings::Mode OptimusManager::detectGpu()
         if (gpuName.startsWith("modesetting") || gpuName.startsWith("Intel") || gpuName.startsWith("AMD") || gpuName.startsWith("Unknown AMD"))
             hasIntegratedProvider = true;
         else if (gpuName.startsWith("NVIDIA"))
-            hasIntegratedProvider = true;
+            hasNvidiaProvider = true;
+        else
+            qFatal("Unknown provider: " + gpuName);
     }
 
     if (hasIntegratedProvider && hasNvidiaProvider)
