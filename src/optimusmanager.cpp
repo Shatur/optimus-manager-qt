@@ -403,22 +403,20 @@ OptimusSettings::Mode OptimusManager::detectGpu()
     for (int i = 0; i < providerResources->nproviders; ++i) {
         QScopedPointer<XRRProviderInfo, ProviderInfoDeleter> providerInfo(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[i]));
         const QByteArray gpuName = QByteArray::fromRawData(providerInfo->name, qstrlen(providerInfo->name));
-        if (gpuName.startsWith("modesetting") || gpuName.startsWith("Intel") || gpuName.startsWith("AMD") || gpuName.startsWith("Unknown AMD"))
-            hasIntegratedProvider = true;
-        else if (gpuName.startsWith("NVIDIA"))
+        if (gpuName.startsWith("NVIDIA")) {
+            if (i == 0)
+                return OptimusSettings::Nvidia; // If the first provider is Nvidia, then this is the main provider
             hasNvidiaProvider = true;
-        else
+        } else if (gpuName.startsWith("modesetting") || gpuName.startsWith("Intel") || gpuName.startsWith("AMD") || gpuName.startsWith("Unknown AMD")) {
+            hasIntegratedProvider = true;
+        } else {
             qFatal("Unknown provider: " + gpuName);
+        }
     }
 
     if (hasIntegratedProvider && hasNvidiaProvider)
         return OptimusSettings::Hybrid;
-    if (hasIntegratedProvider)
-        return OptimusSettings::Integrated;
-    if (hasNvidiaProvider)
-        return OptimusSettings::Nvidia;
-
-    qFatal("Unable to detect GPU");
+    return OptimusSettings::Integrated;
 }
 
 bool OptimusManager::isModuleAvailable(const QString &moduleName)
