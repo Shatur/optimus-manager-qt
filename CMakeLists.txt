@@ -31,15 +31,15 @@ include(ECMInstallIcons)
 include(GNUInstallDirs)
 
 qt5_add_translation(QM_FILES
-    data/translations/${PROJECT_NAME}_de_DE.ts
-    data/translations/${PROJECT_NAME}_es_ES.ts
-    data/translations/${PROJECT_NAME}_fi_FI.ts
-    data/translations/${PROJECT_NAME}_hu_HU.ts
-    data/translations/${PROJECT_NAME}_pt_BR.ts
-    data/translations/${PROJECT_NAME}_ro_RO.ts
-    data/translations/${PROJECT_NAME}_ru_RU.ts
-    data/translations/${PROJECT_NAME}_tr_TR.ts
-    data/translations/${PROJECT_NAME}_zh_CN.ts
+    data/translations/${PROJECT_NAME}_de.ts
+    data/translations/${PROJECT_NAME}_es.ts
+    data/translations/${PROJECT_NAME}_fi.ts
+    data/translations/${PROJECT_NAME}_hu.ts
+    data/translations/${PROJECT_NAME}_pt.ts
+    data/translations/${PROJECT_NAME}_ro.ts
+    data/translations/${PROJECT_NAME}_ru.ts
+    data/translations/${PROJECT_NAME}_tr.ts
+    data/translations/${PROJECT_NAME}_zh.ts
 )
 
 configure_file(src/cmake.h.in cmake.h)

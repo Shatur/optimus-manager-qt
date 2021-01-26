@@ -49,12 +49,12 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/en.svg")), QStringLiteral("English"), QLocale::English);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/es.svg")), QStringLiteral("Español"), QLocale::Spanish);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/hu.svg")), QStringLiteral("Magyar"), QLocale::Hungarian);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/br.svg")), QStringLiteral("Português (Brasil)"), QLocale::Portuguese);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/br.svg")), QStringLiteral("Português"), QLocale::Portuguese);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/ro.svg")), QStringLiteral("Română"), QLocale::Romanian);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/fi.svg")), QStringLiteral("Suomalainen"), QLocale::Finnish);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/tr.svg")), QStringLiteral("Türk"), QLocale::Turkish);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/ru.svg")), QStringLiteral("Русский"), QLocale::Russian);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/cn.svg")), QStringLiteral("简体中文 (中国)"), QLocale::Chinese);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/cn.svg")), QStringLiteral("简体中文"), QLocale::Chinese);
 
     loadAppSettings();
 
