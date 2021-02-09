@@ -18,7 +18,7 @@ set(CMAKE_AUTOUIC ON)
 option(WITH_PLASMA "Use additional KDE API feautures")
 
 find_package(ECM REQUIRED NO_MODULE)
-list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 find_package(Qt5 5.10 COMPONENTS Widgets DBus X11Extras LinguistTools REQUIRED)
 find_package(X11 COMPONENTS Xrandr REQUIRED)
@@ -26,7 +26,7 @@ if(WITH_PLASMA)
     find_package(KF5 COMPONENTS Notifications IconThemes REQUIRED)
 endif()
 
-include(cmake/ExternalLibraries.cmake)
+include(ExternalLibraries)
 include(ECMInstallIcons)
 include(GNUInstallDirs)
 
