@@ -56,7 +56,7 @@ git submodule update
 
 ### Icons
 
-[FlagKit](https://github.com/madebybowtie/FlagKit "Beautiful flag icons for usage in apps and on the web") icons are used for languages flags.
+[circle-flags](https://github.com/HatScripts/circle-flags "A collection of 300+ minimal circular SVG country flags") icons are used for flags.
 
 Nvidia icon from the [Masalla icon theme](https://github.com/masalla-art/masalla-icon-theme "Icon theme for UNIX-like OS") is used for the application and status icons.
 

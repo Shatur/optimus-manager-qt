@@ -6,4 +6,10 @@ FetchContent_Declare(SingleApplication
     GIT_TAG v3.1.5
 )
 
-FetchContent_MakeAvailable(SingleApplication)
+FetchContent_Declare(CircleFlags
+    GIT_REPOSITORY https://github.com/HatScripts/circle-flags
+    GIT_TAG v2.0.0
+)
+
+FetchContent_MakeAvailable(SingleApplication CircleFlags)
+FetchContent_GetProperties(CircleFlags SOURCE_DIR CircleFlags_SOURCE_DIR)

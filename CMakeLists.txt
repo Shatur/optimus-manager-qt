@@ -43,10 +43,11 @@ qt5_add_translation(QM_FILES
 )
 
 configure_file(src/cmake.h.in cmake.h)
+configure_file(data/icons/flags.qrc ${CircleFlags_SOURCE_DIR}/flags/flags.qrc COPYONLY)
 
 add_executable(${PROJECT_NAME}
     ${QM_FILES}
-    data/icons/flags/flags.qrc
+    ${CircleFlags_SOURCE_DIR}/flags/flags.qrc
     src/appsettings.cpp
     src/daemonclient.cpp
     src/main.cpp

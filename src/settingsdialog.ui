@@ -1078,41 +1078,17 @@
             <string notr="true">Optimus Manager Qt</string>
            </attribute>
            <layout class="QGridLayout" name="aboutGuiLayout" columnstretch="0,1">
-            <item row="1" column="1">
-             <widget class="QLabel" name="licenseGuiLabel">
+            <item row="0" column="1">
+             <widget class="QLabel" name="versionGuiLabel"/>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="versionGuiTitleLabel">
               <property name="text">
-               <string notr="true">GPL v3 </string>
+               <string>Version:</string>
               </property>
              </widget>
             </item>
-            <item row="2" column="1">
-             <widget class="QLabel" name="autorGuiLabel">
-              <property name="text">
-               <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Shatur95&quot;&gt;Shatur95&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-              <property name="openExternalLinks">
-               <bool>true</bool>
-              </property>
-              <property name="textInteractionFlags">
-               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="autorGuiTitleLabel">
-              <property name="text">
-               <string>Author:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="licenseGuiTitleLabel">
-              <property name="text">
-               <string>License:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0">
+            <item row="5" column="0">
              <spacer name="aboutGuiSpacer">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
@@ -1125,10 +1101,24 @@
               </property>
              </spacer>
             </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="licenseGuiLabel">
+              <property name="text">
+               <string notr="true">GPL v3 </string>
+              </property>
+             </widget>
+            </item>
             <item row="3" column="0">
              <widget class="QLabel" name="mailGuiTitleLabel">
               <property name="text">
                <string notr="true">E-mail:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="autorGuiTitleLabel">
+              <property name="text">
+               <string>Author:</string>
               </property>
              </widget>
             </item>
@@ -1145,13 +1135,43 @@
               </property>
              </widget>
             </item>
-            <item row="0" column="1">
-             <widget class="QLabel" name="versionGuiLabel"/>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="versionGuiTitleLabel">
+            <item row="1" column="0">
+             <widget class="QLabel" name="licenseGuiTitleLabel">
               <property name="text">
-               <string>Version:</string>
+               <string>License:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="autorGuiLabel">
+              <property name="text">
+               <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Shatur95&quot;&gt;Shatur95&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="openExternalLinks">
+               <bool>true</bool>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLabel" name="flagIconsTitleLabel">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/HatScripts/circle-flags&quot;&gt;circle-flags&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="openExternalLinks">
+               <bool>true</bool>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="flagIconsLabel">
+              <property name="text">
+               <string>Flag icons:</string>
               </property>
              </widget>
             </item>

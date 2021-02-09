@@ -46,7 +46,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     // Set languages data
     ui->languageComboBox->addItem(tr("<System language>"), QLocale::AnyLanguage);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/de.svg")), QStringLiteral("Deutsch"), QLocale::German);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/en.svg")), QStringLiteral("English"), QLocale::English);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/gb.svg")), QStringLiteral("English"), QLocale::English);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/es.svg")), QStringLiteral("Español"), QLocale::Spanish);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/hu.svg")), QStringLiteral("Magyar"), QLocale::Hungarian);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/br.svg")), QStringLiteral("Português"), QLocale::Portuguese);
