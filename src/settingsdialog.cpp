@@ -167,7 +167,22 @@ void SettingsDialog::previewHybridIcon(const QString &fileName)
     ui->hybridIconButton->setIcon(OptimusManager::trayGpuIcon(fileName));
 }
 
-void SettingsDialog::disableAutoStartupModes(int startupMode)
+void SettingsDialog::onOptimusConfigTypeChanged(int configType)
+{
+    if (configType == OptimusSettings::Permanent) {
+        ui->optimusConfigPathEdit->setText(OptimusSettings::permanentConfigPath());
+        ui->optimusConfigPathEdit->setEnabled(false);
+        ui->optimusConfigPathLabel->setEnabled(false);
+        ui->browseOptimusConfigButton->setEnabled(false);
+    } else {
+        ui->optimusConfigPathEdit->clear();
+        ui->optimusConfigPathEdit->setEnabled(true);
+        ui->optimusConfigPathLabel->setEnabled(true);
+        ui->browseOptimusConfigButton->setEnabled(true);
+    }
+}
+
+void SettingsDialog::onStartupModeChanged(int startupMode)
 {
     if (startupMode == OptimusSettings::Auto) {
         ui->batteryStartupModeComboBox->setEnabled(true);
@@ -182,7 +197,7 @@ void SettingsDialog::disableAutoStartupModes(int startupMode)
     }
 }
 
-void SettingsDialog::disableSwitchingMethodIgnored(int switchingMethod)
+void SettingsDialog::onSwitchingMethodChanged(int switchingMethod)
 {
     switch (switchingMethod) {
     case OptimusSettings::NoneMethod:
@@ -209,7 +224,7 @@ void SettingsDialog::disableSwitchingMethodIgnored(int switchingMethod)
     }
 }
 
-void SettingsDialog::disablePciResetIgnored(int pciResetType)
+void SettingsDialog::onPciResetChanged(int pciResetType)
 {
     if (pciResetType == OptimusSettings::HotReset)
         ui->pciRemoveCheckBox->setEnabled(false);
@@ -217,7 +232,7 @@ void SettingsDialog::disablePciResetIgnored(int pciResetType)
         ui->pciRemoveCheckBox->setEnabled(true); // Can be disabled by switching method
 }
 
-void SettingsDialog::disableIntelDriverIgnored(int intelDriver)
+void SettingsDialog::onIntelDriverChanged(int intelDriver)
 {
     if (intelDriver == OptimusSettings::Intel) {
         ui->intelAccelMethodComboBox->setEnabled(true);
@@ -228,27 +243,12 @@ void SettingsDialog::disableIntelDriverIgnored(int intelDriver)
     }
 }
 
-void SettingsDialog::disableDynamicPowerManagementThreshold(int dynamicMemoryManagement)
+void SettingsDialog::onDynamicPowerManagementChanged(int dynamicMemoryManagement)
 {
     if (dynamicMemoryManagement == OptimusSettings::Fine)
         ui->nvidiaDynamicPowerManagementThresholdSpinBox->setEnabled(true);
     else
         ui->nvidiaDynamicPowerManagementThresholdSpinBox->setEnabled(false);
-}
-
-void SettingsDialog::loadOptimusConfigType(int configType)
-{
-    if (configType == OptimusSettings::Permanent) {
-        ui->optimusConfigPathEdit->setText(OptimusSettings::permanentConfigPath());
-        ui->optimusConfigPathEdit->setEnabled(false);
-        ui->optimusConfigPathLabel->setEnabled(false);
-        ui->browseOptimusConfigButton->setEnabled(false);
-    } else {
-        ui->optimusConfigPathEdit->clear();
-        ui->optimusConfigPathEdit->setEnabled(true);
-        ui->optimusConfigPathLabel->setEnabled(true);
-        ui->browseOptimusConfigButton->setEnabled(true);
-    }
 }
 
 void SettingsDialog::browseTempConfigPath()

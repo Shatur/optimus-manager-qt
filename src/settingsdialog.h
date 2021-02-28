@@ -51,12 +51,12 @@ private slots:
     void previewNvidiaIcon(const QString &fileName);
     void previewHybridIcon(const QString &fileName);
 
-    void disableAutoStartupModes(int startupMode);
-    void disableSwitchingMethodIgnored(int switchingMethod);
-    void disablePciResetIgnored(int pciResetType);
-    void disableIntelDriverIgnored(int intelDriver);
-    void disableDynamicPowerManagementThreshold(int dynamicMemoryManagement);
-    void loadOptimusConfigType(int configType);
+    void onOptimusConfigTypeChanged(int configType);
+    void onStartupModeChanged(int startupMode);
+    void onSwitchingMethodChanged(int switchingMethod);
+    void onPciResetChanged(int pciResetType);
+    void onIntelDriverChanged(int intelDriver);
+    void onDynamicPowerManagementChanged(int dynamicMemoryManagement);
 
     void browseTempConfigPath();
     void exportOptimusConfig();

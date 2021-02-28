@@ -1431,7 +1431,7 @@
    <sender>switchingMethodComboBox</sender>
    <signal>currentIndexChanged(int)</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>disableSwitchingMethodIgnored(int)</slot>
+   <slot>onSwitchingMethodChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>423</x>
@@ -1447,7 +1447,7 @@
    <sender>intelDriverComboBox</sender>
    <signal>currentIndexChanged(int)</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>disableIntelDriverIgnored(int)</slot>
+   <slot>onIntelDriverChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>411</x>
@@ -1463,7 +1463,7 @@
    <sender>pciResetComboBox</sender>
    <signal>currentIndexChanged(int)</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>disablePciResetIgnored(int)</slot>
+   <slot>onPciResetChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>390</x>
@@ -1527,7 +1527,7 @@
    <sender>optimusConfigTypeComboBox</sender>
    <signal>currentIndexChanged(int)</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>loadOptimusConfigType(int)</slot>
+   <slot>onOptimusConfigTypeChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>300</x>
@@ -1591,7 +1591,7 @@
    <sender>startupModeComboBox</sender>
    <signal>currentIndexChanged(int)</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>disableAutoStartupModes(int)</slot>
+   <slot>onStartupModeChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>641</x>
@@ -1607,7 +1607,7 @@
    <sender>nvidiaDynamicPowerManagementComboBox</sender>
    <signal>currentIndexChanged(int)</signal>
    <receiver>SettingsDialog</receiver>
-   <slot>disableDynamicPowerManagementThreshold(int)</slot>
+   <slot>onDynamicPowerManagementChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>256</x>
@@ -1625,18 +1625,18 @@
   <slot>browseIntegratedIcon()</slot>
   <slot>previewNvidiaIcon(QString)</slot>
   <slot>previewIntegratedIcon(QString)</slot>
-  <slot>disableIntelDriverIgnored(int)</slot>
-  <slot>disableSwitchingMethodIgnored(int)</slot>
-  <slot>disablePciResetIgnored(int)</slot>
+  <slot>onIntelDriverChanged(int)</slot>
+  <slot>onSwitchingMethodChanged(int)</slot>
+  <slot>onPciResetChanged(int)</slot>
   <slot>changeStartupMode()</slot>
   <slot>previewHybridIcon(QString)</slot>
   <slot>browseHybridIcon()</slot>
   <slot>loadOptimusSettingsPath(QString)</slot>
-  <slot>loadOptimusConfigType(int)</slot>
+  <slot>onOptimusConfigTypeChanged(int)</slot>
   <slot>browseTempConfigPath()</slot>
   <slot>exportOptimusConfig()</slot>
   <slot>importOptimusConfig()</slot>
-  <slot>disableAutoStartupModes(int)</slot>
-  <slot>disableDynamicPowerManagementThreshold(int)</slot>
+  <slot>onStartupModeChanged(int)</slot>
+  <slot>onDynamicPowerManagementChanged(int)</slot>
  </slots>
 </ui>
