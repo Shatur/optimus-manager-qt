@@ -49,6 +49,9 @@ const QMap<OptimusSettings::TearFree, QString> OptimusSettings::s_tearFreeMap = 
                                                                                  {DisableTearFree, s_boolMap[false]}};
 const QMap<OptimusSettings::NvidiaOption, QString> OptimusSettings::s_nvidiaOptionMap = {{Overclocking, QStringLiteral("overclocking")},
                                                                                          {TripleBuffer, QStringLiteral("triple_buffer")}};
+const QMap<OptimusSettings::DynamicPowerManagement, QString> OptimusSettings::s_nvidiaDynamicPowerManagementMap = {{No, s_boolMap[false]},
+                                                                                                                   {Coarse, QStringLiteral("coarse")},
+                                                                                                                   {Fine, QStringLiteral("fine")}};
 
 OptimusSettings::OptimusSettings(QObject *parent)
     : QSettings(detectConfigPath().first, QSettings::IniFormat, parent)
@@ -410,6 +413,40 @@ void OptimusSettings::setNvidiaOptions(NvidiaOptions options)
 OptimusSettings::NvidiaOptions OptimusSettings::defaultNvidiaOptions()
 {
     return Overclocking;
+}
+
+OptimusSettings::DynamicPowerManagement OptimusSettings::nvidiaDynamicPowerManagement() const
+{
+    const QString dynamicPowerManagementString = value(QStringLiteral("nvidia/dynamic_power_management")).toString();
+    return s_nvidiaDynamicPowerManagementMap.key(dynamicPowerManagementString, defaultNvidiaDynamicPowerManagement());
+}
+
+void OptimusSettings::setNvidiaDynamicPowerManagement(DynamicPowerManagement type)
+{
+    setValue(QStringLiteral("nvidia/dynamic_power_management"), s_nvidiaDynamicPowerManagementMap[type]);
+}
+
+OptimusSettings::DynamicPowerManagement OptimusSettings::defaultNvidiaDynamicPowerManagement()
+{
+    return No;
+}
+
+int OptimusSettings::nvidiaDynamicPowerManagementThreshold() const
+{
+    return value(QStringLiteral("nvidia/dynamic_power_management_memory_threshold"), defaultNvidiaDynamicPowerManagementThreshold()).toInt();
+}
+
+void OptimusSettings::setNvidiaDynamicPowerManagementThreshold(int threshold)
+{
+    if (threshold == -1)
+        remove(QStringLiteral("nvidia/dynamic_power_management_memory_threshold"));
+    else
+        setValue(QStringLiteral("nvidia/dynamic_power_management_memory_threshold"), threshold);
+}
+
+int OptimusSettings::defaultNvidiaDynamicPowerManagementThreshold()
+{
+    return -1;
 }
 
 QString OptimusSettings::permanentConfigPath()

@@ -82,6 +82,12 @@ public:
         TripleBuffer = 2
     };
     Q_DECLARE_FLAGS(NvidiaOptions, NvidiaOption)
+    enum DynamicPowerManagement {
+        No,
+        Coarse,
+        Fine
+    };
+    Q_ENUM(DynamicPowerManagement)
 
     explicit OptimusSettings(QObject *parent = nullptr);
     explicit OptimusSettings(const QString &filename, QObject *parent = nullptr);
@@ -178,6 +184,14 @@ public:
     void setNvidiaOptions(NvidiaOptions options);
     static NvidiaOptions defaultNvidiaOptions();
 
+    DynamicPowerManagement nvidiaDynamicPowerManagement() const;
+    void setNvidiaDynamicPowerManagement(DynamicPowerManagement type);
+    static DynamicPowerManagement defaultNvidiaDynamicPowerManagement();
+
+    int nvidiaDynamicPowerManagementThreshold() const;
+    void setNvidiaDynamicPowerManagementThreshold(int threshold);
+    static int defaultNvidiaDynamicPowerManagementThreshold();
+
     static QString permanentConfigPath();
     static QPair<QString, ConfigType> detectConfigPath();
     static ConfigType defaultConfigType();
@@ -198,6 +212,7 @@ private:
     static const QMap<AccelMethod, QString> s_accelMethodMap;
     static const QMap<TearFree, QString> s_tearFreeMap;
     static const QMap<NvidiaOption, QString> s_nvidiaOptionMap;
+    static const QMap<DynamicPowerManagement, QString> s_nvidiaDynamicPowerManagementMap;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(OptimusSettings::NvidiaOptions)

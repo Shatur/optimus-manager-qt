@@ -328,6 +328,8 @@ void SettingsDialog::restoreDefaults()
     ui->nvidiaPatCheckBox->setChecked(OptimusSettings::defaultNvidiaPatEnabled());
     ui->nvidiaIgnoreAbiCheckBox->setChecked(OptimusSettings::defaultNvidiaIgnoreAbi());
     ui->nvidiaAllowExternalGpusCheckBox->setChecked(OptimusSettings::defaultNvidiaAllowExternalGpus());
+    ui->nvidiaDynamicPowerManagementComboBox->setCurrentIndex(OptimusSettings::defaultNvidiaDynamicPowerManagement());
+    ui->nvidiaDynamicPowerManagementThresholdSpinBox->setValue(OptimusSettings::defaultNvidiaDynamicPowerManagementThreshold());
 
     const OptimusSettings::NvidiaOptions nvidiaOptions = OptimusSettings::defaultNvidiaOptions();
     ui->nvidiaOverclockingCheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::Overclocking));
@@ -395,6 +397,8 @@ void SettingsDialog::loadOptimusSettings(const QString &path)
     ui->nvidiaPatCheckBox->setChecked(optimusSettings.isNvidiaPatEnabled());
     ui->nvidiaIgnoreAbiCheckBox->setChecked(optimusSettings.isNvidiaIgnoreAbi());
     ui->nvidiaAllowExternalGpusCheckBox->setChecked(optimusSettings.isNvidiaAllowExternalGpus());
+    ui->nvidiaDynamicPowerManagementComboBox->setCurrentIndex(optimusSettings.nvidiaDynamicPowerManagement());
+    ui->nvidiaDynamicPowerManagementThresholdSpinBox->setValue(optimusSettings.nvidiaDynamicPowerManagementThreshold());
 
     const OptimusSettings::NvidiaOptions nvidiaOptions = optimusSettings.nvidiaOptions();
     ui->nvidiaOverclockingCheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::Overclocking));
@@ -432,6 +436,8 @@ void SettingsDialog::saveOptimusSettings(const QString &path) const
     optimusSettings.setNvidiaPatEnabled(ui->nvidiaPatCheckBox->isChecked());
     optimusSettings.setNvidiaIgnoreAbi(ui->nvidiaIgnoreAbiCheckBox->isChecked());
     optimusSettings.setNvidiaAllowExternalGpus(ui->nvidiaAllowExternalGpusCheckBox->isChecked());
+    optimusSettings.setNvidiaDynamicPowerManagement(static_cast<OptimusSettings::DynamicPowerManagement>(ui->nvidiaDynamicPowerManagementComboBox->currentIndex()));
+    optimusSettings.setNvidiaDynamicPowerManagementThreshold(ui->nvidiaDynamicPowerManagementThresholdSpinBox->value());
 
     OptimusSettings::NvidiaOptions nvidiaOptions;
     nvidiaOptions.setFlag(OptimusSettings::Overclocking, ui->nvidiaOverclockingCheckBox->isChecked());
