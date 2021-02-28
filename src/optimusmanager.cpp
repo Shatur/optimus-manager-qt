@@ -214,13 +214,15 @@ void OptimusManager::switchMode(OptimusSettings::Mode switchingMode)
     }
 
     // Check if power switching enabled
-    if (optimusSettings.switchingMethod() == OptimusSettings::NoneMethod && !optimusSettings.isPciPowerControlEnabled()) {
+    if (optimusSettings.switchingMethod() == OptimusSettings::NoneMethod
+            && !optimusSettings.isPciPowerControlEnabled()
+            && optimusSettings.nvidiaDynamicPowerManagement() == OptimusSettings::No) {
         QMessageBox message;
         message.setIcon(QMessageBox::Warning);
         message.setText(tr("No power management option is currently enabled"));
-        message.setInformativeText(tr("Switching between GPUs will work but you will likely experience poor battery life.\n"
-                                      "If you have already enabled the new Runtime D3 power management inside the Nvidia driver"
-                                      " (for Turing+ GPU with Coffee Lake+ CPU), you can safely ignore this warning."));
+        message.setInformativeText(tr("Switching between GPUs will work but you will likely experience poor battery life.<br>"
+                                      "Follow <a href='https://github.com/Askannz/optimus-manager/wiki/A-guide--to-power-management-options'>these</a> instructions"
+                                      " to enable power management."));
         message.exec();
     }
 
