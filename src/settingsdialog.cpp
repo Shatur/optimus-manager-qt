@@ -228,6 +228,14 @@ void SettingsDialog::disableIntelDriverIgnored(int intelDriver)
     }
 }
 
+void SettingsDialog::disableDynamicPowerManagementThreshold(int dynamicMemoryManagement)
+{
+    if (dynamicMemoryManagement == OptimusSettings::Fine)
+        ui->nvidiaDynamicPowerManagementThresholdSpinBox->setEnabled(true);
+    else
+        ui->nvidiaDynamicPowerManagementThresholdSpinBox->setEnabled(false);
+}
+
 void SettingsDialog::loadOptimusConfigType(int configType)
 {
     if (configType == OptimusSettings::Permanent) {

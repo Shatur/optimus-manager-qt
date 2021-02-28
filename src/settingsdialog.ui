@@ -1066,6 +1066,9 @@
            </item>
            <item row="2" column="1">
             <widget class="QSpinBox" name="nvidiaDynamicPowerManagementThresholdSpinBox">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="toolTip">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The Nvidia driver handles power to the video memory separately from the rest of GPU&lt;/p&gt;&lt;p&gt;When dynamic power management set to &lt;span style=&quot; font-style:italic;&quot;&gt;Fine&lt;/span&gt;, this options controls the threshold of memory utilization under which the memory is put in a low-power state&lt;/p&gt;&lt;p&gt;Set to -1 for the default (200MB)&lt;/p&gt;&lt;p&gt;Setting this value to 0 keeps the memory powered at all times&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
@@ -1600,6 +1603,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>nvidiaDynamicPowerManagementComboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>SettingsDialog</receiver>
+   <slot>disableDynamicPowerManagementThreshold(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>256</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>browseNvidiaIcon()</slot>
@@ -1618,5 +1637,6 @@
   <slot>exportOptimusConfig()</slot>
   <slot>importOptimusConfig()</slot>
   <slot>disableAutoStartupModes(int)</slot>
+  <slot>disableDynamicPowerManagementThreshold(int)</slot>
  </slots>
 </ui>

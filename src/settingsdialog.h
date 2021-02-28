@@ -55,6 +55,7 @@ private slots:
     void disableSwitchingMethodIgnored(int switchingMethod);
     void disablePciResetIgnored(int pciResetType);
     void disableIntelDriverIgnored(int intelDriver);
+    void disableDynamicPowerManagementThreshold(int dynamicMemoryManagement);
     void loadOptimusConfigType(int configType);
 
     void browseTempConfigPath();
