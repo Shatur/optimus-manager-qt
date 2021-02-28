@@ -1,3 +1,5 @@
+commit_message: "Update %language% localization from Crowdin"
+append_commit_message: false
 files:
   - source: /data/translations/optimus-manager-qt.ts
     translation: /data/translations/optimus-manager-qt_%two_letters_code%.ts
