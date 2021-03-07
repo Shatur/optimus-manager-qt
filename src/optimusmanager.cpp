@@ -412,7 +412,7 @@ OptimusSettings::Mode OptimusManager::detectGpu()
         } else if (gpuName.startsWith("modesetting") || gpuName.startsWith("Intel") || gpuName.startsWith("AMD") || gpuName.startsWith("Unknown AMD")) {
             hasIntegratedProvider = true;
         } else {
-            qFatal("Unknown provider: " + gpuName);
+            qFatal("Unknown provider: %1", gpuName);
         }
     }
 
