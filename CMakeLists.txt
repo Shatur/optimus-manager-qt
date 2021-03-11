@@ -84,6 +84,9 @@ ecm_install_icons(ICONS
     data/icons/freedesktop/24-status-prime-nvidia.svg
     data/icons/freedesktop/256-apps-optimus-manager.svg
     data/icons/freedesktop/48-apps-optimus-manager.svg
+    data/icons/freedesktop/48-apps-intel.svg
+    data/icons/freedesktop/48-apps-amd.svg
+    data/icons/freedesktop/48-apps-nvidia.svg
     data/icons/freedesktop/512-apps-optimus-manager.svg
     data/icons/freedesktop/64-apps-optimus-manager.svg
     data/icons/freedesktop/96-apps-optimus-manager.svg
