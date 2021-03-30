@@ -23,7 +23,7 @@
     <name>DaemonClient</name>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="367"/>
-        <location filename="../../src/settingsdialog.cpp" line="102"/>
+        <location filename="../../src/settingsdialog.cpp" line="104"/>
         <source>Unable to connect to Optimus Manager daemon: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -33,7 +33,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="130"/>
+        <location filename="../../src/settingsdialog.cpp" line="132"/>
         <source>Unable to send configuration file to Optimus Manager daemon: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -240,7 +240,7 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="47"/>
+        <location filename="../../src/settingsdialog.cpp" line="48"/>
         <source>&lt;System language&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -570,7 +570,7 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="1223"/>
+        <location filename="../../src/settingsdialog.ui" line="1226"/>
         <source>Flag icons:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -645,87 +645,87 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="1070"/>
+        <location filename="../../src/settingsdialog.ui" line="1073"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The Nvidia driver handles power to the video memory separately from the rest of GPU&lt;/p&gt;&lt;p&gt;When dynamic power management set to &lt;span style=&quot; font-style:italic;&quot;&gt;Fine&lt;/span&gt;, this options controls the threshold of memory utilization under which the memory is put in a low-power state&lt;/p&gt;&lt;p&gt;Set to -1 for the default (200MB)&lt;/p&gt;&lt;p&gt;Setting this value to 0 keeps the memory powered at all times&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="1136"/>
-        <location filename="../../src/settingsdialog.ui" line="1264"/>
+        <location filename="../../src/settingsdialog.ui" line="1139"/>
+        <location filename="../../src/settingsdialog.ui" line="1267"/>
         <source>Version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="1170"/>
-        <location filename="../../src/settingsdialog.ui" line="1241"/>
+        <location filename="../../src/settingsdialog.ui" line="1173"/>
+        <location filename="../../src/settingsdialog.ui" line="1244"/>
         <source>Author:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="1190"/>
-        <location filename="../../src/settingsdialog.ui" line="1278"/>
+        <location filename="../../src/settingsdialog.ui" line="1193"/>
+        <location filename="../../src/settingsdialog.ui" line="1281"/>
         <source>License:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="83"/>
+        <location filename="../../src/settingsdialog.cpp" line="85"/>
         <source>Optimus Manager temporary configuration file path cannot be empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="90"/>
+        <location filename="../../src/settingsdialog.cpp" line="92"/>
         <source>Optimus Manager temporary configuration file path cannot be a permanent configuration file path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="112"/>
+        <location filename="../../src/settingsdialog.cpp" line="114"/>
         <source>Unable to read data from generated configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="248"/>
+        <location filename="../../src/settingsdialog.cpp" line="258"/>
         <source>Select temporary configuration file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="249"/>
-        <location filename="../../src/settingsdialog.cpp" line="261"/>
-        <location filename="../../src/settingsdialog.cpp" line="274"/>
+        <location filename="../../src/settingsdialog.cpp" line="259"/>
+        <location filename="../../src/settingsdialog.cpp" line="271"/>
+        <location filename="../../src/settingsdialog.cpp" line="284"/>
         <source>Config files (*.conf);;All files(*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="260"/>
+        <location filename="../../src/settingsdialog.cpp" line="270"/>
         <source>Export Optimus Manager settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="273"/>
+        <location filename="../../src/settingsdialog.cpp" line="283"/>
         <source>Import Optimus Manager settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="458"/>
+        <location filename="../../src/settingsdialog.cpp" line="468"/>
         <source>Select icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="459"/>
+        <location filename="../../src/settingsdialog.cpp" line="469"/>
         <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="490"/>
+        <location filename="../../src/settingsdialog.cpp" line="500"/>
         <source>Unable to find Optimus Manager daemon.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="491"/>
+        <location filename="../../src/settingsdialog.cpp" line="501"/>
         <source>Please check the integrity of the package that provides Optimus Manager.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="493"/>
+        <location filename="../../src/settingsdialog.cpp" line="503"/>
         <source>Not found!</source>
         <translation type="unfinished"></translation>
     </message>
