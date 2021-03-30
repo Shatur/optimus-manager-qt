@@ -23,7 +23,7 @@
     <name>DaemonClient</name>
     <message>
       <location filename="../../src/optimusmanager.cpp" line="367"/>
-      <location filename="../../src/settingsdialog.cpp" line="102"/>
+      <location filename="../../src/settingsdialog.cpp" line="104"/>
       <source>Unable to connect to Optimus Manager daemon: %1</source>
       <translation>Не удается подключиться к демону Optimus Manager: %1</translation>
     </message>
@@ -33,7 +33,7 @@
       <translation>Не удается отправить имя GPU для переключения демону Optimus Manager: %1</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="130"/>
+      <location filename="../../src/settingsdialog.cpp" line="132"/>
       <source>Unable to send configuration file to Optimus Manager daemon: %1</source>
       <translation>Не удается отправить файл конфигурации демону Optimus Manager: %1</translation>
     </message>
@@ -251,7 +251,7 @@ Ignore this warning and proceed with GPU switching now?</source>
       <translation>Язык:</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="47"/>
+      <location filename="../../src/settingsdialog.cpp" line="48"/>
       <source>&lt;System language&gt;</source>
       <translation>&lt;Язык системы&gt;</translation>
     </message>
@@ -581,7 +581,7 @@ Ignore this warning and proceed with GPU switching now?</source>
       <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Использовать Optimus Manager с внешними GPU Nvidia (экспериментально)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="1223"/>
+      <location filename="../../src/settingsdialog.ui" line="1226"/>
       <source>Flag icons:</source>
       <translation>Значки флагов:</translation>
     </message>
@@ -656,87 +656,87 @@ Ignore this warning and proceed with GPU switching now?</source>
       <translation>Порог памяти динамического управления питанием:</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="1070"/>
+      <location filename="../../src/settingsdialog.ui" line="1073"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The Nvidia driver handles power to the video memory separately from the rest of GPU&lt;/p&gt;&lt;p&gt;When dynamic power management set to &lt;span style=&quot; font-style:italic;&quot;&gt;Fine&lt;/span&gt;, this options controls the threshold of memory utilization under which the memory is put in a low-power state&lt;/p&gt;&lt;p&gt;Set to -1 for the default (200MB)&lt;/p&gt;&lt;p&gt;Setting this value to 0 keeps the memory powered at all times&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
       <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Драйвер Nvidia управляет питанием видеопамяти отдельно от остальной части GPU&lt;/p&gt;&lt;p&gt;Когда динамическое управление установлено в &lt;span style=&quot; font-style:italic;&quot;&gt;Тонкое&lt;/span&gt;, эта опция контролирует порог использования памяти, ниже которого память переходит в состояние с низким энергопотреблением&lt;/p&gt;&lt;p&gt;Установите -1 для значения по умолчанию (200MB)&lt;/p&gt;&lt;p&gt;При установке этого значения в 0, питание памяти будет поддерживаться постоянно&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="1136"/>
-      <location filename="../../src/settingsdialog.ui" line="1264"/>
+      <location filename="../../src/settingsdialog.ui" line="1139"/>
+      <location filename="../../src/settingsdialog.ui" line="1267"/>
       <source>Version:</source>
       <translation>Версия:</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="1170"/>
-      <location filename="../../src/settingsdialog.ui" line="1241"/>
+      <location filename="../../src/settingsdialog.ui" line="1173"/>
+      <location filename="../../src/settingsdialog.ui" line="1244"/>
       <source>Author:</source>
       <translation>Автор:</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.ui" line="1190"/>
-      <location filename="../../src/settingsdialog.ui" line="1278"/>
+      <location filename="../../src/settingsdialog.ui" line="1193"/>
+      <location filename="../../src/settingsdialog.ui" line="1281"/>
       <source>License:</source>
       <translation>Лицензия:</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="83"/>
+      <location filename="../../src/settingsdialog.cpp" line="85"/>
       <source>Optimus Manager temporary configuration file path cannot be empty</source>
       <translation>Путь к временному файлу конфигурации Optimus Manager не может быть пустым</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="90"/>
+      <location filename="../../src/settingsdialog.cpp" line="92"/>
       <source>Optimus Manager temporary configuration file path cannot be a permanent configuration file path</source>
       <translation>Путь к временному файлу конфигурации Optimus Manager не может являтся путем к постоянному файлу конфигурации</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="112"/>
+      <location filename="../../src/settingsdialog.cpp" line="114"/>
       <source>Unable to read data from generated configuration</source>
       <translation>Невозможно прочитать данные из сгенерированной конфигурации</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="248"/>
+      <location filename="../../src/settingsdialog.cpp" line="258"/>
       <source>Select temporary configuration file</source>
       <translation>Выберите временный файл конфигурации</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="249"/>
-      <location filename="../../src/settingsdialog.cpp" line="261"/>
-      <location filename="../../src/settingsdialog.cpp" line="274"/>
+      <location filename="../../src/settingsdialog.cpp" line="259"/>
+      <location filename="../../src/settingsdialog.cpp" line="271"/>
+      <location filename="../../src/settingsdialog.cpp" line="284"/>
       <source>Config files (*.conf);;All files(*)</source>
       <translation>Файлы конфигурации (*.conf);;Все файлы(*)</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="260"/>
+      <location filename="../../src/settingsdialog.cpp" line="270"/>
       <source>Export Optimus Manager settings</source>
       <translation>Экспортировать настройки Optimus Manager</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="273"/>
+      <location filename="../../src/settingsdialog.cpp" line="283"/>
       <source>Import Optimus Manager settings</source>
       <translation>Импортировать настройки Optimus Manager</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="458"/>
+      <location filename="../../src/settingsdialog.cpp" line="468"/>
       <source>Select icon</source>
       <translation>Выбрать иконку</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="459"/>
+      <location filename="../../src/settingsdialog.cpp" line="469"/>
       <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
       <translation>Изображения (*.png *.jpg *.bmp);;Все файлы(*)</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="490"/>
+      <location filename="../../src/settingsdialog.cpp" line="500"/>
       <source>Unable to find Optimus Manager daemon.</source>
       <translation>Не удается найти демон Optimus Manager.</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="491"/>
+      <location filename="../../src/settingsdialog.cpp" line="501"/>
       <source>Please check the integrity of the package that provides Optimus Manager.</source>
       <translation>Пожалуйста, проверьте целостность пакета, который предоставляет Optimus Manager.</translation>
     </message>
     <message>
-      <location filename="../../src/settingsdialog.cpp" line="493"/>
+      <location filename="../../src/settingsdialog.cpp" line="503"/>
       <source>Not found!</source>
       <translation>Не найден!</translation>
     </message>
