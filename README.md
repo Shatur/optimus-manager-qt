@@ -38,21 +38,7 @@
 
 ### Libraries
 
-This project uses [SingleApplication](https://github.com/itay-grudev/SingleApplication).
-
-Therefore, if you want to clone this project, you need to use the `--recursive` option:
-
-```bash
-git clone --recursive git@github.com:Shatur95/optimus-manager-qt.git
-```
-
-or you can initialize these modules later:
-
-```bash
-git clone git@github.com:Shatur95/optimus-manager-qt.git
-git submodule init
-git submodule update
-```
+This project uses [SingleApplication](https://github.com/itay-grudev/SingleApplication) (prevents launch of multiple application instances), which will be downloaded automatically at configure time using the built-in CMake [FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html) module.
 
 ### Icons
 
