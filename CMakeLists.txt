@@ -44,10 +44,12 @@ qt5_add_translation(QM_FILES
 
 configure_file(src/cmake.h.in cmake.h)
 configure_file(data/icons/flags.qrc ${CircleFlags_SOURCE_DIR}/flags/flags.qrc COPYONLY)
+configure_file(data/icons/papirus.qrc ${Papirus_SOURCE_DIR}/Papirus/papirus.qrc COPYONLY)
 
 add_executable(${PROJECT_NAME}
-    ${QM_FILES}
     ${CircleFlags_SOURCE_DIR}/flags/flags.qrc
+    ${Papirus_SOURCE_DIR}/Papirus/papirus.qrc
+    ${QM_FILES}
     src/appsettings.cpp
     src/daemonclient.cpp
     src/main.cpp
@@ -71,22 +73,10 @@ install(FILES data/${DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/appl
 ecm_install_icons(ICONS
     data/icons/freedesktop/128-apps-optimus-manager.svg
     data/icons/freedesktop/16-apps-optimus-manager.svg
-    data/icons/freedesktop/16-status-cpu.svg
-    data/icons/freedesktop/16-status-prime-hybrid.svg
-    data/icons/freedesktop/16-status-prime-nvidia.svg
     data/icons/freedesktop/22-apps-optimus-manager.svg
-    data/icons/freedesktop/22-status-cpu.svg
-    data/icons/freedesktop/22-status-prime-hybrid.svg
-    data/icons/freedesktop/22-status-prime-nvidia.svg
     data/icons/freedesktop/24-apps-optimus-manager.svg
-    data/icons/freedesktop/24-status-cpu.svg
-    data/icons/freedesktop/24-status-prime-intel.svg
-    data/icons/freedesktop/24-status-prime-nvidia.svg
     data/icons/freedesktop/256-apps-optimus-manager.svg
     data/icons/freedesktop/48-apps-optimus-manager.svg
-    data/icons/freedesktop/48-apps-intel.svg
-    data/icons/freedesktop/48-apps-amd.svg
-    data/icons/freedesktop/48-apps-nvidia.svg
     data/icons/freedesktop/512-apps-optimus-manager.svg
     data/icons/freedesktop/64-apps-optimus-manager.svg
     data/icons/freedesktop/96-apps-optimus-manager.svg

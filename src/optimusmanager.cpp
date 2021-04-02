@@ -61,7 +61,7 @@ OptimusManager::OptimusManager(QObject *parent)
     appSettings.setupLocalization();
 
     // Setup context menu
-    m_openSettingsAction = m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("preferences-system")), SettingsDialog::tr("Settings"), this, &OptimusManager::openSettings);
+    m_openSettingsAction = m_contextMenu->addAction(QIcon::fromTheme(QStringLiteral("configure")), SettingsDialog::tr("Settings"), this, &OptimusManager::openSettings);
     m_contextMenu->addSeparator();
 
     const QMetaEnum modeEnum = QMetaEnum::fromType<OptimusSettings::Mode>();

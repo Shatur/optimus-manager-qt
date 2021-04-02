@@ -44,7 +44,9 @@ This project uses [SingleApplication](https://github.com/itay-grudev/SingleAppli
 
 [circle-flags](https://github.com/HatScripts/circle-flags "A collection of 300+ minimal circular SVG country flags") icons are used for flags.
 
-Nvidia icon from the [Masalla icon theme](https://github.com/masalla-art/masalla-icon-theme "Icon theme for UNIX-like OS") is used for the application and status icons.
+[Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme "Papirus icon theme for Linux") icon theme is bundled to provide fallback icons.
+
+Nvidia icon from the [Masalla icon theme](https://github.com/masalla-art/masalla-icon-theme "Icon theme for UNIX-like OS") is used for the application icon.
 
 ## Installation
 
