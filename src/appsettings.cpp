@@ -26,6 +26,7 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QGuiApplication>
+#include <QIcon>
 #include <QStandardPaths>
 #include <QTranslator>
 
@@ -110,6 +111,11 @@ void AppSettings::setConfirmSwitching(bool confirm)
 bool AppSettings::defaultConfirmSwitching()
 {
     return true;
+}
+
+QIcon AppSettings::modeIcon(OptimusSettings::Mode mode) const
+{
+    return QIcon::fromTheme(modeIconName(mode), QIcon::fromTheme(defaultModeIconName(mode)));
 }
 
 QString AppSettings::modeIconName(OptimusSettings::Mode mode) const

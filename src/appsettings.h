@@ -49,6 +49,7 @@ public:
     void setConfirmSwitching(bool confirm);
     static bool defaultConfirmSwitching();
 
+    QIcon modeIcon(OptimusSettings::Mode mode) const;
     QString modeIconName(OptimusSettings::Mode mode) const;
     void setModeIconName(OptimusSettings::Mode mode, const QString &name);
     static QString defaultModeIconName(OptimusSettings::Mode mode);

@@ -42,8 +42,6 @@ public:
     explicit OptimusManager(QObject *parent = nullptr);
     ~OptimusManager() override;
 
-    static QIcon trayGpuIcon(const QString &iconName);
-
 private slots:
     void switchToIntegrated();
     void switchToNvidia();

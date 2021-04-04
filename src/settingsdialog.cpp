@@ -23,7 +23,6 @@
 
 #include "appsettings.h"
 #include "daemonclient.h"
-#include "optimusmanager.h"
 #include "optimussettings.h"
 
 #include <QFileDialog>
@@ -156,17 +155,17 @@ void SettingsDialog::browseHybridIcon()
 
 void SettingsDialog::previewIntegratedIcon(const QString &fileName)
 {
-    ui->integratedIconButton->setIcon(OptimusManager::trayGpuIcon(fileName));
+    ui->integratedIconButton->setIcon(QIcon::fromTheme(fileName));
 }
 
 void SettingsDialog::previewNvidiaIcon(const QString &fileName)
 {
-    ui->nvidiaIconButton->setIcon(OptimusManager::trayGpuIcon(fileName));
+    ui->nvidiaIconButton->setIcon(QIcon::fromTheme(fileName));
 }
 
 void SettingsDialog::previewHybridIcon(const QString &fileName)
 {
-    ui->hybridIconButton->setIcon(OptimusManager::trayGpuIcon(fileName));
+    ui->hybridIconButton->setIcon(QIcon::fromTheme(fileName));
 }
 
 void SettingsDialog::onOptimusConfigTypeChanged(int configType)

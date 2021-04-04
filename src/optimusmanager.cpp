@@ -95,13 +95,6 @@ OptimusManager::~OptimusManager()
 #endif
 }
 
-QIcon OptimusManager::trayGpuIcon(const QString &iconName)
-{
-    if (QFileInfo::exists(iconName))
-        return QIcon(iconName);
-    return QIcon::fromTheme(iconName, QIcon::fromTheme("optimus-manager"));
-}
-
 void OptimusManager::switchToIntegrated()
 {
     switchMode(OptimusSettings::Integrated);
@@ -142,29 +135,22 @@ void OptimusManager::showNotification(const QString &title, const QString &messa
 void OptimusManager::loadSettings(AppSettings &appSettings)
 {
     // Context menu icons
-    m_switchToIntegratedAction->setIcon(trayGpuIcon(appSettings.modeIconName(OptimusSettings::Integrated)));
-    m_switchToNvidiaAction->setIcon(trayGpuIcon(appSettings.modeIconName(OptimusSettings::Nvidia)));
-    m_switchToHybridAction->setIcon(trayGpuIcon(appSettings.modeIconName(OptimusSettings::Hybrid)));
+    m_switchToIntegratedAction->setIcon(appSettings.modeIcon(OptimusSettings::Integrated));
+    m_switchToNvidiaAction->setIcon(appSettings.modeIcon(OptimusSettings::Nvidia));
+    m_switchToHybridAction->setIcon(appSettings.modeIcon(OptimusSettings::Hybrid));
 
     // Tray icon
     QString modeIconName = appSettings.modeIconName(m_currentMode);
-#ifdef WITH_PLASMA
     if (!QIcon::hasThemeIcon(modeIconName) && !QFileInfo::exists(modeIconName)) {
         modeIconName = AppSettings::defaultModeIconName(m_currentMode);
         appSettings.setModeIconName(m_currentMode, modeIconName);
         showNotification(tr("Invalid icon"), tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(modeIconName));
     }
+#ifdef WITH_PLASMA
     m_trayIcon->setIconByName(modeIconName);
     m_trayIcon->setToolTipIconByName(m_trayIcon->iconName());
 #else
-    QIcon trayIcon = trayGpuIcon(modeIconName);
-    if (trayIcon.isNull()) {
-        const QString defaultIconName = AppSettings::defaultModeIconName(m_currentMode);
-        appSettings.setModeIconName(m_currentMode, defaultIconName);
-        showNotification(tr("Invalid icon"), tr("The specified icon '%1' for the current GPU is invalid. The default icon will be used.").arg(modeIconName));
-        trayIcon = QIcon::fromTheme(defaultIconName);
-    }
-    m_trayIcon->setIcon(trayIcon);
+    m_trayIcon->setIcon(QIcon::fromTheme(modeIconName));
 #endif
 }
 
