@@ -13,3 +13,6 @@ vim.json
 
 # VSCode
 .vscode
+
+# Build cache
+build
