@@ -70,7 +70,7 @@ install(TARGETS ${PROJECT_NAME})
 install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${ORGANIZATION_NAME}/${APPLICATION_NAME}/translations)
 install(FILES data/${DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
 
-# The system tray icons cannot be embedded in the application on Linux, so install them to hicolor icons
+# System tray icons cannot be embedded in the application on Linux, so install them to hicolor icons
 ecm_install_icons(ICONS
     data/icons/freedesktop/128-apps-optimus-manager.svg
     data/icons/freedesktop/16-apps-optimus-manager.svg
