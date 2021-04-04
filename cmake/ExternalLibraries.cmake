@@ -11,11 +11,11 @@ FetchContent_Declare(CircleFlags
     GIT_TAG v2.0.0
 )
 
-FetchContent_Declare(Papirus
-    GIT_REPOSITORY https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
-    GIT_TAG 20210401
+FetchContent_Declare(Masalla
+    GIT_REPOSITORY https://github.com/masalla-art/masalla-icon-theme
+    GIT_TAG d3d3e90b6f36d3641e24e39f283a672ad5462a50
 )
 
-FetchContent_MakeAvailable(SingleApplication CircleFlags Papirus)
+FetchContent_MakeAvailable(SingleApplication CircleFlags Masalla)
 FetchContent_GetProperties(CircleFlags SOURCE_DIR CircleFlags_SOURCE_DIR)
-FetchContent_GetProperties(Papirus SOURCE_DIR Papirus_SOURCE_DIR)
+FetchContent_GetProperties(Masalla SOURCE_DIR Masalla_SOURCE_DIR)

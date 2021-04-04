@@ -44,11 +44,11 @@ qt5_add_translation(QM_FILES
 
 configure_file(src/cmake.h.in cmake.h)
 configure_file(data/icons/flags.qrc ${CircleFlags_SOURCE_DIR}/flags/flags.qrc COPYONLY)
-configure_file(data/icons/papirus.qrc ${Papirus_SOURCE_DIR}/Papirus/papirus.qrc COPYONLY)
+configure_file(data/icons/masalla.qrc ${Masalla_SOURCE_DIR}/masalla/masalla.qrc COPYONLY)
 
 add_executable(${PROJECT_NAME}
     ${CircleFlags_SOURCE_DIR}/flags/flags.qrc
-    ${Papirus_SOURCE_DIR}/Papirus/papirus.qrc
+    ${Masalla_SOURCE_DIR}/masalla/masalla.qrc
     ${QM_FILES}
     src/appsettings.cpp
     src/daemonclient.cpp
@@ -70,11 +70,21 @@ install(TARGETS ${PROJECT_NAME})
 install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${ORGANIZATION_NAME}/${APPLICATION_NAME}/translations)
 install(FILES data/${DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
 
+# The system tray icons cannot be embedded in the application on Linux, so install them to hicolor icons
 ecm_install_icons(ICONS
     data/icons/freedesktop/128-apps-optimus-manager.svg
     data/icons/freedesktop/16-apps-optimus-manager.svg
+    data/icons/freedesktop/16-status-cpu.svg
+    data/icons/freedesktop/16-status-prime-hybrid.svg
+    data/icons/freedesktop/16-status-prime-nvidia.svg
     data/icons/freedesktop/22-apps-optimus-manager.svg
+    data/icons/freedesktop/22-status-cpu.svg
+    data/icons/freedesktop/22-status-prime-hybrid.svg
+    data/icons/freedesktop/22-status-prime-nvidia.svg
     data/icons/freedesktop/24-apps-optimus-manager.svg
+    data/icons/freedesktop/24-status-cpu.svg
+    data/icons/freedesktop/24-status-prime-intel.svg
+    data/icons/freedesktop/24-status-prime-nvidia.svg
     data/icons/freedesktop/256-apps-optimus-manager.svg
     data/icons/freedesktop/48-apps-optimus-manager.svg
     data/icons/freedesktop/512-apps-optimus-manager.svg
