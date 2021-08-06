@@ -46,16 +46,17 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     // Set languages data
     ui->languageComboBox->addItem(tr("<System language>"), QLocale::AnyLanguage);
     const QMetaEnum languagesEnum = QMetaEnum::fromType<QLocale::Language>();
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/de.svg")), languagesEnum.valueToKey(QLocale::German), QLocale::German);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/cn.svg")), languagesEnum.valueToKey(QLocale::Chinese), QLocale::Chinese);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/gb.svg")), languagesEnum.valueToKey(QLocale::English), QLocale::English);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/es.svg")), languagesEnum.valueToKey(QLocale::Spanish), QLocale::Spanish);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/fi.svg")), languagesEnum.valueToKey(QLocale::Finnish), QLocale::Finnish);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/de.svg")), languagesEnum.valueToKey(QLocale::German), QLocale::German);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/hu.svg")), languagesEnum.valueToKey(QLocale::Hungarian), QLocale::Hungarian);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/br.svg")), languagesEnum.valueToKey(QLocale::Portuguese), QLocale::Portuguese);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/ro.svg")), languagesEnum.valueToKey(QLocale::Romanian), QLocale::Romanian);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/fi.svg")), languagesEnum.valueToKey(QLocale::Finnish), QLocale::Finnish);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/tr.svg")), languagesEnum.valueToKey(QLocale::Turkish), QLocale::Turkish);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/ru.svg")), languagesEnum.valueToKey(QLocale::Russian), QLocale::Russian);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/cn.svg")), languagesEnum.valueToKey(QLocale::Chinese), QLocale::Chinese);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/es.svg")), languagesEnum.valueToKey(QLocale::Spanish), QLocale::Spanish);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/tr.svg")), languagesEnum.valueToKey(QLocale::Turkish), QLocale::Turkish);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/ua.svg")), languagesEnum.valueToKey(QLocale::Ukrainian), QLocale::Ukrainian);
 
     loadAppSettings();
 
