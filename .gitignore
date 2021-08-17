@@ -5,11 +5,11 @@
 *.user*
 
 # Clangd
-.clangd
+.cache
 compile_commands.json
 
-# Vim
-vim.json
+# Neovim
+neovim.json
 
 # VSCode
 .vscode
