@@ -19,9 +19,9 @@
  */
 
 #include "appsettings.h"
+#include "cmake.h"
 #include "optimusmanager.h"
 #include "singleapplication.h"
-#include "cmake.h"
 
 int main(int argc, char *argv[])
 {

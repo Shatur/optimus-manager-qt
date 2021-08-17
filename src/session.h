@@ -24,8 +24,7 @@
 #include <QDBusObjectPath>
 
 // To demarshall QDBusArgument
-struct Session
-{
+struct Session {
     QString sessionId;
     int userId = 0;
     QString userName;

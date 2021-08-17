@@ -25,7 +25,8 @@
 
 class QLineEdit;
 
-namespace Ui {
+namespace Ui
+{
 class SettingsDialog;
 }
 

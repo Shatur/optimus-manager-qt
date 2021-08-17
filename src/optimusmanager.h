@@ -21,8 +21,8 @@
 #ifndef OPTIMUSMANAGER_H
 #define OPTIMUSMANAGER_H
 
-#include "optimussettings.h"
 #include "appsettings.h"
+#include "optimussettings.h"
 
 class Session;
 class QMenu;

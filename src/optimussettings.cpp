@@ -292,12 +292,12 @@ bool OptimusSettings::amdTearFree() const
     return s_tearFreeMap.key(tearFreeString, defaultIntelTearFree());
 }
 
-void OptimusSettings::setAmdTearFree(TearFree tearFree) 
+void OptimusSettings::setAmdTearFree(TearFree tearFree)
 {
     setValue(QStringLiteral("amd/tearfree"), s_tearFreeMap[tearFree]);
 }
 
-bool OptimusSettings::defaultAmdTearFree() 
+bool OptimusSettings::defaultAmdTearFree()
 {
     return DefaultTearFree;
 }
@@ -307,12 +307,12 @@ OptimusSettings::DRI OptimusSettings::amdDri() const
     return value(QStringLiteral("intel/DRI"), defaultIntelDri()).value<DRI>();
 }
 
-void OptimusSettings::setAmdDri(DRI dri) 
+void OptimusSettings::setAmdDri(DRI dri)
 {
     setValue(QStringLiteral("amd/DRI"), dri);
 }
 
-OptimusSettings::DRI OptimusSettings::defaultAmdDri() 
+OptimusSettings::DRI OptimusSettings::defaultAmdDri()
 {
     return DRI3;
 }
