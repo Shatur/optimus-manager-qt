@@ -23,28 +23,25 @@
 #include "daemonclient.h"
 #include "session.h"
 #include "settingsdialog.h"
-#include "x11deleters.h"
 
 #include <QCoreApplication>
 #include <QDBusArgument>
 #include <QDBusInterface>
 #include <QDirIterator>
 #include <QFileInfo>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QMenu>
 #include <QMessageBox>
 #include <QMetaEnum>
 #include <QProcess>
-#include <QX11Info>
 #ifdef WITH_PLASMA
 #include <KStatusNotifierItem>
 #else
 #include <QSystemTrayIcon>
 #endif
 
-#include <X11/extensions/Xrandr.h>
-
 #include <csignal>
-#include <sys/types.h>
 
 OptimusManager::OptimusManager(QObject *parent)
     : QObject(parent)
@@ -373,38 +370,28 @@ void OptimusManager::switchMode(OptimusSettings::Mode switchingMode)
 
 OptimusSettings::Mode OptimusManager::detectGpu()
 {
-    if (!QX11Info::isPlatformX11())
-        qFatal("Cannot start in non-X11 session");
+    QFile stateFile(QStringLiteral("/var/lib/optimus-manager/tmp/state.json"));
+    if (!stateFile.open(QIODevice::ReadOnly))
+        qFatal("Unable to open Optimus Manager state file");
 
-    const unsigned long root = XRootWindow(QX11Info::display(), QX11Info::appScreen());
+    QJsonParseError jsonError = {};
+    const QJsonDocument jsonDocument = QJsonDocument::fromJson(stateFile.readAll(), &jsonError);
+    if (jsonError.error != QJsonParseError::NoError)
+        qFatal("Unable to parse Optimus Manager state file: %s", qPrintable(jsonError.errorString()));
 
-    QScopedPointer<XRRScreenResources, ScreenResourcesDeleter> screenResources(XRRGetScreenResourcesCurrent(QX11Info::display(), root));
-    if (screenResources.isNull())
-        qFatal("Unable to get screen resources");
+    QJsonValue modeValue = jsonDocument.object().value(u"current_mode");
+    if (modeValue.type() != QJsonValue::String)
+        qFatal("Unable to read current mode from Optimus Manager state file");
 
-    QScopedPointer<XRRProviderResources, ProviderResourcesDeleter> providerResources(XRRGetProviderResources(QX11Info::display(), root));
-    if (providerResources.isNull())
-        qFatal("Unable to get provider resources");
-
-    bool hasIntegratedProvider = false;
-    bool hasNvidiaProvider = false;
-    for (int i = 0; i < providerResources->nproviders; ++i) {
-        QScopedPointer<XRRProviderInfo, ProviderInfoDeleter> providerInfo(XRRGetProviderInfo(QX11Info::display(), screenResources.data(), providerResources->providers[i]));
-        const QByteArray gpuName = QByteArray::fromRawData(providerInfo->name, qstrlen(providerInfo->name));
-        if (gpuName.startsWith("NVIDIA")) {
-            if (i == 0)
-                return OptimusSettings::Nvidia; // If the first provider is Nvidia, then this is the main provider
-            hasNvidiaProvider = true;
-        } else if (gpuName.startsWith("modesetting") || gpuName.startsWith("Intel") || gpuName.startsWith("AMD") || gpuName.startsWith("Unknown AMD")) {
-            hasIntegratedProvider = true;
-        } else {
-            qFatal("Unknown provider: %s", gpuName.data());
-        }
-    }
-
-    if (hasIntegratedProvider && hasNvidiaProvider)
+    const QString currentMode = modeValue.toString();
+    if (currentMode == QLatin1String("integrated"))
+        return OptimusSettings::Integrated;
+    if (currentMode == QLatin1String("nvidia"))
+        return OptimusSettings::Nvidia;
+    if (currentMode == QLatin1String("hybrid"))
         return OptimusSettings::Hybrid;
-    return OptimusSettings::Integrated;
+
+    qFatal("Unknown GPU mode: %s", qPrintable(currentMode));
 }
 
 bool OptimusManager::isModuleAvailable(const QString &moduleName)
