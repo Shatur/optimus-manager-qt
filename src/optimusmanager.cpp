@@ -518,7 +518,7 @@ bool OptimusManager::killProcess(const QByteArray &name)
         const QDir process = it.next();
 
         bool isNumber;
-        pid_t pid = process.dirName().toUInt(&isNumber);
+        pid_t pid = process.dirName().toInt(&isNumber);
         if (!isNumber)
             continue;
 
