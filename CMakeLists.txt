@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.7.0)
 
-project(optimus-manager-qt VERSION 1.6.3 LANGUAGES CXX DESCRIPTION "An interface for Optimus Manager that allows to switch GPUs on Optimus laptops.")
+project(optimus-manager-qt VERSION 1.6.4 LANGUAGES CXX DESCRIPTION "An interface for Optimus Manager that allows to switch GPUs on Optimus laptops.")
 
 set(APPLICATION_NAME "Optimus Manager Qt")
 set(ORGANIZATION_NAME "Optimus Manager")
