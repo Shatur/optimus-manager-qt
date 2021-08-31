@@ -22,18 +22,18 @@
 <context>
     <name>DaemonClient</name>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="353"/>
-        <location filename="../../src/settingsdialog.cpp" line="103"/>
+        <location filename="../../src/optimusmanager.cpp" line="351"/>
+        <location filename="../../src/settingsdialog.cpp" line="104"/>
         <source>Unable to connect to Optimus Manager daemon: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="363"/>
+        <location filename="../../src/optimusmanager.cpp" line="361"/>
         <source>Unable to send GPU name to switch to Optimus Manager daemon: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="131"/>
+        <location filename="../../src/settingsdialog.cpp" line="132"/>
         <source>Unable to send configuration file to Optimus Manager daemon: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -41,168 +41,168 @@
 <context>
     <name>OptimusManager</name>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="68"/>
-        <location filename="../../src/optimusmanager.cpp" line="69"/>
-        <location filename="../../src/optimusmanager.cpp" line="70"/>
-        <location filename="../../src/optimusmanager.cpp" line="165"/>
-        <location filename="../../src/optimusmanager.cpp" line="166"/>
-        <location filename="../../src/optimusmanager.cpp" line="167"/>
+        <location filename="../../src/optimusmanager.cpp" line="65"/>
+        <location filename="../../src/optimusmanager.cpp" line="66"/>
+        <location filename="../../src/optimusmanager.cpp" line="67"/>
+        <location filename="../../src/optimusmanager.cpp" line="162"/>
+        <location filename="../../src/optimusmanager.cpp" line="163"/>
+        <location filename="../../src/optimusmanager.cpp" line="164"/>
         <source>Switch to %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="73"/>
-        <location filename="../../src/optimusmanager.cpp" line="169"/>
+        <location filename="../../src/optimusmanager.cpp" line="70"/>
+        <location filename="../../src/optimusmanager.cpp" line="166"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="80"/>
-        <location filename="../../src/optimusmanager.cpp" line="160"/>
+        <location filename="../../src/optimusmanager.cpp" line="77"/>
+        <location filename="../../src/optimusmanager.cpp" line="157"/>
         <source>Current video card: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="147"/>
+        <location filename="../../src/optimusmanager.cpp" line="144"/>
         <source>The specified icon &apos;%1&apos; for the current GPU is invalid. The default icon will be used.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="147"/>
+        <location filename="../../src/optimusmanager.cpp" line="144"/>
         <source>Invalid icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="182"/>
+        <location filename="../../src/optimusmanager.cpp" line="179"/>
         <source>You are about to switch GPU.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="184"/>
+        <location filename="../../src/optimusmanager.cpp" line="181"/>
         <source>You will be automatically logged out to apply the changes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="195"/>
-        <location filename="../../src/optimusmanager.cpp" line="294"/>
+        <location filename="../../src/optimusmanager.cpp" line="192"/>
+        <location filename="../../src/optimusmanager.cpp" line="292"/>
         <source>The %1 is running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="208"/>
+        <location filename="../../src/optimusmanager.cpp" line="205"/>
         <source>No power management option is currently enabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="337"/>
+        <location filename="../../src/optimusmanager.cpp" line="335"/>
         <source>The Xorg driver is not installed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="338"/>
+        <location filename="../../src/optimusmanager.cpp" line="336"/>
         <source>Optimus Manager will use &apos;%1&apos; driver instead. You can change &apos;%2&apos; driver to &apos;%1&apos; in settings or install &apos;%2&apos; driver from the &apos;%3&apos; package.
 Continue anyway?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="221"/>
+        <location filename="../../src/optimusmanager.cpp" line="218"/>
         <source>Power switching will not work.
 You can set &apos;%1&apos; for GPU switching in settings or install bbswitch for the default kernel with &apos;%2&apos; or for all kernels with &apos;%3&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="246"/>
+        <location filename="../../src/optimusmanager.cpp" line="243"/>
         <source>Looks like you&apos;re using a non-patched version of the GNOME Display Manager (GDM).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="261"/>
+        <location filename="../../src/optimusmanager.cpp" line="258"/>
         <source>There are %1 other desktop sessions open. The GPU switch will not become effective until you have manually logged out from ALL desktop sessions.
 Continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="276"/>
+        <location filename="../../src/optimusmanager.cpp" line="274"/>
         <source>Wayland session found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="277"/>
+        <location filename="../../src/optimusmanager.cpp" line="275"/>
         <source>Session %1, started by %2, is a Wayland session. Wayland is not supported by Optimus Manager, so GPU switching may fail.
 Continue anyway?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="371"/>
+        <location filename="../../src/optimusmanager.cpp" line="369"/>
         <source>Configuration successfully applied</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="371"/>
+        <location filename="../../src/optimusmanager.cpp" line="369"/>
         <source>Your GPU will be switched after next login.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="309"/>
+        <location filename="../../src/optimusmanager.cpp" line="307"/>
         <source>If you did not create it yourself, it was likely generated by your distribution or by an Nvidia utility.
 This file may contain hard-coded GPU configuration that could interfere with Optimus Manager, so it is recommended that you delete it before proceeding.
 Ignore this warning and proceed with GPU switching?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="323"/>
+        <location filename="../../src/optimusmanager.cpp" line="321"/>
         <source>This file was auto-generated by the Manjaro driver utility (MHWD). This will likely interfere with GPU switching, so Optimus Manager will delete this file automatically if you proceded with GPU switching.
 Proceed?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="186"/>
+        <location filename="../../src/optimusmanager.cpp" line="183"/>
         <source>After applying the settings, you will need to manually re-login to change the video card.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="196"/>
+        <location filename="../../src/optimusmanager.cpp" line="193"/>
         <source>Please enable and start it with:
 &apos;%1&apos;
 &apos;%2&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="209"/>
+        <location filename="../../src/optimusmanager.cpp" line="206"/>
         <source>Switching between GPUs will work but you will likely experience poor battery life.&lt;br&gt;Follow &lt;a href=&apos;https://github.com/Askannz/optimus-manager/wiki/A-guide--to-power-management-options&apos;&gt;these&lt;/a&gt; instructions to enable power management.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="220"/>
-        <location filename="../../src/optimusmanager.cpp" line="234"/>
+        <location filename="../../src/optimusmanager.cpp" line="217"/>
+        <location filename="../../src/optimusmanager.cpp" line="231"/>
         <source>The %1 module does not seem to be available for the current kernel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="235"/>
+        <location filename="../../src/optimusmanager.cpp" line="232"/>
         <source>It is likely the Nvidia driver was not properly installed. GPU switching will probably fail, continue anyway?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="247"/>
+        <location filename="../../src/optimusmanager.cpp" line="244"/>
         <source>GDM need to be patched for Prime switching. Follow &lt;a href=&apos;https://github.com/Askannz/optimus-manager&apos;&gt;this&lt;/a&gt; instructions to install a patched version. Without a patched GDM version, GPU switching will likely fail.
 Continue anyway?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="260"/>
+        <location filename="../../src/optimusmanager.cpp" line="257"/>
         <source>Multiple running sessions detected.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="295"/>
+        <location filename="../../src/optimusmanager.cpp" line="293"/>
         <source>This can interfere with Optimus Manager. Before attempting a GPU switch, it is recommended that you disable this service with &apos;%1&apos; and reboot your computer.
 Ignore this warning and proceed with GPU switching now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/optimusmanager.cpp" line="308"/>
-        <location filename="../../src/optimusmanager.cpp" line="322"/>
+        <location filename="../../src/optimusmanager.cpp" line="306"/>
+        <location filename="../../src/optimusmanager.cpp" line="320"/>
         <source>Found a Xorg config file at &apos;%1&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -211,8 +211,8 @@ Ignore this warning and proceed with GPU switching now?</source>
     <name>SettingsDialog</name>
     <message>
         <location filename="../../src/settingsdialog.ui" line="14"/>
-        <location filename="../../src/optimusmanager.cpp" line="64"/>
-        <location filename="../../src/optimusmanager.cpp" line="162"/>
+        <location filename="../../src/optimusmanager.cpp" line="61"/>
+        <location filename="../../src/optimusmanager.cpp" line="159"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -568,6 +568,12 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../src/settingsdialog.ui" line="1173"/>
+        <location filename="../../src/settingsdialog.ui" line="1244"/>
+        <source>Source code:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../src/settingsdialog.ui" line="1226"/>
         <source>Flag icons:</source>
         <translation type="unfinished"></translation>
@@ -654,76 +660,70 @@ Ignore this warning and proceed with GPU switching now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.ui" line="1173"/>
-        <location filename="../../src/settingsdialog.ui" line="1244"/>
-        <source>Author:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../src/settingsdialog.ui" line="1193"/>
         <location filename="../../src/settingsdialog.ui" line="1281"/>
         <source>License:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="84"/>
+        <location filename="../../src/settingsdialog.cpp" line="85"/>
         <source>Optimus Manager temporary configuration file path cannot be empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="91"/>
+        <location filename="../../src/settingsdialog.cpp" line="92"/>
         <source>Optimus Manager temporary configuration file path cannot be a permanent configuration file path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="113"/>
+        <location filename="../../src/settingsdialog.cpp" line="114"/>
         <source>Unable to read data from generated configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="257"/>
+        <location filename="../../src/settingsdialog.cpp" line="258"/>
         <source>Select temporary configuration file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="258"/>
-        <location filename="../../src/settingsdialog.cpp" line="270"/>
-        <location filename="../../src/settingsdialog.cpp" line="283"/>
+        <location filename="../../src/settingsdialog.cpp" line="259"/>
+        <location filename="../../src/settingsdialog.cpp" line="271"/>
+        <location filename="../../src/settingsdialog.cpp" line="284"/>
         <source>Config files (*.conf);;All files(*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="269"/>
+        <location filename="../../src/settingsdialog.cpp" line="270"/>
         <source>Export Optimus Manager settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="282"/>
+        <location filename="../../src/settingsdialog.cpp" line="283"/>
         <source>Import Optimus Manager settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="467"/>
+        <location filename="../../src/settingsdialog.cpp" line="468"/>
         <source>Select icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="468"/>
+        <location filename="../../src/settingsdialog.cpp" line="469"/>
         <source>Images (*.png *.jpg *.bmp);;All files(*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="499"/>
+        <location filename="../../src/settingsdialog.cpp" line="500"/>
         <source>Unable to find Optimus Manager daemon.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="500"/>
+        <location filename="../../src/settingsdialog.cpp" line="501"/>
         <source>Please check the integrity of the package that provides Optimus Manager.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/settingsdialog.cpp" line="502"/>
+        <location filename="../../src/settingsdialog.cpp" line="503"/>
         <source>Not found!</source>
         <translation type="unfinished"></translation>
     </message>

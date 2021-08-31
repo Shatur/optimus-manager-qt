@@ -1168,9 +1168,9 @@
              </widget>
             </item>
             <item row="2" column="0">
-             <widget class="QLabel" name="autorGuiTitleLabel">
+             <widget class="QLabel" name="sourceGuiTitleLabel">
               <property name="text">
-               <string>Author:</string>
+               <string>Source code:</string>
               </property>
              </widget>
             </item>
@@ -1195,9 +1195,9 @@
              </widget>
             </item>
             <item row="2" column="1">
-             <widget class="QLabel" name="autorGuiLabel">
+             <widget class="QLabel" name="sourceGuiLabel">
               <property name="text">
-               <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Shatur95&quot;&gt;Shatur95&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Shatur/optimus-manager-qt&quot;&gt;optimus-manager-qt&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="openExternalLinks">
                <bool>true</bool>
@@ -1239,16 +1239,16 @@
            </attribute>
            <layout class="QGridLayout" name="aboutLayout" columnstretch="0,1">
             <item row="2" column="0">
-             <widget class="QLabel" name="autorTitleLabel">
+             <widget class="QLabel" name="sourceTitleLabel">
               <property name="text">
-               <string>Author:</string>
+               <string>Source code:</string>
               </property>
              </widget>
             </item>
             <item row="2" column="1">
-             <widget class="QLabel" name="autorLabel">
+             <widget class="QLabel" name="sourceLabel">
               <property name="text">
-               <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Askannz&quot;&gt;Askannz&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Askannz/optimus-manager&quot;&gt;optimus-manager&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="openExternalLinks">
                <bool>true</bool>
