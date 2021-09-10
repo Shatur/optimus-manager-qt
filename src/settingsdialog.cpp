@@ -51,6 +51,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/fi.svg")), languagesEnum.valueToKey(QLocale::Finnish), QLocale::Finnish);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/de.svg")), languagesEnum.valueToKey(QLocale::German), QLocale::German);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/hu.svg")), languagesEnum.valueToKey(QLocale::Hungarian), QLocale::Hungarian);
+    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/jp.svg")), languagesEnum.valueToKey(QLocale::Japanese), QLocale::Japanese);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/br.svg")), languagesEnum.valueToKey(QLocale::Portuguese), QLocale::Portuguese);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/ro.svg")), languagesEnum.valueToKey(QLocale::Romanian), QLocale::Romanian);
     ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/ru.svg")), languagesEnum.valueToKey(QLocale::Russian), QLocale::Russian);
