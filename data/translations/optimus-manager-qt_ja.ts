@@ -66,7 +66,7 @@
         <location filename="../../src/optimusmanager.cpp" line="155"/>
         <location filename="../../src/optimusmanager.cpp" line="164"/>
         <source>The specified icon &apos;%1&apos; for the current GPU is invalid. The default icon will be used.</source>
-        <translation>現在のGPUに指定されたアイコン&apos;%1&apos;は無効です。デフォルトのアイコンが使用されます。</translation>
+        <translation>現在のGPUに指定されたアイコン&apos;%1&apos;は無効です。デフォルトのアイコンが使用される。</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="155"/>
@@ -77,18 +77,18 @@
     <message>
         <location filename="../../src/optimusmanager.cpp" line="196"/>
         <source>You are about to switch GPU.</source>
-        <translation>GPUを切り替えようとしています。</translation>
+        <translation>GPUを切り替えようとしている。</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="198"/>
         <source>You will be automatically logged out to apply the changes.</source>
-        <translation>変更を適用するには、自動的にログアウトされます。</translation>
+        <translation>変更を適用するには、自動的にログアウトされる。</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="209"/>
         <location filename="../../src/optimusmanager.cpp" line="308"/>
         <source>The %1 is running.</source>
-        <translation>%1が実行されています。</translation>
+        <translation>%1が実行している。</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="222"/>
@@ -126,7 +126,7 @@ Continue?</source>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="290"/>
         <source>Wayland session found.</source>
-        <translation>Waylandセッションが見つかりました。</translation>
+        <translation>Waylandセッションが見つかった。</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="291"/>
@@ -137,12 +137,12 @@ Continue anyway?</source>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="385"/>
         <source>Configuration successfully applied</source>
-        <translation>設定が正常に適用されました</translation>
+        <translation>設定が正常に適用された</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="385"/>
         <source>Your GPU will be switched after next login.</source>
-        <translation>次回のログイン後にGPUが切り替わります</translation>
+        <translation>次回のログイン後にGPUが切り替わる</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="323"/>
@@ -160,14 +160,14 @@ Proceed?</source>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="200"/>
         <source>After applying the settings, you will need to manually re-login to change the video card.</source>
-        <translation>設定を適用した後、ビデオカードを変更するには手動で再ログインする必要があります。</translation>
+        <translation>設定を適用した後、ビデオカードを変更するには手動で再ログインする必要がある。</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="210"/>
         <source>Please enable and start it with:
 &apos;%1&apos;
 &apos;%2&apos;</source>
-        <translation>有効にして、次のコマンドで開始してください：
+        <translation>有効にして開始するため、次のコマンドを実行してください：
 &apos;%1&apos;
 &apos;%2&apos;</translation>
     </message>
@@ -196,7 +196,7 @@ Continue anyway?</source>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="274"/>
         <source>Multiple running sessions detected.</source>
-        <translation>複数の実行中のセッションが見つかりました。</translation>
+        <translation>複数の実行中のセッションが見つかった。</translation>
     </message>
     <message>
         <location filename="../../src/optimusmanager.cpp" line="309"/>
@@ -208,7 +208,7 @@ Ignore this warning and proceed with GPU switching now?</source>
         <location filename="../../src/optimusmanager.cpp" line="322"/>
         <location filename="../../src/optimusmanager.cpp" line="336"/>
         <source>Found a Xorg config file at &apos;%1&apos;.</source>
-        <translation>&apos;%1&apos;でXorgの設定ファイルが見つかりました。</translation>
+        <translation>&apos;%1&apos;でXorgの設定ファイルが見つかった。</translation>
     </message>
 </context>
 <context>
@@ -249,17 +249,17 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
         <location filename="../../src/settingsdialog.ui" line="159"/>
         <source>Launch at startup</source>
-        <translation>自動起動にします</translation>
+        <translation>自動起動にする</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="166"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show confirmation dialog when switching GPU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPUの切り替えときに確認ダイアログを表示します&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPUの切り替えときに確認ダイアログを表示する&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="169"/>
         <source>Confirm switching</source>
-        <translation>切り替えを確認してください</translation>
+        <translation>切り替え確認を求める</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="185"/>
@@ -289,7 +289,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
         <location filename="../../src/settingsdialog.ui" line="156"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostart will be used&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostartが使用されます&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;~/.config/autostartが使用される&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/settingsdialog.ui" line="179"/>
@@ -729,7 +729,7 @@ Ignore this warning and proceed with GPU switching now?</source>
     <message>
         <location filename="../../src/settingsdialog.cpp" line="493"/>
         <source>Not found!</source>
-        <translation>見借りません！</translation>
+        <translation>見つかりません！</translation>
     </message>
 </context>
 </TS>
