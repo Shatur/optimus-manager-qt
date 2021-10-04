@@ -44,20 +44,19 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     ui->versionLabel->setText(optimusManagerVersion());
 
     // Set languages data
-    ui->languageComboBox->addItem(tr("<System language>"), QLocale::AnyLanguage);
-    const QMetaEnum languagesEnum = QMetaEnum::fromType<QLocale::Language>();
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/cn.svg")), languagesEnum.valueToKey(QLocale::Chinese), QLocale::Chinese);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/gb.svg")), languagesEnum.valueToKey(QLocale::English), QLocale::English);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/fi.svg")), languagesEnum.valueToKey(QLocale::Finnish), QLocale::Finnish);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/de.svg")), languagesEnum.valueToKey(QLocale::German), QLocale::German);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/hu.svg")), languagesEnum.valueToKey(QLocale::Hungarian), QLocale::Hungarian);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/jp.svg")), languagesEnum.valueToKey(QLocale::Japanese), QLocale::Japanese);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/br.svg")), languagesEnum.valueToKey(QLocale::Portuguese), QLocale::Portuguese);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/ro.svg")), languagesEnum.valueToKey(QLocale::Romanian), QLocale::Romanian);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/ru.svg")), languagesEnum.valueToKey(QLocale::Russian), QLocale::Russian);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/es.svg")), languagesEnum.valueToKey(QLocale::Spanish), QLocale::Spanish);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/tr.svg")), languagesEnum.valueToKey(QLocale::Turkish), QLocale::Turkish);
-    ui->languageComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/ua.svg")), languagesEnum.valueToKey(QLocale::Ukrainian), QLocale::Ukrainian);
+    ui->localeComboBox->addItem(tr("<System language>"), AppSettings::defaultLocale());
+    addLocale({QLocale::Chinese, QLocale::China});
+    addLocale({QLocale::English, QLocale::UnitedStates});
+    addLocale({QLocale::Finnish, QLocale::Finland});
+    addLocale({QLocale::German, QLocale::Germany});
+    addLocale({QLocale::Hungarian, QLocale::Hungary});
+    addLocale({QLocale::Japanese, QLocale::Japan});
+    addLocale({QLocale::Portuguese, QLocale::Brazil});
+    addLocale({QLocale::Romanian, QLocale::Romania});
+    addLocale({QLocale::Russian, QLocale::Russia});
+    addLocale({QLocale::Spanish, QLocale::Spain});
+    addLocale({QLocale::Turkish, QLocale::Turkey});
+    addLocale({QLocale::Ukrainian, QLocale::Ukraine});
 
     loadAppSettings();
 
@@ -303,7 +302,7 @@ void SettingsDialog::loadOptimusSettingsPath(const QString &path)
 void SettingsDialog::restoreDefaults()
 {
     // General settings
-    ui->languageComboBox->setCurrentIndex(AppSettings::defaultLanguage());
+    ui->localeComboBox->setCurrentIndex(ui->localeComboBox->findData(AppSettings::defaultLocale()));
     ui->autostartCheckBox->setChecked(AppSettings::defaultAutostartEnabled());
     ui->confirmSwitchingCheckBox->setChecked(AppSettings::defaultConfirmSwitching());
     ui->integratedIconEdit->setText(AppSettings::defaultModeIconName(OptimusSettings::Integrated));
@@ -347,11 +346,18 @@ void SettingsDialog::restoreDefaults()
     ui->nvidiaTripleBuffercheckBox->setChecked(nvidiaOptions.testFlag(OptimusSettings::TripleBuffer));
 }
 
+void SettingsDialog::addLocale(const QLocale &locale)
+{
+    const int separatorIndex = locale.name().indexOf('_');
+    const QString countryCode = locale.name().right(separatorIndex).toLower();
+    ui->localeComboBox->addItem(QIcon(QStringLiteral(":/icons/flags/%1.svg").arg(countryCode)), locale.nativeLanguageName(), locale);
+}
+
 void SettingsDialog::loadAppSettings()
 {
     // General settings
     const AppSettings settings;
-    ui->languageComboBox->setCurrentIndex(ui->languageComboBox->findData(settings.language()));
+    ui->localeComboBox->setCurrentIndex(ui->localeComboBox->findData(settings.locale()));
     ui->autostartCheckBox->setChecked(AppSettings::isAutostartEnabled());
     ui->confirmSwitchingCheckBox->setChecked(settings.isConfirmSwitching());
     ui->integratedIconEdit->setText(settings.modeIconName(OptimusSettings::Integrated));
@@ -363,9 +369,8 @@ void SettingsDialog::saveAppSettings()
 {
     // Check if language changed
     AppSettings appSettings;
-    const auto language = ui->languageComboBox->currentData().value<QLocale::Language>();
-    if (language != appSettings.language()) {
-        appSettings.setLanguage(language);
+    if (const auto locale = ui->localeComboBox->currentData().value<QLocale>(); locale != appSettings.locale()) {
+        appSettings.setLocale(locale);
         m_languageChanged = true;
     }
 

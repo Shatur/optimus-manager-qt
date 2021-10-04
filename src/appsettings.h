@@ -37,9 +37,9 @@ public:
 
     // General settings
     void setupLocalization() const;
-    QLocale::Language language() const;
-    void setLanguage(QLocale::Language lang);
-    static QLocale::Language defaultLanguage();
+    QLocale locale() const;
+    void setLocale(const QLocale &locale);
+    static QLocale defaultLocale();
 
     static bool isAutostartEnabled();
     static void setAutostartEnabled(bool enabled);
@@ -55,7 +55,7 @@ public:
     static QString defaultModeIconName(OptimusSettings::Mode mode);
 
 private:
-    static void applyLanguage(QLocale::Language lang);
+    static void applyLocale(const QLocale &locale);
     static QTranslator s_appTranslator;
 };
 

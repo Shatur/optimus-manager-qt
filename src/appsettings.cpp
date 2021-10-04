@@ -39,27 +39,24 @@ AppSettings::AppSettings(QObject *parent)
 
 void AppSettings::setupLocalization() const
 {
-    applyLanguage(language());
+    applyLocale(locale());
     QCoreApplication::installTranslator(&s_appTranslator);
 }
 
-QLocale::Language AppSettings::language() const
+QLocale AppSettings::locale() const
 {
-    return value(QStringLiteral("Language"), defaultLanguage()).value<QLocale::Language>();
+    return value(QStringLiteral("Locale"), defaultLocale()).value<QLocale>();
 }
 
-void AppSettings::setLanguage(QLocale::Language lang)
+void AppSettings::setLocale(const QLocale &locale)
 {
-    if (lang == language())
-        return;
-
-    setValue(QStringLiteral("Language"), lang);
-    applyLanguage(lang);
+    setValue(QStringLiteral("Locale"), locale);
+    applyLocale(locale);
 }
 
-QLocale::Language AppSettings::defaultLanguage()
+QLocale AppSettings::defaultLocale()
 {
-    return QLocale::AnyLanguage;
+    return QLocale::c(); // C locale is used as the system language on apply
 }
 
 bool AppSettings::isAutostartEnabled()
@@ -163,9 +160,9 @@ QString AppSettings::defaultModeIconName(OptimusSettings::Mode mode)
     }
 }
 
-void AppSettings::applyLanguage(QLocale::Language lang)
+void AppSettings::applyLocale(const QLocale &locale)
 {
-    const QLocale locale = lang == QLocale::AnyLanguage ? QLocale::system() : lang;
-    QLocale::setDefault(locale);
-    s_appTranslator.load(locale, QStringLiteral(PROJECT_NAME), QStringLiteral("_"), QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("translations"), QStandardPaths::LocateDirectory));
+    const QLocale newLocale = locale == defaultLocale() ? QLocale::system() : locale;
+    QLocale::setDefault(newLocale);
+    s_appTranslator.load(newLocale, QStringLiteral(PROJECT_NAME), QStringLiteral("_"), QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("translations"), QStandardPaths::LocateDirectory));
 }
