@@ -27,13 +27,15 @@
 #include <QFileInfo>
 #include <QGuiApplication>
 #include <QIcon>
+#include <QSettings>
 #include <QStandardPaths>
 #include <QTranslator>
 
 QTranslator AppSettings::s_appTranslator;
 
 AppSettings::AppSettings(QObject *parent)
-    : QSettings(parent)
+    : QObject(parent)
+    , m_settings(new QSettings(this))
 {
 }
 
@@ -45,12 +47,12 @@ void AppSettings::setupLocalization() const
 
 QLocale AppSettings::locale() const
 {
-    return value(QStringLiteral("Locale"), defaultLocale()).value<QLocale>();
+    return m_settings->value(QStringLiteral("Locale"), defaultLocale()).value<QLocale>();
 }
 
 void AppSettings::setLocale(const QLocale &locale)
 {
-    setValue(QStringLiteral("Locale"), locale);
+    m_settings->setValue(QStringLiteral("Locale"), locale);
     applyLocale(locale);
 }
 
@@ -97,12 +99,12 @@ bool AppSettings::defaultAutostartEnabled()
 
 bool AppSettings::isConfirmSwitching() const
 {
-    return value(QStringLiteral("ConfirmSwitching"), defaultConfirmSwitching()).toBool();
+    return m_settings->value(QStringLiteral("ConfirmSwitching"), defaultConfirmSwitching()).toBool();
 }
 
 void AppSettings::setConfirmSwitching(bool confirm)
 {
-    setValue(QStringLiteral("ConfirmSwitching"), confirm);
+    m_settings->setValue(QStringLiteral("ConfirmSwitching"), confirm);
 }
 
 bool AppSettings::defaultConfirmSwitching()
@@ -119,11 +121,11 @@ QString AppSettings::modeIconName(OptimusSettings::Mode mode) const
 {
     switch (mode) {
     case OptimusSettings::Integrated:
-        return value(QStringLiteral("IntegratedIcon"), defaultModeIconName(mode)).toString();
+        return m_settings->value(QStringLiteral("IntegratedIcon"), defaultModeIconName(mode)).toString();
     case OptimusSettings::Nvidia:
-        return value(QStringLiteral("NvidiaIcon"), defaultModeIconName(mode)).toString();
+        return m_settings->value(QStringLiteral("NvidiaIcon"), defaultModeIconName(mode)).toString();
     case OptimusSettings::Hybrid:
-        return value(QStringLiteral("HybridIcon"), defaultModeIconName(mode)).toString();
+        return m_settings->value(QStringLiteral("HybridIcon"), defaultModeIconName(mode)).toString();
     default:
         qFatal("Unknown GPU");
     }
@@ -133,13 +135,13 @@ void AppSettings::setModeIconName(OptimusSettings::Mode mode, const QString &nam
 {
     switch (mode) {
     case OptimusSettings::Integrated:
-        setValue(QStringLiteral("IntegratedIcon"), name);
+        m_settings->setValue(QStringLiteral("IntegratedIcon"), name);
         break;
     case OptimusSettings::Nvidia:
-        setValue(QStringLiteral("NvidiaIcon"), name);
+        m_settings->setValue(QStringLiteral("NvidiaIcon"), name);
         break;
     case OptimusSettings::Hybrid:
-        setValue(QStringLiteral("HybridIcon"), name);
+        m_settings->setValue(QStringLiteral("HybridIcon"), name);
         break;
     default:
         qFatal("Unknown GPU");

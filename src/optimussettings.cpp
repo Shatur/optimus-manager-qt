@@ -21,6 +21,7 @@
 #include "optimussettings.h"
 
 #include <QFile>
+#include <QSettings>
 
 const QMap<bool, QString> OptimusSettings::s_boolMap = {{false, QStringLiteral("no")},
                                                         {true, QStringLiteral("yes")}};
@@ -54,24 +55,26 @@ const QMap<OptimusSettings::DynamicPowerManagement, QString> OptimusSettings::s_
                                                                                                                    {Fine, QStringLiteral("fine")}};
 
 OptimusSettings::OptimusSettings(QObject *parent)
-    : QSettings(detectConfigPath().first, QSettings::IniFormat, parent)
+    : QObject(parent)
+    , m_settings(new QSettings(detectConfigPath().first, QSettings::IniFormat, this))
 {
 }
 
 OptimusSettings::OptimusSettings(const QString &filename, QObject *parent)
-    : QSettings(filename, QSettings::IniFormat, parent)
+    : QObject(parent)
+    , m_settings(new QSettings(filename, QSettings::IniFormat, this))
 {
 }
 
 OptimusSettings::SwitchingMethod OptimusSettings::switchingMethod() const
 {
-    const QString method = value(QStringLiteral("optimus/switching")).toString();
+    const QString method = m_settings->value(QStringLiteral("optimus/switching")).toString();
     return s_switchingMethodMap.key(method, defaultSwitchingMethod());
 }
 
 void OptimusSettings::setSwitchingMethod(OptimusSettings::SwitchingMethod method)
 {
-    setValue(QStringLiteral("optimus/switching"), s_switchingMethodMap[method]);
+    m_settings->setValue(QStringLiteral("optimus/switching"), s_switchingMethodMap[method]);
 }
 
 OptimusSettings::SwitchingMethod OptimusSettings::defaultSwitchingMethod()
@@ -81,13 +84,13 @@ OptimusSettings::SwitchingMethod OptimusSettings::defaultSwitchingMethod()
 
 bool OptimusSettings::isPciPowerControlEnabled() const
 {
-    const QString powerControlString = value(QStringLiteral("optimus/pci_power_control")).toString();
+    const QString powerControlString = m_settings->value(QStringLiteral("optimus/pci_power_control")).toString();
     return s_boolMap.key(powerControlString, defaultPciPowerControlEnabled());
 }
 
 void OptimusSettings::setPciPowerControlEnabled(bool enable)
 {
-    setValue(QStringLiteral("optimus/pci_power_control"), s_boolMap[enable]);
+    m_settings->setValue(QStringLiteral("optimus/pci_power_control"), s_boolMap[enable]);
 }
 
 bool OptimusSettings::defaultPciPowerControlEnabled()
@@ -97,13 +100,13 @@ bool OptimusSettings::defaultPciPowerControlEnabled()
 
 bool OptimusSettings::isPciRemoveEnabled() const
 {
-    const QString pciRemoveString = value(QStringLiteral("optimus/pci_remove")).toString();
+    const QString pciRemoveString = m_settings->value(QStringLiteral("optimus/pci_remove")).toString();
     return s_boolMap.key(pciRemoveString, defaultPciRemoveEnabled());
 }
 
 void OptimusSettings::setPciRemoveEnabled(bool enable)
 {
-    setValue(QStringLiteral("optimus/pci_remove"), s_boolMap[enable]);
+    m_settings->setValue(QStringLiteral("optimus/pci_remove"), s_boolMap[enable]);
 }
 
 bool OptimusSettings::defaultPciRemoveEnabled()
@@ -113,13 +116,13 @@ bool OptimusSettings::defaultPciRemoveEnabled()
 
 OptimusSettings::PciReset OptimusSettings::pciReset() const
 {
-    const QString pciResetString = value(QStringLiteral("optimus/pci_reset")).toString();
+    const QString pciResetString = m_settings->value(QStringLiteral("optimus/pci_reset")).toString();
     return s_pciResetMap.key(pciResetString, defaultPciReset());
 }
 
 void OptimusSettings::setPciReset(PciReset type)
 {
-    setValue(QStringLiteral("optimus/pci_reset"), s_pciResetMap[type]);
+    m_settings->setValue(QStringLiteral("optimus/pci_reset"), s_pciResetMap[type]);
 }
 
 OptimusSettings::PciReset OptimusSettings::defaultPciReset()
@@ -129,13 +132,13 @@ OptimusSettings::PciReset OptimusSettings::defaultPciReset()
 
 bool OptimusSettings::isAutoLogoutEnabled() const
 {
-    const QString terminateSessionsString = value(QStringLiteral("optimus/auto_logout")).toString();
+    const QString terminateSessionsString = m_settings->value(QStringLiteral("optimus/auto_logout")).toString();
     return s_boolMap.key(terminateSessionsString, defaultAutoLogoutEnabled());
 }
 
 void OptimusSettings::setAutoLogoutEnabled(bool enable)
 {
-    setValue(QStringLiteral("optimus/auto_logout"), s_boolMap[enable]);
+    m_settings->setValue(QStringLiteral("optimus/auto_logout"), s_boolMap[enable]);
 }
 
 bool OptimusSettings::defaultAutoLogoutEnabled()
@@ -145,13 +148,13 @@ bool OptimusSettings::defaultAutoLogoutEnabled()
 
 OptimusSettings::Mode OptimusSettings::startupMode() const
 {
-    const QString modeString = value(QStringLiteral("optimus/startup_mode")).toString();
+    const QString modeString = m_settings->value(QStringLiteral("optimus/startup_mode")).toString();
     return s_modeMap.key(modeString, defaultStartupMode());
 }
 
 void OptimusSettings::setStartupMode(OptimusSettings::Mode gpu)
 {
-    setValue(QStringLiteral("optimus/startup_mode"), s_modeMap[gpu]);
+    m_settings->setValue(QStringLiteral("optimus/startup_mode"), s_modeMap[gpu]);
 }
 
 OptimusSettings::Mode OptimusSettings::defaultStartupMode()
@@ -161,13 +164,13 @@ OptimusSettings::Mode OptimusSettings::defaultStartupMode()
 
 OptimusSettings::Mode OptimusSettings::batteryStartupMode() const
 {
-    const QString modeString = value(QStringLiteral("optimus/startup_auto_battery_mode")).toString();
+    const QString modeString = m_settings->value(QStringLiteral("optimus/startup_auto_battery_mode")).toString();
     return s_modeMap.key(modeString, defaultBatteryStartupMode());
 }
 
 void OptimusSettings::setBatteryStartupMode(OptimusSettings::Mode gpu)
 {
-    setValue(QStringLiteral("optimus/startup_auto_battery_mode"), s_modeMap[gpu]);
+    m_settings->setValue(QStringLiteral("optimus/startup_auto_battery_mode"), s_modeMap[gpu]);
 }
 
 OptimusSettings::Mode OptimusSettings::defaultBatteryStartupMode()
@@ -177,13 +180,13 @@ OptimusSettings::Mode OptimusSettings::defaultBatteryStartupMode()
 
 OptimusSettings::Mode OptimusSettings::externalPowerStartupMode() const
 {
-    const QString gpuString = value(QStringLiteral("optimus/startup_auto_extpower_mode")).toString();
+    const QString gpuString = m_settings->value(QStringLiteral("optimus/startup_auto_extpower_mode")).toString();
     return s_modeMap.key(gpuString, defaultExternalPowerStartupMode());
 }
 
 void OptimusSettings::setExternalPowerStartupMode(OptimusSettings::Mode gpu)
 {
-    setValue(QStringLiteral("optimus/startup_auto_extpower_mode"), s_modeMap[gpu]);
+    m_settings->setValue(QStringLiteral("optimus/startup_auto_extpower_mode"), s_modeMap[gpu]);
 }
 
 OptimusSettings::Mode OptimusSettings::defaultExternalPowerStartupMode()
@@ -193,13 +196,13 @@ OptimusSettings::Mode OptimusSettings::defaultExternalPowerStartupMode()
 
 OptimusSettings::IntelDriver OptimusSettings::intelDriver() const
 {
-    const QString driverString = value(QStringLiteral("intel/driver")).toString();
+    const QString driverString = m_settings->value(QStringLiteral("intel/driver")).toString();
     return s_intelDriverMap.key(driverString, defaultIntelDriver());
 }
 
 void OptimusSettings::setIntelDriver(OptimusSettings::IntelDriver driver)
 {
-    setValue(QStringLiteral("intel/driver"), s_intelDriverMap[driver]);
+    m_settings->setValue(QStringLiteral("intel/driver"), s_intelDriverMap[driver]);
 }
 
 OptimusSettings::IntelDriver OptimusSettings::defaultIntelDriver()
@@ -209,13 +212,13 @@ OptimusSettings::IntelDriver OptimusSettings::defaultIntelDriver()
 
 OptimusSettings::AccelMethod OptimusSettings::intelAccelMethod() const
 {
-    const QString accelMethodString = value(QStringLiteral("intel/accel")).toString();
+    const QString accelMethodString = m_settings->value(QStringLiteral("intel/accel")).toString();
     return s_accelMethodMap.key(accelMethodString, defaultIntelAccelMethod());
 }
 
 void OptimusSettings::setIntelAccelMethod(OptimusSettings::AccelMethod method)
 {
-    setValue(QStringLiteral("intel/accel"), s_accelMethodMap[method]);
+    m_settings->setValue(QStringLiteral("intel/accel"), s_accelMethodMap[method]);
 }
 
 OptimusSettings::AccelMethod OptimusSettings::defaultIntelAccelMethod()
@@ -225,13 +228,13 @@ OptimusSettings::AccelMethod OptimusSettings::defaultIntelAccelMethod()
 
 OptimusSettings::TearFree OptimusSettings::intelTearFree() const
 {
-    const QString tearFreeString = value(QStringLiteral("intel/tearfree")).toString();
+    const QString tearFreeString = m_settings->value(QStringLiteral("intel/tearfree")).toString();
     return s_tearFreeMap.key(tearFreeString, defaultIntelTearFree());
 }
 
 void OptimusSettings::setIntelTearFree(OptimusSettings::TearFree tearFree)
 {
-    setValue(QStringLiteral("intel/tearfree"), s_tearFreeMap[tearFree]);
+    m_settings->setValue(QStringLiteral("intel/tearfree"), s_tearFreeMap[tearFree]);
 }
 
 OptimusSettings::TearFree OptimusSettings::defaultIntelTearFree()
@@ -241,12 +244,12 @@ OptimusSettings::TearFree OptimusSettings::defaultIntelTearFree()
 
 OptimusSettings::DRI OptimusSettings::intelDri() const
 {
-    return value(QStringLiteral("intel/DRI"), defaultIntelDri()).value<DRI>();
+    return m_settings->value(QStringLiteral("intel/DRI"), defaultIntelDri()).value<DRI>();
 }
 
 void OptimusSettings::setIntelDri(OptimusSettings::DRI dri)
 {
-    setValue(QStringLiteral("intel/DRI"), dri);
+    m_settings->setValue(QStringLiteral("intel/DRI"), dri);
 }
 
 OptimusSettings::DRI OptimusSettings::defaultIntelDri()
@@ -256,13 +259,13 @@ OptimusSettings::DRI OptimusSettings::defaultIntelDri()
 
 bool OptimusSettings::isIntelModesetEnabled() const
 {
-    const QString modesetString = value(QStringLiteral("intel/modeset")).toString();
+    const QString modesetString = m_settings->value(QStringLiteral("intel/modeset")).toString();
     return s_boolMap.key(modesetString, defaultIntelModesetEnabled());
 }
 
 void OptimusSettings::setIntelModesetEnabled(bool enabled)
 {
-    setValue(QStringLiteral("intel/modeset"), s_boolMap[enabled]);
+    m_settings->setValue(QStringLiteral("intel/modeset"), s_boolMap[enabled]);
 }
 
 bool OptimusSettings::defaultIntelModesetEnabled()
@@ -272,13 +275,13 @@ bool OptimusSettings::defaultIntelModesetEnabled()
 
 OptimusSettings::AmdDriver OptimusSettings::amdDriver() const
 {
-    const QString driverString = value(QStringLiteral("amd/driver")).toString();
+    const QString driverString = m_settings->value(QStringLiteral("amd/driver")).toString();
     return s_amdDriverMap.key(driverString, defaultAmdDriver());
 }
 
 void OptimusSettings::setAmdDriver(AmdDriver driver)
 {
-    setValue(QStringLiteral("amd/driver"), s_amdDriverMap[driver]);
+    m_settings->setValue(QStringLiteral("amd/driver"), s_amdDriverMap[driver]);
 }
 
 OptimusSettings::AmdDriver OptimusSettings::defaultAmdDriver()
@@ -288,13 +291,13 @@ OptimusSettings::AmdDriver OptimusSettings::defaultAmdDriver()
 
 bool OptimusSettings::amdTearFree() const
 {
-    const QString tearFreeString = value(QStringLiteral("amd/driver")).toString();
+    const QString tearFreeString = m_settings->value(QStringLiteral("amd/driver")).toString();
     return s_tearFreeMap.key(tearFreeString, defaultIntelTearFree());
 }
 
 void OptimusSettings::setAmdTearFree(TearFree tearFree)
 {
-    setValue(QStringLiteral("amd/tearfree"), s_tearFreeMap[tearFree]);
+    m_settings->setValue(QStringLiteral("amd/tearfree"), s_tearFreeMap[tearFree]);
 }
 
 bool OptimusSettings::defaultAmdTearFree()
@@ -304,12 +307,12 @@ bool OptimusSettings::defaultAmdTearFree()
 
 OptimusSettings::DRI OptimusSettings::amdDri() const
 {
-    return value(QStringLiteral("intel/DRI"), defaultIntelDri()).value<DRI>();
+    return m_settings->value(QStringLiteral("intel/DRI"), defaultIntelDri()).value<DRI>();
 }
 
 void OptimusSettings::setAmdDri(DRI dri)
 {
-    setValue(QStringLiteral("amd/DRI"), dri);
+    m_settings->setValue(QStringLiteral("amd/DRI"), dri);
 }
 
 OptimusSettings::DRI OptimusSettings::defaultAmdDri()
@@ -319,13 +322,13 @@ OptimusSettings::DRI OptimusSettings::defaultAmdDri()
 
 bool OptimusSettings::isNvidiaModesetEnabled() const
 {
-    const QString modesetString = value(QStringLiteral("nvidia/modeset")).toString();
+    const QString modesetString = m_settings->value(QStringLiteral("nvidia/modeset")).toString();
     return s_boolMap.key(modesetString, defaultNvidiaModesetEnabled());
 }
 
 void OptimusSettings::setNvidiaModesetEnabled(bool enabled)
 {
-    setValue(QStringLiteral("nvidia/modeset"), s_boolMap[enabled]);
+    m_settings->setValue(QStringLiteral("nvidia/modeset"), s_boolMap[enabled]);
 }
 
 bool OptimusSettings::defaultNvidiaModesetEnabled()
@@ -335,13 +338,13 @@ bool OptimusSettings::defaultNvidiaModesetEnabled()
 
 bool OptimusSettings::isNvidiaPatEnabled() const
 {
-    const QString patString = value(QStringLiteral("nvidia/PAT")).toString();
+    const QString patString = m_settings->value(QStringLiteral("nvidia/PAT")).toString();
     return s_boolMap.key(patString, defaultNvidiaPatEnabled());
 }
 
 void OptimusSettings::setNvidiaPatEnabled(bool enabled)
 {
-    setValue(QStringLiteral("nvidia/PAT"), s_boolMap[enabled]);
+    m_settings->setValue(QStringLiteral("nvidia/PAT"), s_boolMap[enabled]);
 }
 
 bool OptimusSettings::defaultNvidiaPatEnabled()
@@ -351,15 +354,15 @@ bool OptimusSettings::defaultNvidiaPatEnabled()
 
 int OptimusSettings::nvidiaDpi() const
 {
-    return value(QStringLiteral("nvidia/DPI"), defaultNvidiaDpi()).toInt();
+    return m_settings->value(QStringLiteral("nvidia/DPI"), defaultNvidiaDpi()).toInt();
 }
 
 void OptimusSettings::setNvidiaDpi(int dpi)
 {
     if (dpi == 0)
-        setValue(QStringLiteral("nvidia/DPI"), QString());
+        m_settings->setValue(QStringLiteral("nvidia/DPI"), QString());
     else
-        setValue(QStringLiteral("nvidia/DPI"), dpi);
+        m_settings->setValue(QStringLiteral("nvidia/DPI"), dpi);
 }
 
 int OptimusSettings::defaultNvidiaDpi()
@@ -369,13 +372,13 @@ int OptimusSettings::defaultNvidiaDpi()
 
 bool OptimusSettings::isNvidiaIgnoreAbi() const
 {
-    const QString ignoreAbiString = value(QStringLiteral("nvidia/ignore_abi")).toString();
+    const QString ignoreAbiString = m_settings->value(QStringLiteral("nvidia/ignore_abi")).toString();
     return s_boolMap.key(ignoreAbiString, defaultNvidiaIgnoreAbi());
 }
 
 void OptimusSettings::setNvidiaIgnoreAbi(bool ignore)
 {
-    setValue(QStringLiteral("nvidia/ignore_abi"), s_boolMap[ignore]);
+    m_settings->setValue(QStringLiteral("nvidia/ignore_abi"), s_boolMap[ignore]);
 }
 
 bool OptimusSettings::defaultNvidiaIgnoreAbi()
@@ -385,13 +388,13 @@ bool OptimusSettings::defaultNvidiaIgnoreAbi()
 
 bool OptimusSettings::isNvidiaAllowExternalGpus() const
 {
-    const QString allowExternalGpuString = value(QStringLiteral("nvidia/allow_external_gpus")).toString();
+    const QString allowExternalGpuString = m_settings->value(QStringLiteral("nvidia/allow_external_gpus")).toString();
     return s_boolMap.key(allowExternalGpuString, defaultNvidiaAllowExternalGpus());
 }
 
 void OptimusSettings::setNvidiaAllowExternalGpus(bool allow)
 {
-    setValue(QStringLiteral("nvidia/allow_external_gpus"), s_boolMap[allow]);
+    m_settings->setValue(QStringLiteral("nvidia/allow_external_gpus"), s_boolMap[allow]);
 }
 
 bool OptimusSettings::defaultNvidiaAllowExternalGpus()
@@ -401,13 +404,13 @@ bool OptimusSettings::defaultNvidiaAllowExternalGpus()
 
 OptimusSettings::NvidiaOptions OptimusSettings::nvidiaOptions() const
 {
-    const QStringList optionStrings = value(QStringLiteral("nvidia/options"), nvidiaOptionsToStrings(defaultNvidiaOptions())).toStringList();
+    const QStringList optionStrings = m_settings->value(QStringLiteral("nvidia/options"), nvidiaOptionsToStrings(defaultNvidiaOptions())).toStringList();
     return stringToNvidiaOptions(optionStrings);
 }
 
 void OptimusSettings::setNvidiaOptions(NvidiaOptions options)
 {
-    setValue(QStringLiteral("nvidia/options"), nvidiaOptionsToStrings(options));
+    m_settings->setValue(QStringLiteral("nvidia/options"), nvidiaOptionsToStrings(options));
 }
 
 OptimusSettings::NvidiaOptions OptimusSettings::defaultNvidiaOptions()
@@ -417,13 +420,13 @@ OptimusSettings::NvidiaOptions OptimusSettings::defaultNvidiaOptions()
 
 OptimusSettings::DynamicPowerManagement OptimusSettings::nvidiaDynamicPowerManagement() const
 {
-    const QString dynamicPowerManagementString = value(QStringLiteral("nvidia/dynamic_power_management")).toString();
+    const QString dynamicPowerManagementString = m_settings->value(QStringLiteral("nvidia/dynamic_power_management")).toString();
     return s_nvidiaDynamicPowerManagementMap.key(dynamicPowerManagementString, defaultNvidiaDynamicPowerManagement());
 }
 
 void OptimusSettings::setNvidiaDynamicPowerManagement(DynamicPowerManagement type)
 {
-    setValue(QStringLiteral("nvidia/dynamic_power_management"), s_nvidiaDynamicPowerManagementMap[type]);
+    m_settings->setValue(QStringLiteral("nvidia/dynamic_power_management"), s_nvidiaDynamicPowerManagementMap[type]);
 }
 
 OptimusSettings::DynamicPowerManagement OptimusSettings::defaultNvidiaDynamicPowerManagement()
@@ -433,15 +436,15 @@ OptimusSettings::DynamicPowerManagement OptimusSettings::defaultNvidiaDynamicPow
 
 int OptimusSettings::nvidiaDynamicPowerManagementThreshold() const
 {
-    return value(QStringLiteral("nvidia/dynamic_power_management_memory_threshold"), defaultNvidiaDynamicPowerManagementThreshold()).toInt();
+    return m_settings->value(QStringLiteral("nvidia/dynamic_power_management_memory_threshold"), defaultNvidiaDynamicPowerManagementThreshold()).toInt();
 }
 
 void OptimusSettings::setNvidiaDynamicPowerManagementThreshold(int threshold)
 {
     if (threshold == -1)
-        remove(QStringLiteral("nvidia/dynamic_power_management_memory_threshold"));
+        m_settings->remove(QStringLiteral("nvidia/dynamic_power_management_memory_threshold"));
     else
-        setValue(QStringLiteral("nvidia/dynamic_power_management_memory_threshold"), threshold);
+        m_settings->setValue(QStringLiteral("nvidia/dynamic_power_management_memory_threshold"), threshold);
 }
 
 int OptimusSettings::defaultNvidiaDynamicPowerManagementThreshold()

@@ -35,6 +35,7 @@
 #include <QMessageBox>
 #include <QMetaEnum>
 #include <QProcess>
+#include <QSettings>
 #ifdef WITH_PLASMA
 #include <KStatusNotifierItem>
 #else

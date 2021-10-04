@@ -26,8 +26,9 @@
 #include <QLocale>
 
 class QTranslator;
+class QSettings;
 
-class AppSettings : QSettings
+class AppSettings : QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(AppSettings)
@@ -56,6 +57,9 @@ public:
 
 private:
     static void applyLocale(const QLocale &locale);
+
+    QSettings *m_settings;
+
     static QTranslator s_appTranslator;
 };
 

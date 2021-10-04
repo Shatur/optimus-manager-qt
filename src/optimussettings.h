@@ -22,9 +22,11 @@
 #define OPTIMUSSETTINGS_H
 
 #include <QFlags>
-#include <QSettings>
+#include <QObject>
 
-class OptimusSettings : public QSettings
+class QSettings;
+
+class OptimusSettings : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(OptimusSettings)
@@ -201,6 +203,8 @@ public:
 private:
     static QStringList nvidiaOptionsToStrings(NvidiaOptions options);
     static NvidiaOptions stringToNvidiaOptions(const QStringList &optionStrings);
+
+    QSettings *m_settings;
 
     // Convert enum values into Optimus Manager strings (no, yes, none etc).
     static const QMap<bool, QString> s_boolMap;
