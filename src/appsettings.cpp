@@ -27,11 +27,13 @@
 #include <QFileInfo>
 #include <QGuiApplication>
 #include <QIcon>
+#include <QLibraryInfo>
 #include <QSettings>
 #include <QStandardPaths>
 #include <QTranslator>
 
 QTranslator AppSettings::s_appTranslator;
+QTranslator AppSettings::s_qtTranslator;
 
 AppSettings::AppSettings(QObject *parent)
     : QObject(parent)
@@ -43,6 +45,7 @@ void AppSettings::setupLocalization() const
 {
     applyLocale(locale());
     QCoreApplication::installTranslator(&s_appTranslator);
+    QCoreApplication::installTranslator(&s_qtTranslator);
 }
 
 QLocale AppSettings::locale() const
@@ -167,4 +170,5 @@ void AppSettings::applyLocale(const QLocale &locale)
     const QLocale newLocale = locale == defaultLocale() ? QLocale::system() : locale;
     QLocale::setDefault(newLocale);
     s_appTranslator.load(newLocale, QStringLiteral(PROJECT_NAME), QStringLiteral("_"), QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("translations"), QStandardPaths::LocateDirectory));
+    s_qtTranslator.load(newLocale, QStringLiteral("qt"), QStringLiteral("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
 }
