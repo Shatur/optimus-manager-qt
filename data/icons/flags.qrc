@@ -5,12 +5,13 @@
         <file>de.svg</file>
         <file>es.svg</file>
         <file>fi.svg</file>
-        <file>us.svg</file>
         <file>hu.svg</file>
         <file>jp.svg</file>
+        <file>nl.svg</file>
         <file>ro.svg</file>
         <file>ru.svg</file>
         <file>tr.svg</file>
         <file>ua.svg</file>
+        <file>us.svg</file>
     </qresource>
 </RCC>

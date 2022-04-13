@@ -46,6 +46,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     // Set languages data
     ui->localeComboBox->addItem(tr("<System language>"), AppSettings::defaultLocale());
     addLocale({QLocale::Chinese, QLocale::China});
+    addLocale({QLocale::Dutch, QLocale::Netherlands});
     addLocale({QLocale::English, QLocale::UnitedStates});
     addLocale({QLocale::Finnish, QLocale::Finland});
     addLocale({QLocale::German, QLocale::Germany});
