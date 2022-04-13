@@ -307,7 +307,7 @@ bool OptimusSettings::defaultAmdTearFree()
 
 OptimusSettings::DRI OptimusSettings::amdDri() const
 {
-    return m_settings->value(QStringLiteral("intel/DRI"), defaultIntelDri()).value<DRI>();
+    return m_settings->value(QStringLiteral("amd/DRI"), defaultIntelDri()).value<DRI>();
 }
 
 void OptimusSettings::setAmdDri(DRI dri)
