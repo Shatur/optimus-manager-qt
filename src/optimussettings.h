@@ -153,9 +153,9 @@ public:
     void setAmdDriver(AmdDriver driver);
     static AmdDriver defaultAmdDriver();
 
-    bool amdTearFree() const;
+    TearFree amdTearFree() const;
     void setAmdTearFree(TearFree tearFree);
-    static bool defaultAmdTearFree();
+    static TearFree defaultAmdTearFree();
 
     DRI amdDri() const;
     void setAmdDri(DRI dri);

@@ -289,7 +289,7 @@ OptimusSettings::AmdDriver OptimusSettings::defaultAmdDriver()
     return AmdModesetting;
 }
 
-bool OptimusSettings::amdTearFree() const
+OptimusSettings::TearFree OptimusSettings::amdTearFree() const
 {
     const QString tearFreeString = m_settings->value(QStringLiteral("amd/tearfree")).toString();
     return s_tearFreeMap.key(tearFreeString, defaultAmdTearFree());
@@ -300,7 +300,7 @@ void OptimusSettings::setAmdTearFree(TearFree tearFree)
     m_settings->setValue(QStringLiteral("amd/tearfree"), s_tearFreeMap[tearFree]);
 }
 
-bool OptimusSettings::defaultAmdTearFree()
+OptimusSettings::TearFree OptimusSettings::defaultAmdTearFree()
 {
     return DefaultTearFree;
 }
