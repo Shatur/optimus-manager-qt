@@ -291,8 +291,8 @@ OptimusSettings::AmdDriver OptimusSettings::defaultAmdDriver()
 
 bool OptimusSettings::amdTearFree() const
 {
-    const QString tearFreeString = m_settings->value(QStringLiteral("amd/driver")).toString();
-    return s_tearFreeMap.key(tearFreeString, defaultIntelTearFree());
+    const QString tearFreeString = m_settings->value(QStringLiteral("amd/tearfree")).toString();
+    return s_tearFreeMap.key(tearFreeString, defaultAmdTearFree());
 }
 
 void OptimusSettings::setAmdTearFree(TearFree tearFree)
