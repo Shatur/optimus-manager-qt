@@ -381,7 +381,7 @@ OptimusSettings::Mode OptimusManager::detectGpu()
     if (jsonError.error != QJsonParseError::NoError)
         qFatal("Unable to parse Optimus Manager state file: %s", qPrintable(jsonError.errorString()));
 
-    QJsonValue modeValue = jsonDocument.object().value(u"current_mode");
+    QJsonValue modeValue = jsonDocument.object().value("current_mode");
     if (modeValue.type() != QJsonValue::String)
         qFatal("Unable to read current mode from Optimus Manager state file");
 
