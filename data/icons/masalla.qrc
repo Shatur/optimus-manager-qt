@@ -1,15 +1,15 @@
 <RCC>
     <qresource prefix="/icons/hicolor">
-        <file alias="16x16/apps/preferences-system-power-management.svg">apps/16x16/preferences-system-power-management.svg</file>
-        <file alias="16x16/apps/qt.svg">apps/16x16/qt.svg</file>
-        <file alias="16x16/apps/utilities-terminal.svg">apps/16x16/utilities-terminal.svg</file>
-        <file alias="16x16/places/folder.svg">places/16x16/folder.svg</file>
-        <file alias="48x48/apps/amd.svg">apps/48x48/amd.svg</file>
-        <file alias="48x48/apps/intel.svg">apps/48x48/intel.svg</file>
-        <file alias="48x48/apps/nvidia.svg">apps/48x48/nvidia.svg</file>
-        <file alias="48x48/apps/preferences-system-power-management.svg">apps/48x48/preferences-system-power-management.svg</file>
-        <file alias="48x48/apps/preferences-system.svg">apps/48x48/preferences-system.svg</file>
-        <file alias="48x48/mimetypes/text-x-generic.svg">mimetypes/48x48/text-x-generic.svg</file>
-        <file alias="48x48/status/dialog-information.png">status/48x48/dialog-information.png</file>
+        <file alias="16x16/apps/preferences-system-power-management.svg">third-party/masalla-icon-theme/masalla/apps/16x16/preferences-system-power-management.svg</file>
+        <file alias="16x16/apps/qt.svg">third-party/masalla-icon-theme/masalla/apps/16x16/qt.svg</file>
+        <file alias="16x16/apps/utilities-terminal.svg">third-party/masalla-icon-theme/masalla/apps/16x16/utilities-terminal.svg</file>
+        <file alias="16x16/places/folder.svg">third-party/masalla-icon-theme/masalla/places/16x16/folder.svg</file>
+        <file alias="48x48/apps/amd.svg">third-party/masalla-icon-theme/masalla/apps/48x48/amd.svg</file>
+        <file alias="48x48/apps/intel.svg">third-party/masalla-icon-theme/masalla/apps/48x48/intel.svg</file>
+        <file alias="48x48/apps/nvidia.svg">third-party/masalla-icon-theme/masalla/apps/48x48/nvidia.svg</file>
+        <file alias="48x48/apps/preferences-system-power-management.svg">third-party/masalla-icon-theme/masalla/apps/48x48/preferences-system-power-management.svg</file>
+        <file alias="48x48/apps/preferences-system.svg">third-party/masalla-icon-theme/masalla/apps/48x48/preferences-system.svg</file>
+        <file alias="48x48/mimetypes/text-x-generic.svg">third-party/masalla-icon-theme/masalla/mimetypes/48x48/text-x-generic.svg</file>
+        <file alias="48x48/status/dialog-information.png">third-party/masalla-icon-theme/masalla/status/48x48/dialog-information.png</file>
     </qresource>
 </RCC>

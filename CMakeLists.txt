@@ -29,9 +29,11 @@ if(WITH_PLASMA)
     find_package(KF5 COMPONENTS Notifications IconThemes REQUIRED)
 endif()
 
-include(ExternalLibraries)
 include(ECMInstallIcons)
 include(GNUInstallDirs)
+
+set(QAPPLICATION_CLASS QApplication)
+add_subdirectory(src/third-party/singleapplication)
 
 qt5_add_translation(QM_FILES
     data/translations/${PROJECT_NAME}_de_DE.ts
@@ -49,13 +51,11 @@ qt5_add_translation(QM_FILES
 )
 
 configure_file(src/cmake.h.in cmake.h)
-configure_file(data/icons/flags.qrc ${CircleFlags_SOURCE_DIR}/flags/flags.qrc COPYONLY)
-configure_file(data/icons/masalla.qrc ${Masalla_SOURCE_DIR}/masalla/masalla.qrc COPYONLY)
 
 add_executable(${PROJECT_NAME}
-    ${CircleFlags_SOURCE_DIR}/flags/flags.qrc
-    ${Masalla_SOURCE_DIR}/masalla/masalla.qrc
     ${QM_FILES}
+    data/icons/flags.qrc
+    data/icons/masalla.qrc
     src/appsettings.cpp
     src/daemonclient.cpp
     src/main.cpp
