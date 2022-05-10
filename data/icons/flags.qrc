@@ -1,17 +1,17 @@
 <RCC>
     <qresource prefix="/icons/flags">
-        <file alias="br.svg">third-party/circle-flags/flags/br.svg</file>
-        <file alias="cn.svg">third-party/circle-flags/flags/cn.svg</file>
-        <file alias="de.svg">third-party/circle-flags/flags/de.svg</file>
-        <file alias="es.svg">third-party/circle-flags/flags/es.svg</file>
-        <file alias="fi.svg">third-party/circle-flags/flags/fi.svg</file>
-        <file alias="hu.svg">third-party/circle-flags/flags/hu.svg</file>
-        <file alias="jp.svg">third-party/circle-flags/flags/jp.svg</file>
-        <file alias="nl.svg">third-party/circle-flags/flags/nl.svg</file>
-        <file alias="ro.svg">third-party/circle-flags/flags/ro.svg</file>
-        <file alias="ru.svg">third-party/circle-flags/flags/ru.svg</file>
-        <file alias="tr.svg">third-party/circle-flags/flags/tr.svg</file>
-        <file alias="ua.svg">third-party/circle-flags/flags/ua.svg</file>
-        <file alias="us.svg">third-party/circle-flags/flags/us.svg</file>
+        <file>br.svg</file>
+        <file>cn.svg</file>
+        <file>de.svg</file>
+        <file>es.svg</file>
+        <file>fi.svg</file>
+        <file>hu.svg</file>
+        <file>jp.svg</file>
+        <file>nl.svg</file>
+        <file>ro.svg</file>
+        <file>ru.svg</file>
+        <file>tr.svg</file>
+        <file>ua.svg</file>
+        <file>us.svg</file>
     </qresource>
 </RCC>
