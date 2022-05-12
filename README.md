@@ -1,4 +1,4 @@
-# ![Optimus Manager Qt logo](data/icons/freedesktop/48-apps-optimus-manager.svg) Optimus Manager Qt
+# ![Optimus Manager Qt logo](data/icons/app/48-apps-optimus-manager.svg) Optimus Manager Qt
 
 [![GitHub (pre-)release](https://img.shields.io/github/release/Shatur95/optimus-manager-qt/all.svg)](https://github.com/Shatur95/optimus-manager-qt/releases)
 [![Crowdin](https://badges.crowdin.net/optimus-manager-qt/localized.svg)](https://crowdin.com/project/optimus-manager-qt)

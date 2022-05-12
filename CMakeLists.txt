@@ -77,24 +77,24 @@ install(FILES data/${DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/appl
 
 # System tray icons cannot be embedded in the application on Linux, so install them to hicolor icons
 ecm_install_icons(ICONS
-    data/icons/freedesktop/128-apps-optimus-manager.svg
-    data/icons/freedesktop/16-apps-optimus-manager.svg
-    data/icons/freedesktop/16-status-cpu.svg
-    data/icons/freedesktop/16-status-prime-hybrid.svg
-    data/icons/freedesktop/16-status-prime-nvidia.svg
-    data/icons/freedesktop/22-apps-optimus-manager.svg
-    data/icons/freedesktop/22-status-cpu.svg
-    data/icons/freedesktop/22-status-prime-hybrid.svg
-    data/icons/freedesktop/22-status-prime-nvidia.svg
-    data/icons/freedesktop/24-apps-optimus-manager.svg
-    data/icons/freedesktop/24-status-cpu.svg
-    data/icons/freedesktop/24-status-prime-intel.svg
-    data/icons/freedesktop/24-status-prime-nvidia.svg
-    data/icons/freedesktop/256-apps-optimus-manager.svg
-    data/icons/freedesktop/48-apps-optimus-manager.svg
-    data/icons/freedesktop/512-apps-optimus-manager.svg
-    data/icons/freedesktop/64-apps-optimus-manager.svg
-    data/icons/freedesktop/96-apps-optimus-manager.svg
-    data/icons/freedesktop/sc-apps-optimus-manager.svg
+    data/icons/app/128-apps-optimus-manager.svg
+    data/icons/app/16-apps-optimus-manager.svg
+    data/icons/app/16-status-cpu.svg
+    data/icons/app/16-status-prime-hybrid.svg
+    data/icons/app/16-status-prime-nvidia.svg
+    data/icons/app/22-apps-optimus-manager.svg
+    data/icons/app/22-status-cpu.svg
+    data/icons/app/22-status-prime-hybrid.svg
+    data/icons/app/22-status-prime-nvidia.svg
+    data/icons/app/24-apps-optimus-manager.svg
+    data/icons/app/24-status-cpu.svg
+    data/icons/app/24-status-prime-intel.svg
+    data/icons/app/24-status-prime-nvidia.svg
+    data/icons/app/256-apps-optimus-manager.svg
+    data/icons/app/48-apps-optimus-manager.svg
+    data/icons/app/512-apps-optimus-manager.svg
+    data/icons/app/64-apps-optimus-manager.svg
+    data/icons/app/96-apps-optimus-manager.svg
+    data/icons/app/sc-apps-optimus-manager.svg
     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/icons
 )
