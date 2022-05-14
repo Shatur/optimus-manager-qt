@@ -22,7 +22,7 @@
 
 #include "daemonclient.h"
 #include "session.h"
-#include "settingsdialog.h"
+#include "settings/settingsdialog.h"
 
 #include <QCoreApplication>
 #include <QDBusArgument>

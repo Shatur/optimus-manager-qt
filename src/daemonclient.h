@@ -21,7 +21,7 @@
 #ifndef DAEMONCLIENT_H
 #define DAEMONCLIENT_H
 
-#include "optimussettings.h"
+#include "settings/optimussettings.h"
 
 class DaemonClient : public QObject
 {

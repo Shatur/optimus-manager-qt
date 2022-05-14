@@ -18,7 +18,7 @@
  *
  */
 
-#include "appsettings.h"
+#include "settings/appsettings.h"
 #include "cmake.h"
 #include "optimusmanager.h"
 #include "singleapplication.h"

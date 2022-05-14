@@ -56,16 +56,17 @@ add_executable(${PROJECT_NAME}
     ${QM_FILES}
     data/icons/flags.qrc
     data/icons/masalla.qrc
-    src/appsettings.cpp
     src/daemonclient.cpp
     src/main.cpp
     src/optimusmanager.cpp
-    src/optimussettings.cpp
-    src/settingsdialog.cpp
-    src/settingsdialog.ui
+    src/settings/appsettings.cpp
+    src/settings/optimussettings.cpp
+    src/settings/settingsdialog.cpp
+    src/settings/settingsdialog.ui
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE SingleApplication::SingleApplication Qt5::DBus)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 if(WITH_PLASMA)
     target_link_libraries(${PROJECT_NAME} PRIVATE KF5::Notifications KF5::IconThemes)
     target_compile_definitions(${PROJECT_NAME} PRIVATE WITH_PLASMA)
