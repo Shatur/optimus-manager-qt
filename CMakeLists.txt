@@ -60,6 +60,9 @@ add_executable(${PROJECT_NAME}
     src/main.cpp
     src/optimusmanager.cpp
     src/settings/appsettings.cpp
+    src/settings/autostartmanager/abstractautostartmanager.cpp
+    src/settings/autostartmanager/portalautostartmanager.cpp
+    src/settings/autostartmanager/unixautostartmanager.cpp
     src/settings/optimussettings.cpp
     src/settings/settingsdialog.cpp
     src/settings/settingsdialog.ui

@@ -24,6 +24,7 @@
 #include "appsettings.h"
 #include "daemonclient.h"
 #include "optimussettings.h"
+#include "autostartmanager/abstractautostartmanager.h"
 
 #include <QFileDialog>
 #include <QMessageBox>
@@ -36,6 +37,7 @@
 SettingsDialog::SettingsDialog(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::SettingsDialog)
+    , m_autostartManager(AbstractAutostartManager::createAutostartManager(this))
 {
     ui->setupUi(this);
     connect(ui->dialogButtonBox->button(QDialogButtonBox::RestoreDefaults), &QPushButton::clicked, this, &SettingsDialog::restoreDefaults);
@@ -359,7 +361,7 @@ void SettingsDialog::loadAppSettings()
     // General settings
     const AppSettings settings;
     ui->localeComboBox->setCurrentIndex(ui->localeComboBox->findData(settings.locale()));
-    ui->autostartCheckBox->setChecked(AppSettings::isAutostartEnabled());
+    ui->autostartCheckBox->setChecked(m_autostartManager->isAutostartEnabled());
     ui->confirmSwitchingCheckBox->setChecked(settings.isConfirmSwitching());
     ui->integratedIconEdit->setText(settings.modeIconName(OptimusSettings::Integrated));
     ui->nvidiaIconEdit->setText(settings.modeIconName(OptimusSettings::Nvidia));
@@ -376,7 +378,7 @@ void SettingsDialog::saveAppSettings()
     }
 
     // General settings
-    AppSettings::setAutostartEnabled(ui->autostartCheckBox->isChecked());
+    m_autostartManager->setAutostartEnabled(ui->autostartCheckBox->isChecked());
     appSettings.setConfirmSwitching(ui->confirmSwitchingCheckBox->isChecked());
     appSettings.setModeIconName(OptimusSettings::Integrated, ui->integratedIconEdit->text());
     appSettings.setModeIconName(OptimusSettings::Nvidia, ui->nvidiaIconEdit->text());

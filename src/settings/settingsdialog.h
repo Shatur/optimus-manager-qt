@@ -24,6 +24,7 @@
 #include <QDialog>
 
 class QLineEdit;
+class AbstractAutostartManager;
 
 namespace Ui
 {
@@ -81,6 +82,10 @@ private:
     static QString optimusManagerVersion();
 
     Ui::SettingsDialog *ui;
+
+    // Manage platform-dependant autostart
+    AbstractAutostartManager *m_autostartManager;
+
     bool m_languageChanged = false;
 };
 
