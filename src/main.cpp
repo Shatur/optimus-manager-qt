@@ -18,10 +18,10 @@
  *
  */
 
-#include "settings/appsettings.h"
 #include "cmake.h"
 #include "optimusmanager.h"
 #include "singleapplication.h"
+#include "settings/appsettings.h"
 
 int main(int argc, char *argv[])
 {
