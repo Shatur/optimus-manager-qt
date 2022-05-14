@@ -211,6 +211,11 @@ Continue anyway?</source>
   <context>
     <name>PortalAutostartManager</name>
     <message>
+      <location filename="../../src/settings/autostartmanager/portalautostartmanager.cpp" line="45"/>
+      <source>Allow %1 to manage autostart setting for itself.</source>
+      <translation>Разрешить %1 самостоятельно управлять настройками автозапуска.</translation>
+    </message>
+    <message>
       <location filename="../../src/settings/autostartmanager/portalautostartmanager.cpp" line="66"/>
       <source>Unable to subscribe to response from xdg-desktop-portal.</source>
       <translation>Не удалось подписаться на ответ из xdg-desktop-portal.</translation>
