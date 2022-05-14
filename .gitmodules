@@ -1,9 +1,12 @@
 [submodule "data/icons/third-party/circle-flags"]
 	path = data/icons/third-party/circle-flags
 	url = https://github.com/HatScripts/circle-flags.git
+	ignore = dirty
 [submodule "data/icons/third-party/masalla-icon-theme"]
 	path = data/icons/third-party/masalla-icon-theme
 	url = https://github.com/masalla-art/masalla-icon-theme
+	ignore = dirty
 [submodule "src/third-party/singleapplication"]
 	path = src/third-party/singleapplication
 	url = https://github.com/itay-grudev/SingleApplication
+	ignore = dirty
