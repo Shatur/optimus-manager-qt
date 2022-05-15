@@ -20,9 +20,11 @@
 
 #include "portalautostartmanager.h"
 
+#include "xdgdesktopportal.h"
 #include "settings/appsettings.h"
 
 #include <QDBusReply>
+#include <QWidget>
 #include <QtCore>
 
 QDBusInterface PortalAutostartManager::s_interface(QStringLiteral("org.freedesktop.portal.Desktop"),
@@ -41,13 +43,14 @@ bool PortalAutostartManager::isAutostartEnabled() const
 
 void PortalAutostartManager::setAutostartEnabled(bool enabled)
 {
+    auto *window = qobject_cast<QWidget *>(parent())->windowHandle();
     const QVariantMap options{
         {QStringLiteral("reason"), tr("Allow %1 to manage autostart setting for itself.").arg(QCoreApplication::applicationName())},
         {QStringLiteral("autostart"), enabled},
         {QStringLiteral("commandline"), QStringList{QCoreApplication::applicationFilePath()}},
         {QStringLiteral("dbus-activatable"), false},
     };
-    const QDBusReply<QDBusObjectPath> reply = s_interface.call(QStringLiteral("RequestBackground"), QString(), options);
+    const QDBusReply<QDBusObjectPath> reply = s_interface.call(QStringLiteral("RequestBackground"), XdgDesktopPortal::parentWindow(window), options);
 
     if (!reply.isValid()) {
         showError(reply.error().message());

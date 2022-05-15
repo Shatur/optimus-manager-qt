@@ -24,7 +24,7 @@ option(WITH_PLASMA "Use additional KDE API feautures")
 find_package(ECM REQUIRED NO_MODULE)
 list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-find_package(Qt5 5.10 COMPONENTS Widgets DBus LinguistTools REQUIRED)
+find_package(Qt5 5.10 COMPONENTS Widgets DBus X11Extras LinguistTools REQUIRED)
 if(WITH_PLASMA)
     find_package(KF5 COMPONENTS Notifications IconThemes REQUIRED)
 endif()
@@ -66,9 +66,10 @@ add_executable(${PROJECT_NAME}
     src/settings/optimussettings.cpp
     src/settings/settingsdialog.cpp
     src/settings/settingsdialog.ui
+    src/xdgdesktopportal.cpp
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE SingleApplication::SingleApplication Qt5::DBus)
+target_link_libraries(${PROJECT_NAME} PRIVATE SingleApplication::SingleApplication Qt5::DBus Qt5::X11Extras)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 if(WITH_PLASMA)
     target_link_libraries(${PROJECT_NAME} PRIVATE KF5::Notifications KF5::IconThemes)
