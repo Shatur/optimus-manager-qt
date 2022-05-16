@@ -55,7 +55,7 @@ configure_file(src/cmake.h.in cmake.h)
 add_executable(${PROJECT_NAME}
     ${QM_FILES}
     data/icons/flags.qrc
-    data/icons/masalla.qrc
+    data/icons/icon-theme.qrc
     src/daemonclient.cpp
     src/main.cpp
     src/optimusmanager.cpp
