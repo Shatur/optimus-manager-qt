@@ -1,0 +1,20 @@
+[Icon Theme]
+Name=Masalla
+Comment=Embedded in qrc to get size dirs matching hicolor theme
+Inherits=hicolor
+Directories=16x16/actions,16x16/places,16x16/status,32x32/categories,scalable/apps
+
+[16x16/apps]
+Size=16
+
+[16x16/places]
+Size=16
+
+[48x48/apps]
+Size=48
+
+[48x48/mimetypes]
+Size=48
+
+[48x48/status]
+Size=48

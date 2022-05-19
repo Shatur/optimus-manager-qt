@@ -11,6 +11,6 @@
         <file alias="48x48/apps/preferences-system.svg">third-party/masalla-icon-theme/masalla/apps/48x48/preferences-system.svg</file>
         <file alias="48x48/mimetypes/text-x-generic.svg">third-party/masalla-icon-theme/masalla/mimetypes/48x48/text-x-generic.svg</file>
         <file alias="48x48/status/dialog-information.png">third-party/masalla-icon-theme/masalla/status/48x48/dialog-information.png</file>
-        <file alias="index.theme">third-party/masalla-icon-theme/masalla/index.theme</file>
+        <file>index.theme</file>
     </qresource>
 </RCC>
