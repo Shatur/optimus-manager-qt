@@ -2,7 +2,7 @@
 Name=Masalla
 Comment=Embedded in qrc to get size dirs matching hicolor theme
 Inherits=hicolor
-Directories=16x16/actions,16x16/places,16x16/status,32x32/categories,scalable/apps
+Directories=16x16/apps,16x16/places,48x48/apps,48x48/mimetypes
 
 [16x16/apps]
 Size=16
