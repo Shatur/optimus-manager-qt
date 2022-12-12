@@ -52,7 +52,7 @@ This project uses [SingleApplication](https://github.com/itay-grudev/SingleAppli
 
 You can install [optimus-manager-qt](https://aur.archlinux.org/packages/optimus-manager-qt) or [optimus-manager-qt-git](https://aur.archlinux.org/packages/optimus-manager-qt-git) from AUR.
 
-**Note:** If you are using Plasma, it is recommended to replace in the PKGBUILD `_plasma=false` with `_plasma=true` to use additional KDE API feautures (this also adds additional dependencies).
+**Note:** If you are using Plasma, it is recommended to replace in the PKGBUILD `_plasma=false` with `_plasma=true` to use additional KDE API features (this also adds additional dependencies).
 
 ### Manual building
 
