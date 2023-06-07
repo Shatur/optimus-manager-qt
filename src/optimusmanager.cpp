@@ -189,7 +189,7 @@ void OptimusManager::switchMode(OptimusSettings::Mode switchingMode)
     if (const QString daemon = QStringLiteral("optimus-manager.service"); !isServiceActive(daemon) && !QFileInfo::exists(QStringLiteral("/var/service/optimus-manager/run"))) {
         QMessageBox message;
         message.setIcon(QMessageBox::Critical);
-        message.setText(tr("The %1 is running.").arg(daemon));
+        message.setText(tr("The %1 is not running.").arg(daemon));
         message.setInformativeText(tr("Please enable and start it with:\n'%1'\n'%2'")
                                        .arg("sudo systemctl enable optimus-manager", "sudo systemctl start optimus-manager"));
         message.exec();
