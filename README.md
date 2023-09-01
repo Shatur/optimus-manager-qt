@@ -70,7 +70,7 @@ If you want to build with extended Plasma support you need to define `WITH_PLASM
 ```bash
 mkdir build
 cd build
-cmake -D CMAKE_BUILD_TYPE=Release -D WITH_PLASMA ..
+cmake -D CMAKE_BUILD_TYPE=Release -D WITH_PLASMA=ON ..
 cmake --build .
 ```
 
