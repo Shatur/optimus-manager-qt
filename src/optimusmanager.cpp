@@ -476,8 +476,12 @@ int OptimusManager::sessionsCountWithoutGdm(const QVector<Session> &sessions)
 
 void OptimusManager::logout()
 {
-    QDBusInterface kde(QStringLiteral("org.kde.ksmserver"), QStringLiteral("/KSMServer"), QStringLiteral("org.kde.KSMServerInterface"));
-    if (kde.call(QStringLiteral("logout"), 0, 3, 3).type() == QDBusMessage::ReplyMessage)
+    QDBusInterface kde6(QStringLiteral("org.kde.Shutdown"), QStringLiteral("/Shutdown"));
+    if (kde6.call(QStringLiteral("logout")).type() == QDBusMessage::ReplyMessage)
+        return;
+
+    QDBusInterface kde5(QStringLiteral("org.kde.ksmserver"), QStringLiteral("/KSMServer"), QStringLiteral("org.kde.KSMServerInterface"));
+    if (kde5.call(QStringLiteral("logout"), 0, 3, 3).type() == QDBusMessage::ReplyMessage)
         return;
 
     QDBusInterface gnome(QStringLiteral("org.gnome.SessionManager"), QStringLiteral("/org/gnome/SessionManager"), QStringLiteral("org.gnome.SessionManager"));
